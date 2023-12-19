@@ -29,23 +29,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelNavegador = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        panelCentralFondo = new javax.swing.JPanel();
         panelCentral = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(38, 38, 38));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1536, 830));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelNavegador.setBackground(new java.awt.Color(26, 26, 26));
@@ -55,19 +50,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton1.setText("Perfil");
         panelNavegador.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1348, 20, 102, 59));
 
-        jButton2.setLabel("Inicio");
-        jPanel3.add(jButton2);
+        jPanel3.setBackground(new java.awt.Color(26, 26, 26));
 
-        jButton3.setText("Servicios");
+        jButton3.setText("Inicio");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.setMargin(new java.awt.Insets(11, 20, 12, 20));
         jPanel3.add(jButton3);
 
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("Servicios");
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        jPanel3.add(jButton7);
+
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Peliculas");
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setMargin(new java.awt.Insets(11, 20, 12, 20));
         jPanel3.add(jButton4);
 
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Libros");
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setMargin(new java.awt.Insets(11, 20, 12, 20));
         jPanel3.add(jButton5);
 
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Canciones");
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setMargin(new java.awt.Insets(11, 20, 12, 20));
         jPanel3.add(jButton6);
 
         panelNavegador.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 21, 468, 53));
@@ -82,27 +97,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(panelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1536, 100));
 
-        panelCentralFondo.setBackground(new java.awt.Color(38, 38, 38));
-        panelCentralFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         panelCentral.setBackground(new java.awt.Color(38, 38, 38));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 68)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html> Organiza tus servicios,<br> peliculas, libros y musicas en<br> unico lugar </html> ");
-        panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 28, 929, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioFondo.png"))); // NOI18N
-        panelCentral.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 730));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Abstract Design.png"))); // NOI18N
-        panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 284, 1210, 446));
-
-        panelCentralFondo.add(panelCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 0, 1210, 730));
-
-        getContentPane().add(panelCentralFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1536, 730));
+        getContentPane().add(panelCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1536, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,19 +141,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel panelCentral;
-    private javax.swing.JPanel panelCentralFondo;
     private javax.swing.JPanel panelNavegador;
     // End of variables declaration//GEN-END:variables
 }
