@@ -10,6 +10,8 @@ package vista;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    private int xMouse;
+    private int yMouse;
     /**
      * Creates new form VentanaPrincipal
      */
@@ -28,7 +30,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         panelNavegador = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        panelBotonesNav = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -36,6 +38,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
+        panelDesplazamiento = new javax.swing.JPanel();
         panelCentral = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,42 +54,42 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton1.setText("Perfil");
         panelNavegador.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1348, 20, 102, 59));
 
-        jPanel3.setBackground(new java.awt.Color(26, 26, 26));
+        panelBotonesNav.setBackground(new java.awt.Color(26, 26, 26));
 
         jButton3.setText("Inicio");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        jPanel3.add(jButton3);
+        panelBotonesNav.add(jButton3);
 
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Servicios");
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        jPanel3.add(jButton7);
+        panelBotonesNav.add(jButton7);
 
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Peliculas");
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        jPanel3.add(jButton4);
+        panelBotonesNav.add(jButton4);
 
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Libros");
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
         jButton5.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        jPanel3.add(jButton5);
+        panelBotonesNav.add(jButton5);
 
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Canciones");
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        jPanel3.add(jButton6);
+        panelBotonesNav.add(jButton6);
 
-        panelNavegador.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 21, 468, 53));
+        panelNavegador.add(panelBotonesNav, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 21, 468, 53));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo_Nav.png"))); // NOI18N
         panelNavegador.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 20, 60, 60));
@@ -95,6 +99,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel5.setText("Mi Aplicacion");
         panelNavegador.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 37, -1, -1));
 
+        btnExit.setBackground(new java.awt.Color(26, 26, 26));
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnExit.setText("X");
+        btnExit.setBorder(null);
+        btnExit.setBorderPainted(false);
+        btnExit.setContentAreaFilled(false);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        panelNavegador.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1495, 0, 40, 40));
+
+        panelDesplazamiento.setBackground(new java.awt.Color(26, 26, 26));
+        panelDesplazamiento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelDesplazamientoMouseDragged(evt);
+            }
+        });
+        panelDesplazamiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelDesplazamientoMousePressed(evt);
+            }
+        });
+        panelNavegador.add(panelDesplazamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 20));
+
         getContentPane().add(panelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1536, 100));
 
         panelCentral.setBackground(new java.awt.Color(38, 38, 38));
@@ -102,7 +132,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(panelCentral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1536, 730));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
+        int x =  evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xMouse,y-yMouse);
+    }//GEN-LAST:event_panelDesplazamientoMouseDragged
+
+    private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_panelDesplazamientoMousePressed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,6 +186,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -148,8 +195,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel panelBotonesNav;
     private javax.swing.JPanel panelCentral;
+    private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JPanel panelNavegador;
     // End of variables declaration//GEN-END:variables
 }

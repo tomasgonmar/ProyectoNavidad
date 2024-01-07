@@ -33,6 +33,8 @@ public class PanelInicio extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(38, 38, 38));
         setAutoscrolls(true);
+        setMinimumSize(new java.awt.Dimension(100, 100));
+        setPreferredSize(new java.awt.Dimension(1536, 730));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelCentral.setBackground(new java.awt.Color(38, 38, 38));
