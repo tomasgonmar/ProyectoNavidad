@@ -4,6 +4,17 @@
  */
 package vista;
 
+import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Insets;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+
 /**
  *
  * @author Tomas Gonzalez Martin
@@ -17,8 +28,36 @@ public class VentanaLogin extends javax.swing.JFrame {
      */
     public VentanaLogin() {
         initComponents();
+        
+        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
+        setShape(s);
+        
+        tFUser.putClientProperty( "FlatLaf.style", "arc:30" );
+        tFPassword.putClientProperty( "FlatLaf.style", "arc:30" );
+        btnIniciar.putClientProperty( "FlatLaf.style", "arc:30" );
+        
+        tFUser.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Usuario" );
+        tFPassword.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "******************" );
+        
+        tFUser.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
+        tFPassword.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
+        
+        ImageIcon icon = createImageIcon("src/main/resources/img/IconoUsuario.png", "Icono");
+        tFUser.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, icon);
+        
+        icon = createImageIcon("src/main/resources/img/IconoContraseña.png", "Icono");
+        tFPassword.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, icon);
+            
     }
-
+    private static ImageIcon createImageIcon(String path, String description) {
+        try {
+            BufferedImage image = ImageIO.read(new File(path));
+            return new ImageIcon(image, description);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,9 +72,9 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        btnIniciar = new javax.swing.JButton();
+        tFPassword = new javax.swing.JPasswordField();
+        tFUser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         panelDesplazamiento = new javax.swing.JPanel();
@@ -48,7 +87,7 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html>\n¡Bienvenido de <br>nuevo!\n</html>");
+        jLabel1.setText("<html>\n<div style='text-align: center;'>¡Bienvenido de nuevo!</div>\n</html>");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 350, 120));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -63,23 +102,33 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(164, 164, 164));
         jLabel2.setText("Recuperar contraseña");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
         panelCentral.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 371, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(158, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Iniciar");
-        jButton1.setActionCommand("Iniciar");
-        panelCentral.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 410, 314, 50));
-
-        jPasswordField1.setText("jPasswordField1");
-        panelCentral.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 306, 314, 55));
-
-        jTextField1.setText("Usuario");
-        panelCentral.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 210, 314, 55));
+        btnIniciar.setBackground(new java.awt.Color(158, 255, 0));
+        btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnIniciar.setForeground(new java.awt.Color(0, 0, 0));
+        btnIniciar.setText("Iniciar");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarActionPerformed(evt);
+            }
+        });
+        panelCentral.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 410, 314, 50));
+        panelCentral.add(tFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 306, 314, 55));
+        panelCentral.add(tFUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 210, 314, 55));
 
         jLabel5.setForeground(new java.awt.Color(164, 164, 164));
         jLabel5.setText("Registrate");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         panelCentral.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 475, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
@@ -150,52 +199,33 @@ public class VentanaLogin extends javax.swing.JFrame {
         this.setLocation(x-xMouse,y-yMouse);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        new VentanaRecuperacion().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel2MouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaLogin().setVisible(true);
-            }
-        });
-    }
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        new VentanaRegistro().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        new VentanaPrincipal().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnIniciarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnIniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
+    private javax.swing.JPasswordField tFPassword;
+    private javax.swing.JTextField tFUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -46,7 +46,7 @@ public class PanelInicio extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 68)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html> Organiza tus servicios,<br> peliculas, libros y musicas en<br> unico lugar </html> ");
+        jLabel1.setText("<html><div style='text-align: center;'> Organiza tus servicios, peliculas, libros y musicas en unico lugar </div></html> ");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 28, 929, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioFondo.png"))); // NOI18N

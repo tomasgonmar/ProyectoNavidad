@@ -4,6 +4,11 @@
  */
 package vista;
 
+import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Insets;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
  * @author Tomas Gonzalez Martin
@@ -17,6 +22,22 @@ public class VentanaRegistro extends javax.swing.JFrame {
      */
     public VentanaRegistro() {
         initComponents();
+        
+        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
+        setShape(s);
+        
+        tFEmail.putClientProperty( "FlatLaf.style", "arc:30" );
+        tFUser.putClientProperty( "FlatLaf.style", "arc:30" );
+        tFPassword.putClientProperty( "FlatLaf.style", "arc:30" );
+        btnRegistro.putClientProperty( "FlatLaf.style", "arc:30" );
+        
+        tFEmail.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "tucorreo@gmail.com" );
+        tFUser.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Usuario" );
+        tFPassword.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "******************" );
+        
+        tFEmail.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
+        tFUser.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
+        tFPassword.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
     }
 
     /**
@@ -34,13 +55,13 @@ public class VentanaRegistro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        btnRegistro = new javax.swing.JButton();
+        tFPassword = new javax.swing.JPasswordField();
+        tFUser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         panelDesplazamiento = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        tFEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -68,21 +89,23 @@ public class VentanaRegistro extends javax.swing.JFrame {
         jLabel2.setText("Usuario");
         panelCentral.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 250, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(158, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Registrame");
-        panelCentral.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 449, 314, 50));
+        btnRegistro.setBackground(new java.awt.Color(158, 255, 0));
+        btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistro.setText("Registrame");
+        panelCentral.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 449, 314, 50));
+        panelCentral.add(tFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 371, 314, 55));
 
-        jPasswordField1.setText("jPasswordField1");
-        panelCentral.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 371, 314, 55));
-
-        jTextField1.setText("yourname");
-        jTextField1.setToolTipText("");
-        panelCentral.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 277, 314, 55));
+        tFUser.setToolTipText("");
+        panelCentral.add(tFUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 277, 314, 55));
 
         jLabel5.setForeground(new java.awt.Color(164, 164, 164));
         jLabel5.setText("Inicia sesion");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         panelCentral.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 510, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
@@ -123,9 +146,8 @@ public class VentanaRegistro extends javax.swing.JFrame {
 
         panelCentral.add(panelDesplazamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 30));
 
-        jTextField2.setText("yourname@gmail.com");
-        jTextField2.setToolTipText("");
-        panelCentral.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 183, 314, 55));
+        tFEmail.setToolTipText("");
+        panelCentral.add(tFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 183, 314, 55));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -168,6 +190,11 @@ public class VentanaRegistro extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        new VentanaLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -205,17 +232,17 @@ public class VentanaRegistro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
+    private javax.swing.JTextField tFEmail;
+    private javax.swing.JPasswordField tFPassword;
+    private javax.swing.JTextField tFUser;
     // End of variables declaration//GEN-END:variables
 }

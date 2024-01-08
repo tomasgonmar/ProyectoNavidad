@@ -4,6 +4,12 @@
  */
 package vista;
 
+import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Insets;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Tomas Gonzalez Martin
@@ -17,6 +23,16 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
      */
     public VentanaRecuperacion() {
         initComponents();
+        
+        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
+        setShape(s);
+        
+        tFEmail.putClientProperty( "FlatLaf.style", "arc:30" );
+        btnRecuperar.putClientProperty( "FlatLaf.style", "arc:30" );
+        
+        tFEmail.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "tucorreo@gmail.com" );
+        
+        tFEmail.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
     }
 
     /**
@@ -31,8 +47,8 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         panelCentral = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btnRecuperar = new javax.swing.JButton();
+        tFEmail = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
         panelDesplazamiento = new javax.swing.JPanel();
 
@@ -44,7 +60,7 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html> Recuperar <br>contraseña </html>");
+        jLabel1.setText("<html><div style='text-align: center;'> Recuperar contraseña</div></html>");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 318, 120));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -53,14 +69,17 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         jLabel4.setToolTipText("");
         panelCentral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 150, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(158, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Iniciar");
-        panelCentral.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 285, 314, 50));
-
-        jTextField1.setText("yourname@gmail.com");
-        panelCentral.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 183, 314, 55));
+        btnRecuperar.setBackground(new java.awt.Color(158, 255, 0));
+        btnRecuperar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRecuperar.setForeground(new java.awt.Color(0, 0, 0));
+        btnRecuperar.setText("Recuperar");
+        btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecuperarActionPerformed(evt);
+            }
+        });
+        panelCentral.add(btnRecuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 285, 314, 50));
+        panelCentral.add(tFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 183, 314, 55));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -116,7 +135,8 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
+        new VentanaLogin().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
@@ -129,6 +149,10 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_panelDesplazamientoMousePressed
+
+    private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
+        
+    }//GEN-LAST:event_btnRecuperarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,11 +191,11 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRecuperar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
+    private javax.swing.JTextField tFEmail;
     // End of variables declaration//GEN-END:variables
 }

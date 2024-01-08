@@ -1,12 +1,7 @@
 
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import vista.LoadingScreen;
 import vista.VentanaLogin;
-import vista.VentanaPrincipal;
-import vista.VentanaRecuperacion;
-import vista.VentanaRegistro;
 
 /**
  *
@@ -17,6 +12,7 @@ public class Main {
         FlatArcDarkIJTheme.setup();
         
         LoadingScreen ls = new LoadingScreen();
+        VentanaLogin v = new VentanaLogin();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -24,9 +20,9 @@ public class Main {
                 ls.setVisible(true);
             }
         });
-        ls.inicioAplicacion();
+        //ls.inicioAplicacion();
         ls.dispose();
-        new VentanaLogin().setVisible(true);
+        v.setVisible(true);
         
         
     }

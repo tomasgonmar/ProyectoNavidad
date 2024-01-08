@@ -4,6 +4,8 @@
  */
 package vista;
 
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +20,9 @@ public class LoadingScreen extends javax.swing.JFrame {
      */
     public LoadingScreen() {
         initComponents();
+        
+        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
+        setShape(s);
     }
     
     public void inicioAplicacion(){

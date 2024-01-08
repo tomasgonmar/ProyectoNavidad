@@ -67,7 +67,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt; Organiza tus servicios,&lt;br&gt; peliculas, libros y musicas en&lt;br&gt; unico lugar &lt;/html&gt; "/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&apos;text-align: center;&apos;&gt; Organiza tus servicios, peliculas, libros y musicas en unico lugar &lt;/div&gt;&lt;/html&gt; "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

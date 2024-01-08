@@ -4,6 +4,8 @@
  */
 package vista;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author Tomás González Martín
@@ -12,11 +14,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
+    private PanelInicio pInicio;
+    private CardLayout cardLayout;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        cardLayout = new CardLayout();
+        panelCentral.setLayout(cardLayout);
+        
+        pInicio = new PanelInicio();
+        
+        panelCentral.add(pInicio,"pInicio");
+        
+        cardLayout.show(panelCentral, "pInicio");
     }
 
     /**
@@ -51,41 +63,54 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelNavegador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(158, 255, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Perfil");
+        jButton1.setFocusPainted(false);
         panelNavegador.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1348, 20, 102, 59));
 
         panelBotonesNav.setBackground(new java.awt.Color(26, 26, 26));
 
+        jButton3.setBackground(new java.awt.Color(38, 38, 38));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Inicio");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.setFocusPainted(false);
         jButton3.setMargin(new java.awt.Insets(11, 20, 12, 20));
         panelBotonesNav.add(jButton3);
 
+        jButton7.setBackground(new java.awt.Color(38, 38, 38));
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Servicios");
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
+        jButton7.setFocusPainted(false);
         jButton7.setMargin(new java.awt.Insets(11, 20, 12, 20));
         panelBotonesNav.add(jButton7);
 
+        jButton4.setBackground(new java.awt.Color(38, 38, 38));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Peliculas");
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
+        jButton4.setFocusPainted(false);
         jButton4.setMargin(new java.awt.Insets(11, 20, 12, 20));
         panelBotonesNav.add(jButton4);
 
+        jButton5.setBackground(new java.awt.Color(38, 38, 38));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Libros");
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
+        jButton5.setFocusPainted(false);
         jButton5.setMargin(new java.awt.Insets(11, 20, 12, 20));
         panelBotonesNav.add(jButton5);
 
+        jButton6.setBackground(new java.awt.Color(38, 38, 38));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Canciones");
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
+        jButton6.setFocusPainted(false);
         jButton6.setMargin(new java.awt.Insets(11, 20, 12, 20));
         panelBotonesNav.add(jButton6);
 
