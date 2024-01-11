@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
+import controlador.ControladorLogin;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Insets;
 import java.awt.Shape;
@@ -13,8 +10,8 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.UIManager;
 
+import controlador.ControladorLogin;
 /**
  *
  * @author Tomas Gonzalez Martin
@@ -23,11 +20,14 @@ public class VentanaLogin extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
+    private ControladorLogin cLog;
     /**
      * Creates new form VentanaLogin
      */
     public VentanaLogin() {
         initComponents();
+        
+        cLog = new ControladorLogin(this);
         
         Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
         setShape(s);
@@ -71,11 +71,11 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblRecuperacion = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
         tFPassword = new javax.swing.JPasswordField();
         tFUser = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblRegistro = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         panelDesplazamiento = new javax.swing.JPanel();
 
@@ -100,14 +100,14 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
         panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 277, -1, -1));
 
-        jLabel2.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel2.setText("Recuperar contraseña");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRecuperacion.setForeground(new java.awt.Color(164, 164, 164));
+        lblRecuperacion.setText("Recuperar contraseña");
+        lblRecuperacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                lblRecuperacionMouseClicked(evt);
             }
         });
-        panelCentral.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 371, -1, -1));
+        panelCentral.add(lblRecuperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 371, -1, -1));
 
         btnIniciar.setBackground(new java.awt.Color(158, 255, 0));
         btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -122,14 +122,14 @@ public class VentanaLogin extends javax.swing.JFrame {
         panelCentral.add(tFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 306, 314, 55));
         panelCentral.add(tFUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 210, 314, 55));
 
-        jLabel5.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel5.setText("Registrate");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRegistro.setForeground(new java.awt.Color(164, 164, 164));
+        lblRegistro.setText("Registrate");
+        lblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                lblRegistroMouseClicked(evt);
             }
         });
-        panelCentral.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 475, -1, -1));
+        panelCentral.add(lblRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 475, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -185,33 +185,28 @@ public class VentanaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
+        cLog.salir();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
+        cLog.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
-        int x =  evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x-xMouse,y-yMouse);
+        cLog.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        new VentanaRecuperacion().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    private void lblRecuperacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperacionMouseClicked
+        cLog.abrirVentanaRecuperacion();
+        
+    }//GEN-LAST:event_lblRecuperacionMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        new VentanaRegistro().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
+    private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
+        cLog.abrirVentanaRegistro();
+    }//GEN-LAST:event_lblRegistroMouseClicked
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        new VentanaPrincipal().setVisible(true);
-        this.dispose();
+        cLog.iniciarSesion();
     }//GEN-LAST:event_btnIniciarActionPerformed
 
 
@@ -219,13 +214,36 @@ public class VentanaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblRecuperacion;
+    private javax.swing.JLabel lblRegistro;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JPasswordField tFPassword;
     private javax.swing.JTextField tFUser;
     // End of variables declaration//GEN-END:variables
+
+    public void setXMouse(int x) {
+        xMouse = x;
+    }
+
+    public void setYMouse(int y) {
+        yMouse = y;
+    }
+
+    public int getXMouse() {
+       return xMouse;
+    }
+
+    public int getYMouse() {
+       return yMouse;
+    }
+    
+    public String getUsuario(){
+        return tFUser.toString();
+    }
+    public String getContraseña(){
+        return tFPassword.toString();
+    }
 }

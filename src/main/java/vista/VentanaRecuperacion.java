@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controlador.ControladorRecuperacion;
 import java.awt.Insets;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,11 +14,14 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
+    private ControladorRecuperacion cRec;
     /**
      * Creates new form VentanaRecuperacion
      */
     public VentanaRecuperacion() {
         initComponents();
+        
+        cRec = new ControladorRecuperacion(this);
         
         Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
         setShape(s);
@@ -135,59 +134,21 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        new VentanaLogin().setVisible(true);
-        this.dispose();
+        cRec.salir();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
-        int x =  evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x-xMouse,y-yMouse);
+        cRec.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
 
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
+        cRec.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
     private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
         
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaRecuperacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaRecuperacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaRecuperacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaRecuperacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaRecuperacion().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
@@ -198,4 +159,20 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JTextField tFEmail;
     // End of variables declaration//GEN-END:variables
+
+    public int getXMouse() {
+        return xMouse;
+    }
+
+    public int getYMouse() {
+        return yMouse;
+    }
+
+    public void setXMouse(int x) {
+        xMouse = x;
+    }
+
+    public void setYMouse(int y) {
+        yMouse = y;
+    }
 }

@@ -1,4 +1,3 @@
-
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme;
 import vista.LoadingScreen;
 import vista.VentanaLogin;
