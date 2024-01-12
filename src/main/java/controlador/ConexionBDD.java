@@ -19,7 +19,10 @@ public class ConexionBDD {
 	
 	public ConexionBDD() throws SQLException, ClassNotFoundException {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/miapp","root","");
+            //conn = DriverManager.getConnection("jdbc:mysql://localhost/miapp","root","");
+            
+            //Base de datos en la nube
+            conn = DriverManager.getConnection("jdbc:mysql://bsrlj7amexjfe77v7s4c-mysql.services.clever-cloud.com:3306/bsrlj7amexjfe77v7s4c","uxvwv7dsq8ge8idp","hqY6qvBKQt7GGP53JMfc");
 	}
 	public void cerrarConexion() throws SQLException {
             conn.close();
