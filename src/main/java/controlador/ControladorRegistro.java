@@ -55,5 +55,13 @@ public class ControladorRegistro {
             JOptionPane.showMessageDialog(VENTANA_REG, "El correo introducido no es valido");
         }
     }
+
+    public void cambiarEstadoLblInicio(boolean entrar) {
+        UtilDiseño.cambiarColorYBorde(VENTANA_REG.lblInicioSes, entrar);
+    }
+
+    public void cambiarEstadoBtnSalida(boolean entrar) {
+        UtilDiseño.cambiarColor(VENTANA_REG.btnExit, entrar);
+    }
     
 }

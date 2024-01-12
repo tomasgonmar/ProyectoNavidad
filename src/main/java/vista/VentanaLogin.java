@@ -12,6 +12,9 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import controlador.ControladorLogin;
+import controlador.ImagenUtil;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 /**
  *
  * @author Tomas Gonzalez Martin
@@ -35,7 +38,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         
         Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
         setShape(s);
-        
+                
         tFUser.putClientProperty( "FlatLaf.style", "arc:30" );
         tFPassword.putClientProperty( "FlatLaf.style", "arc:30" );
         btnIniciar.putClientProperty( "FlatLaf.style", "arc:30" );
@@ -43,23 +46,16 @@ public class VentanaLogin extends javax.swing.JFrame {
         tFUser.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Usuario" );
         tFPassword.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "******************" );
         
-        tFUser.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
-        tFPassword.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
         
-        ImageIcon icon = createImageIcon("src/main/resources/img/IconoUsuario.png", "Icono");
-        tFUser.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, icon);
+        tFUser.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
+        tFPassword.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
         
-        icon = createImageIcon("src/main/resources/img/IconoContraseña.png", "Icono");
-        tFPassword.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, icon);
+        tFUser.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
+                ImagenUtil.createImageIcon("src/main/resources/img/IconoUsuario.png", "Icono"));
+        
+        tFPassword.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
+                ImagenUtil.createImageIcon("src/main/resources/img/IconoContraseña.png", "Icono"));
             
-    }
-    private static ImageIcon createImageIcon(String path, String description) {
-        try {
-            BufferedImage image = ImageIO.read(new File(path));
-            return new ImageIcon(image, description);
-        } catch (IOException e) {
-            return null;
-        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,6 +85,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(239, 239, 239));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>\n<div style='text-align: center;'>¡Bienvenido de nuevo!</div>\n</html>");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 350, 120));
@@ -108,6 +105,12 @@ public class VentanaLogin extends javax.swing.JFrame {
         lblRecuperacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRecuperacionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRecuperacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblRecuperacionMouseExited(evt);
             }
         });
         panelCentral.add(lblRecuperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 371, -1, -1));
@@ -131,15 +134,30 @@ public class VentanaLogin extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRegistroMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRegistroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblRegistroMouseExited(evt);
+            }
         });
         panelCentral.add(lblRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 475, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(164, 164, 164));
         btnExit.setText("X");
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+        });
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -212,15 +230,39 @@ public class VentanaLogin extends javax.swing.JFrame {
         C_LOG.iniciarSesion();
     }//GEN-LAST:event_btnIniciarActionPerformed
 
+    private void lblRecuperacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperacionMouseEntered
+        C_LOG.cambiarEstadoLblRecuperacion(true);
+    }//GEN-LAST:event_lblRecuperacionMouseEntered
+
+    private void lblRecuperacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperacionMouseExited
+        C_LOG.cambiarEstadoLblRecuperacion(false);
+    }//GEN-LAST:event_lblRecuperacionMouseExited
+
+    private void lblRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseEntered
+        C_LOG.cambiarEstadoLblRegistro(true);
+    }//GEN-LAST:event_lblRegistroMouseEntered
+
+    private void lblRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseExited
+        C_LOG.cambiarEstadoLblRegistro(false);
+    }//GEN-LAST:event_lblRegistroMouseExited
+
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        C_LOG.cambiarEstadoBtnSalida(true);
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        C_LOG.cambiarEstadoBtnSalida(false);
+    }//GEN-LAST:event_btnExitMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
+    public javax.swing.JButton btnExit;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lblRecuperacion;
-    private javax.swing.JLabel lblRegistro;
+    public javax.swing.JLabel lblRecuperacion;
+    public javax.swing.JLabel lblRegistro;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JPasswordField tFPassword;

@@ -57,5 +57,8 @@ public class ControladorRecuperacion {
         
         
     }
-    
+
+    public void cambiarEstadoBtnSalida(boolean entrar) {
+        UtilDiseño.cambiarColor(VENTANA_REC.btnExit, entrar);
+    }    
 }

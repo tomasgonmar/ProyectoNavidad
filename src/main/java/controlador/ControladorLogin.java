@@ -66,5 +66,17 @@ public class ControladorLogin {
         }
     }
 
+    public void cambiarEstadoLblRecuperacion(boolean entrar) {
+        UtilDiseño.cambiarColorYBorde(VENTANA_LOG.lblRecuperacion, entrar);
+    }
+    
+    public void cambiarEstadoLblRegistro(boolean entrar) {
+        UtilDiseño.cambiarColorYBorde(VENTANA_LOG.lblRegistro, entrar);
+    }
+
+    public void cambiarEstadoBtnSalida(boolean entrar) {
+        UtilDiseño.cambiarColor(VENTANA_LOG.btnExit, entrar);
+    }
+
     
 }

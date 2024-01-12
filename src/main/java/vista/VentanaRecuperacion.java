@@ -3,9 +3,11 @@ package vista;
 import com.formdev.flatlaf.FlatClientProperties;
 import controlador.ConexionBDD;
 import controlador.ControladorRecuperacion;
+import controlador.ImagenUtil;
 import java.awt.Insets;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -34,9 +36,12 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         tFEmail.putClientProperty( "FlatLaf.style", "arc:30" );
         btnRecuperar.putClientProperty( "FlatLaf.style", "arc:30" );
         
+        tFEmail.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
+                ImagenUtil.createImageIcon("src/main/resources/img/IconoEmail.png", "Icono"));
+        
         tFEmail.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "tucorreo@gmail.com" );
         
-        tFEmail.putClientProperty("JTextField.padding", new Insets(0,40,0,0));
+        tFEmail.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
     }
 
     /**
@@ -63,6 +68,7 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(239, 239, 239));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style='text-align: center;'> Recuperar contraseña</div></html>");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 318, 120));
@@ -87,10 +93,19 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(164, 164, 164));
         btnExit.setText("X");
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+        });
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -154,9 +169,17 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         C_REC.enviarNuevaContraseña();
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        C_REC.cambiarEstadoBtnSalida(true);
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        C_REC.cambiarEstadoBtnSalida(false);
+    }//GEN-LAST:event_btnExitMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
+    public javax.swing.JButton btnExit;
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
