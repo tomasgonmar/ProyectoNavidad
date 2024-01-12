@@ -146,7 +146,7 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
     private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
-        
+        cRec.enviarNuevaContraseña();
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
 
@@ -174,5 +174,9 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
 
     public void setYMouse(int y) {
         yMouse = y;
+    }
+    
+    public String getEmail(){
+        return tFEmail.getText();
     }
 }

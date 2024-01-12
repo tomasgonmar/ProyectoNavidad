@@ -1,5 +1,9 @@
 package modelo;
 
+import controlador.ConexionBDD;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author Tomás González Martín
@@ -18,6 +22,12 @@ public class Usuario {
     public Usuario(String usuario, String contraseña) {
         this.usuario = usuario;
         this.contraseña = contraseña;
+    }
+
+    public Usuario(String email) {
+        this.email = email;
+        this.usuario = null;
+        this.contraseña = null;
     }
 
     public String getEmail() {
@@ -44,9 +54,13 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public boolean valido() {
-        return false;
-    }
+    public boolean emailValido() {
+        String patronCorreo = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(patronCorreo);
 
-    
+        Matcher matcher = pattern.matcher(this.email);
+
+        return matcher.matches();
+    }
+        
 }

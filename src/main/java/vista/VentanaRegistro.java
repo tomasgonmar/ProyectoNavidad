@@ -15,6 +15,7 @@ import controlador.ControladorRegistro;
  *
  * @author Tomas Gonzalez Martin
  */
+
 public class VentanaRegistro extends javax.swing.JFrame {
     
     private int xMouse;
@@ -98,6 +99,11 @@ public class VentanaRegistro extends javax.swing.JFrame {
         btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("Registrame");
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroActionPerformed(evt);
+            }
+        });
         panelCentral.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 449, 314, 50));
         panelCentral.add(tFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 371, 314, 55));
 
@@ -196,6 +202,10 @@ public class VentanaRegistro extends javax.swing.JFrame {
         cReg.abrirInicioSesion();
     }//GEN-LAST:event_lblInicioSesMouseClicked
 
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        cReg.registrarUsuario();
+    }//GEN-LAST:event_btnRegistroActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRegistro;
@@ -227,4 +237,21 @@ public class VentanaRegistro extends javax.swing.JFrame {
     public void setYMouse(int y) {
         yMouse = y;
     }
+    
+    public String getEmail(){
+        return tFEmail.getText();
+    }
+    public String getUser(){
+        return tFUser.getText();
+    }
+    public String getPassword(){
+        return String.valueOf(tFPassword.getPassword());
+    }
+
+    public void limpiarCampos() {
+        tFEmail.setText("");
+        tFUser.setText("");
+        tFPassword.setText("");
+    }
+    
 }

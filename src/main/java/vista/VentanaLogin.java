@@ -241,9 +241,9 @@ public class VentanaLogin extends javax.swing.JFrame {
     }
     
     public String getUsuario(){
-        return tFUser.toString();
+        return tFUser.getText();
     }
     public String getContraseña(){
-        return tFPassword.toString();
+        return String.valueOf(tFPassword.getPassword());
     }
 }

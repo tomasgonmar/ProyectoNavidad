@@ -1,6 +1,7 @@
 package controlador;
 
 import java.awt.event.MouseEvent;
+import modelo.Usuario;
 import vista.VentanaLogin;
 import vista.VentanaRecuperacion;
 
@@ -30,6 +31,15 @@ public class ControladorRecuperacion {
     public void movimientoPorPantalla(MouseEvent evt) {
         ventanaRec.setXMouse(evt.getX());
         ventanaRec.setYMouse(evt.getY());
+    }
+
+    public void enviarNuevaContraseña() {
+        Usuario user = new Usuario(ventanaRec.getEmail());
+        if(user.emailValido()){
+            EmailUtil.sendEmail(user.getEmail(), "nuevaContraseña");
+        }
+        
+        
     }
     
 }

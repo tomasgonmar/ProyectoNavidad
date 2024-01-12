@@ -5,14 +5,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import modelo.Usuario;
+
+import controlador.Encriptado;
 
 /**
  *
  * @author Tomás González Martín
  */
 public class ConexionBDD {
+
     private Connection conn;
 	
 	public ConexionBDD() throws SQLException, ClassNotFoundException {
@@ -43,4 +45,20 @@ public class ConexionBDD {
             s.setString(3, user.getContraseña());
             s.executeUpdate();
         }
+
+    boolean existsUser(Usuario user) throws SQLException {
+        System.out.println(user.getContraseña());
+        String sql = "select contraseña from usuarios where usuario=?";
+        PreparedStatement s = conn.prepareStatement(sql);
+        s.setString(1, user.getUsuario());
+        ResultSet r = s.executeQuery();
+        while(r.next()){
+            System.out.println(r.getString("contraseña"));
+            if(Encriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña"))){
+                return true;
+            } else return false;            
+        }
+        return false;
+    }
+        
 }
