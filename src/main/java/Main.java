@@ -19,10 +19,7 @@ public class Main {
                 ls.setVisible(true);
             }
         });
-        //ls.inicioAplicacion();
-        ls.dispose();
-        v.setVisible(true);
         
-        
+        ls.inicioAplicacion();
     }
 }

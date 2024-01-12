@@ -1,6 +1,5 @@
 package modelo;
 
-import controlador.ConexionBDD;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

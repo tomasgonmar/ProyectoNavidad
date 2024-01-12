@@ -1,7 +1,9 @@
 package vista;
 
+import controlador.ConexionBDD;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,6 +13,8 @@ import java.util.logging.Logger;
  */
 public class LoadingScreen extends javax.swing.JFrame {
 
+    private VentanaLogin ventanaLogin;
+    private ConexionBDD con;
     /**
      * Creates new form LoadingScreen
      */
@@ -23,15 +27,29 @@ public class LoadingScreen extends javax.swing.JFrame {
     
     public void inicioAplicacion(){
         int i = 0;
-        while (i <= 100) {
-            jProgressBar1.setValue(i);
-            i++;
-            try {
-                Thread.sleep(100); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
-            } catch (InterruptedException ex) {
-                Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
+        try{
+            while (i <= 100) {
+                jProgressBar1.setValue(i);
+                i++;
+                if(i==22){
+                    con = new ConexionBDD();
+                    Thread.sleep(540);
+                }else if (i==76){
+                    ventanaLogin = new VentanaLogin();
+                    Thread.sleep(365);
+                }else
+                    Thread.sleep(25); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
             }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        dispose();
+        ventanaLogin.setVisible(true);
     }
 
     /**

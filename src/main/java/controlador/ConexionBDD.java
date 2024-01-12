@@ -7,30 +7,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.Usuario;
 
-import controlador.Encriptado;
-
 /**
  *
  * @author Tomás González Martín
  */
 public class ConexionBDD {
 
-    private Connection conn;
+    private final Connection CONN;
 	
 	public ConexionBDD() throws SQLException, ClassNotFoundException {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            //conn = DriverManager.getConnection("jdbc:mysql://localhost/miapp","root","");
+            CONN = DriverManager.getConnection("jdbc:mysql://localhost/miapp","root","");
             
             //Base de datos en la nube
-            conn = DriverManager.getConnection("jdbc:mysql://bsrlj7amexjfe77v7s4c-mysql.services.clever-cloud.com:3306/bsrlj7amexjfe77v7s4c","uxvwv7dsq8ge8idp","hqY6qvBKQt7GGP53JMfc");
+            //conn = DriverManager.getConnection("jdbc:mysql://bsrlj7amexjfe77v7s4c-mysql.services.clever-cloud.com:3306/bsrlj7amexjfe77v7s4c","uxvwv7dsq8ge8idp","hqY6qvBKQt7GGP53JMfc");
 	}
 	public void cerrarConexion() throws SQLException {
-            conn.close();
+            CONN.close();
 	}
         
         public String obternerHashContraseñaBDD(Usuario user) throws SQLException{
             String sql = "select contraseña from usuarios where email = ?";
-            PreparedStatement s = conn.prepareStatement(sql);
+            PreparedStatement s = CONN.prepareStatement(sql);
             s.setString(1,user.getEmail());
             ResultSet r = s.executeQuery();
             while(r.next()){
@@ -42,7 +40,7 @@ public class ConexionBDD {
         
         public void registrarUsuario(Usuario user) throws SQLException{
             String sql = "insert into usuarios(email,usuario,contraseña) values(?,?,?)";
-            PreparedStatement s = conn.prepareStatement(sql);
+            PreparedStatement s = CONN.prepareStatement(sql);
             s.setString(1, user.getEmail());
             s.setString(2, user.getUsuario());
             s.setString(3, user.getContraseña());
@@ -50,17 +48,33 @@ public class ConexionBDD {
         }
 
     boolean existsUser(Usuario user) throws SQLException {
-        System.out.println(user.getContraseña());
         String sql = "select contraseña from usuarios where usuario=?";
-        PreparedStatement s = conn.prepareStatement(sql);
+        PreparedStatement s = CONN.prepareStatement(sql);
         s.setString(1, user.getUsuario());
         ResultSet r = s.executeQuery();
         while(r.next()){
-            System.out.println(r.getString("contraseña"));
             if(Encriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña"))){
                 return true;
             } else return false;            
         }
+        return false;
+    }
+
+    public void modificarContraseña(Usuario user) throws SQLException {
+        String sql = "UPDATE usuarios SET contraseña = ? WHERE email = ? ";
+        PreparedStatement s = CONN.prepareStatement(sql);
+        s.setString(1, user.getContraseña());
+        s.setString(2, user.getEmail());
+        s.executeUpdate();
+    }
+
+    public boolean emailExiste(Usuario user) throws SQLException {
+        String sql = "select email from usuarios where email = ?";
+        PreparedStatement s = CONN.prepareStatement(sql);
+        s.setString(1,user.getEmail());
+        ResultSet r = s.executeQuery();
+        if(r.next())
+            return true;
         return false;
     }
         
