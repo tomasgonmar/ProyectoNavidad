@@ -3,11 +3,10 @@ package vista;
 import com.formdev.flatlaf.FlatClientProperties;
 import controlador.ConexionBDD;
 import java.awt.Insets;
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
 
 import controlador.ControladorRegistro;
 import controlador.ImagenUtil;
+import controlador.UtilDiseño;
 
 /**
  *
@@ -31,8 +30,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
         
         C_REG = new ControladorRegistro(this);
                 
-        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
-        setShape(s);
+        UtilDiseño.redondearVentana(this);
         
         tFEmail.putClientProperty( "FlatLaf.style", "arc:30" );
         tFUser.putClientProperty( "FlatLaf.style", "arc:30" );

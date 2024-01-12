@@ -1,8 +1,7 @@
 package vista;
 
 import controlador.ConexionBDD;
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
+import controlador.UtilDiseño;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,8 +20,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     public LoadingScreen() {
         initComponents();
         
-        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
-        setShape(s);
+        UtilDiseño.redondearVentana(this);
     }
     
     public void inicioAplicacion(){
@@ -32,15 +30,12 @@ public class LoadingScreen extends javax.swing.JFrame {
                 jProgressBar1.setValue(i);
                 i++;
                 switch (i) {
-                    case 22 -> {
+                    case 95 -> {
                         con = new ConexionBDD();
-                        Thread.sleep(540);
-                    }
-                    case 76 -> {
                         ventanaLogin = new VentanaLogin(con);
-                        Thread.sleep(365);
+                        Thread.sleep(1540);
                     }
-                    default -> Thread.sleep(25); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
+                    default -> Thread.sleep(10); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
                 }
             }
         } catch (InterruptedException | SQLException | ClassNotFoundException ex) {

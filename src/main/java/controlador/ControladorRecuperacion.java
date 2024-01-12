@@ -44,8 +44,10 @@ public class ControladorRecuperacion {
                 
                 VENTANA_REC.getConexion().modificarContraseña(user);
                 
+                new EmailUtil(user.getEmail(), contraseñaEnviar).start();
+                
                 //EmailUtil.sendEmail(user.getEmail(), contraseñaEnviar);
-                JOptionPane.showMessageDialog(VENTANA_REC, "Nueva contraseña ha sido enviada al correo");
+                JOptionPane.showMessageDialog(VENTANA_REC, "Nueva contraseña ha sido enviada al correo, si no lo recibe en unos minutos intentelo de nuevo.");
                 salir();
                     
             }else{

@@ -3,18 +3,10 @@ package vista;
 import com.formdev.flatlaf.FlatClientProperties;
 import controlador.ConexionBDD;
 import java.awt.Insets;
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 import controlador.ControladorLogin;
 import controlador.ImagenUtil;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
+import controlador.UtilDiseño;
 /**
  *
  * @author Tomas Gonzalez Martin
@@ -36,8 +28,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         
         C_LOG = new ControladorLogin(this);
         
-        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
-        setShape(s);
+        UtilDiseño.redondearVentana(this);
                 
         tFUser.putClientProperty( "FlatLaf.style", "arc:30" );
         tFPassword.putClientProperty( "FlatLaf.style", "arc:30" );

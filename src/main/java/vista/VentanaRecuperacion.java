@@ -4,10 +4,8 @@ import com.formdev.flatlaf.FlatClientProperties;
 import controlador.ConexionBDD;
 import controlador.ControladorRecuperacion;
 import controlador.ImagenUtil;
+import controlador.UtilDiseño;
 import java.awt.Insets;
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -30,8 +28,7 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         
         C_REC = new ControladorRecuperacion(this);
         
-        Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
-        setShape(s);
+        UtilDiseño.redondearVentana(this);
         
         tFEmail.putClientProperty( "FlatLaf.style", "arc:30" );
         btnRecuperar.putClientProperty( "FlatLaf.style", "arc:30" );

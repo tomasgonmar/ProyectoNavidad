@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 import vista.VentanaLogin;
@@ -37,15 +38,18 @@ public class ControladorLogin {
         int y = evt.getYOnScreen();
         VENTANA_LOG.setLocation(x-VENTANA_LOG.getXMouse(),y-VENTANA_LOG.getYMouse());
     }
-
-    public void abrirVentanaRecuperacion() {
-        new VentanaRecuperacion(VENTANA_LOG.getConexion()).setVisible(true);
+    
+    private void abrirVentana(JFrame ventana) {
+        ventana.setVisible(true);
         VENTANA_LOG.dispose();
     }
 
+    public void abrirVentanaRecuperacion() {
+        abrirVentana(new VentanaRecuperacion(VENTANA_LOG.getConexion()));
+    }
+
     public void abrirVentanaRegistro() {
-        new VentanaRegistro(VENTANA_LOG.getConexion()).setVisible(true);
-        VENTANA_LOG.dispose();
+        abrirVentana(new VentanaRegistro(VENTANA_LOG.getConexion()));
     }
     
     public Usuario obtenerUser(){
