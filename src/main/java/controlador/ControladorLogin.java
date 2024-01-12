@@ -17,18 +17,10 @@ import vista.VentanaRegistro;
  */
 public class ControladorLogin {
 
-    private VentanaLogin ventanaLog;
-    private ConexionBDD con;
+    private final VentanaLogin VENTANA_LOG;
     
     public ControladorLogin(VentanaLogin ventanaLog) {
-        this.ventanaLog = ventanaLog;
-        try {
-             this.con = new ConexionBDD();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.VENTANA_LOG = ventanaLog;
     }
 
     public void salir() {
@@ -36,38 +28,38 @@ public class ControladorLogin {
     }
 
     public void desplazamientoPressed(MouseEvent evt) {
-        ventanaLog.setXMouse(evt.getX());
-        ventanaLog.setYMouse(evt.getY());
+        VENTANA_LOG.setXMouse(evt.getX());
+        VENTANA_LOG.setYMouse(evt.getY());
     }
 
     public void movimientoPorPantalla(MouseEvent evt) {
         int x =  evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        ventanaLog.setLocation(x-ventanaLog.getXMouse(),y-ventanaLog.getYMouse());
+        VENTANA_LOG.setLocation(x-VENTANA_LOG.getXMouse(),y-VENTANA_LOG.getYMouse());
     }
 
     public void abrirVentanaRecuperacion() {
-        new VentanaRecuperacion().setVisible(true);
-        ventanaLog.dispose();
+        new VentanaRecuperacion(VENTANA_LOG.getConexion()).setVisible(true);
+        VENTANA_LOG.dispose();
     }
 
     public void abrirVentanaRegistro() {
-        new VentanaRegistro().setVisible(true);
-        ventanaLog.dispose();
+        new VentanaRegistro(VENTANA_LOG.getConexion()).setVisible(true);
+        VENTANA_LOG.dispose();
     }
     
     public Usuario obtenerUser(){
-        return new Usuario(ventanaLog.getUsuario(),ventanaLog.getContraseña());
+        return new Usuario(VENTANA_LOG.getUsuario(),VENTANA_LOG.getContraseña());
     }
 
     public void iniciarSesion() {
-        Usuario u = obtenerUser();
+        Usuario user = obtenerUser();
         try {
-            if(con.existsUser(u)){
-                new VentanaPrincipal().setVisible(true);
-                ventanaLog.dispose();
+            if(VENTANA_LOG.getConexion().existsUser(user)){
+                new VentanaPrincipal(user).setVisible(true);
+                VENTANA_LOG.dispose();
             }else{
-                JOptionPane.showMessageDialog(ventanaLog, "Usuario o contraseña incorrecto");
+                JOptionPane.showMessageDialog(VENTANA_LOG, "Usuario o contraseña incorrecto");
             }
         } catch (SQLException ex) {
             Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);

@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controlador.ConexionBDD;
 import java.awt.Insets;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
@@ -20,14 +17,18 @@ public class VentanaRegistro extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
-    private ControladorRegistro cReg;
+    private final ControladorRegistro C_REG;
+    private final ConexionBDD CON;
     /**
      * Creates new form VentanaRegistro
+     * @param con
      */
-    public VentanaRegistro() {
+    public VentanaRegistro(ConexionBDD con) {
         initComponents();
         
-        cReg = new ControladorRegistro(this);
+        this.CON = con;
+        
+        C_REG = new ControladorRegistro(this);
                 
         Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
         setShape(s);
@@ -187,23 +188,23 @@ public class VentanaRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        cReg.salir();
+        C_REG.salir();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
-        cReg.desplazamientoPressed(evt);
+        C_REG.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
 
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
-        cReg.movimientoPorPantalla(evt);
+        C_REG.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
     private void lblInicioSesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioSesMouseClicked
-        cReg.abrirInicioSesion();
+        C_REG.abrirInicioSesion();
     }//GEN-LAST:event_lblInicioSesMouseClicked
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        cReg.registrarUsuario();
+        C_REG.registrarUsuario();
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -252,6 +253,10 @@ public class VentanaRegistro extends javax.swing.JFrame {
         tFEmail.setText("");
         tFUser.setText("");
         tFPassword.setText("");
+    }
+
+    public ConexionBDD getConexion() {
+        return CON;
     }
     
 }

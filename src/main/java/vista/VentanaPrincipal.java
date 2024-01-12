@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.CardLayout;
+import modelo.Usuario;
 
 /**
  *
@@ -10,21 +11,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
-    private PanelInicio pInicio;
-    private CardLayout cardLayout;
+    private final PanelInicio P_INICIO;
+    private final CardLayout CARD_LAYOUT;
     /**
      * Creates new form VentanaPrincipal
+     * @param user
      */
-    public VentanaPrincipal() {
+    public VentanaPrincipal(Usuario user) {
         initComponents();
-        cardLayout = new CardLayout();
-        panelCentral.setLayout(cardLayout);
+        CARD_LAYOUT = new CardLayout();
+        panelCentral.setLayout(CARD_LAYOUT);
         
-        pInicio = new PanelInicio();
+        P_INICIO = new PanelInicio();
         
-        panelCentral.add(pInicio,"pInicio");
+        panelCentral.add(P_INICIO,"pInicio");
         
-        cardLayout.show(panelCentral, "pInicio");
+        CARD_LAYOUT.show(panelCentral, "pInicio");
     }
 
     /**

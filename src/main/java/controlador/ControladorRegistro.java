@@ -5,8 +5,6 @@ import modelo.Usuario;
 import vista.VentanaLogin;
 import vista.VentanaRegistro;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,18 +13,10 @@ import javax.swing.JOptionPane;
  */
 public class ControladorRegistro {
 
-    private VentanaRegistro ventanaReg;
-    private ConexionBDD conexion;
+    private final VentanaRegistro VENTANA_REG;
     
     public ControladorRegistro(VentanaRegistro ventanaReg) {
-        this.ventanaReg = ventanaReg;
-        try {
-            this.conexion = new ConexionBDD();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.VENTANA_REG = ventanaReg;
     }
 
     public void salir() {
@@ -34,35 +24,35 @@ public class ControladorRegistro {
     }
 
     public void abrirInicioSesion() {
-        new VentanaLogin().setVisible(true);
-        ventanaReg.dispose();
+        new VentanaLogin(VENTANA_REG.getConexion()).setVisible(true);
+        VENTANA_REG.dispose();
     }
 
     public void desplazamientoPressed(MouseEvent evt) {
         int x =  evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        ventanaReg.setLocation(x-ventanaReg.getXMouse(),y-ventanaReg.getYyMouse());
+        VENTANA_REG.setLocation(x-VENTANA_REG.getXMouse(),y-VENTANA_REG.getYyMouse());
     }
 
     public void movimientoPorPantalla(MouseEvent evt) {
-        ventanaReg.setXMouse(evt.getX());
-        ventanaReg.setYMouse(evt.getY());
+        VENTANA_REG.setXMouse(evt.getX());
+        VENTANA_REG.setYMouse(evt.getY());
     }
     public Usuario obtenerUsuario(){
-        return new Usuario(ventanaReg.getEmail(),ventanaReg.getUser(),Encriptado.encriptarPassword(ventanaReg.getPassword()));
+        return new Usuario(VENTANA_REG.getEmail(),VENTANA_REG.getUser(),Encriptado.encriptarPassword(VENTANA_REG.getPassword()));
     }
 
     public void registrarUsuario() {
         Usuario u  = obtenerUsuario();
         if(u.emailValido()){
             try {
-                conexion.registrarUsuario(u);
-                ventanaReg.limpiarCampos();
+                VENTANA_REG.getConexion().registrarUsuario(u);
+                VENTANA_REG.limpiarCampos();
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(ventanaReg, "El nombre de usuario o el correo ya esta en uso, porfavor cambielo.");
+                JOptionPane.showMessageDialog(VENTANA_REG, "El nombre de usuario o el correo ya esta en uso, porfavor cambielo.");
             }
         }else{
-            JOptionPane.showMessageDialog(ventanaReg, "El correo introducido no es valido");
+            JOptionPane.showMessageDialog(VENTANA_REG, "El correo introducido no es valido");
         }
     }
     

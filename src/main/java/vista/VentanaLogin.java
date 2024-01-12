@@ -1,7 +1,7 @@
 package vista;
 
-import controlador.ControladorLogin;
 import com.formdev.flatlaf.FlatClientProperties;
+import controlador.ConexionBDD;
 import java.awt.Insets;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
@@ -20,14 +20,18 @@ public class VentanaLogin extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
-    private ControladorLogin cLog;
+    private final ControladorLogin C_LOG;
+    private final ConexionBDD CON;
     /**
      * Creates new form VentanaLogin
+     * @param con
      */
-    public VentanaLogin() {
+    public VentanaLogin(ConexionBDD con) {
         initComponents();
         
-        cLog = new ControladorLogin(this);
+        this.CON = con;
+        
+        C_LOG = new ControladorLogin(this);
         
         Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
         setShape(s);
@@ -54,7 +58,6 @@ public class VentanaLogin extends javax.swing.JFrame {
             BufferedImage image = ImageIO.read(new File(path));
             return new ImageIcon(image, description);
         } catch (IOException e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -185,28 +188,28 @@ public class VentanaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        cLog.salir();
+        C_LOG.salir();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
-        cLog.desplazamientoPressed(evt);
+        C_LOG.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
-        cLog.movimientoPorPantalla(evt);
+        C_LOG.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
 
     private void lblRecuperacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperacionMouseClicked
-        cLog.abrirVentanaRecuperacion();
+        C_LOG.abrirVentanaRecuperacion();
         
     }//GEN-LAST:event_lblRecuperacionMouseClicked
 
     private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
-        cLog.abrirVentanaRegistro();
+        C_LOG.abrirVentanaRegistro();
     }//GEN-LAST:event_lblRegistroMouseClicked
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        cLog.iniciarSesion();
+        C_LOG.iniciarSesion();
     }//GEN-LAST:event_btnIniciarActionPerformed
 
 
@@ -245,5 +248,9 @@ public class VentanaLogin extends javax.swing.JFrame {
     }
     public String getContraseña(){
         return String.valueOf(tFPassword.getPassword());
+    }
+
+    public ConexionBDD getConexion() {
+        return CON;
     }
 }

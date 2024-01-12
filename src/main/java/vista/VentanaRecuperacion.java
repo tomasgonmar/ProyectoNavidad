@@ -1,6 +1,7 @@
 package vista;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controlador.ConexionBDD;
 import controlador.ControladorRecuperacion;
 import java.awt.Insets;
 import java.awt.Shape;
@@ -14,14 +15,18 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
-    private ControladorRecuperacion cRec;
+    private final ControladorRecuperacion C_REC;
+    private final ConexionBDD CON;
     /**
      * Creates new form VentanaRecuperacion
+     * @param con
      */
-    public VentanaRecuperacion() {
+    public VentanaRecuperacion(ConexionBDD con) {
         initComponents();
         
-        cRec = new ControladorRecuperacion(this);
+        this.CON = con;
+        
+        C_REC = new ControladorRecuperacion(this);
         
         Shape s = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
         setShape(s);
@@ -134,19 +139,19 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        cRec.salir();
+        C_REC.salir();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
-        cRec.desplazamientoPressed(evt);
+        C_REC.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
 
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
-        cRec.movimientoPorPantalla(evt);
+        C_REC.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
     private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
-        cRec.enviarNuevaContraseña();
+        C_REC.enviarNuevaContraseña();
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
 
@@ -178,5 +183,9 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
     
     public String getEmail(){
         return tFEmail.getText();
+    }
+    
+    public ConexionBDD getConexion(){
+        return CON;
     }
 }

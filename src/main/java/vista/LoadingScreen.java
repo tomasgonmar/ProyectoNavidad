@@ -31,20 +31,19 @@ public class LoadingScreen extends javax.swing.JFrame {
             while (i <= 100) {
                 jProgressBar1.setValue(i);
                 i++;
-                if(i==22){
-                    con = new ConexionBDD();
-                    Thread.sleep(540);
-                }else if (i==76){
-                    ventanaLogin = new VentanaLogin();
-                    Thread.sleep(365);
-                }else
-                    Thread.sleep(25); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
+                switch (i) {
+                    case 22 -> {
+                        con = new ConexionBDD();
+                        Thread.sleep(540);
+                    }
+                    case 76 -> {
+                        ventanaLogin = new VentanaLogin(con);
+                        Thread.sleep(365);
+                    }
+                    default -> Thread.sleep(25); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
+                }
             }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (InterruptedException | SQLException | ClassNotFoundException ex) {
             Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
         

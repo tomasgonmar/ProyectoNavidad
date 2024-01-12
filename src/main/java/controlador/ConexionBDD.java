@@ -53,9 +53,7 @@ public class ConexionBDD {
         s.setString(1, user.getUsuario());
         ResultSet r = s.executeQuery();
         while(r.next()){
-            if(Encriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña"))){
-                return true;
-            } else return false;            
+            return Encriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña"));            
         }
         return false;
     }
@@ -73,9 +71,7 @@ public class ConexionBDD {
         PreparedStatement s = CONN.prepareStatement(sql);
         s.setString(1,user.getEmail());
         ResultSet r = s.executeQuery();
-        if(r.next())
-            return true;
-        return false;
+        return r.next();
     }
         
 }

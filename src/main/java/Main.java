@@ -1,6 +1,5 @@
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme;
 import vista.LoadingScreen;
-import vista.VentanaLogin;
 
 /**
  *
@@ -11,13 +10,10 @@ public class Main {
         FlatArcDarkIJTheme.setup();
         
         LoadingScreen ls = new LoadingScreen();
-        VentanaLogin v = new VentanaLogin();
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                ls.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            ls.setVisible(true);
         });
         
         ls.inicioAplicacion();

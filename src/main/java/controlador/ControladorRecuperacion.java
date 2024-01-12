@@ -2,8 +2,6 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 import vista.VentanaLogin;
@@ -15,54 +13,46 @@ import vista.VentanaRecuperacion;
  */
 public class ControladorRecuperacion {
     
-    private VentanaRecuperacion ventanaRec;
-    private ConexionBDD con;
+    private final VentanaRecuperacion VENTANA_REC;
 
     public ControladorRecuperacion(VentanaRecuperacion ventanaRec) {
-        this.ventanaRec = ventanaRec;
-        try {
-            this.con = new ConexionBDD();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControladorRecuperacion.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ControladorRecuperacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.VENTANA_REC = ventanaRec;
     }
 
     public void salir() {
-        new VentanaLogin().setVisible(true);
-        ventanaRec.dispose();
+        new VentanaLogin(VENTANA_REC.getConexion()).setVisible(true);
+        VENTANA_REC.dispose();
     }
 
     public void desplazamientoPressed(MouseEvent evt) {
         int x =  evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        ventanaRec.setLocation(x-ventanaRec.getXMouse(),y-ventanaRec.getYMouse());
+        VENTANA_REC.setLocation(x-VENTANA_REC.getXMouse(),y-VENTANA_REC.getYMouse());
     }
 
     public void movimientoPorPantalla(MouseEvent evt) {
-        ventanaRec.setXMouse(evt.getX());
-        ventanaRec.setYMouse(evt.getY());
+        VENTANA_REC.setXMouse(evt.getX());
+        VENTANA_REC.setYMouse(evt.getY());
     }
 
     public void enviarNuevaContraseña() {
         try {
-            Usuario user = new Usuario(ventanaRec.getEmail());
-            if(con.emailExiste(user)){
+            Usuario user = new Usuario(VENTANA_REC.getEmail());
+            if(VENTANA_REC.getConexion().emailExiste(user)){
                 String contraseñaEnviar = new ContraseñaAleatoria(15).obtenerContraseña();
                 user.setContraseña(Encriptado.encriptarPassword(contraseñaEnviar));
                 
-                con.modificarContraseña(user);
+                VENTANA_REC.getConexion().modificarContraseña(user);
                 
                 //EmailUtil.sendEmail(user.getEmail(), contraseñaEnviar);
-                JOptionPane.showMessageDialog(ventanaRec, "Nueva contraseña ha sido enviada al correo");
+                JOptionPane.showMessageDialog(VENTANA_REC, "Nueva contraseña ha sido enviada al correo");
                 salir();
                     
             }else{
-                JOptionPane.showMessageDialog(ventanaRec,"Este correo no esta asociado a ningun usuario.");
+                JOptionPane.showMessageDialog(VENTANA_REC,"Este correo no esta asociado a ningun usuario.");
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(ventanaRec, "Error al modificar la contraseña. Intentelo mas tarde.");
+            JOptionPane.showMessageDialog(VENTANA_REC, "Error al modificar la contraseña. Intentelo mas tarde.");
         }
         
         

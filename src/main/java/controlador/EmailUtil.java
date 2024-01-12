@@ -33,6 +33,7 @@ public class EmailUtil {
         props.put("mail.smtp.ssl.enable", "TLSv1.2");
         
         Session session = Session.getInstance(props, new Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(FROM, PASSWORD);
             }
