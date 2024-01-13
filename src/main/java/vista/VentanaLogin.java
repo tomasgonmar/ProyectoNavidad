@@ -61,6 +61,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(239, 239, 239));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>\n<div style='text-align: center;'>¡Bienvenido de nuevo!</div>\n</html>");
+        jLabel1.setToolTipText("");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 350, 120));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

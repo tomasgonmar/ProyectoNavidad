@@ -12,6 +12,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private int xMouse;
     private int yMouse;
     private final PanelInicio P_INICIO;
+    private final PanelServicios P_SERVICIOS;
+    private final PanelPeliculas P_PELICULAS;
+    private final PanelLibros P_LIBROS;
+    private final PanelMusica P_MUSICA;
+    private final PanelPerfil P_PERFIL;
     private final CardLayout CARD_LAYOUT;
     /**
      * Creates new form VentanaPrincipal
@@ -23,8 +28,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelCentral.setLayout(CARD_LAYOUT);
         
         P_INICIO = new PanelInicio();
+        P_SERVICIOS = new PanelServicios();
+        P_PELICULAS = new PanelPeliculas();
+        P_LIBROS = new PanelLibros();
+        P_MUSICA = new PanelMusica();
+        P_PERFIL = new PanelPerfil();
         
         panelCentral.add(P_INICIO,"pInicio");
+        panelCentral.add(P_SERVICIOS,"pServicios");
+        
+        panelCentral.add(P_PELICULAS,"pPeliculas");
+        panelCentral.add(P_LIBROS,"pLibros");
+        panelCentral.add(P_MUSICA,"pMusica");
+        panelCentral.add(P_PERFIL,"pPerfil");
         
         CARD_LAYOUT.show(panelCentral, "pInicio");
     }
@@ -39,13 +55,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         panelNavegador = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnPerfil = new javax.swing.JButton();
         panelBotonesNav = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
+        btnServicios = new javax.swing.JButton();
+        btnPeliculas = new javax.swing.JButton();
+        btnLibros = new javax.swing.JButton();
+        btnMusica = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
@@ -60,57 +76,87 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelNavegador.setBackground(new java.awt.Color(26, 26, 26));
         panelNavegador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(158, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("Perfil");
-        jButton1.setFocusPainted(false);
-        panelNavegador.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1348, 20, 102, 59));
+        btnPerfil.setBackground(new java.awt.Color(158, 255, 0));
+        btnPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPerfil.setText("Perfil");
+        btnPerfil.setFocusPainted(false);
+        btnPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerfilActionPerformed(evt);
+            }
+        });
+        panelNavegador.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1348, 20, 102, 59));
 
         panelBotonesNav.setBackground(new java.awt.Color(26, 26, 26));
 
-        jButton3.setBackground(new java.awt.Color(38, 38, 38));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Inicio");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton3.setFocusPainted(false);
-        jButton3.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        panelBotonesNav.add(jButton3);
+        btnInicio.setBackground(new java.awt.Color(38, 38, 38));
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setText("Inicio");
+        btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnInicio.setFocusPainted(false);
+        btnInicio.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioActionPerformed(evt);
+            }
+        });
+        panelBotonesNav.add(btnInicio);
 
-        jButton7.setBackground(new java.awt.Color(38, 38, 38));
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Servicios");
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setFocusPainted(false);
-        jButton7.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        panelBotonesNav.add(jButton7);
+        btnServicios.setBackground(new java.awt.Color(38, 38, 38));
+        btnServicios.setForeground(new java.awt.Color(255, 255, 255));
+        btnServicios.setText("Servicios");
+        btnServicios.setBorderPainted(false);
+        btnServicios.setContentAreaFilled(false);
+        btnServicios.setFocusPainted(false);
+        btnServicios.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServiciosActionPerformed(evt);
+            }
+        });
+        panelBotonesNav.add(btnServicios);
 
-        jButton4.setBackground(new java.awt.Color(38, 38, 38));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Peliculas");
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setFocusPainted(false);
-        jButton4.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        panelBotonesNav.add(jButton4);
+        btnPeliculas.setBackground(new java.awt.Color(38, 38, 38));
+        btnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
+        btnPeliculas.setText("Peliculas");
+        btnPeliculas.setBorderPainted(false);
+        btnPeliculas.setContentAreaFilled(false);
+        btnPeliculas.setFocusPainted(false);
+        btnPeliculas.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnPeliculas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPeliculasActionPerformed(evt);
+            }
+        });
+        panelBotonesNav.add(btnPeliculas);
 
-        jButton5.setBackground(new java.awt.Color(38, 38, 38));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Libros");
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setFocusPainted(false);
-        jButton5.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        panelBotonesNav.add(jButton5);
+        btnLibros.setBackground(new java.awt.Color(38, 38, 38));
+        btnLibros.setForeground(new java.awt.Color(255, 255, 255));
+        btnLibros.setText("Libros");
+        btnLibros.setBorderPainted(false);
+        btnLibros.setContentAreaFilled(false);
+        btnLibros.setFocusPainted(false);
+        btnLibros.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLibrosActionPerformed(evt);
+            }
+        });
+        panelBotonesNav.add(btnLibros);
 
-        jButton6.setBackground(new java.awt.Color(38, 38, 38));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Canciones");
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setFocusPainted(false);
-        jButton6.setMargin(new java.awt.Insets(11, 20, 12, 20));
-        panelBotonesNav.add(jButton6);
+        btnMusica.setBackground(new java.awt.Color(38, 38, 38));
+        btnMusica.setForeground(new java.awt.Color(255, 255, 255));
+        btnMusica.setText("Musica");
+        btnMusica.setBorderPainted(false);
+        btnMusica.setContentAreaFilled(false);
+        btnMusica.setFocusPainted(false);
+        btnMusica.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMusicaActionPerformed(evt);
+            }
+        });
+        panelBotonesNav.add(btnMusica);
 
         panelNavegador.add(panelBotonesNav, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 21, 468, 53));
 
@@ -173,14 +219,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
+        CARD_LAYOUT.show(panelCentral, "pServicios");
+    }//GEN-LAST:event_btnServiciosActionPerformed
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        CARD_LAYOUT.show(panelCentral, "pInicio");
+    }//GEN-LAST:event_btnInicioActionPerformed
+
+    private void btnPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeliculasActionPerformed
+        CARD_LAYOUT.show(panelCentral, "pPeliculas");
+    }//GEN-LAST:event_btnPeliculasActionPerformed
+
+    private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
+        CARD_LAYOUT.show(panelCentral, "pLibros");
+    }//GEN-LAST:event_btnLibrosActionPerformed
+
+    private void btnMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaActionPerformed
+        CARD_LAYOUT.show(panelCentral, "pMusica");
+    }//GEN-LAST:event_btnMusicaActionPerformed
+
+    private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
+        CARD_LAYOUT.show(panelCentral, "pPerfil");
+    }//GEN-LAST:event_btnPerfilActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton btnInicio;
+    private javax.swing.JButton btnLibros;
+    private javax.swing.JButton btnMusica;
+    private javax.swing.JButton btnPeliculas;
+    private javax.swing.JButton btnPerfil;
+    private javax.swing.JButton btnServicios;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel panelBotonesNav;
