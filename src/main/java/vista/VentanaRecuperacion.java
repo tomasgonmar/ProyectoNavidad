@@ -1,11 +1,8 @@
 package vista;
 
-import com.formdev.flatlaf.FlatClientProperties;
 import controlador.ConexionBDD;
 import controlador.ControladorRecuperacion;
-import controlador.ImagenUtil;
 import controlador.UtilDiseño;
-import java.awt.Insets;
 
 /**
  *
@@ -30,15 +27,8 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         
         UtilDiseño.redondearVentana(this);
         
-        tFEmail.putClientProperty( "FlatLaf.style", "arc:30" );
-        btnRecuperar.putClientProperty( "FlatLaf.style", "arc:30" );
-        
-        tFEmail.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
-                ImagenUtil.createImageIcon("src/main/resources/img/IconoEmail.png", "Icono"));
-        
-        tFEmail.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "tucorreo@gmail.com" );
-        
-        tFEmail.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
+        UtilDiseño.estilizarTextFieldEmail(tFEmail);
+        UtilDiseño.estilizarBtn(btnRecuperar);        
     }
 
     /**

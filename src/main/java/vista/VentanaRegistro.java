@@ -1,11 +1,8 @@
 package vista;
 
-import com.formdev.flatlaf.FlatClientProperties;
 import controlador.ConexionBDD;
-import java.awt.Insets;
 
 import controlador.ControladorRegistro;
-import controlador.ImagenUtil;
 import controlador.UtilDiseño;
 
 /**
@@ -32,25 +29,10 @@ public class VentanaRegistro extends javax.swing.JFrame {
                 
         UtilDiseño.redondearVentana(this);
         
-        tFEmail.putClientProperty( "FlatLaf.style", "arc:30" );
-        tFUser.putClientProperty( "FlatLaf.style", "arc:30" );
-        tFPassword.putClientProperty( "FlatLaf.style", "arc:30" );
-        btnRegistro.putClientProperty( "FlatLaf.style", "arc:30" );
-        
-        tFEmail.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "tucorreo@gmail.com" );
-        tFUser.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Usuario" );
-        tFPassword.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "******************" );
-        
-        tFEmail.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
-        tFUser.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
-        tFPassword.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
-        
-        tFEmail.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
-                ImagenUtil.createImageIcon("src/main/resources/img/IconoEmail.png", "Icono"));
-        tFUser.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
-                ImagenUtil.createImageIcon("src/main/resources/img/IconoUsuario.png", "Icono"));
-        tFPassword.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
-                ImagenUtil.createImageIcon("src/main/resources/img/IconoContraseña.png", "Icono"));
+        UtilDiseño.estilizarTextFieldEmail(tFEmail);
+        UtilDiseño.estilizarTextFieldUser(tFUser);
+        UtilDiseño.estilizarTextFieldPassword(tFPassword);
+        UtilDiseño.estilizarBtn(btnRegistro); 
     }
 
     /**

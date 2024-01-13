@@ -1,11 +1,7 @@
 package vista;
 
-import com.formdev.flatlaf.FlatClientProperties;
 import controlador.ConexionBDD;
-import java.awt.Insets;
-
 import controlador.ControladorLogin;
-import controlador.ImagenUtil;
 import controlador.UtilDiseño;
 /**
  *
@@ -27,26 +23,12 @@ public class VentanaLogin extends javax.swing.JFrame {
         this.CON = con;
         
         C_LOG = new ControladorLogin(this);
-        
-        UtilDiseño.redondearVentana(this);
                 
-        tFUser.putClientProperty( "FlatLaf.style", "arc:30" );
-        tFPassword.putClientProperty( "FlatLaf.style", "arc:30" );
-        btnIniciar.putClientProperty( "FlatLaf.style", "arc:30" );
+        UtilDiseño.redondearVentana(this);
         
-        tFUser.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Usuario" );
-        tFPassword.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "******************" );
-        
-        
-        tFUser.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
-        tFPassword.putClientProperty("JTextField.padding", new Insets(0,20,0,0));
-        
-        tFUser.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
-                ImagenUtil.createImageIcon("src/main/resources/img/IconoUsuario.png", "Icono"));
-        
-        tFPassword.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, 
-                ImagenUtil.createImageIcon("src/main/resources/img/IconoContraseña.png", "Icono"));
-            
+        UtilDiseño.estilizarTextFieldUser(tFUser);
+        UtilDiseño.estilizarTextFieldPassword(tFPassword);
+        UtilDiseño.estilizarBtn(btnIniciar);                    
     }
     /**
      * This method is called from within the constructor to initialize the form.
