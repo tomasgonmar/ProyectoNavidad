@@ -70,6 +70,7 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         btnRecuperar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnRecuperar.setForeground(new java.awt.Color(0, 0, 0));
         btnRecuperar.setText("Recuperar");
+        btnRecuperar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRecuperarActionPerformed(evt);
@@ -85,6 +86,8 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setFocusable(false);
         btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnExitMouseEntered(evt);

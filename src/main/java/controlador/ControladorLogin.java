@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -80,6 +81,12 @@ public class ControladorLogin {
 
     public void cambiarEstadoBtnSalida(boolean entrar) {
         UtilDiseño.cambiarColor(VENTANA_LOG.btnExit, entrar);
+    }
+
+    public void btnDefaultKeyPressed(KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            iniciarSesion();
+        }
     }
 
     

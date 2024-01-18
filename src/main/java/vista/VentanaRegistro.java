@@ -89,6 +89,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
         btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("Registrame");
+        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
@@ -102,6 +103,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
 
         lblInicioSes.setForeground(new java.awt.Color(164, 164, 164));
         lblInicioSes.setText("Inicia sesion");
+        lblInicioSes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblInicioSes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblInicioSesMouseClicked(evt);
@@ -122,6 +124,8 @@ public class VentanaRegistro extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setFocusable(false);
         btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnExitMouseEntered(evt);

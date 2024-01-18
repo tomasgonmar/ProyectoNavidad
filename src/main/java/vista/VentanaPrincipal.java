@@ -1,6 +1,8 @@
 package vista;
 
+import controlador.UtilDiseño;
 import java.awt.CardLayout;
+import javax.swing.JButton;
 import modelo.Usuario;
 
 /**
@@ -18,6 +20,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private final PanelMusica P_MUSICA;
     private final PanelPerfil P_PERFIL;
     private final CardLayout CARD_LAYOUT;
+    private String panelActual;
     /**
      * Creates new form VentanaPrincipal
      * @param user
@@ -43,6 +46,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelCentral.add(P_PERFIL,"pPerfil");
         
         CARD_LAYOUT.show(panelCentral, "pInicio");
+        panelActual = "pInicio";
+        
+        UtilDiseño.estilizarBotonPanelInicio(btnInicio);
+        UtilDiseño.estilizarBotonPanelInicio(btnServicios);
+        UtilDiseño.estilizarBotonPanelInicio(btnPeliculas);
+        UtilDiseño.estilizarBotonPanelInicio(btnLibros);
+        UtilDiseño.estilizarBotonPanelInicio(btnMusica);
+        UtilDiseño.estilizarBotonPerfil(btnPerfil);
     }
 
     /**
@@ -79,6 +90,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnPerfil.setBackground(new java.awt.Color(158, 255, 0));
         btnPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPerfil.setText("Perfil");
+        btnPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPerfil.setFocusPainted(false);
         btnPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,9 +104,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnInicio.setBackground(new java.awt.Color(38, 38, 38));
         btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
-        btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.setFocusPainted(false);
         btnInicio.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInicioMouseExited(evt);
+            }
+        });
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
@@ -105,10 +125,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnServicios.setBackground(new java.awt.Color(38, 38, 38));
         btnServicios.setForeground(new java.awt.Color(255, 255, 255));
         btnServicios.setText("Servicios");
-        btnServicios.setBorderPainted(false);
         btnServicios.setContentAreaFilled(false);
+        btnServicios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnServicios.setFocusPainted(false);
         btnServicios.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnServicios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnServiciosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnServiciosMouseExited(evt);
+            }
+        });
         btnServicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnServiciosActionPerformed(evt);
@@ -119,10 +147,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnPeliculas.setBackground(new java.awt.Color(38, 38, 38));
         btnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
         btnPeliculas.setText("Peliculas");
-        btnPeliculas.setBorderPainted(false);
         btnPeliculas.setContentAreaFilled(false);
+        btnPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPeliculas.setFocusPainted(false);
         btnPeliculas.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnPeliculas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPeliculasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPeliculasMouseExited(evt);
+            }
+        });
         btnPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPeliculasActionPerformed(evt);
@@ -133,10 +169,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnLibros.setBackground(new java.awt.Color(38, 38, 38));
         btnLibros.setForeground(new java.awt.Color(255, 255, 255));
         btnLibros.setText("Libros");
-        btnLibros.setBorderPainted(false);
         btnLibros.setContentAreaFilled(false);
+        btnLibros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLibros.setFocusPainted(false);
         btnLibros.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnLibros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLibrosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLibrosMouseExited(evt);
+            }
+        });
         btnLibros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLibrosActionPerformed(evt);
@@ -147,10 +191,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnMusica.setBackground(new java.awt.Color(38, 38, 38));
         btnMusica.setForeground(new java.awt.Color(255, 255, 255));
         btnMusica.setText("Musica");
-        btnMusica.setBorderPainted(false);
         btnMusica.setContentAreaFilled(false);
+        btnMusica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMusica.setFocusPainted(false);
         btnMusica.setMargin(new java.awt.Insets(11, 20, 12, 20));
+        btnMusica.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMusicaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMusicaMouseExited(evt);
+            }
+        });
         btnMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMusicaActionPerformed(evt);
@@ -170,10 +222,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(164, 164, 164));
         btnExit.setText("X");
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setFocusable(false);
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -221,27 +276,87 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
         CARD_LAYOUT.show(panelCentral, "pServicios");
+        panelActual = "pServicios";
+        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
+        UtilDiseño.btnPaneInicioActivo(btnServicios);
     }//GEN-LAST:event_btnServiciosActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         CARD_LAYOUT.show(panelCentral, "pInicio");
+        panelActual = "pInicio";
+        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
+        UtilDiseño.btnPaneInicioActivo(btnInicio);
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeliculasActionPerformed
         CARD_LAYOUT.show(panelCentral, "pPeliculas");
+        panelActual = "pPeliculas";
+        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
+        UtilDiseño.btnPaneInicioActivo(btnPeliculas);
     }//GEN-LAST:event_btnPeliculasActionPerformed
 
     private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
         CARD_LAYOUT.show(panelCentral, "pLibros");
+        panelActual = "pLibros";
+        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
+        UtilDiseño.btnPaneInicioActivo(btnLibros);
     }//GEN-LAST:event_btnLibrosActionPerformed
 
     private void btnMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaActionPerformed
         CARD_LAYOUT.show(panelCentral, "pMusica");
+        panelActual = "pMusica";
+        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
+        UtilDiseño.btnPaneInicioActivo(btnMusica);
     }//GEN-LAST:event_btnMusicaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         CARD_LAYOUT.show(panelCentral, "pPerfil");
     }//GEN-LAST:event_btnPerfilActionPerformed
+
+    private void btnServiciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiciosMouseEntered
+        UtilDiseño.btnPaneInicioActivo(btnServicios);
+    }//GEN-LAST:event_btnServiciosMouseEntered
+
+    private void btnServiciosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiciosMouseExited
+        if(!panelActual.equals("pServicios"))
+            UtilDiseño.eliminarFondoBtnPaneInicio(btnServicios);
+    }//GEN-LAST:event_btnServiciosMouseExited
+
+    private void btnPeliculasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPeliculasMouseEntered
+        UtilDiseño.btnPaneInicioActivo(btnPeliculas);
+    }//GEN-LAST:event_btnPeliculasMouseEntered
+
+    private void btnPeliculasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPeliculasMouseExited
+       if(!panelActual.equals("pPeliculas"))
+            UtilDiseño.eliminarFondoBtnPaneInicio(btnPeliculas);
+    }//GEN-LAST:event_btnPeliculasMouseExited
+
+    private void btnMusicaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMusicaMouseEntered
+        UtilDiseño.btnPaneInicioActivo(btnMusica);
+    }//GEN-LAST:event_btnMusicaMouseEntered
+
+    private void btnMusicaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMusicaMouseExited
+        if(!panelActual.equals("pMusica"))
+            UtilDiseño.eliminarFondoBtnPaneInicio(btnMusica);        
+    }//GEN-LAST:event_btnMusicaMouseExited
+
+    private void btnLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosMouseEntered
+        UtilDiseño.btnPaneInicioActivo(btnLibros);
+    }//GEN-LAST:event_btnLibrosMouseEntered
+
+    private void btnLibrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosMouseExited
+        if(!panelActual.equals("pLibros"))
+            UtilDiseño.eliminarFondoBtnPaneInicio(btnLibros);   
+    }//GEN-LAST:event_btnLibrosMouseExited
+
+    private void btnInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseEntered
+        UtilDiseño.btnPaneInicioActivo(btnInicio);
+    }//GEN-LAST:event_btnInicioMouseEntered
+
+    private void btnInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseExited
+        if(!panelActual.equals("pInicio"))
+            UtilDiseño.eliminarFondoBtnPaneInicio(btnInicio);
+    }//GEN-LAST:event_btnInicioMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
@@ -258,4 +373,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JPanel panelNavegador;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnInicio() {
+        return btnInicio;
+    }
+
+    public JButton getBtnServicios() {
+        return btnServicios;
+    }
+
+    public JButton getBtnPeliculas() {
+        return btnPeliculas;
+    }
+
+    public JButton getBtnLibros() {
+        return btnLibros;
+    }
+
+    public JButton getBtnMusica() {
+        return btnMusica;
+    }
 }

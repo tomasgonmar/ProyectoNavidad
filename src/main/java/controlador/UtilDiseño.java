@@ -12,11 +12,13 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import vista.VentanaPrincipal;
 
 /**
  *
@@ -51,11 +53,7 @@ public class UtilDiseño {
         }
     }
 
-    public static void redondearElemento(JTextField elemento) {
-        elemento.putClientProperty( "FlatLaf.style", "arc:30" );
-    }
-
-    public static void redondearElemento(JButton elemento) {
+    public static void redondearElemento(JComponent elemento) {
         elemento.putClientProperty( "FlatLaf.style", "arc:30" );
     }
 
@@ -77,6 +75,7 @@ public class UtilDiseño {
         colocarPlaceHolderText(tFEmail,"tucorreo@gmail.com");
         cambiarPadding(tFEmail);
         colocarTextFieldLeadingIcon(tFEmail,"src/main/resources/img/IconoEmail.png");
+        cambiarColorOutline(tFEmail);
     }
 
     public static void estilizarTextFieldUser(JTextField tFUser) {
@@ -84,6 +83,7 @@ public class UtilDiseño {
         colocarPlaceHolderText(tFUser,"Usuario");
         cambiarPadding(tFUser);
         colocarTextFieldLeadingIcon(tFUser,"src/main/resources/img/IconoUsuario.png");
+        cambiarColorOutline(tFUser);
     }
 
     public static void estilizarTextFieldPassword(JPasswordField tFPassword) {
@@ -91,9 +91,41 @@ public class UtilDiseño {
         colocarPlaceHolderText(tFPassword,"******************");
         cambiarPadding(tFPassword); 
         colocarTextFieldLeadingIcon(tFPassword,"src/main/resources/img/IconoContraseña.png");
+        cambiarColorOutline(tFPassword);
     }
 
     public static void estilizarBtn(JButton btnIniciar) {
         redondearElemento(btnIniciar);
+        cambiarColorOutline(btnIniciar);
+    }
+
+    private static void cambiarColorOutline(JComponent elemento) {
+        elemento.putClientProperty("JComponent.outline", new Color[]{Color.white,Color.decode("#1a1a1a")});
+    }
+
+    public static void btnPaneInicioActivo(JButton btn) {
+        btn.setContentAreaFilled(true);
+    }
+
+    public static void eliminarFondoBtnPaneInicio(JButton btn) {
+        btn.setContentAreaFilled(false);
+    }
+
+    public static void estilizarBotonPanelInicio(JButton btn) {
+        redondearElemento(btn);
+        cambiarColorOutline(btn);
+    }
+
+    public static void estilizarBotonPerfil(JButton btn) {
+        redondearElemento(btn);
+        cambiarColorOutline(btn);
+    }
+
+    public static void eliminarFondoBtnsPaneInicio(VentanaPrincipal aThis) {
+        eliminarFondoBtnPaneInicio(aThis.getBtnInicio());
+        eliminarFondoBtnPaneInicio(aThis.getBtnServicios());
+        eliminarFondoBtnPaneInicio(aThis.getBtnPeliculas());
+        eliminarFondoBtnPaneInicio(aThis.getBtnLibros());
+        eliminarFondoBtnPaneInicio(aThis.getBtnMusica());
     }
 }

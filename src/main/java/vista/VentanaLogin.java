@@ -20,6 +20,8 @@ public class VentanaLogin extends javax.swing.JFrame {
     public VentanaLogin(ConexionBDD con) {
         initComponents();
         
+        tFUser.requestFocus();
+                
         this.CON = con;
         
         C_LOG = new ControladorLogin(this);
@@ -28,7 +30,9 @@ public class VentanaLogin extends javax.swing.JFrame {
         
         UtilDiseño.estilizarTextFieldUser(tFUser);
         UtilDiseño.estilizarTextFieldPassword(tFPassword);
-        UtilDiseño.estilizarBtn(btnIniciar);                    
+        UtilDiseño.estilizarBtn(btnIniciar);
+        
+        getRootPane().setDefaultButton(btnIniciar);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,6 +80,7 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         lblRecuperacion.setForeground(new java.awt.Color(164, 164, 164));
         lblRecuperacion.setText("Recuperar contraseña");
+        lblRecuperacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRecuperacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRecuperacionMouseClicked(evt);
@@ -93,9 +98,15 @@ public class VentanaLogin extends javax.swing.JFrame {
         btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnIniciar.setForeground(new java.awt.Color(0, 0, 0));
         btnIniciar.setText("Iniciar");
+        btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarActionPerformed(evt);
+            }
+        });
+        btnIniciar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnIniciarKeyPressed(evt);
             }
         });
         panelCentral.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 410, 314, 50));
@@ -104,6 +115,7 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         lblRegistro.setForeground(new java.awt.Color(164, 164, 164));
         lblRegistro.setText("Registrate");
+        lblRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRegistroMouseClicked(evt);
@@ -124,6 +136,8 @@ public class VentanaLogin extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setFocusable(false);
         btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnExitMouseEntered(evt);
@@ -227,6 +241,10 @@ public class VentanaLogin extends javax.swing.JFrame {
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         C_LOG.cambiarEstadoBtnSalida(false);
     }//GEN-LAST:event_btnExitMouseExited
+
+    private void btnIniciarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnIniciarKeyPressed
+        C_LOG.btnDefaultKeyPressed(evt);
+    }//GEN-LAST:event_btnIniciarKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
