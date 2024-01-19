@@ -121,7 +121,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelNavegador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPerfil.setBackground(new java.awt.Color(158, 255, 0));
-        btnPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPerfil.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPerfil.setForeground(new java.awt.Color(0, 0, 0));
         btnPerfil.setText("Perfil");
         btnPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPerfil.setFocusPainted(false);
@@ -135,6 +136,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelBotonesNav.setBackground(new java.awt.Color(26, 26, 26));
 
         btnInicio.setBackground(new java.awt.Color(38, 38, 38));
+        btnInicio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -156,6 +158,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelBotonesNav.add(btnInicio);
 
         btnServicios.setBackground(new java.awt.Color(38, 38, 38));
+        btnServicios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnServicios.setForeground(new java.awt.Color(255, 255, 255));
         btnServicios.setText("Servicios");
         btnServicios.setContentAreaFilled(false);
@@ -178,6 +181,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelBotonesNav.add(btnServicios);
 
         btnPeliculas.setBackground(new java.awt.Color(38, 38, 38));
+        btnPeliculas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
         btnPeliculas.setText("Peliculas");
         btnPeliculas.setContentAreaFilled(false);
@@ -200,6 +204,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelBotonesNav.add(btnPeliculas);
 
         btnLibros.setBackground(new java.awt.Color(38, 38, 38));
+        btnLibros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnLibros.setForeground(new java.awt.Color(255, 255, 255));
         btnLibros.setText("Libros");
         btnLibros.setContentAreaFilled(false);
@@ -222,6 +227,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelBotonesNav.add(btnLibros);
 
         btnMusica.setBackground(new java.awt.Color(38, 38, 38));
+        btnMusica.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnMusica.setForeground(new java.awt.Color(255, 255, 255));
         btnMusica.setText("Musica");
         btnMusica.setContentAreaFilled(false);
@@ -243,7 +249,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         panelBotonesNav.add(btnMusica);
 
-        panelNavegador.add(panelBotonesNav, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 21, 468, 53));
+        panelNavegador.add(panelBotonesNav, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 19, 620, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo_Nav.png"))); // NOI18N
         panelNavegador.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 20, 60, 60));
@@ -262,6 +268,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnExit.setContentAreaFilled(false);
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExit.setFocusable(false);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+        });
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -368,8 +382,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         C_PRIN.salirBtn("pInicio",btnInicio);
     }//GEN-LAST:event_btnInicioMouseExited
 
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        C_PRIN.cambiarEstadoBtnSalida(true);
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        C_PRIN.cambiarEstadoBtnSalida(false);
+    }//GEN-LAST:event_btnExitMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
+    public javax.swing.JButton btnExit;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnLibros;
     private javax.swing.JButton btnMusica;

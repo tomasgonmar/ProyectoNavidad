@@ -104,4 +104,8 @@ public class ControladorVPrincipal {
         if(!vPrincipal.getPanelActual().equals(panelActual))
             UtilDiseño.eliminarFondoBtnPaneInicio(btn);
     }
+
+    public void cambiarEstadoBtnSalida(boolean entrar) {
+        UtilDiseño.cambiarColor(vPrincipal.btnExit, entrar);
+    }
 }

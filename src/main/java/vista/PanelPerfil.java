@@ -1,5 +1,7 @@
 package vista;
 
+import controlador.UtilDiseño;
+
 /**
  *
  * @author Tomas Gonzalez Martin
@@ -11,6 +13,10 @@ public class PanelPerfil extends javax.swing.JPanel {
      */
     public PanelPerfil() {
         initComponents();
+        UtilDiseño.redondearElemento(pNombre);
+        UtilDiseño.redondearElemento(pApllidos);
+        UtilDiseño.redondearElemento(pTelefono);
+        UtilDiseño.redondearElemento(pDireccion);
     }
 
     /**
@@ -22,8 +28,23 @@ public class PanelPerfil extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        pTelefono = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        pNombre = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        pApllidos = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        pDireccion = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -38,13 +59,71 @@ public class PanelPerfil extends javax.swing.JPanel {
         setBackground(new java.awt.Color(38, 38, 38));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setBorder(null);
+        jPanel3.setBackground(new java.awt.Color(38, 38, 38));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(38, 38, 38));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jScrollPane1.setViewportView(jPanel1);
+        pTelefono.setBackground(new java.awt.Color(51, 51, 51));
+        pTelefono.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Telefono");
+        pTelefono.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pTelefono.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
+
+        jPanel3.add(pTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 350, 98));
+
+        pNombre.setBackground(new java.awt.Color(51, 51, 51));
+        pNombre.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nombre");
+        pNombre.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pNombre.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
+
+        jPanel3.add(pNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 65, 350, 98));
+
+        pApllidos.setBackground(new java.awt.Color(51, 51, 51));
+        pApllidos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Apellidos");
+        pApllidos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pApllidos.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
+
+        jPanel3.add(pApllidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 350, 98));
+
+        pDireccion.setBackground(new java.awt.Color(51, 51, 51));
+        pDireccion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Direccion");
+        pDireccion.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pDireccion.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
+
+        jPanel3.add(pDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 350, 98));
+
+        jPanel9.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Direccion");
+        jPanel9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        jPanel9.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 630, 35));
+
+        jPanel3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 295, 710, 98));
+
+        jButton1.setBackground(new java.awt.Color(158, 255, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Modificar");
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 420, 196, 63));
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
@@ -106,7 +185,13 @@ public class PanelPerfil extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -115,8 +200,17 @@ public class PanelPerfil extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JPanel pApllidos;
+    private javax.swing.JPanel pDireccion;
+    private javax.swing.JPanel pNombre;
+    private javax.swing.JPanel pTelefono;
     // End of variables declaration//GEN-END:variables
 }
