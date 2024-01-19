@@ -19,10 +19,6 @@ public class ControladorRegistro {
         this.VENTANA_REG = ventanaReg;
     }
 
-    public void salir() {
-        System.exit(0);
-    }
-
     public void abrirInicioSesion() {
         new VentanaLogin(VENTANA_REG.getConexion()).setVisible(true);
         VENTANA_REG.dispose();

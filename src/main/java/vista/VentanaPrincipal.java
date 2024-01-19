@@ -1,7 +1,8 @@
 package vista;
 
+import controlador.ControladorCierreApp;
+import controlador.ControladorVPrincipal;
 import controlador.UtilDiseño;
-import java.awt.CardLayout;
 import javax.swing.JButton;
 import modelo.Usuario;
 
@@ -13,40 +14,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
-    private final PanelInicio P_INICIO;
-    private final PanelServicios P_SERVICIOS;
-    private final PanelPeliculas P_PELICULAS;
-    private final PanelLibros P_LIBROS;
-    private final PanelMusica P_MUSICA;
-    private final PanelPerfil P_PERFIL;
-    private final CardLayout CARD_LAYOUT;
+    private PanelInicio pInicio;
+    private PanelServicios pServicios;
+    private PanelPeliculas pPeliculas
+;    private PanelLibros pLibros;
+    private PanelMusica pMusica;
+    private PanelPerfil pPerfil;
     private String panelActual;
+    private final ControladorVPrincipal C_PRIN;
     /**
      * Creates new form VentanaPrincipal
      * @param user
      */
     public VentanaPrincipal(Usuario user) {
         initComponents();
-        CARD_LAYOUT = new CardLayout();
-        panelCentral.setLayout(CARD_LAYOUT);
         
-        P_INICIO = new PanelInicio();
-        P_SERVICIOS = new PanelServicios();
-        P_PELICULAS = new PanelPeliculas();
-        P_LIBROS = new PanelLibros();
-        P_MUSICA = new PanelMusica();
-        P_PERFIL = new PanelPerfil();
+        C_PRIN = new ControladorVPrincipal(this);
         
-        panelCentral.add(P_INICIO,"pInicio");
-        panelCentral.add(P_SERVICIOS,"pServicios");
-        
-        panelCentral.add(P_PELICULAS,"pPeliculas");
-        panelCentral.add(P_LIBROS,"pLibros");
-        panelCentral.add(P_MUSICA,"pMusica");
-        panelCentral.add(P_PERFIL,"pPerfil");
-        
-        CARD_LAYOUT.show(panelCentral, "pInicio");
-        panelActual = "pInicio";
+        C_PRIN.inicializarCardLayout();
         
         UtilDiseño.estilizarBotonPanelInicio(btnInicio);
         UtilDiseño.estilizarBotonPanelInicio(btnServicios);
@@ -54,6 +39,54 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         UtilDiseño.estilizarBotonPanelInicio(btnLibros);
         UtilDiseño.estilizarBotonPanelInicio(btnMusica);
         UtilDiseño.estilizarBotonPerfil(btnPerfil);
+    }
+
+    public void setpInicio(PanelInicio panel) {
+        this.pInicio = panel;
+    }
+
+    public void setpServicios(PanelServicios panel) {
+        this.pServicios = panel;
+    }
+
+    public void setpPeliculas(PanelPeliculas panel) {
+        this.pPeliculas = panel;
+    }
+
+    public void setpLibros(PanelLibros panel) {
+        this.pLibros = panel;
+    }
+
+    public void setpMusica(PanelMusica panel) {
+        this.pMusica = panel;
+    }
+
+    public void setpPerfil(PanelPerfil panel) {
+        this.pPerfil = panel;
+    }
+
+    public PanelInicio getpInicio() {
+        return pInicio;
+    }
+
+    public PanelServicios getpServicios() {
+        return pServicios;
+    }
+
+    public PanelPeliculas getpPeliculas() {
+        return pPeliculas;
+    }
+
+    public PanelLibros getpLibros() {
+        return pLibros;
+    }
+
+    public PanelMusica getpMusica() {
+        return pMusica;
+    }
+
+    public PanelPerfil getpPerfil() {
+        return pPerfil;
     }
 
     /**
@@ -260,102 +293,79 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
-        int x =  evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x-xMouse,y-yMouse);
+        C_PRIN.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
 
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
+        C_PRIN.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
+        ControladorCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
-        CARD_LAYOUT.show(panelCentral, "pServicios");
-        panelActual = "pServicios";
-        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
-        UtilDiseño.btnPaneInicioActivo(btnServicios);
+        C_PRIN.eventosBtnServicios();
     }//GEN-LAST:event_btnServiciosActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        CARD_LAYOUT.show(panelCentral, "pInicio");
-        panelActual = "pInicio";
-        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
-        UtilDiseño.btnPaneInicioActivo(btnInicio);
+        C_PRIN.eventosBtnInicio();
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeliculasActionPerformed
-        CARD_LAYOUT.show(panelCentral, "pPeliculas");
-        panelActual = "pPeliculas";
-        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
-        UtilDiseño.btnPaneInicioActivo(btnPeliculas);
+        C_PRIN.eventosBtnPeliculas();
     }//GEN-LAST:event_btnPeliculasActionPerformed
 
     private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
-        CARD_LAYOUT.show(panelCentral, "pLibros");
-        panelActual = "pLibros";
-        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
-        UtilDiseño.btnPaneInicioActivo(btnLibros);
+        C_PRIN.eventosBtnLibros();
     }//GEN-LAST:event_btnLibrosActionPerformed
 
     private void btnMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaActionPerformed
-        CARD_LAYOUT.show(panelCentral, "pMusica");
-        panelActual = "pMusica";
-        UtilDiseño.eliminarFondoBtnsPaneInicio(this);
-        UtilDiseño.btnPaneInicioActivo(btnMusica);
+        C_PRIN.eventosBtnMusica();
     }//GEN-LAST:event_btnMusicaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-        CARD_LAYOUT.show(panelCentral, "pPerfil");
+        C_PRIN.eventoBtnPerfil();
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void btnServiciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiciosMouseEntered
-        UtilDiseño.btnPaneInicioActivo(btnServicios);
+        C_PRIN.entrarBtn(btnServicios);
     }//GEN-LAST:event_btnServiciosMouseEntered
 
     private void btnServiciosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiciosMouseExited
-        if(!panelActual.equals("pServicios"))
-            UtilDiseño.eliminarFondoBtnPaneInicio(btnServicios);
+        C_PRIN.salirBtn("pServicios",btnServicios);
     }//GEN-LAST:event_btnServiciosMouseExited
 
     private void btnPeliculasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPeliculasMouseEntered
-        UtilDiseño.btnPaneInicioActivo(btnPeliculas);
+        C_PRIN.entrarBtn(btnPeliculas);
     }//GEN-LAST:event_btnPeliculasMouseEntered
 
     private void btnPeliculasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPeliculasMouseExited
-       if(!panelActual.equals("pPeliculas"))
-            UtilDiseño.eliminarFondoBtnPaneInicio(btnPeliculas);
+       C_PRIN.salirBtn("pPeliculas",btnPeliculas);
     }//GEN-LAST:event_btnPeliculasMouseExited
 
     private void btnMusicaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMusicaMouseEntered
-        UtilDiseño.btnPaneInicioActivo(btnMusica);
+        C_PRIN.entrarBtn(btnMusica);
     }//GEN-LAST:event_btnMusicaMouseEntered
 
     private void btnMusicaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMusicaMouseExited
-        if(!panelActual.equals("pMusica"))
-            UtilDiseño.eliminarFondoBtnPaneInicio(btnMusica);        
+        C_PRIN.salirBtn("pMusica",btnMusica);       
     }//GEN-LAST:event_btnMusicaMouseExited
 
     private void btnLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosMouseEntered
-        UtilDiseño.btnPaneInicioActivo(btnLibros);
+        C_PRIN.entrarBtn(btnLibros);
     }//GEN-LAST:event_btnLibrosMouseEntered
 
     private void btnLibrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosMouseExited
-        if(!panelActual.equals("pLibros"))
-            UtilDiseño.eliminarFondoBtnPaneInicio(btnLibros);   
+        C_PRIN.salirBtn("pLibros",btnLibros); 
     }//GEN-LAST:event_btnLibrosMouseExited
 
     private void btnInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseEntered
-        UtilDiseño.btnPaneInicioActivo(btnInicio);
+        C_PRIN.entrarBtn(btnInicio);
     }//GEN-LAST:event_btnInicioMouseEntered
 
     private void btnInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseExited
-        if(!panelActual.equals("pInicio"))
-            UtilDiseño.eliminarFondoBtnPaneInicio(btnInicio);
+        C_PRIN.salirBtn("pInicio",btnInicio);
     }//GEN-LAST:event_btnInicioMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -369,7 +379,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel panelBotonesNav;
-    private javax.swing.JPanel panelCentral;
+    public javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JPanel panelNavegador;
     // End of variables declaration//GEN-END:variables
@@ -392,5 +402,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     public JButton getBtnMusica() {
         return btnMusica;
+    }
+
+    public void setPanelActual(String nombrePanel) {
+        this.panelActual = nombrePanel;
+    }
+
+    public void setXMouse(int x) {
+        this.xMouse = x;
+    }
+
+    public void setYMouse(int y) {
+        this.yMouse = y;
+    }
+
+    public int getXMouse() {
+       return xMouse;
+    }
+
+    public int getYMouse() {
+        return yMouse;
+    }
+
+    public String getPanelActual() {
+        return panelActual;
     }
 }

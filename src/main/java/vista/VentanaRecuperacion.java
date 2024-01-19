@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.ConexionBDD;
+import controlador.ControladorCierreApp;
 import controlador.ControladorRecuperacion;
 import controlador.UtilDiseño;
 

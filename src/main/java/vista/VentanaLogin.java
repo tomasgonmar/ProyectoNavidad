@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.ConexionBDD;
+import controlador.ControladorCierreApp;
 import controlador.ControladorLogin;
 import controlador.UtilDiseño;
 /**
@@ -194,7 +195,7 @@ public class VentanaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        C_LOG.salir();
+        ControladorCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed

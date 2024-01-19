@@ -24,11 +24,7 @@ public class ControladorLogin {
     public ControladorLogin(VentanaLogin ventanaLog) {
         this.VENTANA_LOG = ventanaLog;
     }
-
-    public void salir() {
-        System.exit(0);
-    }
-
+    
     public void desplazamientoPressed(MouseEvent evt) {
         VENTANA_LOG.setXMouse(evt.getX());
         VENTANA_LOG.setYMouse(evt.getY());
