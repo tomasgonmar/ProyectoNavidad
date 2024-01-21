@@ -4,8 +4,8 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
-import vista.VentanaLogin;
-import vista.VentanaRecuperacion;
+import vista.frames.VentanaLogin;
+import vista.frames.VentanaRecuperacion;
 
 /**
  *

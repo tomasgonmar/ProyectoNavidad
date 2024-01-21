@@ -1,4 +1,4 @@
-package vista;
+package vista.frames;
 
 import controlador.ConexionBDD;
 import controlador.ControladorCierreApp;
@@ -29,7 +29,9 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
         UtilDiseño.redondearVentana(this);
         
         UtilDiseño.estilizarTextFieldEmail(tFEmail);
-        UtilDiseño.estilizarBtn(btnRecuperar);        
+        UtilDiseño.estilizarBtn(btnRecuperar); 
+        
+        getRootPane().setDefaultButton(btnRecuperar);
     }
 
     /**

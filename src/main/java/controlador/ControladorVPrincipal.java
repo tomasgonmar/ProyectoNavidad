@@ -3,13 +3,13 @@ package controlador;
 import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
-import vista.PanelInicio;
-import vista.PanelLibros;
-import vista.PanelMusica;
-import vista.PanelPeliculas;
-import vista.PanelPerfil;
-import vista.PanelServicios;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelInicio;
+import vista.paneles.PanelLibros;
+import vista.paneles.PanelMusica;
+import vista.paneles.PanelPeliculas;
+import vista.paneles.PanelPerfil;
+import vista.paneles.PanelServicios;
+import vista.frames.VentanaPrincipal;
 
 /**
  *

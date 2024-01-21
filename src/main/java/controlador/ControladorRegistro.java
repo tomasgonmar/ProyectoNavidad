@@ -2,8 +2,8 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import modelo.Usuario;
-import vista.VentanaLogin;
-import vista.VentanaRegistro;
+import vista.frames.VentanaLogin;
+import vista.frames.VentanaRegistro;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -35,18 +35,30 @@ public class ControladorRegistro {
         VENTANA_REG.setYMouse(evt.getY());
     }
     public Usuario obtenerUsuario(){
-        return new Usuario(VENTANA_REG.getEmail(),VENTANA_REG.getUser(),Encriptado.encriptarPassword(VENTANA_REG.getPassword()));
+        return new Usuario(VENTANA_REG.getEmail(),VENTANA_REG.getUser()
+                ,VENTANA_REG.getPassword(),VENTANA_REG.getPasswordValidation());
     }
 
     public void registrarUsuario() {
         Usuario u  = obtenerUsuario();
         if(u.emailValido()){
-            try {
-                VENTANA_REG.getConexion().registrarUsuario(u);
-                VENTANA_REG.limpiarCampos();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(VENTANA_REG, "El nombre de usuario o el correo ya esta en uso, porfavor cambielo.");
+            System.out.println(u.getContraseña());
+            System.out.println(u.getValidacionContraseña());
+            if(u.getContraseña().equals(u.getValidacionContraseña())){
+                try {
+                    Encriptado.encriptarUsuario(u);
+                    VENTANA_REG.getConexion().registrarUsuario(u);
+                    VENTANA_REG.limpiarCampos();
+                    JOptionPane.showMessageDialog(VENTANA_REG, "Usuario registrado correctamente.");
+                    new VentanaLogin(VENTANA_REG.getConexion()).setVisible(true);
+                    VENTANA_REG.dispose();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(VENTANA_REG, "El nombre de usuario o el correo ya esta en uso, porfavor cambielo.");
+                }
+            }else{
+                JOptionPane.showMessageDialog(VENTANA_REG, "Las contraseñas no coinciden.");
             }
+            
         }else{
             JOptionPane.showMessageDialog(VENTANA_REG, "El correo introducido no es valido");
         }

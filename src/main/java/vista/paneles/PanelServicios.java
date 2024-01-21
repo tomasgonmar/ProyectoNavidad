@@ -1,16 +1,25 @@
-package vista;
+package vista.paneles;
+
+import java.awt.GridLayout;
 
 /**
  *
  * @author Tomas Gonzalez Martin
  */
-public class PanelPeliculas extends javax.swing.JPanel {
+public class PanelServicios extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelPeliculas
+     * Creates new form PanelServicios
      */
-    public PanelPeliculas() {
+    public PanelServicios() {
         initComponents();
+        
+        panelCentral.setLayout(new GridLayout(0,3));
+        
+        for(int i = 0; i<10; i++){
+            Servicio p = new Servicio();
+            panelCentral.add(p);
+        }
     }
 
     /**
@@ -23,7 +32,7 @@ public class PanelPeliculas extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        panelCentral = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -40,9 +49,9 @@ public class PanelPeliculas extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
 
-        jPanel1.setBackground(new java.awt.Color(38, 38, 38));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jScrollPane1.setViewportView(jPanel1);
+        panelCentral.setBackground(new java.awt.Color(38, 38, 38));
+        panelCentral.setLayout(new java.awt.GridLayout());
+        jScrollPane1.setViewportView(panelCentral);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
 
@@ -51,7 +60,7 @@ public class PanelPeliculas extends javax.swing.JPanel {
         jLabel5.setBackground(new java.awt.Color(38, 38, 38));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("<html> <div style='text-align: center;'>Peliculas</div> </html>");
+        jLabel5.setText("<html> <div style='text-align: center;'>Servicios</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -115,8 +124,8 @@ public class PanelPeliculas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelCentral;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
-package vista;
+package vista.frames;
 
 import controlador.ConexionBDD;
 import controlador.UtilDiseño;
@@ -33,7 +33,6 @@ public class LoadingScreen extends javax.swing.JFrame {
                     case 95 -> {
                         con = new ConexionBDD();
                         ventanaLogin = new VentanaLogin(con);
-                        Thread.sleep(1540);
                     }
                     default -> Thread.sleep(10); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
                 }

@@ -8,10 +8,10 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
-import vista.VentanaLogin;
-import vista.VentanaPrincipal;
-import vista.VentanaRecuperacion;
-import vista.VentanaRegistro;
+import vista.frames.VentanaLogin;
+import vista.frames.VentanaPrincipal;
+import vista.frames.VentanaRecuperacion;
+import vista.frames.VentanaRegistro;
 
 /**
  *

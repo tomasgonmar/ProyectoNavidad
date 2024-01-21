@@ -1,15 +1,15 @@
-package vista;
+package vista.paneles;
 
 /**
  *
  * @author Tomas Gonzalez Martin
  */
-public class PanelServicios extends javax.swing.JPanel {
+public class PanelLibros extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelServicios
+     * Creates new form PanelLibros
      */
-    public PanelServicios() {
+    public PanelLibros() {
         initComponents();
     }
 
@@ -51,7 +51,7 @@ public class PanelServicios extends javax.swing.JPanel {
         jLabel5.setBackground(new java.awt.Color(38, 38, 38));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("<html> <div style='text-align: center;'>Servicios</div> </html>");
+        jLabel5.setText("<html> <div style='text-align: center;'>Libros</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

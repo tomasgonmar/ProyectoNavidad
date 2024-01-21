@@ -1,10 +1,16 @@
-package vista;
+package vista.frames;
 
 import controlador.ControladorCierreApp;
 import controlador.ControladorVPrincipal;
 import controlador.UtilDiseño;
 import javax.swing.JButton;
 import modelo.Usuario;
+import vista.paneles.PanelInicio;
+import vista.paneles.PanelLibros;
+import vista.paneles.PanelMusica;
+import vista.paneles.PanelPeliculas;
+import vista.paneles.PanelPerfil;
+import vista.paneles.PanelServicios;
 
 /**
  *

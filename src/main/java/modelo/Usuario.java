@@ -11,11 +11,13 @@ public class Usuario {
     private String email;
     private String usuario;
     private String contraseña;
+    private String validacionContraseña;
 
-    public Usuario(String email, String usuario, String contraseña) {
+    public Usuario(String email, String usuario, String contraseña, String validacionContraseña) {
         this.email = email;
         this.usuario = usuario;
         this.contraseña = contraseña;
+        this.validacionContraseña = validacionContraseña;
     }
 
     public Usuario(String usuario, String contraseña) {
@@ -27,6 +29,14 @@ public class Usuario {
         this.email = email;
         this.usuario = null;
         this.contraseña = null;
+    }
+
+    public String getValidacionContraseña() {
+        return validacionContraseña;
+    }
+
+    public void setValidacionContraseña(String validacionContraseña) {
+        this.validacionContraseña = validacionContraseña;
     }
 
     public String getEmail() {

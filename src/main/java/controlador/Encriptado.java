@@ -2,6 +2,7 @@ package controlador;
 
 import com.password4j.Hash;
 import com.password4j.Password;
+import modelo.Usuario;
 
 /**
  *
@@ -16,5 +17,10 @@ public class Encriptado {
     }
     public static boolean comprobarContraseña(String contraseña,String hash){
         return Password.check(contraseña,hash).withArgon2();
+    }
+
+    static void encriptarUsuario(Usuario u) {
+        u.setContraseña(encriptarPassword(u.getContraseña()));
+        u.setValidacionContraseña(encriptarPassword(u.getValidacionContraseña()));
     }
 }

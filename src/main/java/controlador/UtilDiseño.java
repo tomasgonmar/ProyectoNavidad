@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import vista.VentanaPrincipal;
+import vista.frames.VentanaPrincipal;
 
 /**
  *
