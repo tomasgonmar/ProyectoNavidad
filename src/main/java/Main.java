@@ -1,5 +1,5 @@
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme;
-import vista.frames.LoadingScreen;
+import vista.frames.FrameLoadingScreen;
 
 /**
  *
@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         FlatArcDarkIJTheme.setup();
         
-        LoadingScreen ls = new LoadingScreen();
+        FrameLoadingScreen ls = new FrameLoadingScreen();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {

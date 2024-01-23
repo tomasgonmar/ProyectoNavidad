@@ -8,10 +8,10 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
-import vista.frames.VentanaLogin;
-import vista.frames.VentanaPrincipal;
-import vista.frames.VentanaRecuperacion;
-import vista.frames.VentanaRegistro;
+import vista.frames.FrameLogin;
+import vista.frames.FrameApp;
+import vista.frames.FrameRecuperacion;
+import vista.frames.FrameRegistro;
 
 /**
  *
@@ -19,9 +19,9 @@ import vista.frames.VentanaRegistro;
  */
 public class ControladorLogin {
 
-    private final VentanaLogin VENTANA_LOG;
+    private final FrameLogin VENTANA_LOG;
     
-    public ControladorLogin(VentanaLogin ventanaLog) {
+    public ControladorLogin(FrameLogin ventanaLog) {
         this.VENTANA_LOG = ventanaLog;
     }
     
@@ -42,11 +42,11 @@ public class ControladorLogin {
     }
 
     public void abrirVentanaRecuperacion() {
-        abrirVentana(new VentanaRecuperacion(VENTANA_LOG.getConexion()));
+        abrirVentana(new FrameRecuperacion(VENTANA_LOG.getConexion()));
     }
 
     public void abrirVentanaRegistro() {
-        abrirVentana(new VentanaRegistro(VENTANA_LOG.getConexion()));
+        abrirVentana(new FrameRegistro(VENTANA_LOG.getConexion()));
     }
     
     public Usuario obtenerUser(){
@@ -57,7 +57,7 @@ public class ControladorLogin {
         Usuario user = obtenerUser();
         try {
             if(VENTANA_LOG.getConexion().existsUser(user)){
-                new VentanaPrincipal(user).setVisible(true);
+                new FrameApp(user).setVisible(true);
                 VENTANA_LOG.dispose();
             }else{
                 JOptionPane.showMessageDialog(VENTANA_LOG, "Usuario o contraseña incorrecto");

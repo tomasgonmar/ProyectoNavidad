@@ -8,7 +8,7 @@ import modelo.Usuario;
  *
  * @author Tomás González Martín
  */
-public class Encriptado {
+public class UtilEncriptado {
     public static String encriptarPassword(String contraseña){
         Hash hash = Password.hash(contraseña)
             .addRandomSalt(32) 

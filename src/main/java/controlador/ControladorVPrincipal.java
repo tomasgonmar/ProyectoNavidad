@@ -9,7 +9,7 @@ import vista.paneles.PanelMusica;
 import vista.paneles.PanelPeliculas;
 import vista.paneles.PanelPerfil;
 import vista.paneles.PanelServicios;
-import vista.frames.VentanaPrincipal;
+import vista.frames.FrameApp;
 
 /**
  *
@@ -17,10 +17,10 @@ import vista.frames.VentanaPrincipal;
  */
 public class ControladorVPrincipal {
 
-    private VentanaPrincipal vPrincipal;
+    private FrameApp vPrincipal;
     private CardLayout CARD_LAYOUT;
     
-    public ControladorVPrincipal(VentanaPrincipal vPrincipal) {
+    public ControladorVPrincipal(FrameApp vPrincipal) {
         this.vPrincipal = vPrincipal;
     }
 

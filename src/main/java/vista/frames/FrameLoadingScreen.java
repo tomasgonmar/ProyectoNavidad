@@ -10,14 +10,14 @@ import java.util.logging.Logger;
  *
  * @author Tomas Gonzalez Martin
  */
-public class LoadingScreen extends javax.swing.JFrame {
+public class FrameLoadingScreen extends javax.swing.JFrame {
 
-    private VentanaLogin ventanaLogin;
+    private FrameLogin ventanaLogin;
     private ConexionBDD con;
     /**
      * Creates new form LoadingScreen
      */
-    public LoadingScreen() {
+    public FrameLoadingScreen() {
         initComponents();
         
         UtilDiseño.redondearVentana(this);
@@ -32,13 +32,13 @@ public class LoadingScreen extends javax.swing.JFrame {
                 switch (i) {
                     case 95 -> {
                         con = new ConexionBDD();
-                        ventanaLogin = new VentanaLogin(con);
+                        ventanaLogin = new FrameLogin(con);
                     }
                     default -> Thread.sleep(10); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
                 }
             }
         } catch (InterruptedException | SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrameLoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         dispose();

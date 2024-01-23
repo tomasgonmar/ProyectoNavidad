@@ -9,7 +9,7 @@ import controlador.UtilDiseño;
  *
  * @author Tomas Gonzalez Martin
  */
-public class VentanaRecuperacion extends javax.swing.JFrame {
+public class FrameRecuperacion extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
@@ -19,7 +19,7 @@ public class VentanaRecuperacion extends javax.swing.JFrame {
      * Creates new form VentanaRecuperacion
      * @param con
      */
-    public VentanaRecuperacion(ConexionBDD con) {
+    public FrameRecuperacion(ConexionBDD con) {
         initComponents();
         
         this.CON = con;

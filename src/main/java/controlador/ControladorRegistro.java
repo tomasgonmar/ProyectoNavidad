@@ -2,8 +2,8 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import modelo.Usuario;
-import vista.frames.VentanaLogin;
-import vista.frames.VentanaRegistro;
+import vista.frames.FrameLogin;
+import vista.frames.FrameRegistro;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -13,14 +13,14 @@ import javax.swing.JOptionPane;
  */
 public class ControladorRegistro {
 
-    private final VentanaRegistro VENTANA_REG;
+    private final FrameRegistro VENTANA_REG;
     
-    public ControladorRegistro(VentanaRegistro ventanaReg) {
+    public ControladorRegistro(FrameRegistro ventanaReg) {
         this.VENTANA_REG = ventanaReg;
     }
 
     public void abrirInicioSesion() {
-        new VentanaLogin(VENTANA_REG.getConexion()).setVisible(true);
+        new FrameLogin(VENTANA_REG.getConexion()).setVisible(true);
         VENTANA_REG.dispose();
     }
 
@@ -46,11 +46,11 @@ public class ControladorRegistro {
             System.out.println(u.getValidacionContraseña());
             if(u.getContraseña().equals(u.getValidacionContraseña())){
                 try {
-                    Encriptado.encriptarUsuario(u);
+                    UtilEncriptado.encriptarUsuario(u);
                     VENTANA_REG.getConexion().registrarUsuario(u);
                     VENTANA_REG.limpiarCampos();
                     JOptionPane.showMessageDialog(VENTANA_REG, "Usuario registrado correctamente.");
-                    new VentanaLogin(VENTANA_REG.getConexion()).setVisible(true);
+                    new FrameLogin(VENTANA_REG.getConexion()).setVisible(true);
                     VENTANA_REG.dispose();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(VENTANA_REG, "El nombre de usuario o el correo ya esta en uso, porfavor cambielo.");

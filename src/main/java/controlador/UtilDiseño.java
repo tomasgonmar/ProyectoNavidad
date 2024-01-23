@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import vista.frames.VentanaPrincipal;
+import vista.frames.FrameApp;
 
 /**
  *
@@ -74,7 +74,7 @@ public class UtilDiseño {
         redondearElemento(tFEmail);
         colocarPlaceHolderText(tFEmail,"tucorreo@gmail.com");
         cambiarPadding(tFEmail);
-        colocarTextFieldLeadingIcon(tFEmail,"src/main/resources/img/IconoEmail.png");
+        colocarTextFieldLeadingIcon(tFEmail,"src/main/resources/img/iconos/IconoEmail.png");
         cambiarColorOutline(tFEmail);
     }
 
@@ -82,7 +82,7 @@ public class UtilDiseño {
         redondearElemento(tFUser);
         colocarPlaceHolderText(tFUser,"Usuario");
         cambiarPadding(tFUser);
-        colocarTextFieldLeadingIcon(tFUser,"src/main/resources/img/IconoUsuario.png");
+        colocarTextFieldLeadingIcon(tFUser,"src/main/resources/img/iconos/IconoUsuario.png");
         cambiarColorOutline(tFUser);
     }
 
@@ -90,7 +90,7 @@ public class UtilDiseño {
         redondearElemento(tFPassword);
         colocarPlaceHolderText(tFPassword,"******************");
         cambiarPadding(tFPassword); 
-        colocarTextFieldLeadingIcon(tFPassword,"src/main/resources/img/IconoContraseña.png");
+        colocarTextFieldLeadingIcon(tFPassword,"src/main/resources/img/iconos/IconoContraseña.png");
         cambiarColorOutline(tFPassword);
     }
 
@@ -121,7 +121,7 @@ public class UtilDiseño {
         cambiarColorOutline(btn);
     }
 
-    public static void eliminarFondoBtnsPaneInicio(VentanaPrincipal aThis) {
+    public static void eliminarFondoBtnsPaneInicio(FrameApp aThis) {
         eliminarFondoBtnPaneInicio(aThis.getBtnInicio());
         eliminarFondoBtnPaneInicio(aThis.getBtnServicios());
         eliminarFondoBtnPaneInicio(aThis.getBtnPeliculas());

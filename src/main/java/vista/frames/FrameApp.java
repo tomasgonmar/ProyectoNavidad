@@ -16,7 +16,7 @@ import vista.paneles.PanelServicios;
  *
  * @author Tomás González Martín
  */
-public class VentanaPrincipal extends javax.swing.JFrame {
+public class FrameApp extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
@@ -32,7 +32,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      * @param user
      */
-    public VentanaPrincipal(Usuario user) {
+    public FrameApp(Usuario user) {
         initComponents();
         
         C_PRIN = new ControladorVPrincipal(this);

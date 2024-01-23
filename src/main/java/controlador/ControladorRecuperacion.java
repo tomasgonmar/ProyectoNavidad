@@ -4,8 +4,8 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
-import vista.frames.VentanaLogin;
-import vista.frames.VentanaRecuperacion;
+import vista.frames.FrameLogin;
+import vista.frames.FrameRecuperacion;
 
 /**
  *
@@ -13,14 +13,14 @@ import vista.frames.VentanaRecuperacion;
  */
 public class ControladorRecuperacion {
     
-    private final VentanaRecuperacion VENTANA_REC;
+    private final FrameRecuperacion VENTANA_REC;
 
-    public ControladorRecuperacion(VentanaRecuperacion ventanaRec) {
+    public ControladorRecuperacion(FrameRecuperacion ventanaRec) {
         this.VENTANA_REC = ventanaRec;
     }
 
     public void salir() {
-        new VentanaLogin(VENTANA_REC.getConexion()).setVisible(true);
+        new FrameLogin(VENTANA_REC.getConexion()).setVisible(true);
         VENTANA_REC.dispose();
     }
 
@@ -40,7 +40,7 @@ public class ControladorRecuperacion {
             Usuario user = new Usuario(VENTANA_REC.getEmail());
             if(VENTANA_REC.getConexion().emailExiste(user)){
                 String contraseñaEnviar = new ContraseñaAleatoria(15).obtenerContraseña();
-                user.setContraseña(Encriptado.encriptarPassword(contraseñaEnviar));
+                user.setContraseña(UtilEncriptado.encriptarPassword(contraseñaEnviar));
                 
                 VENTANA_REC.getConexion().modificarContraseña(user);
                 

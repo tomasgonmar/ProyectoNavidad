@@ -11,7 +11,7 @@ import controlador.UtilDiseño;
  * @author Tomas Gonzalez Martin
  */
 
-public class VentanaRegistro extends javax.swing.JFrame {
+public class FrameRegistro extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
@@ -21,7 +21,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
      * Creates new form VentanaRegistro
      * @param con
      */
-    public VentanaRegistro(ConexionBDD con) {
+    public FrameRegistro(ConexionBDD con) {
         initComponents();
         
         this.CON = con;
@@ -68,6 +68,8 @@ public class VentanaRegistro extends javax.swing.JFrame {
         setUndecorated(true);
 
         panelCentral.setBackground(new java.awt.Color(26, 26, 26));
+        panelCentral.setMinimumSize(new java.awt.Dimension(390, 637));
+        panelCentral.setPreferredSize(new java.awt.Dimension(390, 637));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -189,7 +191,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 544, Short.MAX_VALUE)
+            .addComponent(panelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

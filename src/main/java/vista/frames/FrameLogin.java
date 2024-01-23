@@ -8,7 +8,7 @@ import controlador.UtilDiseño;
  *
  * @author Tomas Gonzalez Martin
  */
-public class VentanaLogin extends javax.swing.JFrame {
+public class FrameLogin extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
@@ -18,7 +18,7 @@ public class VentanaLogin extends javax.swing.JFrame {
      * Creates new form VentanaLogin
      * @param con
      */
-    public VentanaLogin(ConexionBDD con) {
+    public FrameLogin(ConexionBDD con) {
         initComponents();
         
         tFUser.requestFocus();
@@ -187,7 +187,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+            .addComponent(panelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
         );
 
         pack();
