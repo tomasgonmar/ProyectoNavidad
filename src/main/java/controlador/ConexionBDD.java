@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import modelo.Usuario;
 
 /**
- *
+ * Conector con la base de datos y funciones para el DDL de la base de datos
  * @author Tomás González Martín
  */
 public class ConexionBDD {

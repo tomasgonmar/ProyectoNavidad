@@ -16,7 +16,9 @@ public class PanelPerfil extends javax.swing.JPanel {
         UtilDiseño.redondearElemento(pNombre);
         UtilDiseño.redondearElemento(pApllidos);
         UtilDiseño.redondearElemento(pTelefono);
+        UtilDiseño.redondearElemento(pContraseña);
         UtilDiseño.redondearElemento(pDireccion);
+        UtilDiseño.estilizarBtn(jButton1);
     }
 
     /**
@@ -38,10 +40,10 @@ public class PanelPerfil extends javax.swing.JPanel {
         pApllidos = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        pDireccion = new javax.swing.JPanel();
+        pContraseña = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jPanel9 = new javax.swing.JPanel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        pDireccion = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -95,32 +97,33 @@ public class PanelPerfil extends javax.swing.JPanel {
 
         jPanel3.add(pApllidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 350, 98));
 
-        pDireccion.setBackground(new java.awt.Color(51, 51, 51));
-        pDireccion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pContraseña.setBackground(new java.awt.Color(51, 51, 51));
+        pContraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Direccion");
-        pDireccion.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
-        pDireccion.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
+        jLabel13.setText("Contraseña");
+        pContraseña.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pContraseña.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
 
-        jPanel3.add(pDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 350, 98));
+        jPanel3.add(pContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 350, 98));
 
-        jPanel9.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pDireccion.setBackground(new java.awt.Color(51, 51, 51));
+        pDireccion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Direccion");
-        jPanel9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
-        jPanel9.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 630, 35));
+        pDireccion.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pDireccion.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 630, 35));
 
-        jPanel3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 295, 710, 98));
+        jPanel3.add(pDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 295, 710, 98));
 
         jButton1.setBackground(new java.awt.Color(158, 255, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Modificar");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 420, 196, 63));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
@@ -202,13 +205,13 @@ public class PanelPerfil extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JPanel pApllidos;
+    private javax.swing.JPanel pContraseña;
     private javax.swing.JPanel pDireccion;
     private javax.swing.JPanel pNombre;
     private javax.swing.JPanel pTelefono;

@@ -3,15 +3,16 @@ package vista.frames;
 import controlador.ConexionBDD;
 import controlador.UtilDiseño;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
- *
+ * Frame de carga para la aplicacion
  * @author Tomas Gonzalez Martin
  */
 public class FrameLoadingScreen extends javax.swing.JFrame {
-
+    /**
+     * 
+     */
     private FrameLogin ventanaLogin;
     private ConexionBDD con;
     /**
@@ -19,28 +20,45 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
      */
     public FrameLoadingScreen() {
         initComponents();
-        
+        /**
+         * Llama a la funcion para redondear la ventana
+         */
         UtilDiseño.redondearVentana(this);
     }
-    
+    /**
+     * Inicia la aplicacion y realiza la conexion a la base de datos
+     */
     public void inicioAplicacion(){
+        /**
+         * Contador del porcentaje de la barra de carga
+         */
         int i = 0;
         try{
             while (i <= 100) {
                 jProgressBar1.setValue(i);
                 i++;
+                /**
+                 * Cuando llegue al 95% realiza la conexion de la base de datos,
+                 * en el resto se duerme durante 10 milisegundos para avanzar la
+                 * carga
+                 */
                 switch (i) {
                     case 95 -> {
                         con = new ConexionBDD();
                         ventanaLogin = new FrameLogin(con);
                     }
-                    default -> Thread.sleep(10); // opcional: para agregar una pausa de 100 milisegundos entre cada incremento
+                    default -> Thread.sleep(10);
                 }
             }
+        /**
+         * Cuando se produce una excepcion muestra un mensaje de error al usuario
+         */    
         } catch (InterruptedException | SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(FrameLoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Error al iniciar la aplicacion", "Error", HEIGHT);
         }
-        
+        /**
+         * Cerramos el frame y se muestra la ventana del login
+         */
         dispose();
         ventanaLogin.setVisible(true);
     }

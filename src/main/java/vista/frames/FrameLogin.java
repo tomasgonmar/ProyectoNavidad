@@ -5,34 +5,48 @@ import controlador.ControladorCierreApp;
 import controlador.ControladorLogin;
 import controlador.UtilDiseño;
 /**
- *
+ * Frame para introducir los datos de inicio de sesion del usuario
  * @author Tomas Gonzalez Martin
  */
 public class FrameLogin extends javax.swing.JFrame {
-    
+    /**
+     * xMouse almacena la posicion x del raton
+     * yMouse almacena la posicion y del raton
+     * C_LOG controlador de la ventana login
+     * CON conexion con la base de datos
+     */
     private int xMouse;
     private int yMouse;
     private final ControladorLogin C_LOG;
     private final ConexionBDD CON;
     /**
      * Creates new form VentanaLogin
-     * @param con
+     * @param con Conexion con la base de datos
      */
     public FrameLogin(ConexionBDD con) {
         initComponents();
-        
+        /**
+         * Hace focus al textField del usuario y se guarda la conexion
+         */
         tFUser.requestFocus();
-                
         this.CON = con;
-        
+        /**
+         * Inicializa el controlador 
+         */
         C_LOG = new ControladorLogin(this);
-                
+        /**
+         * Llama a la funcion para redondear la ventana
+         */        
         UtilDiseño.redondearVentana(this);
-        
+        /**
+         * Utiliza las funciones de diseño para estilizar los textField y el boton
+         */
         UtilDiseño.estilizarTextFieldUser(tFUser);
         UtilDiseño.estilizarTextFieldPassword(tFPassword);
         UtilDiseño.estilizarBtn(btnIniciar);
-        
+        /**
+         * El boton de iniciar sesion se coloca como boton por defecto del frame
+         */
         getRootPane().setDefaultButton(btnIniciar);
     }
     /**
@@ -193,56 +207,94 @@ public class FrameLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Finaliza la aplicacion
+     * @param evt 
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         ControladorCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
-
+    /**
+     * Desplazamiento de la ventana
+     * @param evt 
+     */
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
         C_LOG.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
-
+    /**
+     * Desplazamiento de la ventana
+     * @param evt 
+     */
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
         C_LOG.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
-
+    /**
+     * Llama al frame de recuperacion de la contraseña
+     * @param evt 
+     */
     private void lblRecuperacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperacionMouseClicked
         C_LOG.abrirVentanaRecuperacion();
-        
     }//GEN-LAST:event_lblRecuperacionMouseClicked
-
+    /**
+     * Llama al frame de recuperacion de la contraseña
+     * @param evt 
+     */
     private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
         C_LOG.abrirVentanaRegistro();
     }//GEN-LAST:event_lblRegistroMouseClicked
-
+    /**
+     * Inicia la sesion
+     * @param evt 
+     */
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         C_LOG.iniciarSesion();
     }//GEN-LAST:event_btnIniciarActionPerformed
-
+    /**
+     * Modifica el estilo del label de recuperacion
+     * @param evt 
+     */
     private void lblRecuperacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperacionMouseEntered
         C_LOG.cambiarEstadoLblRecuperacion(true);
     }//GEN-LAST:event_lblRecuperacionMouseEntered
-
+    /**
+     * Modifica el estilo del label de recuperacion
+     * @param evt 
+     */
     private void lblRecuperacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperacionMouseExited
         C_LOG.cambiarEstadoLblRecuperacion(false);
     }//GEN-LAST:event_lblRecuperacionMouseExited
-
+    /**
+     * Modifica el estilo del label de registro
+     * @param evt 
+     */
     private void lblRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseEntered
         C_LOG.cambiarEstadoLblRegistro(true);
     }//GEN-LAST:event_lblRegistroMouseEntered
-
+    /**
+     * Modifica el estilo del label de registro
+     * @param evt 
+     */
     private void lblRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseExited
         C_LOG.cambiarEstadoLblRegistro(false);
     }//GEN-LAST:event_lblRegistroMouseExited
-
+    /**
+     * Modifica el estilo del boton de salir
+     * @param evt 
+     */
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
         C_LOG.cambiarEstadoBtnSalida(true);
     }//GEN-LAST:event_btnExitMouseEntered
-
+    /**
+     * Modifica el estilo del boton de salir
+     * @param evt 
+     */
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         C_LOG.cambiarEstadoBtnSalida(false);
     }//GEN-LAST:event_btnExitMouseExited
-
+    /**
+     * Inicia sersion en la aplicacion
+     * @param evt 
+     */
     private void btnIniciarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnIniciarKeyPressed
         C_LOG.btnDefaultKeyPressed(evt);
     }//GEN-LAST:event_btnIniciarKeyPressed
@@ -261,30 +313,52 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField tFPassword;
     private javax.swing.JTextField tFUser;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Guarda el valor x del frame
+     * @param x Posicion x del frame 
+     */
     public void setXMouse(int x) {
         xMouse = x;
     }
-
+    /**
+     * Guarda el valor y del frame
+     * @param y Posicion y del frame
+     */
     public void setYMouse(int y) {
         yMouse = y;
     }
-
+    /**
+     * Devuelve el valor x del frame
+     * @return 
+     */
     public int getXMouse() {
        return xMouse;
     }
-
+    /**
+     * Devuelve el valor y del frame
+     * @return 
+     */
     public int getYMouse() {
        return yMouse;
     }
-    
+    /**
+     * Devuelve el texto del textField de usuario como string
+     * @return 
+     */
     public String getUsuario(){
         return tFUser.getText();
     }
+    /**
+     * Devuelve el texto del textField de contraseña como string
+     * @return 
+     */
     public String getContraseña(){
         return String.valueOf(tFPassword.getPassword());
     }
-
+    /**
+     * Devuelve la conexion con la base de datos
+     * @return 
+     */
     public ConexionBDD getConexion() {
         return CON;
     }
