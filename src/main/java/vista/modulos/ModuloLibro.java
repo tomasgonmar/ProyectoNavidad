@@ -1,5 +1,6 @@
 package vista.modulos;
 
+import controlador.UtilDiseño;
 import modelo.Libro;
 
 /**
@@ -14,12 +15,13 @@ public class ModuloLibro extends javax.swing.JPanel {
      */
     public ModuloLibro(Libro libro) {
         initComponents();
-        lblImagen.setIcon(libro.getImagen());
+        //lblImagen.setIcon(libro.getImagen());
+        lblImagen.setIcon(UtilDiseño.createImageIcon("src/main/resources/img/peliculas/pelicula_default.png", "Img"));
         lblTitulo.setText(libro.getTitulo());
         lblDescripcion.setText(libro.getDescripcion());
         lblGenero.setText(libro.getGenero());
         lblPuntuacion.setText(String.valueOf(libro.getPuntuacion())+"/5");
-        lblDuracion.setText(String.valueOf(libro.getDuracion()));
+        lblDuracion.setText(String.valueOf(libro.getPaginas())+" pags");
     }
     public ModuloLibro(){
         initComponents();

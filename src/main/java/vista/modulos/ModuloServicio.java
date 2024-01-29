@@ -14,7 +14,7 @@ public class ModuloServicio extends javax.swing.JPanel {
      */
     public ModuloServicio(Servicio servicio) {
         initComponents();
-        lblImagen.setIcon(servicio.getImagen());
+        //lblImagen.setIcon(servicio.getImagen());
         lblTitulo.setText(servicio.getNombre());
         lblDescripcion.setText(servicio.getDescripcion());
     }

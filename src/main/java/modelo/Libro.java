@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.UtilDiseño;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,15 +14,18 @@ public class Libro {
     private String descripcion;
     private double puntuacion;
     private String genero; 
-    private String id_multimedia;
 
-    public Libro(ImageIcon imagen, String titulo, double paginas, String descripcion, double puntuacion, String genero) {
-        this.imagen = imagen;
+    public Libro(String nombreImagen, String titulo, double paginas, String descripcion, double puntuacion, String genero) {
+        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/libros/"+nombreImagen+".png", "img");
         this.titulo = titulo;
         this.paginas = paginas;
         this.descripcion = descripcion;
         this.puntuacion = puntuacion;
         this.genero = genero;
+    }
+
+    public Libro() {
+        
     }
 
     public ImageIcon getImagen() {
@@ -40,11 +44,11 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public double getDuracion() {
+    public double getPaginas() {
         return paginas;
     }
 
-    public void setDuracion(double duracion) {
+    public void setPaginas(double duracion) {
         this.paginas = duracion;
     }
 

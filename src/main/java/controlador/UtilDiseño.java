@@ -98,11 +98,19 @@ public class UtilDiseño {
         redondearElemento(btnIniciar);
         cambiarColorOutline(btnIniciar);
     }
+    
+    public static void estilizarBtn(JButton btnIniciar,String color) {
+        redondearElemento(btnIniciar);
+        cambiarColorOutline(btnIniciar,color);
+    }
 
     private static void cambiarColorOutline(JComponent elemento) {
         elemento.putClientProperty("JComponent.outline", new Color[]{Color.white,Color.decode("#1a1a1a")});
     }
 
+    private static void cambiarColorOutline(JComponent elemento, String color) {
+        elemento.putClientProperty("JComponent.outline", new Color[]{Color.white,Color.decode(color)});
+    }
     public static void btnPaneInicioActivo(JButton btn) {
         btn.setContentAreaFilled(true);
     }

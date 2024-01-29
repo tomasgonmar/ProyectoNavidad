@@ -1,5 +1,6 @@
 package vista.modulos;
 
+import controlador.UtilDiseño;
 import modelo.Cancion;
 
 /**
@@ -14,10 +15,11 @@ public class ModuloCancion extends javax.swing.JPanel {
      */
     public ModuloCancion(Cancion cancion) {
         initComponents();
-        lblImagen.setIcon(cancion.getImagen());
+        lblImagen.setIcon(UtilDiseño.createImageIcon("src/main/resources/img/peliculas/pelicula_default.png", "Img"));
+        //lblImagen.setIcon(cancion.getImagen());
         lblTitulo.setText(cancion.getTitulo()+","+cancion.getAutor());
         lblPuntacion.setText(String.valueOf(cancion.getPuntuacion())+"/5");
-        lblDuracion.setText(String.valueOf(cancion.getDuracion()));
+        lblDuracion.setText(String.valueOf(cancion.getDuracion()+"'"));
     }
     
     public ModuloCancion(){

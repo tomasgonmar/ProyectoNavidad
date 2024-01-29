@@ -57,7 +57,7 @@ public class ControladorLogin {
         Usuario user = obtenerUser();
         try {
             if(VENTANA_LOG.getConexion().existsUser(user)){
-                new FrameApp(user).setVisible(true);
+                new FrameApp(user,this.VENTANA_LOG.getConexion()).setVisible(true);
                 VENTANA_LOG.dispose();
             }else{
                 JOptionPane.showMessageDialog(VENTANA_LOG, "Usuario o contraseña incorrecto");

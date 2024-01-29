@@ -29,11 +29,11 @@ public class ControladorVPrincipal {
         vPrincipal.panelCentral.setLayout(CARD_LAYOUT);
         
         vPrincipal.setpInicio(new PanelInicio());
-        vPrincipal.setpServicios(new PanelServicios());
-        vPrincipal.setpPeliculas(new PanelPeliculas());
-        vPrincipal.setpLibros(new PanelLibros());
-        vPrincipal.setpMusica(new PanelMusica());
-        vPrincipal.setpPerfil(new PanelPerfil());
+        vPrincipal.setpServicios(new PanelServicios(vPrincipal.getCon(),vPrincipal.getUser()));
+        vPrincipal.setpPeliculas(new PanelPeliculas(vPrincipal.getCon(),vPrincipal.getUser()));
+        vPrincipal.setpLibros(new PanelLibros(vPrincipal.getCon(),vPrincipal.getUser()));
+        vPrincipal.setpMusica(new PanelMusica(vPrincipal.getCon(),vPrincipal.getUser()));
+        vPrincipal.setpPerfil(new PanelPerfil(vPrincipal.getCon(),vPrincipal.getUser()));
         
         vPrincipal.panelCentral.add(vPrincipal.getpInicio(),"pInicio");
         vPrincipal.panelCentral.add(vPrincipal.getpServicios(),"pServicios");
@@ -94,6 +94,9 @@ public class ControladorVPrincipal {
 
     public void eventoBtnPerfil() {
         CARD_LAYOUT.show(vPrincipal.panelCentral, "pPerfil");
+        vPrincipal.setPanelActual("pPerfil");
+        UtilDiseño.eliminarFondoBtnsPaneInicio(vPrincipal);
+        UtilDiseño.btnPaneInicioActivo(vPrincipal.getBtnPerfil());
     }
 
     public void entrarBtn(JButton btn) {

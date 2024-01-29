@@ -1,5 +1,6 @@
 package vista.frames;
 
+import controlador.ConexionBDD;
 import controlador.ControladorCierreApp;
 import controlador.ControladorVPrincipal;
 import controlador.UtilDiseño;
@@ -28,12 +29,16 @@ public class FrameApp extends javax.swing.JFrame {
     private PanelPerfil pPerfil;
     private String panelActual;
     private final ControladorVPrincipal C_PRIN;
+    private ConexionBDD con;
+    private Usuario user;
     /**
      * Creates new form VentanaPrincipal
      * @param user
      */
-    public FrameApp(Usuario user) {
+    public FrameApp(Usuario user,ConexionBDD con) {
         initComponents();
+        this.con = con;
+        this.user = user;
         
         C_PRIN = new ControladorVPrincipal(this);
         
@@ -455,4 +460,17 @@ public class FrameApp extends javax.swing.JFrame {
     public String getPanelActual() {
         return panelActual;
     }
+
+    public JButton getBtnPerfil() {
+        return btnPerfil;
+    }
+   
+    public ConexionBDD getCon(){
+        return this.con;
+    }
+
+    public Usuario getUser() {
+        return this.user;
+    }
+    
 }

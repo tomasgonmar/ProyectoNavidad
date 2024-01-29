@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.UtilDiseño;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,12 +14,16 @@ public class Cancion {
     private double duracion;
     private double puntuacion;
 
-    public Cancion(ImageIcon imagen, String titulo, String autor, double duracion, double puntuacion) {
-        this.imagen = imagen;
+    public Cancion(String nombreImagen, String titulo, String autor, double duracion, double puntuacion) {
+        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/canciones/"+nombreImagen+".png", "img");
         this.titulo = titulo;
         this.autor = autor;
         this.duracion = duracion;
         this.puntuacion = puntuacion;
+    }
+
+    public Cancion() {
+        
     }
     public ImageIcon getImagen() {
         return imagen;

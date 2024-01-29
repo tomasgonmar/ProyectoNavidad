@@ -14,11 +14,11 @@ public class ModuloPeliculas extends javax.swing.JPanel {
      */
     public ModuloPeliculas(Pelicula pelicula) {
         initComponents();
-        lblImagen.setIcon(pelicula.getImagen());
+        //lblImagen.setIcon(pelicula.getImagen());
         lblTitulo.setText(pelicula.getNombre());
         lblDescripcion.setText(pelicula.getDescripcion());
-        lblDuracion.setText(String.valueOf(pelicula.getDuracion()));
-        lblServicio.setIcon(pelicula.getImagenServicio());
+        lblDuracion.setText(String.valueOf(pelicula.getDuracion())+"'");
+        //lblServicio.setIcon(pelicula.getImagenServicio());
         lblPuntuacion.setText(String.valueOf(pelicula.getPuntuacion())+"/5");
     }
     
@@ -46,7 +46,7 @@ public class ModuloPeliculas extends javax.swing.JPanel {
         setBackground(new java.awt.Color(38, 38, 38));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FondoTitulos.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/peliculas/pelicula_default.png"))); // NOI18N
         add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 132, 180));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N

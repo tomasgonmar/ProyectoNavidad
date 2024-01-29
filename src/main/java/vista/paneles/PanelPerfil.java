@@ -1,6 +1,8 @@
 package vista.paneles;
 
+import controlador.ConexionBDD;
 import controlador.UtilDiseño;
+import modelo.Usuario;
 
 /**
  *
@@ -8,17 +10,21 @@ import controlador.UtilDiseño;
  */
 public class PanelPerfil extends javax.swing.JPanel {
 
+    private ConexionBDD con;
     /**
      * Creates new form PanelPerfil
      */
-    public PanelPerfil() {
+    public PanelPerfil(ConexionBDD con, Usuario user) {
         initComponents();
+        this.con = con;
+        
         UtilDiseño.redondearElemento(pNombre);
         UtilDiseño.redondearElemento(pApllidos);
         UtilDiseño.redondearElemento(pTelefono);
         UtilDiseño.redondearElemento(pContraseña);
         UtilDiseño.redondearElemento(pDireccion);
-        UtilDiseño.estilizarBtn(jButton1);
+        UtilDiseño.estilizarBtn(btnModificar,"#262626");
+        
     }
 
     /**
@@ -46,7 +52,7 @@ public class PanelPerfil extends javax.swing.JPanel {
         pDireccion = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -71,6 +77,9 @@ public class PanelPerfil extends javax.swing.JPanel {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Telefono");
         pTelefono.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+
+        jTextField3.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField3.setBorder(null);
         pTelefono.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
 
         jPanel3.add(pTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 350, 98));
@@ -82,6 +91,9 @@ public class PanelPerfil extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Nombre");
         pNombre.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+
+        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField1.setBorder(null);
         pNombre.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
 
         jPanel3.add(pNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 65, 350, 98));
@@ -93,6 +105,9 @@ public class PanelPerfil extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Apellidos");
         pApllidos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+
+        jTextField2.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField2.setBorder(null);
         pApllidos.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
 
         jPanel3.add(pApllidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 350, 98));
@@ -104,6 +119,9 @@ public class PanelPerfil extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Contraseña");
         pContraseña.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+
+        jPasswordField1.setBackground(new java.awt.Color(51, 51, 51));
+        jPasswordField1.setBorder(null);
         pContraseña.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 270, 35));
 
         jPanel3.add(pContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 350, 98));
@@ -115,16 +133,19 @@ public class PanelPerfil extends javax.swing.JPanel {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Direccion");
         pDireccion.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+
+        jTextField5.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField5.setBorder(null);
         pDireccion.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 630, 35));
 
         jPanel3.add(pDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 295, 710, 98));
 
-        jButton1.setBackground(new java.awt.Color(158, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Modificar");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 420, 196, 63));
+        btnModificar.setBackground(new java.awt.Color(158, 255, 0));
+        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(0, 0, 0));
+        btnModificar.setText("Modificar");
+        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 420, 196, 63));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
 
@@ -188,7 +209,7 @@ public class PanelPerfil extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.UtilDiseño;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,16 +13,19 @@ public class Pelicula {
     private double duracion;
     private String descripcion;
     private double puntuacion;
-    private String servicio;
     private ImageIcon imagenServicio;
 
-    public Pelicula(ImageIcon imagen, String nombre, double duracion, String descripcion, double puntuacion, String servicio) {
-        this.imagen = imagen;
+    public Pelicula(String nombreImagen, String nombre, double duracion, String descripcion, double puntuacion, String servicio) {
+        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/peliculas/"+nombreImagen+".png", "img");
         this.nombre = nombre;
         this.duracion = duracion;
         this.descripcion = descripcion;
         this.puntuacion = puntuacion;
-        this.servicio = servicio;
+        this.imagenServicio = UtilDiseño.createImageIcon("src/main/resources/img/logos_servicios_mini/"+servicio+".png", "img");
+    }
+
+    public Pelicula() {
+        
     }
 
     public ImageIcon getImagen() {
@@ -62,14 +66,6 @@ public class Pelicula {
 
     public void setPuntuacion(double puntuacion) {
         this.puntuacion = puntuacion;
-    }
-
-    public String getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(String servicio) {
-        this.servicio = servicio;
     }
 
     public ImageIcon getImagenServicio() {

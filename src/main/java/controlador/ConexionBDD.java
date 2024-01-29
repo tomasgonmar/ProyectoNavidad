@@ -48,12 +48,13 @@ public class ConexionBDD {
         }
 
     boolean existsUser(Usuario user) throws SQLException {
-        String sql = "select contraseña from usuarios where usuario=?";
+        String sql = "select * from usuarios where usuario=?";
         PreparedStatement s = CONN.prepareStatement(sql);
         s.setString(1, user.getUsuario());
         ResultSet r = s.executeQuery();
         while(r.next()){
-            return UtilEncriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña"));            
+            user.setEmail(r.getString("email"));
+            return UtilEncriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña")); 
         }
         return false;
     }
@@ -75,48 +76,34 @@ public class ConexionBDD {
     }
     
     public ResultSet obtenerServiciosAsociados(Usuario user) throws SQLException{
-        String sql = "select s.nombre,s.descripcion,s.id from servicios s " +
-            "join servicio_multimedia sm on id = sm.id_servicio " +
-            "join multimedia m on sm.id_multimedia = m.id " +
-            "join user_multimedia um using (id_multimedia) " +
-            "join usuarios u on id_user = u.id " +
-            "where email = ?";
+        String sql = "select s.nombre,s.descripcion,s.id from servicios s join servicio_multimedia sm on id = sm.id_servicio join multimedia m on sm.id_multimedia = m.id join user_multimedia um using (id_multimedia) join usuarios u on id_user = u.id where email = 'usuario2@example.com'";
         PreparedStatement s = CONN.prepareStatement(sql);
-        s.setString(1,user.getEmail());
+        //s.setString(1,user.getEmail());
         return s.executeQuery();
     }
     
     public ResultSet obtenerPeliculasAsociados(Usuario user) throws SQLException{
-        String sql = "select titulo,duracion_min,descripcion,puntuacion,um.id_multimedia,id_servicio from peliculas " +
-            "join multimedia on id_multimedia = id " +
-            "join servicio_multimedia sm on id = sm.id_multimedia " +
-            "join user_multimedia um on sm.id_multimedia = um.id_multimedia " +
-            "join usuarios u on id_user = u.id " +
-            "where email = ?";
+        String sql = "select titulo,duracion_min,descripcion,puntuacion,um.id_multimedia,id_servicio from peliculas join multimedia on id_multimedia = id join servicio_multimedia sm on id = sm.id_multimedia join user_multimedia um on sm.id_multimedia = um.id_multimedia join usuarios u on id_user = u.id where email = 'usuario1@example.com'";
         PreparedStatement s = CONN.prepareStatement(sql);
-        s.setString(1,user.getEmail());
+        //s.setString(1,user.getEmail());
         return s.executeQuery();
     }
     
-    public ResultSet obtenerCancionesAsociados(Usuario user) throws SQLException{
-        String sql = "titulo,duracion_min,autor,puntuacion,id_multimedia from canciones " +
-            "join multimedia on id_multimedia = id " +
-            "join user_multimedia um using (id_multimedia) " +
-            "join usuarios u on id_user = u.id " +
-            "where email = ?";
-        PreparedStatement s = CONN.prepareStatement(sql);
-        s.setString(1,user.getEmail());
-        return s.executeQuery();
-    }  
-    
     public ResultSet obtenerLibrosAsociados(Usuario user) throws SQLException{
-        String sql = "select titulo,genero,paginas,id_multimedia,descripcion,puntuacion from libros " +
-            "join multimedia on id_multimedia = id " +
-            "join user_multimedia um using (id_multimedia) " +
-            "join usuarios u on id_user = u.id " +
-            "where email = ?";
+        String sql = "select titulo,genero,paginas,id_multimedia,descripcion,puntuacion from libros join multimedia on id_multimedia = id join user_multimedia um using (id_multimedia) join usuarios u on id_user = u.id where email = 'usuario2@example.com'";
+        
         PreparedStatement s = CONN.prepareStatement(sql);
-        s.setString(1,user.getEmail());
+        System.out.println(user.getEmail());
+        //s.setString(1,user.getEmail());
+        return s.executeQuery();
+    }
+
+    public ResultSet obtenerCancionesAsociadas(Usuario user) throws SQLException {
+        String sql = "select titulo,duracion_min,autor,puntuacion,id_multimedia from canciones join multimedia on id_multimedia = id join user_multimedia um using (id_multimedia) join usuarios u on id_user = u.id where email = 'usuario2@example.com'";
+        
+        PreparedStatement s = CONN.prepareStatement(sql);
+        System.out.println(user.getEmail());
+        //s.setString(1,user.getEmail());
         return s.executeQuery();
     }
 }

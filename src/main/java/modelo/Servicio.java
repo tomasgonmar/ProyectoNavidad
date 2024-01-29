@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.UtilDiseño;
 import javax.swing.ImageIcon;
 
 /**
@@ -11,10 +12,14 @@ public class Servicio {
     private String nombre;
     private String descripcion;
 
-    public Servicio(ImageIcon imagen, String nombre, String descripcion) {
-        this.imagen = imagen;
+    public Servicio(String nombreImagen, String nombre, String descripcion) {
+        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/logos_servicios/"+nombreImagen+".png", "img");
         this.nombre = nombre;
         this.descripcion = descripcion;
+    }
+
+    public Servicio() {
+        
     }
 
     public ImageIcon getImagen() {

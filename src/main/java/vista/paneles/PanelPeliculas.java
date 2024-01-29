@@ -1,7 +1,17 @@
 package vista.paneles;
 
+import controlador.ConexionBDD;
+import controlador.UtilesResultSet;
 import vista.modulos.ModuloPeliculas;
 import java.awt.GridLayout;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.Pelicula;
+import modelo.Servicio;
+import modelo.Usuario;
+import vista.modulos.ModuloServicio;
 
 /**
  *
@@ -9,15 +19,28 @@ import java.awt.GridLayout;
  */
 public class PanelPeliculas extends javax.swing.JPanel {
 
+    private final ConexionBDD con;
+
     /**
      * Creates new form PanelPeliculas
      */
-    public PanelPeliculas() {
+    public PanelPeliculas(ConexionBDD con, Usuario user) {
         initComponents();
+        
+        this.con = con;
+        
+        scroll.getVerticalScrollBar().setUnitIncrement(20);
+        
         panelCentral.setLayout(new GridLayout(0,1));
         
-        for(int i = 0; i<10; i++){
-            panelCentral.add(new ModuloPeliculas());
+        ArrayList<Pelicula> a;
+        try {
+            a = UtilesResultSet.transformResSetPeliculas(con.obtenerPeliculasAsociados(user));
+                for(Pelicula p : a){
+                    panelCentral.add(new ModuloPeliculas(p));
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelLibros.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -30,7 +53,7 @@ public class PanelPeliculas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scroll = new javax.swing.JScrollPane();
         panelCentral = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -46,13 +69,13 @@ public class PanelPeliculas extends javax.swing.JPanel {
         setBackground(new java.awt.Color(38, 38, 38));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setBorder(null);
+        scroll.setBorder(null);
 
         panelCentral.setBackground(new java.awt.Color(38, 38, 38));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jScrollPane1.setViewportView(panelCentral);
+        scroll.setViewportView(panelCentral);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
+        add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
@@ -124,7 +147,7 @@ public class PanelPeliculas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCentral;
+    private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
 }
