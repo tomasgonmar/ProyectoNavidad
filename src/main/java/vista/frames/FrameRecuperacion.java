@@ -1,7 +1,6 @@
 package vista.frames;
 
 import controlador.ConexionBDD;
-import controlador.ControladorCierreApp;
 import controlador.ControladorRecuperacion;
 import controlador.UtilDiseño;
 
@@ -57,20 +56,20 @@ public class FrameRecuperacion extends javax.swing.JFrame {
         panelCentral.setBackground(new java.awt.Color(26, 26, 26));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(239, 239, 239));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style='text-align: center;'> Recuperar contraseña</div></html>");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 318, 120));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(164, 164, 164));
         jLabel4.setText("Email");
         jLabel4.setToolTipText("");
         panelCentral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 150, -1, -1));
 
         btnRecuperar.setBackground(new java.awt.Color(158, 255, 0));
-        btnRecuperar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRecuperar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnRecuperar.setForeground(new java.awt.Color(0, 0, 0));
         btnRecuperar.setText("Recuperar");
         btnRecuperar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -80,6 +79,8 @@ public class FrameRecuperacion extends javax.swing.JFrame {
             }
         });
         panelCentral.add(btnRecuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 285, 314, 50));
+
+        tFEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         panelCentral.add(tFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 183, 314, 55));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));

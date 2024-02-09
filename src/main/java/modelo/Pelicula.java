@@ -14,16 +14,29 @@ public class Pelicula {
     private String descripcion;
     private double puntuacion;
     private ImageIcon imagenServicio;
+    private String servicio;
 
-    public Pelicula(String nombreImagen, String nombre, double duracion, String descripcion, double puntuacion, String servicio) {
-        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/peliculas/"+nombreImagen+".png", "img");
+    public Pelicula(String nombre, double duracion, String descripcion, double puntuacion, String servicio) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.descripcion = descripcion;
         this.puntuacion = puntuacion;
-        this.imagenServicio = UtilDiseño.createImageIcon("src/main/resources/img/logos_servicios_mini/"+servicio+".png", "img");
+        this.servicio = servicio;
+        this.imagenServicio = obtenerImagen();
     }
-
+public final ImageIcon obtenerImagen(){
+        String archivo="LogoServicios";
+        switch(servicio){
+            case "Amazon Prime" -> archivo += "Amazon";
+            case "Apple TV" -> archivo += "AppleTV";
+            case "Disney Plus" -> archivo += "Disney";
+            case "HBO" -> archivo += nombre;
+            case "Netflix" -> archivo += nombre;
+            case "Spotify" -> archivo += nombre;
+            case "Youtube" -> archivo += nombre;
+        }
+        return UtilDiseño.createImageIcon("src/main/resources/img/logos_servicios_mini/"+archivo+"Mini.png", "img");
+    }
     public Pelicula() {
         
     }

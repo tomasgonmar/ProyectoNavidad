@@ -20,6 +20,8 @@ public class PanelMusica extends javax.swing.JPanel {
     private ConexionBDD con;
     /**
      * Creates new form PanelMusica
+     * @param con
+     * @param user
      */
     public PanelMusica(ConexionBDD con, Usuario user) {
         initComponents();
@@ -77,7 +79,7 @@ public class PanelMusica extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
         jLabel5.setBackground(new java.awt.Color(38, 38, 38));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("<html> <div style='text-align: center;'>Musica</div> </html>");
 
@@ -102,7 +104,7 @@ public class PanelMusica extends javax.swing.JPanel {
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 0, 1210, 109));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(230, 230, 230));
         jLabel1.setText("correos.recuperacion.miapp@gmail.com");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 696, -1, -1));
@@ -113,7 +115,7 @@ public class PanelMusica extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IconoTelefonoVerde.png"))); // NOI18N
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 693, 24, 24));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(230, 230, 230));
         jLabel2.setText("+34 932 932 932");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 696, -1, -1));
@@ -121,12 +123,12 @@ public class PanelMusica extends javax.swing.JPanel {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IconoLocalizacionVerde.png"))); // NOI18N
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 693, 24, 24));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(230, 230, 230));
         jLabel3.setText("Salamanca");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 696, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(152, 152, 154));
         jLabel4.setText("© 2023 MyApp. All rights reserved.");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1091, 696, -1, -1));

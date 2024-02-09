@@ -1,9 +1,9 @@
 package vista.frames;
 
 import controlador.ConexionBDD;
+import controlador.ControladorLoadingScreen;
 import controlador.UtilDiseño;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 /**
  * Frame de carga para la aplicacion
@@ -15,11 +15,13 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
      */
     private FrameLogin ventanaLogin;
     private ConexionBDD con;
+    private static ControladorLoadingScreen CLOG;
     /**
      * Creates new form LoadingScreen
      */
     public FrameLoadingScreen() {
         initComponents();
+        CLOG = new ControladorLoadingScreen(this);
         /**
          * Llama a la funcion para redondear la ventana
          */
@@ -32,35 +34,7 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
         /**
          * Contador del porcentaje de la barra de carga
          */
-        int i = 0;
-        try{
-            while (i <= 100) {
-                jProgressBar1.setValue(i);
-                i++;
-                /**
-                 * Cuando llegue al 95% realiza la conexion de la base de datos,
-                 * en el resto se duerme durante 10 milisegundos para avanzar la
-                 * carga
-                 */
-                switch (i) {
-                    case 95 -> {
-                        con = new ConexionBDD();
-                        ventanaLogin = new FrameLogin(con);
-                    }
-                    default -> Thread.sleep(10);
-                }
-            }
-        /**
-         * Cuando se produce una excepcion muestra un mensaje de error al usuario
-         */    
-        } catch (InterruptedException | SQLException | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Error al iniciar la aplicacion", "Error", HEIGHT);
-        }
-        /**
-         * Cerramos el frame y se muestra la ventana del login
-         */
-        dispose();
-        ventanaLogin.setVisible(true);
+        CLOG.iniciarAplicacion();
     }
 
     /**
@@ -83,7 +57,7 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(26, 26, 26));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 40)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Mi Aplicacion");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 101, 350, -1));
@@ -118,4 +92,24 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
+
+    public JProgressBar getProgresBar() {
+        return jProgressBar1;
+    }
+
+    public void setConexion(ConexionBDD con) {
+        this.con = con;
+    }
+
+    public ConexionBDD getConexion() {
+        return this.con;
+    }
+
+    public void setVentanaLogin(FrameLogin frameLogin) {
+        this.ventanaLogin = frameLogin;
+    }
+
+    public FrameLogin getVentanaLogin() {
+        return this.ventanaLogin;
+    }
 }

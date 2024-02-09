@@ -1,6 +1,5 @@
 package vista.modulos;
 
-import controlador.UtilDiseño;
 import modelo.Libro;
 
 /**
@@ -16,9 +15,8 @@ public class ModuloLibro extends javax.swing.JPanel {
     public ModuloLibro(Libro libro) {
         initComponents();
         //lblImagen.setIcon(libro.getImagen());
-        lblImagen.setIcon(UtilDiseño.createImageIcon("src/main/resources/img/peliculas/pelicula_default.png", "Img"));
         lblTitulo.setText(libro.getTitulo());
-        lblDescripcion.setText(libro.getDescripcion());
+        lblDescripcion.setText("<html><div style='text-align: justify;'>"+libro.getDescripcion()+"</div></html>");
         lblGenero.setText(libro.getGenero());
         lblPuntuacion.setText(String.valueOf(libro.getPuntuacion())+"/5");
         lblDuracion.setText(String.valueOf(libro.getPaginas())+" pags");
@@ -47,29 +45,29 @@ public class ModuloLibro extends javax.swing.JPanel {
         setBackground(new java.awt.Color(38, 38, 38));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FondoTitulos.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/libros/logo_libro_default.png"))); // NOI18N
         add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 132, 180));
 
-        lblDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblDescripcion.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(230, 230, 230));
         lblDescripcion.setText("<html> <div style=\"text-align: justify;\"> At Squareup, our design team is passionate about creating stunning, user-centric designs that captivate your audience and elevate your brand. We believe that great design is not just about aesthetics; it's about creating seamless and intuitive user experiences. </div> </html>");
         lblDescripcion.setToolTipText("");
         lblDescripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 113, 565, 126));
 
-        lblDuracion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblDuracion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
         lblDuracion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDuracion.setText("Duracion");
         add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 139, 110, -1));
 
-        lblPuntuacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblPuntuacion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblPuntuacion.setForeground(new java.awt.Color(255, 255, 255));
         lblPuntuacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPuntuacion.setText("Score");
         add(lblPuntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1021, 139, 70, -1));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitulo.setText("Titulo");
@@ -78,7 +76,7 @@ public class ModuloLibro extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Star.png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 130, 41, 41));
 
-        lblGenero.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblGenero.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
         lblGenero.setForeground(new java.awt.Color(255, 255, 255));
         lblGenero.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblGenero.setText("Genero");

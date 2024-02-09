@@ -12,12 +12,26 @@ public class Servicio {
     private String nombre;
     private String descripcion;
 
-    public Servicio(String nombreImagen, String nombre, String descripcion) {
-        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/logos_servicios/"+nombreImagen+".png", "img");
+    public Servicio(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.imagen = obtenerImagen();
     }
 
+    
+    public final ImageIcon obtenerImagen(){
+        String archivo="LogoServicios";
+        switch(nombre){
+            case "Amazon Prime" -> archivo += "Amazon";
+            case "Apple TV" -> archivo += "AppleTV";
+            case "Disney Plus" -> archivo += "Disney";
+            case "HBO" -> archivo += nombre;
+            case "Netflix" -> archivo += nombre;
+            case "Spotify" -> archivo += nombre;
+            case "Youtube" -> archivo += nombre;
+        }
+        return UtilDiseño.createImageIcon("src/main/resources/img/logos_servicios/"+archivo+".png", "img");
+    }
     public Servicio() {
         
     }

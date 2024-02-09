@@ -1,6 +1,5 @@
 package vista.modulos;
 
-import controlador.UtilDiseño;
 import modelo.Cancion;
 
 /**
@@ -15,7 +14,6 @@ public class ModuloCancion extends javax.swing.JPanel {
      */
     public ModuloCancion(Cancion cancion) {
         initComponents();
-        lblImagen.setIcon(UtilDiseño.createImageIcon("src/main/resources/img/peliculas/pelicula_default.png", "Img"));
         //lblImagen.setIcon(cancion.getImagen());
         lblTitulo.setText(cancion.getTitulo()+","+cancion.getAutor());
         lblPuntacion.setText(String.valueOf(cancion.getPuntuacion())+"/5");
@@ -43,22 +41,22 @@ public class ModuloCancion extends javax.swing.JPanel {
         setBackground(new java.awt.Color(38, 38, 38));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FondoTitulos.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/canciones/logo_cancion_default.png"))); // NOI18N
         add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 132, 180));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitulo.setText("Titulo,autor");
-        add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 118, 510, -1));
+        add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 118, 620, -1));
 
-        lblDuracion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblDuracion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
         lblDuracion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDuracion.setText("Duracion");
         add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 118, 110, 41));
 
-        lblPuntacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblPuntacion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblPuntacion.setForeground(new java.awt.Color(255, 255, 255));
         lblPuntacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPuntacion.setText("Score");

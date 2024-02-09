@@ -14,9 +14,9 @@ public class ModuloServicio extends javax.swing.JPanel {
      */
     public ModuloServicio(Servicio servicio) {
         initComponents();
-        //lblImagen.setIcon(servicio.getImagen());
+        lblImagen.setIcon(servicio.getImagen());
         lblTitulo.setText(servicio.getNombre());
-        lblDescripcion.setText(servicio.getDescripcion());
+        lblDescripcion.setText("<html><div style='text-align: justify;'>"+servicio.getDescripcion()+"</div></html>");
     }
     public ModuloServicio(){
         initComponents();
@@ -38,15 +38,15 @@ public class ModuloServicio extends javax.swing.JPanel {
         setBackground(new java.awt.Color(38, 38, 38));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FondoTitulos.png"))); // NOI18N
-        add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 62, 191, 88));
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logos_servicios/LogoServiciosAmazon.png"))); // NOI18N
+        add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 62, 290, 88));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("Titulo");
         add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 300, -1));
 
-        lblDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblDescripcion.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(230, 230, 230));
         lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDescripcion.setText("<html>\n<div style=\"text-align: justify;\">\nAt Squareup, our design team is passionate about creating stunning, user-centric designs that captivate your audience and elevate your brand. We believe that great design is not just about aesthetics; it's about creating seamless and intuitive user experiences.\n</div>\n</html>");

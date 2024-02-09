@@ -17,86 +17,86 @@ import vista.frames.FrameApp;
  */
 public class ControladorVPrincipal {
 
-    private FrameApp vPrincipal;
+    private final FrameApp V_PRINCIPAL;
     private CardLayout CARD_LAYOUT;
     
     public ControladorVPrincipal(FrameApp vPrincipal) {
-        this.vPrincipal = vPrincipal;
+        this.V_PRINCIPAL = vPrincipal;
     }
 
     public void inicializarCardLayout() {
         CARD_LAYOUT = new CardLayout();
-        vPrincipal.panelCentral.setLayout(CARD_LAYOUT);
+        V_PRINCIPAL.panelCentral.setLayout(CARD_LAYOUT);
         
-        vPrincipal.setpInicio(new PanelInicio());
-        vPrincipal.setpServicios(new PanelServicios(vPrincipal.getCon(),vPrincipal.getUser()));
-        vPrincipal.setpPeliculas(new PanelPeliculas(vPrincipal.getCon(),vPrincipal.getUser()));
-        vPrincipal.setpLibros(new PanelLibros(vPrincipal.getCon(),vPrincipal.getUser()));
-        vPrincipal.setpMusica(new PanelMusica(vPrincipal.getCon(),vPrincipal.getUser()));
-        vPrincipal.setpPerfil(new PanelPerfil(vPrincipal.getCon(),vPrincipal.getUser()));
+        V_PRINCIPAL.setpInicio(new PanelInicio());
+        V_PRINCIPAL.setpServicios(new PanelServicios(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpPeliculas(new PanelPeliculas(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpLibros(new PanelLibros(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpMusica(new PanelMusica(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpPerfil(new PanelPerfil(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
         
-        vPrincipal.panelCentral.add(vPrincipal.getpInicio(),"pInicio");
-        vPrincipal.panelCentral.add(vPrincipal.getpServicios(),"pServicios");
-        vPrincipal.panelCentral.add(vPrincipal.getpPeliculas(),"pPeliculas");
-        vPrincipal.panelCentral.add(vPrincipal.getpLibros(),"pLibros");
-        vPrincipal.panelCentral.add(vPrincipal.getpMusica(),"pMusica");
-        vPrincipal.panelCentral.add(vPrincipal.getpPerfil(),"pPerfil");
+        V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpInicio(),"pInicio");
+        V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpServicios(),"pServicios");
+        V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpPeliculas(),"pPeliculas");
+        V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpLibros(),"pLibros");
+        V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpMusica(),"pMusica");
+        V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpPerfil(),"pPerfil");
         
-        CARD_LAYOUT.show(vPrincipal.panelCentral, "pInicio");
-        vPrincipal.setPanelActual("pInicio");
+        CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pInicio");
+        V_PRINCIPAL.setPanelActual("pInicio");
     }
     
     public void desplazamientoPressed(MouseEvent evt) {
-        vPrincipal.setXMouse(evt.getX());
-        vPrincipal.setYMouse(evt.getY());
+        V_PRINCIPAL.setXMouse(evt.getX());
+        V_PRINCIPAL.setYMouse(evt.getY());
     }
 
     public void movimientoPorPantalla(MouseEvent evt) {
         int x =  evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        vPrincipal.setLocation(x-vPrincipal.getXMouse(),y-vPrincipal.getYMouse());
+        V_PRINCIPAL.setLocation(x-V_PRINCIPAL.getXMouse(),y-V_PRINCIPAL.getYMouse());
     }
 
     public void eventosBtnServicios() {
-        CARD_LAYOUT.show(vPrincipal.panelCentral, "pServicios");
-        vPrincipal.setPanelActual("pServicios");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(vPrincipal);
-        UtilDiseño.btnPaneInicioActivo(vPrincipal.getBtnServicios());
+        CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pServicios");
+        V_PRINCIPAL.setPanelActual("pServicios");
+        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnServicios());
     }
 
     public void eventosBtnInicio() {
-        CARD_LAYOUT.show(vPrincipal.panelCentral, "pInicio");
-        vPrincipal.setPanelActual("pInicio");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(vPrincipal);
-        UtilDiseño.btnPaneInicioActivo(vPrincipal.getBtnInicio());
+        CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pInicio");
+        V_PRINCIPAL.setPanelActual("pInicio");
+        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnInicio());
     }
 
     public void eventosBtnPeliculas() {
-        CARD_LAYOUT.show(vPrincipal.panelCentral, "pPeliculas");
-        vPrincipal.setPanelActual("pPeliculas");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(vPrincipal);
-        UtilDiseño.btnPaneInicioActivo(vPrincipal.getBtnPeliculas());
+        CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pPeliculas");
+        V_PRINCIPAL.setPanelActual("pPeliculas");
+        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPeliculas());
     }
 
     public void eventosBtnLibros() {
-        CARD_LAYOUT.show(vPrincipal.panelCentral, "pLibros");
-        vPrincipal.setPanelActual("pLibros");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(vPrincipal);
-        UtilDiseño.btnPaneInicioActivo(vPrincipal.getBtnLibros());
+        CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pLibros");
+        V_PRINCIPAL.setPanelActual("pLibros");
+        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnLibros());
     }
 
     public void eventosBtnMusica() {
-        CARD_LAYOUT.show(vPrincipal.panelCentral, "pMusica");
-        vPrincipal.setPanelActual("pMusica");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(vPrincipal);
-        UtilDiseño.btnPaneInicioActivo(vPrincipal.getBtnMusica());
+        CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pMusica");
+        V_PRINCIPAL.setPanelActual("pMusica");
+        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnMusica());
     }
 
     public void eventoBtnPerfil() {
-        CARD_LAYOUT.show(vPrincipal.panelCentral, "pPerfil");
-        vPrincipal.setPanelActual("pPerfil");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(vPrincipal);
-        UtilDiseño.btnPaneInicioActivo(vPrincipal.getBtnPerfil());
+        CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pPerfil");
+        V_PRINCIPAL.setPanelActual("pPerfil");
+        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPerfil());
     }
 
     public void entrarBtn(JButton btn) {
@@ -104,11 +104,11 @@ public class ControladorVPrincipal {
     }
 
     public void salirBtn(String panelActual, JButton btn) {
-        if(!vPrincipal.getPanelActual().equals(panelActual))
+        if(!V_PRINCIPAL.getPanelActual().equals(panelActual))
             UtilDiseño.eliminarFondoBtnPaneInicio(btn);
     }
 
     public void cambiarEstadoBtnSalida(boolean entrar) {
-        UtilDiseño.cambiarColor(vPrincipal.btnExit, entrar);
+        UtilDiseño.cambiarColor(V_PRINCIPAL.btnExit, entrar);
     }
 }

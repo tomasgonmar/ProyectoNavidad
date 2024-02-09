@@ -39,7 +39,7 @@ public class PanelInicio extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Abstract Design.png"))); // NOI18N
         panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 284, 1210, 446));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 68)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 68)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style='text-align: center;'> Organiza tus servicios, peliculas, libros y musicas en unico lugar </div></html> ");

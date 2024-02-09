@@ -16,9 +16,9 @@ public class ModuloPeliculas extends javax.swing.JPanel {
         initComponents();
         //lblImagen.setIcon(pelicula.getImagen());
         lblTitulo.setText(pelicula.getNombre());
-        lblDescripcion.setText(pelicula.getDescripcion());
+        lblDescripcion.setText("<html><div style='text-align: justify;'>"+pelicula.getDescripcion()+"</div></html>");
         lblDuracion.setText(String.valueOf(pelicula.getDuracion())+"'");
-        //lblServicio.setIcon(pelicula.getImagenServicio());
+        lblServicio.setIcon(pelicula.getImagenServicio());
         lblPuntuacion.setText(String.valueOf(pelicula.getPuntuacion())+"/5");
     }
     
@@ -46,29 +46,29 @@ public class ModuloPeliculas extends javax.swing.JPanel {
         setBackground(new java.awt.Color(38, 38, 38));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/peliculas/pelicula_default.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/peliculas/logo_pelicula_default.png"))); // NOI18N
         add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 132, 180));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitulo.setText("Titulo");
         add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 65, -1, -1));
 
-        lblDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblDescripcion.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(230, 230, 230));
         lblDescripcion.setText("<html> <div style=\"text-align: justify;\"> At Squareup, our design team is passionate about creating stunning, user-centric designs that captivate your audience and elevate your brand. We believe that great design is not just about aesthetics; it's about creating seamless and intuitive user experiences. </div> </html>");
         lblDescripcion.setToolTipText("");
         lblDescripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 113, 565, 126));
 
-        lblDuracion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblDuracion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
         lblDuracion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDuracion.setText("Duracion");
         add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 139, 110, -1));
 
-        lblPuntuacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblPuntuacion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblPuntuacion.setForeground(new java.awt.Color(255, 255, 255));
         lblPuntuacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPuntuacion.setText("Score");
@@ -77,7 +77,7 @@ public class ModuloPeliculas extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Star.png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 130, 41, 41));
 
-        lblServicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FondoTitulos.png"))); // NOI18N
+        lblServicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logos_servicios_mini/LogoServiciosAmazonMini.png"))); // NOI18N
         add(lblServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1025, 82, 68, 25));
     }// </editor-fold>//GEN-END:initComponents
 

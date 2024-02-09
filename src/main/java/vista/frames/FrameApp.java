@@ -29,16 +29,17 @@ public class FrameApp extends javax.swing.JFrame {
     private PanelPerfil pPerfil;
     private String panelActual;
     private final ControladorVPrincipal C_PRIN;
-    private ConexionBDD con;
-    private Usuario user;
+    private final ConexionBDD CON;
+    private final Usuario USER;
     /**
      * Creates new form VentanaPrincipal
      * @param user
+     * @param con
      */
     public FrameApp(Usuario user,ConexionBDD con) {
         initComponents();
-        this.con = con;
-        this.user = user;
+        this.CON = con;
+        this.USER = user;
         
         C_PRIN = new ControladorVPrincipal(this);
         
@@ -132,7 +133,7 @@ public class FrameApp extends javax.swing.JFrame {
         panelNavegador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPerfil.setBackground(new java.awt.Color(158, 255, 0));
-        btnPerfil.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPerfil.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         btnPerfil.setForeground(new java.awt.Color(0, 0, 0));
         btnPerfil.setText("Perfil");
         btnPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -147,7 +148,7 @@ public class FrameApp extends javax.swing.JFrame {
         panelBotonesNav.setBackground(new java.awt.Color(26, 26, 26));
 
         btnInicio.setBackground(new java.awt.Color(38, 38, 38));
-        btnInicio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnInicio.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -169,7 +170,7 @@ public class FrameApp extends javax.swing.JFrame {
         panelBotonesNav.add(btnInicio);
 
         btnServicios.setBackground(new java.awt.Color(38, 38, 38));
-        btnServicios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnServicios.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         btnServicios.setForeground(new java.awt.Color(255, 255, 255));
         btnServicios.setText("Servicios");
         btnServicios.setContentAreaFilled(false);
@@ -192,7 +193,7 @@ public class FrameApp extends javax.swing.JFrame {
         panelBotonesNav.add(btnServicios);
 
         btnPeliculas.setBackground(new java.awt.Color(38, 38, 38));
-        btnPeliculas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnPeliculas.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         btnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
         btnPeliculas.setText("Peliculas");
         btnPeliculas.setContentAreaFilled(false);
@@ -215,7 +216,7 @@ public class FrameApp extends javax.swing.JFrame {
         panelBotonesNav.add(btnPeliculas);
 
         btnLibros.setBackground(new java.awt.Color(38, 38, 38));
-        btnLibros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnLibros.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         btnLibros.setForeground(new java.awt.Color(255, 255, 255));
         btnLibros.setText("Libros");
         btnLibros.setContentAreaFilled(false);
@@ -238,7 +239,7 @@ public class FrameApp extends javax.swing.JFrame {
         panelBotonesNav.add(btnLibros);
 
         btnMusica.setBackground(new java.awt.Color(38, 38, 38));
-        btnMusica.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnMusica.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         btnMusica.setForeground(new java.awt.Color(255, 255, 255));
         btnMusica.setText("Musica");
         btnMusica.setContentAreaFilled(false);
@@ -265,7 +266,7 @@ public class FrameApp extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo_Nav.png"))); // NOI18N
         panelNavegador.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 20, 60, 60));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Mi Aplicacion");
         panelNavegador.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 37, -1, -1));
@@ -466,11 +467,11 @@ public class FrameApp extends javax.swing.JFrame {
     }
    
     public ConexionBDD getCon(){
-        return this.con;
+        return this.CON;
     }
 
     public Usuario getUser() {
-        return this.user;
+        return this.USER;
     }
     
 }

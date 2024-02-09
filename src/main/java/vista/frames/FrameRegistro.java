@@ -72,29 +72,29 @@ public class FrameRegistro extends javax.swing.JFrame {
         panelCentral.setPreferredSize(new java.awt.Dimension(390, 637));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(239, 239, 239));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registrate gratis");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 55, 341, 60));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(164, 164, 164));
         jLabel4.setText("Email");
         panelCentral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 150, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(164, 164, 164));
         jLabel3.setText("Repetir contraseña");
         panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 438, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(164, 164, 164));
         jLabel2.setText("Usuario");
         panelCentral.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 250, -1, -1));
 
         btnRegistro.setBackground(new java.awt.Color(158, 255, 0));
-        btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRegistro.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("Registrame");
         btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,11 +104,15 @@ public class FrameRegistro extends javax.swing.JFrame {
             }
         });
         panelCentral.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 547, 314, 50));
+
+        tFPasswordValidacion.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         panelCentral.add(tFPasswordValidacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 466, 314, 55));
 
+        tFUser.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         tFUser.setToolTipText("");
         panelCentral.add(tFUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 277, 314, 55));
 
+        lblInicioSes.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblInicioSes.setForeground(new java.awt.Color(164, 164, 164));
         lblInicioSes.setText("Inicia sesion");
         lblInicioSes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -174,11 +178,14 @@ public class FrameRegistro extends javax.swing.JFrame {
 
         panelCentral.add(panelDesplazamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 30));
 
+        tFEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         tFEmail.setToolTipText("");
         panelCentral.add(tFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 183, 314, 55));
+
+        tFPassword.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         panelCentral.add(tFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 371, 314, 55));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(164, 164, 164));
         jLabel5.setText("Contraseña");
         panelCentral.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 344, -1, -1));
@@ -191,7 +198,7 @@ public class FrameRegistro extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
+            .addComponent(panelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

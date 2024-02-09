@@ -76,23 +76,24 @@ public class FrameLogin extends javax.swing.JFrame {
         panelCentral.setBackground(new java.awt.Color(26, 26, 26));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(239, 239, 239));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>\n<div style='text-align: center;'>¡Bienvenido de nuevo!</div>\n</html>");
         jLabel1.setToolTipText("");
         panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 350, 120));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(164, 164, 164));
         jLabel4.setText("Usuario");
         panelCentral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 177, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(164, 164, 164));
         jLabel3.setText("Contraseña");
         panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 277, -1, -1));
 
+        lblRecuperacion.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblRecuperacion.setForeground(new java.awt.Color(164, 164, 164));
         lblRecuperacion.setText("Recuperar contraseña");
         lblRecuperacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -110,7 +111,7 @@ public class FrameLogin extends javax.swing.JFrame {
         panelCentral.add(lblRecuperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 371, -1, -1));
 
         btnIniciar.setBackground(new java.awt.Color(158, 255, 0));
-        btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnIniciar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnIniciar.setForeground(new java.awt.Color(0, 0, 0));
         btnIniciar.setText("Iniciar");
         btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -125,9 +126,14 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         panelCentral.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 410, 314, 50));
+
+        tFPassword.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         panelCentral.add(tFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 306, 314, 55));
+
+        tFUser.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         panelCentral.add(tFUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 210, 314, 55));
 
+        lblRegistro.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblRegistro.setForeground(new java.awt.Color(164, 164, 164));
         lblRegistro.setText("Registrate");
         lblRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

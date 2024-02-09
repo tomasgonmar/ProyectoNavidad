@@ -43,9 +43,7 @@ public class UtilesResultSet {
     public static ArrayList<Servicio> transformResSetServicios(ResultSet r) throws SQLException {
         ArrayList<Servicio> a = new ArrayList<>();
         while(r.next()){
-            Servicio servicio = new Servicio();
-            servicio.setNombre(r.getString(1));
-            servicio.setDescripcion(r.getString(2));
+            Servicio servicio = new Servicio(r.getString(1),r.getString(2));
             a.add(servicio);
         }
         return a;
@@ -53,11 +51,7 @@ public class UtilesResultSet {
     public static ArrayList<Pelicula> transformResSetPeliculas(ResultSet r) throws SQLException {
         ArrayList<Pelicula> a = new ArrayList<>();
         while(r.next()){
-            Pelicula pelicula = new Pelicula();
-            pelicula.setNombre(r.getString(1));
-            pelicula.setDuracion(Double.parseDouble(r.getString(2)));
-            pelicula.setDescripcion(r.getString(3));
-            pelicula.setPuntuacion(Double.parseDouble(r.getString(4)));
+            Pelicula pelicula = new Pelicula(r.getString(1),Double.parseDouble(r.getString(2)),r.getString(3),Double.parseDouble(r.getString(4)),r.getString(5));
             a.add(pelicula);
         }
         return a;

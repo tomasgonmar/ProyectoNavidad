@@ -19,14 +19,14 @@ import javax.mail.internet.MimeMessage;
  * @author Tomas Gonzalez Martin
  */
 public class EmailUtil extends Thread {
-    private static final String FROM = "correos.recuperacion.miapp@gmail.com";
-    private static final String PASSWORD = "kaszbixklbblbxvo";
-    private static String toEmail;
-    private static String newPassword;
+    private final String FROM = "correos.recuperacion.miapp@gmail.com";
+    private final String PASSWORD = "kaszbixklbblbxvo";
+    private final String TO_EMAIL;
+    private final String NEW_PASSWORD;
     
     public EmailUtil(String toEmail, String newPassword){
-        this.toEmail = toEmail;
-        this.newPassword = newPassword;
+        this.TO_EMAIL = toEmail;
+        this.NEW_PASSWORD = newPassword;
     }
 
     @Override
@@ -68,13 +68,13 @@ public class EmailUtil extends Thread {
                 "<div class='container'>" +
                 "<h2>Recuperación de Contraseña</h2>" +
                 "<p>Se ha generado una nueva contraseña para tu cuenta:</p>" +
-                "<p>Nueva Contraseña: <strong>"+this.newPassword+"</strong></p>" +
+                "<p>Nueva Contraseña: <strong>"+this.NEW_PASSWORD+"</strong></p>" +
                 "<p>Por favor, cambia tu contraseña después de iniciar sesión.</p>" +
                 "</div>" +
                 "</body>" +
                 "</html>";
             msg.setContent(htmlContent, "text/html");  // Corrige esta línea
-            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(this.toEmail, false));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(this.TO_EMAIL, false));
             
             Transport.send(msg);
         } catch (MessagingException e) {
