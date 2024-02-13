@@ -3,14 +3,16 @@ package vista.modulos;
 import modelo.Pelicula;
 
 /**
- *
+ * Este módulo representa una película en la interfaz de usuario.
+ * Proporciona información sobre la película, como su título, descripción, duración, servicio de streaming, puntuación, etc.
+ * Este módulo se puede utilizar para mostrar información detallada sobre una película en la interfaz de usuario.
  * @author Tomás González Martín
  */
 public class ModuloPeliculas extends javax.swing.JPanel {
 
     /**
-     * Creates new form Peliculas
-     * @param pelicula
+     * Crea un nuevo módulo de película con la información proporcionada por el objeto Pelicula.
+     * @param pelicula El objeto Pelicula que contiene la información de la película.
      */
     public ModuloPeliculas(Pelicula pelicula) {
         initComponents();
@@ -21,7 +23,9 @@ public class ModuloPeliculas extends javax.swing.JPanel {
         lblServicio.setIcon(pelicula.getImagenServicio());
         lblPuntuacion.setText(String.valueOf(pelicula.getPuntuacion())+"/5");
     }
-    
+    /**
+     * Crea un nuevo módulo de película sin información inicial.
+     */
     public ModuloPeliculas(){
         initComponents();
     }

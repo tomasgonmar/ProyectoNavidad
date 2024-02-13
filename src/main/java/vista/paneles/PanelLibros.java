@@ -8,7 +8,8 @@ import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
- *
+ * Panel que muestra la colección de libros para un usuario.
+ * Permite la interacción con los libros y su visualización.
  * @author Tomas Gonzalez Martin
  */
 public class PanelLibros extends javax.swing.JPanel {
@@ -16,22 +17,19 @@ public class PanelLibros extends javax.swing.JPanel {
     private ConexionBDD con;
     private final Usuario user;
     private CPLibros c;
+    
     /**
-     * Creates new form PanelLibros
-     * @param con
-     * @param user
+     * Crea un nuevo PanelLibros.
+     * @param con la conexión a la base de datos.
+     * @param user el usuario actual.
      */
     public PanelLibros(ConexionBDD con, Usuario user) {
         initComponents();
         
         this.user = user;
-        
         this.con = con;
-        
         c = new CPLibros(this);
-        
         scroll.getVerticalScrollBar().setUnitIncrement(20);
-        
         c.insertarLibros();
         
     }
@@ -142,35 +140,66 @@ public class PanelLibros extends javax.swing.JPanel {
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Actualiza el idioma de la interfaz.
+     * @param bundle el ResourceBundle que contiene las cadenas de texto en el nuevo idioma.
+     */
     public void actualizarIdioma(ResourceBundle bundle) {
         c.actualizarIdioma(bundle);
     }
 
+    /**
+     * Obtiene la conexión a la base de datos.
+     * @return la conexión a la base de datos.
+     */
     public ConexionBDD getCon() {
         return con;
     }
 
+    /**
+     * Establece la conexión a la base de datos.
+     * @param con la nueva conexión a la base de datos.
+     */
     public void setCon(ConexionBDD con) {
         this.con = con;
     }
 
+    /**
+     * Obtiene el panel central.
+     * @return el panel central.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
 
+    /**
+     * Establece el panel central.
+     * @param panelCentral el nuevo panel central.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
 
+    /**
+     * Obtiene el JLabel del título de libros.
+     * @return el JLabel del título de libros.
+     */
     public JLabel getLbl_libros_titulo() {
         return lbl_libros_titulo;
     }
 
+    /**
+     * Establece el JLabel del título de libros.
+     * @param lbl_libros_titulo el nuevo JLabel del título de libros.
+     */
     public void setLbl_libros_titulo(JLabel lbl_libros_titulo) {
         this.lbl_libros_titulo = lbl_libros_titulo;
     }
 
+    /**
+     * Obtiene el usuario actual.
+     * @return el usuario actual.
+     */
     public Usuario getUser() {
         return user;
     }

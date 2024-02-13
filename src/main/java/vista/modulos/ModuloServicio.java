@@ -3,14 +3,16 @@ package vista.modulos;
 import modelo.Servicio;
 
 /**
- *
+ * Este módulo representa un servicio de streaming en la interfaz de usuario.
+ * Proporciona información sobre el servicio, como su nombre, descripción y una imagen representativa.
+ * Este módulo se puede utilizar para mostrar información detallada sobre un servicio de streaming en la interfaz de usuario.
  * @author Tomás González Martín
  */
 public class ModuloServicio extends javax.swing.JPanel {
 
     /**
-     * Creates new form Servicio
-     * @param servicio
+     * Crea un nuevo módulo de servicio con la información proporcionada por el objeto Servicio.
+     * @param servicio El objeto Servicio que contiene la información del servicio de streaming.
      */
     public ModuloServicio(Servicio servicio) {
         initComponents();
@@ -18,6 +20,9 @@ public class ModuloServicio extends javax.swing.JPanel {
         lblTitulo.setText(servicio.getNombre());
         lblDescripcion.setText("<html><div style='text-align: justify;'>"+servicio.getDescripcion()+"</div></html>");
     }
+    /**
+     * Crea un nuevo módulo de servicio sin información inicial.
+     */
     public ModuloServicio(){
         initComponents();
     }

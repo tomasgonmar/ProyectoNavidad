@@ -3,14 +3,16 @@ package vista.modulos;
 import modelo.Libro;
 
 /**
- *
+ * Este módulo representa un libro en la interfaz de usuario.
+ * Proporciona información sobre el libro, como su título, descripción, género, puntuación y número de páginas.
+ * Este módulo se puede utilizar para mostrar información detallada sobre un libro en la interfaz de usuario.
  * @author Tomás González Martín
  */
 public class ModuloLibro extends javax.swing.JPanel {
 
     /**
-     * Creates new form Libros
-     * @param libro
+     * Crea un nuevo módulo de libro con la información proporcionada por el objeto Libro.
+     * @param libro El objeto Libro que contiene la información del libro.
      */
     public ModuloLibro(Libro libro) {
         initComponents();
@@ -21,6 +23,9 @@ public class ModuloLibro extends javax.swing.JPanel {
         lblPuntuacion.setText(String.valueOf(libro.getPuntuacion())+"/5");
         lblDuracion.setText(String.valueOf(libro.getPaginas())+" pag");
     }
+    /**
+     * Crea un nuevo módulo de libro sin información inicial.
+     */
     public ModuloLibro(){
         initComponents();
     }

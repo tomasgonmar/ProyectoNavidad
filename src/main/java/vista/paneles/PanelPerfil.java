@@ -12,7 +12,8 @@ import javax.swing.JTextField;
 import modelo.Usuario;
 
 /**
- *
+ * Panel que muestra y permite modificar los datos del perfil de un usuario.
+ * 
  * @author Tomas Gonzalez Martin
  */
 public final class PanelPerfil extends javax.swing.JPanel {
@@ -22,9 +23,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
     private CPPerfil c;
     private boolean modificacionActiva;
     /**
-     * Creates new form PanelPerfil
-     * @param con
-     * @param user
+     * Crea un nuevo PanelPerfil.
+     * 
+     * @param con La conexión a la base de datos.
+     * @param user El usuario cuyo perfil se muestra y se puede modificar.
      */
     public PanelPerfil(ConexionBDD con, Usuario user) {
         initComponents();
@@ -98,7 +100,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
         lbl_perfil_telefono.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         lbl_perfil_telefono.setForeground(new java.awt.Color(255, 255, 255));
         lbl_perfil_telefono.setText("Telefono");
-        pTelefono.add(lbl_perfil_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pTelefono.add(lbl_perfil_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 16, -1, -1));
 
         tFTelefono.setBackground(new java.awt.Color(51, 51, 51));
         tFTelefono.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -113,7 +115,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
         lbl_perfil_nombre.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         lbl_perfil_nombre.setForeground(new java.awt.Color(255, 255, 255));
         lbl_perfil_nombre.setText("Nombre");
-        pNombre.add(lbl_perfil_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pNombre.add(lbl_perfil_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 16, -1, -1));
 
         tFNombre.setBackground(new java.awt.Color(51, 51, 51));
         tFNombre.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -128,7 +130,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
         lbl_perfil_email.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         lbl_perfil_email.setForeground(new java.awt.Color(255, 255, 255));
         lbl_perfil_email.setText("Correo");
-        pApllidos.add(lbl_perfil_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pApllidos.add(lbl_perfil_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 16, -1, -1));
 
         tFEmail.setBackground(new java.awt.Color(51, 51, 51));
         tFEmail.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -143,7 +145,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
         lbl_perfil_password.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         lbl_perfil_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_perfil_password.setText("Contraseña");
-        pContraseña.add(lbl_perfil_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pContraseña.add(lbl_perfil_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 16, -1, -1));
 
         tFPassword.setBackground(new java.awt.Color(51, 51, 51));
         tFPassword.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -158,7 +160,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
         lbl_perfil_direccion.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         lbl_perfil_direccion.setForeground(new java.awt.Color(255, 255, 255));
         lbl_perfil_direccion.setText("Direccion");
-        pDireccion.add(lbl_perfil_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        pDireccion.add(lbl_perfil_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 16, -1, -1));
 
         tFDireccion.setBackground(new java.awt.Color(51, 51, 51));
         tFDireccion.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -274,164 +276,363 @@ public final class PanelPerfil extends javax.swing.JPanel {
     private javax.swing.JTextField tFTelefono;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Actualiza el idioma de los elementos de la interfaz de usuario.
+     * 
+     * @param bundle El ResourceBundle que contiene las cadenas de texto localizadas.
+     */
     public void actualizarIdioma(ResourceBundle bundle) {
         c.actualizarIdioma(bundle);
     }
 
+    /**
+     * Obtiene el usuario actual cuyo perfil se muestra y se puede modificar.
+     * 
+     * @return El usuario actual.
+     */
     public Usuario getUser() {
         return user;
     }
 
+    /**
+     * Establece el usuario cuyo perfil se muestra y se puede modificar.
+     * 
+     * @param user El usuario a establecer.
+     */
     public void setUser(Usuario user) {
         this.user = user;
     }
 
+    /**
+     * Obtiene el botón que permite modificar los datos del perfil.
+     * 
+     * @return El botón para modificar los datos del perfil.
+     */
     public JButton getBtnModificar() {
         return btnModificar;
     }
 
+    /**
+     * Establece el botón que permite modificar los datos del perfil.
+     * 
+     * @param btnModificar El botón para modificar los datos del perfil.
+     */
     public void setBtnModificar(JButton btnModificar) {
         this.btnModificar = btnModificar;
     }
 
+    /**
+     * Obtiene el JLabel que muestra la dirección del usuario en el perfil.
+     * 
+     * @return El JLabel de la dirección del usuario.
+     */
     public JLabel getLbl_perfil_direccion() {
         return lbl_perfil_direccion;
     }
 
+    /**
+     * Establece el JLabel que muestra la dirección del usuario en el perfil.
+     * 
+     * @param lbl_perfil_direccion El JLabel de la dirección del usuario.
+     */
     public void setLbl_perfil_direccion(JLabel lbl_perfil_direccion) {
         this.lbl_perfil_direccion = lbl_perfil_direccion;
     }
 
+    /**
+     * Obtiene el JLabel que muestra el email del usuario en el perfil.
+     * 
+     * @return El JLabel del email del usuario.
+     */
     public JLabel getLbl_perfil_email() {
         return lbl_perfil_email;
     }
 
+    /**
+     * Establece el JLabel que muestra el email del usuario en el perfil.
+     * 
+     * @param lbl_perfil_email El JLabel del email del usuario.
+     */
     public void setLbl_perfil_email(JLabel lbl_perfil_email) {
         this.lbl_perfil_email = lbl_perfil_email;
     }
 
+    /**
+     * Obtiene el JLabel que muestra el nombre del usuario en el perfil.
+     * 
+     * @return El JLabel del nombre del usuario.
+     */
     public JLabel getLbl_perfil_nombre() {
         return lbl_perfil_nombre;
     }
 
+    /**
+     * Establece el JLabel que muestra el nombre del usuario en el perfil.
+     * 
+     * @param lbl_perfil_nombre El JLabel del nombre del usuario.
+     */
     public void setLbl_perfil_nombre(JLabel lbl_perfil_nombre) {
         this.lbl_perfil_nombre = lbl_perfil_nombre;
     }
 
+    /**
+     * Obtiene el JLabel que muestra la contraseña del usuario en el perfil.
+     * 
+     * @return El JLabel de la contraseña del usuario.
+     */
     public JLabel getLbl_perfil_password() {
         return lbl_perfil_password;
     }
 
+    /**
+     * Establece el JLabel que muestra la contraseña del usuario en el perfil.
+     * 
+     * @param lbl_perfil_password El JLabel de la contraseña del usuario.
+     */
     public void setLbl_perfil_password(JLabel lbl_perfil_password) {
         this.lbl_perfil_password = lbl_perfil_password;
     }
 
+    /**
+     * Obtiene el JLabel que muestra el teléfono del usuario en el perfil.
+     * 
+     * @return El JLabel del teléfono del usuario.
+     */
     public JLabel getLbl_perfil_telefono() {
         return lbl_perfil_telefono;
     }
 
+    /**
+     * Establece el JLabel que muestra el teléfono del usuario en el perfil.
+     * 
+     * @param lbl_perfil_telefono El JLabel del teléfono del usuario.
+     */
     public void setLbl_perfil_telefono(JLabel lbl_perfil_telefono) {
         this.lbl_perfil_telefono = lbl_perfil_telefono;
     }
 
+    /**
+     * Obtiene el JLabel que muestra el título del perfil.
+     * 
+     * @return El JLabel del título del perfil.
+     */
     public JLabel getLbl_perfil_titulo() {
         return lbl_perfil_titulo;
     }
 
+    /**
+     * Establece el JLabel que muestra el título del perfil.
+     * 
+     * @param lbl_perfil_titulo El JLabel del título del perfil.
+     */
     public void setLbl_perfil_titulo(JLabel lbl_perfil_titulo) {
         this.lbl_perfil_titulo = lbl_perfil_titulo;
     }
 
+    /**
+     * Obtiene el JPanel que contiene el apellido del usuario en el perfil.
+     * 
+     * @return El JPanel del apellido del usuario.
+     */
     public JPanel getpApllidos() {
         return pApllidos;
     }
 
+    /**
+     * Establece el JPanel que contiene el apellido del usuario en el perfil.
+     * 
+     * @param pApllidos El JPanel del apellido del usuario.
+     */
     public void setpApllidos(JPanel pApllidos) {
         this.pApllidos = pApllidos;
     }
 
+    /**
+     * Obtiene el JPanel que contiene la contraseña del usuario en el perfil.
+     * 
+     * @return El JPanel de la contraseña del usuario.
+     */
     public JPanel getpContraseña() {
         return pContraseña;
     }
 
+    /**
+     * Establece el JPanel que contiene la contraseña del usuario en el perfil.
+     * 
+     * @param pContraseña El JPanel de la contraseña del usuario.
+     */
     public void setpContraseña(JPanel pContraseña) {
         this.pContraseña = pContraseña;
     }
 
+    /**
+     * Obtiene el JPanel que contiene la dirección del usuario en el perfil.
+     * 
+     * @return El JPanel de la dirección del usuario.
+     */
     public JPanel getpDireccion() {
         return pDireccion;
     }
 
+    /**
+     * Establece el JPanel que contiene la dirección del usuario en el perfil.
+     * 
+     * @param pDireccion El JPanel de la dirección del usuario.
+     */
     public void setpDireccion(JPanel pDireccion) {
         this.pDireccion = pDireccion;
     }
 
+    /**
+     * Obtiene el JPanel que contiene el nombre del usuario en el perfil.
+     * 
+     * @return El JPanel del nombre del usuario.
+     */
     public JPanel getpNombre() {
         return pNombre;
     }
 
+    /**
+     * Establece el JPanel que contiene el nombre del usuario en el perfil.
+     * 
+     * @param pNombre El JPanel del nombre del usuario.
+     */
     public void setpNombre(JPanel pNombre) {
         this.pNombre = pNombre;
     }
 
+    /**
+     * Obtiene el JPanel que contiene el teléfono del usuario en el perfil.
+     * 
+     * @return El JPanel del teléfono del usuario.
+     */
     public JPanel getpTelefono() {
         return pTelefono;
     }
 
+    /**
+     * Establece el JPanel que contiene el teléfono del usuario en el perfil.
+     * 
+     * @param pTelefono El JPanel del teléfono del usuario.
+     */
     public void setpTelefono(JPanel pTelefono) {
         this.pTelefono = pTelefono;
     }
 
+    /**
+     * Obtiene el JTextField que contiene la dirección del usuario en el perfil.
+     * 
+     * @return El JTextField de la dirección del usuario.
+     */
     public JTextField gettFDireccion() {
         return tFDireccion;
     }
 
+    /**
+     * Establece el JTextField que contiene la dirección del usuario en el perfil.
+     * 
+     * @param tFDireccion El JTextField de la dirección del usuario.
+     */
     public void settFDireccion(JTextField tFDireccion) {
         this.tFDireccion = tFDireccion;
     }
 
+    /**
+     * Obtiene el JTextField que contiene el email del usuario en el perfil.
+     * 
+     * @return El JTextField del email del usuario.
+     */
     public JTextField gettFEmail() {
         return tFEmail;
     }
 
+    /**
+     * Establece el JTextField que contiene el email del usuario en el perfil.
+     * 
+     * @param tFEmail El JTextField del email del usuario.
+     */
     public void settFEmail(JTextField tFEmail) {
         this.tFEmail = tFEmail;
     }
 
+    /**
+     * Obtiene el JTextField que contiene el nombre del usuario en el perfil.
+     * 
+     * @return El JTextField del nombre del usuario.
+     */
     public JTextField gettFNombre() {
         return tFNombre;
     }
 
+    /**
+     * Establece el JTextField que contiene el nombre del usuario en el perfil.
+     * 
+     * @param tFNombre El JTextField del nombre del usuario.
+     */
     public void settFNombre(JTextField tFNombre) {
         this.tFNombre = tFNombre;
     }
 
+    /**
+     * Obtiene el JPasswordField que contiene la contraseña del usuario en el perfil.
+     * 
+     * @return El JPasswordField de la contraseña del usuario.
+     */
     public JPasswordField gettFPassword() {
         return tFPassword;
     }
 
+    /**
+     * Establece el JPasswordField que contiene la contraseña del usuario en el perfil.
+     * 
+     * @param tFPassword El JPasswordField de la contraseña del usuario.
+     */
     public void settFPassword(JPasswordField tFPassword) {
         this.tFPassword = tFPassword;
     }
 
+    /**
+     * Obtiene el JTextField que contiene el teléfono del usuario en el perfil.
+     * 
+     * @return El JTextField del teléfono del usuario.
+     */
     public JTextField gettFTelefono() {
         return tFTelefono;
     }
 
+    /**
+     * Establece el JTextField que contiene el teléfono del usuario en el perfil.
+     * 
+     * @param tFTelefono El JTextField del teléfono del usuario.
+     */
     public void settFTelefono(JTextField tFTelefono) {
         this.tFTelefono = tFTelefono;
     }
 
+    /**
+     * Comprueba si la modificación de datos está activa.
+     * 
+     * @return true si la modificación de datos está activa, false de lo contrario.
+     */
     public boolean isModificacionActiva() {
         return modificacionActiva;
     }
 
+    /**
+     * Establece si la modificación de datos está activa.
+     * 
+     * @param modificacionActiva true para activar la modificación de datos, false de lo contrario.
+     */
     public void setModificacionActiva(boolean modificacionActiva) {
         this.modificacionActiva = modificacionActiva;
     }
 
+    /**
+     * Obtiene la conexión a la base de datos.
+     * 
+     * @return La conexión a la base de datos.
+     */
     public ConexionBDD getCON() {
         return CON;
     }
-    
 }

@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
- *
+ * Clase que representa un panel que muestra la colección de películas para un usuario.
+ * Permite la interacción con las películas y su visualización.
+ * 
  * @author Tomas Gonzalez Martin
  */
 public class PanelPeliculas extends javax.swing.JPanel {
@@ -18,9 +20,9 @@ public class PanelPeliculas extends javax.swing.JPanel {
     private Usuario user;
 
     /**
-     * Creates new form PanelPeliculas
-     * @param con
-     * @param user
+     * Crea un nuevo PanelPeliculas.
+     * @param con La conexión a la base de datos.
+     * @param user El usuario actual.
      */
     public PanelPeliculas(ConexionBDD con, Usuario user) {
         initComponents();
@@ -142,35 +144,59 @@ public class PanelPeliculas extends javax.swing.JPanel {
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Actualiza el idioma del panel.
+     * @param bundle El ResourceBundle que contiene los textos en el nuevo idioma.
+     */
     public void actualizarIdioma(ResourceBundle bundle) {
         C.actualizarIdioma(bundle);
     }
-
+    /**
+     * Obtiene la conexión a la base de datos.
+     * @return La conexión a la base de datos.
+     */
     public Usuario getUser() {
         return user;
     }
-
+    /**
+     * Establece el usuario actual.
+     * @param user El nuevo usuario actual.
+     */
     public void setUser(Usuario user) {
         this.user = user;
     }
-
+    /**
+     * Obtiene la etiqueta de título de las películas.
+     * @return La etiqueta de título de las películas.
+     */
     public JLabel getLbl_peliculas_titulo() {
         return lbl_peliculas_titulo;
     }
-
+    /**
+     * Establece la etiqueta de título de las películas.
+     * @param lbl_peliculas_titulo La nueva etiqueta de título de las películas.
+     */
     public void setLbl_peliculas_titulo(JLabel lbl_peliculas_titulo) {
         this.lbl_peliculas_titulo = lbl_peliculas_titulo;
     }
-
+    /**
+     * Obtiene el panel central del panel de películas.
+     * @return El panel central del panel de películas.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
-
+    /**
+     * Establece el panel central del panel de películas.
+     * @param panelCentral El nuevo panel central del panel de películas.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
-
+    /**
+     * Obtiene la conexión a la base de datos.
+     * @return La conexión a la base de datos.
+     */
     public ConexionBDD getCon() {
         return con;
     }

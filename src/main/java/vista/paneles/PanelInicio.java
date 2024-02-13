@@ -6,14 +6,17 @@ import java.util.ResourceBundle;
 import javax.swing.JLabel;
 
 /**
- *
+ * Panel de inicio de la aplicación.
+ * Este panel muestra la pantalla de inicio de la aplicación.
+ * Permite al usuario navegar por las funciones principales.
  * @author Tomás González Martín
  */
 public class PanelInicio extends javax.swing.JPanel {
 
     private controlador.paneles.CPPrincipal C;
     /**
-     * Creates new form PanelInicio
+     * Crea un nuevo Panel de Inicio con el idioma especificado.
+     * @param idioma El idioma utilizado en la interfaz.
      */
     public PanelInicio(Locale idioma) {
         initComponents();
@@ -65,15 +68,24 @@ public class PanelInicio extends javax.swing.JPanel {
     private javax.swing.JLabel lbl_inicio_titulo;
     private javax.swing.JPanel panelCentral;
     // End of variables declaration//GEN-END:variables
-
+    /**
+    * Actualiza el idioma de la interfaz utilizando el ResourceBundle proporcionado.
+    * @param bundle El ResourceBundle que contiene las cadenas de texto en el idioma deseado.
+    */
     public void actualizarIdioma(ResourceBundle bundle) {
         C.actualizarIdioma(bundle);
     }
-
+    /**
+     * Obtiene el JLabel que muestra el título de inicio.
+     * @return El JLabel que muestra el título de inicio.
+     */
     public JLabel getLbl_inicio_titulo() {
         return lbl_inicio_titulo;
     }
-
+    /**
+     * Establece el JLabel que muestra el título de inicio con el JLabel proporcionado.
+     * @param lbl_inicio_titulo El JLabel que muestra el título de inicio.
+     */
     public void setLbl_inicio_titulo(JLabel lbl_inicio_titulo) {
         this.lbl_inicio_titulo = lbl_inicio_titulo;
     }

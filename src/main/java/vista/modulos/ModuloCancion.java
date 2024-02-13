@@ -3,14 +3,16 @@ package vista.modulos;
 import modelo.Cancion;
 
 /**
- *
+ * Este módulo representa una canción en la interfaz de usuario.
+ * Proporciona información sobre la canción, como su título, autor, puntuación y duración.
+ * Este módulo se puede utilizar para mostrar información detallada sobre una canción en la interfaz de usuario.
  * @author Tomás González Martín
  */
 public class ModuloCancion extends javax.swing.JPanel {
 
     /**
-     * Creates new form Cancion
-     * @param cancion
+     * Crea un nuevo módulo de canción con la información proporcionada por el objeto Cancion.
+     * @param cancion El objeto Cancion que contiene la información de la canción.
      */
     public ModuloCancion(Cancion cancion) {
         initComponents();
@@ -19,7 +21,9 @@ public class ModuloCancion extends javax.swing.JPanel {
         lblPuntacion.setText(String.valueOf(cancion.getPuntuacion())+"/5");
         lblDuracion.setText(String.valueOf(cancion.getDuracion()+"'"));
     }
-    
+     /**
+     * Crea un nuevo módulo de canción sin información inicial.
+     */   
     public ModuloCancion(){
         initComponents();
     }

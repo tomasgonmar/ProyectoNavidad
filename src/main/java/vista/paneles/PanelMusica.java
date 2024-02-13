@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
- *
+ * Clase que representa un panel que muestra la colección de música para un usuario.
+ * Permite la interacción con la música y su visualización.
+ * 
  * @author Tomas Gonzalez Martin
  */
 public class PanelMusica extends javax.swing.JPanel {
@@ -17,9 +19,9 @@ public class PanelMusica extends javax.swing.JPanel {
     private Usuario user;
     private CPMusica c;
     /**
-     * Creates new form PanelMusica
-     * @param con
-     * @param user
+     * Crea un nuevo PanelMusica.
+     * @param con La conexión a la base de datos.
+     * @param user El usuario actual.
      */
     public PanelMusica(ConexionBDD con, Usuario user) {
         initComponents();
@@ -141,41 +143,73 @@ public class PanelMusica extends javax.swing.JPanel {
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Actualiza el idioma del panel.
+     * @param bundle El ResourceBundle que contiene los textos en el nuevo idioma.
+     */
     public void actualizarIdioma(ResourceBundle bundle) {
         c.actualizarIdioma(bundle);
     }
-
+    /**
+     * Obtiene la conexión a la base de datos.
+     * @return La conexión a la base de datos.
+     */
     public ConexionBDD getCon() {
         return con;
     }
-
+    /**
+     * Establece la conexión a la base de datos.
+     * @param con La nueva conexión a la base de datos.
+     */
     public void setCon(ConexionBDD con) {
         this.con = con;
     }
 
+    /**
+     * Obtiene el usuario actual.
+     * @return El usuario actual.
+     */
     public Usuario getUser() {
         return user;
     }
 
+    /**
+     * Establece el usuario actual.
+     * @param user El nuevo usuario actual.
+     */
     public void setUser(Usuario user) {
         this.user = user;
     }
 
+    /**
+     * Obtiene el JLabel del título de la sección de música.
+     * @return El JLabel del título de la sección de música.
+     */
     public JLabel getLbl_musica_titulo() {
         return lbl_musica_titulo;
     }
 
+    /**
+     * Establece el JLabel del título de la sección de música.
+     * @param lbl_musica_titulo El nuevo JLabel del título de la sección de música.
+     */
     public void setLbl_musica_titulo(JLabel lbl_musica_titulo) {
         this.lbl_musica_titulo = lbl_musica_titulo;
     }
 
+    /**
+     * Obtiene el JPanel central del panel.
+     * @return El JPanel central del panel.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
 
+    /**
+     * Establece el JPanel central del panel.
+     * @param panelCentral El nuevo JPanel central del panel.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
-    
 }

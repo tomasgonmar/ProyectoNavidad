@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
- *
+ * Esta clase representa un panel de servicios que muestra los servicios disponibles.
+ * Se utiliza para interactuar con la información de los servicios.
+ * 
  * @author Tomas Gonzalez Martin
  */
 public class PanelServicios extends javax.swing.JPanel {
@@ -17,9 +19,10 @@ public class PanelServicios extends javax.swing.JPanel {
     private Usuario user;
     private final CPServicios C;
     /**
-     * Creates new form PanelServicios
-     * @param con
-     * @param user
+     * Crea un nuevo panel de servicios.
+     * 
+     * @param con La conexión a la base de datos.
+     * @param user El usuario asociado al panel de servicios.
      */
     public PanelServicios(ConexionBDD con, Usuario user) {
         initComponents();
@@ -143,39 +146,75 @@ public class PanelServicios extends javax.swing.JPanel {
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
-
+    /**
+    * Actualiza el idioma de la interfaz del panel de servicios.
+    * 
+    * @param bundle El ResourceBundle que contiene las traducciones en el nuevo idioma.
+    */
     public void actualizarIdioma(ResourceBundle bundle) {
         C.actualizarIdioma(bundle);
     }
-
+    /**
+     * Obtiene el JLabel que muestra el título de los servicios.
+     * 
+     * @return El JLabel que muestra el título de los servicios.
+     */
     public JLabel getLbl_servicios_titulo() {
         return lbl_servicios_titulo;
     }
-
+    /**
+     * Establece el JLabel que muestra el título de los servicios.
+     * 
+     * @param lbl_servicios_titulo El JLabel que muestra el título de los servicios.
+     */
     public void setLbl_servicios_titulo(JLabel lbl_servicios_titulo) {
         this.lbl_servicios_titulo = lbl_servicios_titulo;
     }
-
+    /**
+     * Obtiene el panel central del panel de servicios.
+     * 
+     * @return El panel central del panel de servicios.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
-
+    /**
+     * Establece el panel central del panel de servicios.
+     * 
+     * @param panelCentral El panel central del panel de servicios.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
-
+    /**
+     * Obtiene la conexión a la base de datos asociada al panel de servicios.
+     * 
+     * @return La conexión a la base de datos asociada al panel de servicios.
+     */
     public ConexionBDD getCon() {
         return con;
     }
-
+    /**
+     * Establece la conexión a la base de datos asociada al panel de servicios.
+     * 
+     * @param con La conexión a la base de datos asociada al panel de servicios.
+     */
     public void setCon(ConexionBDD con) {
         this.con = con;
     }
-
+    /**
+     * Obtiene el usuario asociado al panel de servicios.
+     * 
+     * @return El usuario asociado al panel de servicios.
+     */
     public Usuario getUser() {
         return user;
     }
-
+    /**
+     * Establece el usuario asociado al panel de servicios.
+     * 
+     * @param user El usuario asociado al panel de servicios.
+     */
     public void setUser(Usuario user) {
         this.user = user;
     }
