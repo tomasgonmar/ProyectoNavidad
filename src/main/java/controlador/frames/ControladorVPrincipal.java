@@ -15,21 +15,27 @@ import vista.paneles.PanelServicios;
 import vista.frames.FrameApp;
 
 /**
- *
+ * Controlador para la ventana principal de la aplicación.
+ * Gestiona las interacciones y eventos relacionados con la interfaz de usuario de la aplicación.
  * @author Tomas Gonzalez Martin
  */
 public class ControladorVPrincipal {
 
     private final FrameApp V_PRINCIPAL;
     private CardLayout CARD_LAYOUT;
-    
+    /**
+     * Constructor del controlador de la ventana principal.
+     * @param vPrincipal La instancia de FrameApp asociada a este controlador.
+     */
     public ControladorVPrincipal(FrameApp vPrincipal) {
         this.V_PRINCIPAL = vPrincipal;
         inicializarCardLayout();
         actualizarIdioma();
         actualizarImagen();
     }
-
+    /**
+     * Inicializa el CardLayout y los paneles de la ventana principal.
+     */
     public void inicializarCardLayout() {
         CARD_LAYOUT = new CardLayout();
         V_PRINCIPAL.panelCentral.setLayout(CARD_LAYOUT);
@@ -53,73 +59,104 @@ public class ControladorVPrincipal {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pInicio");
         V_PRINCIPAL.setPanelActual("pInicio");
     }
-    
+    /**
+     * Maneja el evento del mouse cuando se presiona en la ventana.
+     * @param evt El evento del mouse.
+     */
     public void desplazamientoPressed(MouseEvent evt) {
         V_PRINCIPAL.setXMouse(evt.getX());
         V_PRINCIPAL.setYMouse(evt.getY());
     }
-
+    /**
+     * Mueve la ventana por la pantalla.
+     * @param evt El evento del mouse.
+     */
     public void movimientoPorPantalla(MouseEvent evt) {
         int x =  evt.getXOnScreen();
         int y = evt.getYOnScreen();
         V_PRINCIPAL.setLocation(x-V_PRINCIPAL.getXMouse(),y-V_PRINCIPAL.getYMouse());
     }
-
+    /**
+     * Cambia al panel de servicios.
+     */
     public void eventosBtnServicios() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pServicios");
         V_PRINCIPAL.setPanelActual("pServicios");
         UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
         UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnServicios());
     }
-
+    /**
+     * Cambia al panel de inicio.
+     */
     public void eventosBtnInicio() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pInicio");
         V_PRINCIPAL.setPanelActual("pInicio");
         UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
         UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnInicio());
     }
-
+    /**
+     * Cambia al panel de peliculas.
+     */
     public void eventosBtnPeliculas() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pPeliculas");
         V_PRINCIPAL.setPanelActual("pPeliculas");
         UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
         UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPeliculas());
     }
-
+    /**
+     * Cambia al panel de libros.
+     */
     public void eventosBtnLibros() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pLibros");
         V_PRINCIPAL.setPanelActual("pLibros");
         UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
         UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnLibros());
     }
-
+    /**
+     * Cambia al panel de musica.
+     */
     public void eventosBtnMusica() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pMusica");
         V_PRINCIPAL.setPanelActual("pMusica");
         UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
         UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnMusica());
     }
-
+    /**
+     * Cambia al panel de perfil.
+     */
     public void eventoBtnPerfil() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pPerfil");
         V_PRINCIPAL.setPanelActual("pPerfil");
         UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
         UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPerfil());
     }
-
+    /**
+    * Activa el estado visual del botón pasado como argumento.
+    * @param btn El botón al que se le aplicará el estado visual activo.
+    */
     public void entrarBtn(JButton btn) {
         UtilDiseño.btnPaneInicioActivo(btn);
     }
-
+    /**
+    * Cambia el estado visual del botón pasado como argumento al salir de un panel específico.
+    * Si el panel actual no es igual al panel pasado como argumento, se elimina el fondo del botón.
+    * @param panelActual El panel actual de la aplicación.
+    * @param btn El botón al que se le cambiará el estado visual.
+    */
     public void salirBtn(String panelActual, JButton btn) {
         if(!V_PRINCIPAL.getPanelActual().equals(panelActual))
             UtilDiseño.eliminarFondoBtnPaneInicio(btn);
     }
-
+    /**
+    * Cambia el estado visual del botón de salida.
+    * @param entrar true si se activa, false si se desactiva.
+    */
     public void cambiarEstadoBtnSalida(boolean entrar) {
         UtilDiseño.cambiarColor(V_PRINCIPAL.btnExit, entrar);
     }
-
+    /**
+     * Actualiza el idioma de la interfaz de usuario.
+     */
     private void actualizarIdioma() {
         ResourceBundle bundle = ResourceBundle.getBundle("idioma",V_PRINCIPAL.getLocale());
         V_PRINCIPAL.getpInicio().actualizarIdioma(bundle); //
@@ -136,31 +173,36 @@ public class ControladorVPrincipal {
         V_PRINCIPAL.getBtnPerfil().setText(bundle.getString("btn_app_perfil"));
         
     }
-    
+    /**
+     * Maneja el evento del clic en la bandera del idioma.
+     * @param evt El evento del mouse.
+     */
     public void btnIdioma(MouseEvent evt) {
         String idioma = V_PRINCIPAL.getLocale().toString();
         switch(idioma){
             case("es_ES"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_en.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
                 V_PRINCIPAL.setLocale(new Locale("en","US"));
                 actualizarIdioma();
                 break;
             case("en_US"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_es.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
                 V_PRINCIPAL.setLocale(new Locale("es","ES"));
                 actualizarIdioma();
                 break;
         }
     }
-    
+    /**
+     * Actualiza la imagen del idioma en la ventana.
+     */
     public void actualizarImagen(){
         String idioma = V_PRINCIPAL.getLocale().toString();
         switch(idioma){
             case("es_ES"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_es.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
                 break;
             case("en_US"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_en.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
                 break;
         }
     }

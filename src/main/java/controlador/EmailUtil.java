@@ -15,23 +15,53 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- *
+ * Clase para enviar correos electrónicos de recuperación de contraseña.
+ * Esta clase envía correos electrónicos de recuperación de contraseña utilizando Gmail SMTP.
+ * Utiliza un hilo para el envío de correo electrónico de manera asíncrona.
+ * Basado en el protocolo SMTP.
+ * Requiere la configuración adecuada de la cuenta de Gmail para permitir el acceso de aplicaciones menos seguras.
  * @author Tomas Gonzalez Martin
  */
 public class EmailUtil extends Thread {
+    
+    /**
+     * Dirección de correo electrónico del remitente.
+     */
     private final String FROM = "correos.recuperacion.miapp@gmail.com";
+    
+    /**
+     * Contraseña de la cuenta de correo electrónico del remitente.
+     */
     private final String PASSWORD = "kaszbixklbblbxvo";
+    
+    /**
+     * Dirección de correo electrónico del destinatario.
+     */
     private final String TO_EMAIL;
+    
+    /**
+     * Nueva contraseña generada para el usuario.
+     */
     private final String NEW_PASSWORD;
     
+    /**
+     * Constructor de la clase EmailUtil.
+     * @param toEmail Dirección de correo electrónico del destinatario.
+     * @param newPassword Nueva contraseña generada para el usuario.
+     */
     public EmailUtil(String toEmail, String newPassword){
         this.TO_EMAIL = toEmail;
         this.NEW_PASSWORD = newPassword;
     }
 
+    /**
+     * Método para enviar un correo electrónico de recuperación de contraseña.
+     * Utiliza Gmail SMTP para enviar el correo electrónico.
+     */
     @Override
     public synchronized void run() {
         
+        // Configuración de las propiedades para la sesión de correo electrónico
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.starttls.enable", "true");
@@ -40,6 +70,7 @@ public class EmailUtil extends Thread {
         props.put("mail.smtp.user", FROM);
         props.put("mail.smtp.ssl.enable", "TLSv1.2");
         
+        // Creación de la sesión de correo electrónico
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -48,6 +79,7 @@ public class EmailUtil extends Thread {
         });
 
         try {
+            // Creación del mensaje MIME para el correo electrónico
             MimeMessage msg = new MimeMessage(session);
             msg.addHeader("Content-type", "text/HTML; charset-UTF-8");
             msg.addHeader("format", "flowed");
@@ -76,6 +108,7 @@ public class EmailUtil extends Thread {
             msg.setContent(htmlContent, "text/html");  // Corrige esta línea
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(this.TO_EMAIL, false));
             
+            // Envío del mensaje de correo electrónico
             Transport.send(msg);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
@@ -83,7 +116,6 @@ public class EmailUtil extends Thread {
             Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     //Forma sin hilo
     /*
     public static void sendEmail(String toEmail, String newPassword) {

@@ -26,6 +26,7 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
          * Llama a la funcion para redondear la ventana
          */
         UtilDiseño.redondearVentana(this);
+        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
     }
     /**
      * Inicia la aplicacion y realiza la conexion a la base de datos

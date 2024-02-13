@@ -30,6 +30,8 @@ public class FrameRecuperacion extends javax.swing.JFrame {
         
         this.setLocale(idioma);
         
+        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
+        
         C_REC = new ControladorRecuperacion(this);
         
         UtilDiseño.redondearVentana(this);

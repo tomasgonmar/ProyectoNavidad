@@ -34,6 +34,8 @@ public class FrameRegistro extends javax.swing.JFrame {
         
         this.setLocale(idioma);
         
+        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
+        
         C_REG = new ControladorRegistro(this);
         
         UtilDiseño.redondearVentana(this);

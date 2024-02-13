@@ -55,6 +55,7 @@ public class FrameApp extends javax.swing.JFrame {
         UtilDiseño.estilizarBotonPanelInicio(btnLibros);
         UtilDiseño.estilizarBotonPanelInicio(btnMusica);
         UtilDiseño.estilizarBotonPerfil(btnPerfil);
+        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
     }
 
     public void setpInicio(PanelInicio panel) {

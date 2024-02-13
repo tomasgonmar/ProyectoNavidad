@@ -37,6 +37,7 @@ public class FrameLogin extends javax.swing.JFrame {
          */
         tFUser.requestFocus();
         this.CON = con;
+        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
         /**
          * Inicializa el controlador 
          */

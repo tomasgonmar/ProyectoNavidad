@@ -20,6 +20,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
     private final ConexionBDD CON;
     private Usuario user;
     private CPPerfil c;
+    private boolean modificacionActiva;
     /**
      * Creates new form PanelPerfil
      * @param con
@@ -30,30 +31,22 @@ public final class PanelPerfil extends javax.swing.JPanel {
         this.CON = con;
         this.user = user;
         
+        modificacionActiva = false;
+        
         c = new CPPerfil(this);
         
         UtilDiseño.redondearElemento(pNombre);
+        UtilDiseño.cambiarPadding(tFNombre);
         UtilDiseño.redondearElemento(pApllidos);
         UtilDiseño.redondearElemento(pTelefono);
+        UtilDiseño.cambiarPadding(tFTelefono);
         UtilDiseño.redondearElemento(pContraseña);
+        UtilDiseño.cambiarPadding(tFPassword);
         UtilDiseño.redondearElemento(pDireccion);
-        UtilDiseño.estilizarBtn(btnModificar,"#262626");
-        
-        activarEdicion(false);
-        
-        tFNombre.setText(user.getNombre()+", "+user.getApellidos());
-        tFEmail.setText(user.getEmail());
-        tFTelefono.setText(user.getTelefono());
-        tFPassword.setText("passwordpasswordpassword");
-        tFDireccion.setText(user.getDireccion());
-        
-    }
-    public void activarEdicion(boolean activo){
-        tFNombre.setEditable(activo);
-        tFEmail.setEditable(activo);
-        tFTelefono.setEditable(activo);
-        tFPassword.setEditable(activo);
-        tFDireccion.setEditable(activo);
+        UtilDiseño.cambiarPadding(tFDireccion);
+        UtilDiseño.colocarPlaceHolderText(tFPassword, "***************************");
+        UtilDiseño.estilizarBtn(btnModificar,"#262626");    
+        UtilDiseño.cambiarPadding(tFEmail);
     }
 
     /**
@@ -179,6 +172,11 @@ public final class PanelPerfil extends javax.swing.JPanel {
         btnModificar.setForeground(new java.awt.Color(0, 0, 0));
         btnModificar.setText("Modificar");
         btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 420, 196, 63));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
@@ -240,6 +238,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
         jLabel4.setText("© 2023 MyApp. All rights reserved.");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1091, 696, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        c.btnModificar(evt);
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -418,6 +420,18 @@ public final class PanelPerfil extends javax.swing.JPanel {
 
     public void settFTelefono(JTextField tFTelefono) {
         this.tFTelefono = tFTelefono;
+    }
+
+    public boolean isModificacionActiva() {
+        return modificacionActiva;
+    }
+
+    public void setModificacionActiva(boolean modificacionActiva) {
+        this.modificacionActiva = modificacionActiva;
+    }
+
+    public ConexionBDD getCON() {
+        return CON;
     }
     
 }
