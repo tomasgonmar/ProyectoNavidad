@@ -1,6 +1,9 @@
 package vista.paneles;
 
+import controlador.paneles.CPPrincipal;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JLabel;
 
 /**
  *
@@ -8,11 +11,13 @@ import java.util.ResourceBundle;
  */
 public class PanelInicio extends javax.swing.JPanel {
 
+    private controlador.paneles.CPPrincipal C;
     /**
      * Creates new form PanelInicio
      */
-    public PanelInicio() {
+    public PanelInicio(Locale idioma) {
         initComponents();
+        C = new CPPrincipal(this);
     }
 
     /**
@@ -26,7 +31,7 @@ public class PanelInicio extends javax.swing.JPanel {
 
         panelCentral = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_inicio_titulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(38, 38, 38));
@@ -41,11 +46,11 @@ public class PanelInicio extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Abstract Design.png"))); // NOI18N
         panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 284, 1210, 446));
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 68)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html><div style='text-align: center;'> Organiza tus servicios, peliculas, libros y musicas en unico lugar </div></html> ");
-        panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 28, 929, -1));
+        lbl_inicio_titulo.setFont(new java.awt.Font("Verdana", 1, 68)); // NOI18N
+        lbl_inicio_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_inicio_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_inicio_titulo.setText("<html><div style='text-align: center;'> Organiza tus servicios, peliculas, libros y musicas en unico lugar </div></html> ");
+        panelCentral.add(lbl_inicio_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 28, 929, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioFondo.png"))); // NOI18N
         panelCentral.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 730));
@@ -55,13 +60,22 @@ public class PanelInicio extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lbl_inicio_titulo;
     private javax.swing.JPanel panelCentral;
     // End of variables declaration//GEN-END:variables
 
     public void actualizarIdioma(ResourceBundle bundle) {
-        
+        C.actualizarIdioma(bundle);
     }
+
+    public JLabel getLbl_inicio_titulo() {
+        return lbl_inicio_titulo;
+    }
+
+    public void setLbl_inicio_titulo(JLabel lbl_inicio_titulo) {
+        this.lbl_inicio_titulo = lbl_inicio_titulo;
+    }
+    
 }

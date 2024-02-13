@@ -1,15 +1,10 @@
 package vista.paneles;
 
 import controlador.ConexionBDD;
-import controlador.UtilesResultSet;
-import vista.modulos.ModuloPeliculas;
-import java.awt.GridLayout;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import controlador.paneles.CPPeliculas;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import modelo.Pelicula;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
@@ -19,6 +14,8 @@ import modelo.Usuario;
 public class PanelPeliculas extends javax.swing.JPanel {
 
     private final ConexionBDD con;
+    private final CPPeliculas C;
+    private Usuario user;
 
     /**
      * Creates new form PanelPeliculas
@@ -28,21 +25,15 @@ public class PanelPeliculas extends javax.swing.JPanel {
     public PanelPeliculas(ConexionBDD con, Usuario user) {
         initComponents();
         
+        this.user = user;
+        
+        C = new CPPeliculas(this);
+        
         this.con = con;
         
         scroll.getVerticalScrollBar().setUnitIncrement(20);
         
-        panelCentral.setLayout(new GridLayout(0,1));
-        
-        ArrayList<Pelicula> a;
-        try {
-            a = UtilesResultSet.transformResSetPeliculas(con.obtenerPeliculasAsociados(user));
-                for(Pelicula p : a){
-                    panelCentral.add(new ModuloPeliculas(p));
-                }
-        } catch (SQLException ex) {
-            Logger.getLogger(PanelLibros.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        C.insertarPeliculas();
     }
 
     /**
@@ -57,7 +48,7 @@ public class PanelPeliculas extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         panelCentral = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_peliculas_titulo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -80,10 +71,10 @@ public class PanelPeliculas extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
-        jLabel5.setBackground(new java.awt.Color(38, 38, 38));
-        jLabel5.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("<html> <div style='text-align: center;'>Peliculas</div> </html>");
+        lbl_peliculas_titulo.setBackground(new java.awt.Color(38, 38, 38));
+        lbl_peliculas_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        lbl_peliculas_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_peliculas_titulo.setText("<html> <div style='text-align: center;'>Peliculas</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,13 +84,13 @@ public class PanelPeliculas extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+            .addComponent(lbl_peliculas_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+            .addComponent(lbl_peliculas_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -142,17 +133,45 @@ public class PanelPeliculas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbl_peliculas_titulo;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
 
     public void actualizarIdioma(ResourceBundle bundle) {
-        
+        C.actualizarIdioma(bundle);
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
+    public JLabel getLbl_peliculas_titulo() {
+        return lbl_peliculas_titulo;
+    }
+
+    public void setLbl_peliculas_titulo(JLabel lbl_peliculas_titulo) {
+        this.lbl_peliculas_titulo = lbl_peliculas_titulo;
+    }
+
+    public JPanel getPanelCentral() {
+        return panelCentral;
+    }
+
+    public void setPanelCentral(JPanel panelCentral) {
+        this.panelCentral = panelCentral;
+    }
+
+    public ConexionBDD getCon() {
+        return con;
     }
 }

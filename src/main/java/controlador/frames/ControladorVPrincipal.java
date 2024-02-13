@@ -1,7 +1,9 @@
-package controlador;
+package controlador.frames;
 
+import controlador.UtilDiseño;
 import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
 import vista.paneles.PanelInicio;
@@ -23,14 +25,18 @@ public class ControladorVPrincipal {
     
     public ControladorVPrincipal(FrameApp vPrincipal) {
         this.V_PRINCIPAL = vPrincipal;
+        inicializarCardLayout();
         actualizarIdioma();
+        actualizarImagen();
     }
 
     public void inicializarCardLayout() {
         CARD_LAYOUT = new CardLayout();
         V_PRINCIPAL.panelCentral.setLayout(CARD_LAYOUT);
         
-        V_PRINCIPAL.setpInicio(new PanelInicio());
+        Locale l = V_PRINCIPAL.getLocale();
+        
+        V_PRINCIPAL.setpInicio(new PanelInicio(l));
         V_PRINCIPAL.setpServicios(new PanelServicios(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
         V_PRINCIPAL.setpPeliculas(new PanelPeliculas(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
         V_PRINCIPAL.setpLibros(new PanelLibros(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
@@ -122,7 +128,40 @@ public class ControladorVPrincipal {
         V_PRINCIPAL.getpPeliculas().actualizarIdioma(bundle); //
         V_PRINCIPAL.getpPerfil().actualizarIdioma(bundle); //
         V_PRINCIPAL.getpServicios().actualizarIdioma(bundle); //
+        V_PRINCIPAL.getBtnInicio().setText(bundle.getString("btn_app_inicio"));
+        V_PRINCIPAL.getBtnServicios().setText(bundle.getString("btn_app_servicios"));
+        V_PRINCIPAL.getBtnPeliculas().setText(bundle.getString("btn_app_peliculas"));
+        V_PRINCIPAL.getBtnMusica().setText(bundle.getString("btn_app_musica"));
+        V_PRINCIPAL.getBtnLibros().setText(bundle.getString("btn_app_libros"));
+        V_PRINCIPAL.getBtnPerfil().setText(bundle.getString("btn_app_perfil"));
         
-        
+    }
+    
+    public void btnIdioma(MouseEvent evt) {
+        String idioma = V_PRINCIPAL.getLocale().toString();
+        switch(idioma){
+            case("es_ES"):
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_en.png", "idioma"));
+                V_PRINCIPAL.setLocale(new Locale("en","US"));
+                actualizarIdioma();
+                break;
+            case("en_US"):
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_es.png", "idioma"));
+                V_PRINCIPAL.setLocale(new Locale("es","ES"));
+                actualizarIdioma();
+                break;
+        }
+    }
+    
+    public void actualizarImagen(){
+        String idioma = V_PRINCIPAL.getLocale().toString();
+        switch(idioma){
+            case("es_ES"):
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_es.png", "idioma"));
+                break;
+            case("en_US"):
+                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("src/main/resources/img/iconos/bandera_en.png", "idioma"));
+                break;
+        }
     }
 }

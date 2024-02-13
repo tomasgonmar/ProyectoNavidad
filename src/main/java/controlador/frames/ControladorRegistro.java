@@ -1,11 +1,12 @@
-package controlador;
+package controlador.frames;
 
+import controlador.UtilDiseño;
+import controlador.UtilEncriptado;
 import java.awt.event.MouseEvent;
 import modelo.Usuario;
 import vista.frames.FrameLogin;
 import vista.frames.FrameRegistro;
 import java.sql.SQLException;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 

@@ -2,7 +2,7 @@ package vista.frames;
 
 import controlador.ConexionBDD;
 import controlador.ControladorCierreApp;
-import controlador.ControladorLogin;
+import controlador.frames.ControladorLogin;
 import controlador.UtilDiseño;
 import java.util.Locale;
 import javax.swing.JButton;
@@ -212,6 +212,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblIdioma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconos/bandera_esp.png"))); // NOI18N
         lblIdioma.setToolTipText("");
+        lblIdioma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblIdioma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblIdiomaMouseClicked(evt);

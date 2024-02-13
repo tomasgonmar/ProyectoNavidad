@@ -1,5 +1,9 @@
-package controlador;
+package controlador.frames;
 
+import controlador.ContraseñaAleatoria;
+import controlador.EmailUtil;
+import controlador.UtilDiseño;
+import controlador.UtilEncriptado;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

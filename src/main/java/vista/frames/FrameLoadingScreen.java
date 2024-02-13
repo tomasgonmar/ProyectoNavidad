@@ -1,7 +1,7 @@
 package vista.frames;
 
 import controlador.ConexionBDD;
-import controlador.ControladorLoadingScreen;
+import controlador.frames.ControladorLoadingScreen;
 import controlador.UtilDiseño;
 import javax.swing.JProgressBar;
 

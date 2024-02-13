@@ -1,15 +1,10 @@
 package vista.paneles;
 
 import controlador.ConexionBDD;
-import controlador.UtilesResultSet;
-import vista.modulos.ModuloServicio;
-import java.awt.GridLayout;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import controlador.paneles.CPServicios;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import modelo.Servicio;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
@@ -19,6 +14,8 @@ import modelo.Usuario;
 public class PanelServicios extends javax.swing.JPanel {
 
     private ConexionBDD con;
+    private Usuario user;
+    private final CPServicios C;
     /**
      * Creates new form PanelServicios
      * @param con
@@ -27,21 +24,17 @@ public class PanelServicios extends javax.swing.JPanel {
     public PanelServicios(ConexionBDD con, Usuario user) {
         initComponents();
         
+        this.user = user;
+        
         this.con = con;
+        
+        C = new CPServicios(this);
         
         scroll.getVerticalScrollBar().setUnitIncrement(20);
         
-        panelCentral.setLayout(new GridLayout(0,3));
+        C.insertarServicios();
         
-        ArrayList<Servicio> a;
-        try {
-            a = UtilesResultSet.transformResSetServicios(con.obtenerServiciosAsociados(user));
-                for(Servicio s : a){
-                    panelCentral.add(new ModuloServicio(s));
-                }
-        } catch (SQLException ex) {
-            Logger.getLogger(PanelLibros.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
 
     /**
@@ -56,7 +49,7 @@ public class PanelServicios extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         panelCentral = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_servicios_titulo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -79,10 +72,10 @@ public class PanelServicios extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
-        jLabel5.setBackground(new java.awt.Color(38, 38, 38));
-        jLabel5.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("<html> <div style='text-align: center;'>Servicios</div> </html>");
+        lbl_servicios_titulo.setBackground(new java.awt.Color(38, 38, 38));
+        lbl_servicios_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        lbl_servicios_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_servicios_titulo.setText("<html> <div style='text-align: center;'>Servicios</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -92,13 +85,13 @@ public class PanelServicios extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+            .addComponent(lbl_servicios_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+            .addComponent(lbl_servicios_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -141,17 +134,50 @@ public class PanelServicios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbl_servicios_titulo;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
 
     public void actualizarIdioma(ResourceBundle bundle) {
-        
+        C.actualizarIdioma(bundle);
     }
+
+    public JLabel getLbl_servicios_titulo() {
+        return lbl_servicios_titulo;
+    }
+
+    public void setLbl_servicios_titulo(JLabel lbl_servicios_titulo) {
+        this.lbl_servicios_titulo = lbl_servicios_titulo;
+    }
+
+    public JPanel getPanelCentral() {
+        return panelCentral;
+    }
+
+    public void setPanelCentral(JPanel panelCentral) {
+        this.panelCentral = panelCentral;
+    }
+
+    public ConexionBDD getCon() {
+        return con;
+    }
+
+    public void setCon(ConexionBDD con) {
+        this.con = con;
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+    
 }

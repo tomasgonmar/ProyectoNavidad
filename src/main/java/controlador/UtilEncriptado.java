@@ -19,7 +19,7 @@ public class UtilEncriptado {
         return Password.check(contraseña,hash).withArgon2();
     }
 
-    static void encriptarUsuario(Usuario u) {
+    public static void encriptarUsuario(Usuario u) {
         u.setContraseña(encriptarPassword(u.getContraseña()));
         u.setValidacionContraseña(encriptarPassword(u.getValidacionContraseña()));
     }

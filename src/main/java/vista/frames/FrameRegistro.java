@@ -3,7 +3,7 @@ package vista.frames;
 import controlador.ConexionBDD;
 import controlador.ControladorCierreApp;
 
-import controlador.ControladorRegistro;
+import controlador.frames.ControladorRegistro;
 import controlador.UtilDiseño;
 import java.util.Locale;
 import javax.swing.JButton;

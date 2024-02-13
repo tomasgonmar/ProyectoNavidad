@@ -1,5 +1,6 @@
-package controlador;
+package controlador.frames;
 
+import controlador.ConexionBDD;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.sql.SQLException;
 import java.util.Locale;

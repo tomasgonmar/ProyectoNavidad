@@ -47,7 +47,7 @@ public class ConexionBDD {
             s.executeUpdate();
         }
 
-    boolean existsUser(Usuario user) throws SQLException {
+    public boolean existsUser(Usuario user) throws SQLException {
         String sql = "select * from usuarios where usuario=?";
         PreparedStatement s = CONN.prepareStatement(sql);
         s.setString(1, user.getUsuario());

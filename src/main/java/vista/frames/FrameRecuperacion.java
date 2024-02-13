@@ -1,7 +1,7 @@
 package vista.frames;
 
 import controlador.ConexionBDD;
-import controlador.ControladorRecuperacion;
+import controlador.frames.ControladorRecuperacion;
 import controlador.UtilDiseño;
 import java.util.Locale;
 import javax.swing.JButton;

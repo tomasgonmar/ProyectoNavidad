@@ -2,7 +2,7 @@ package vista.frames;
 
 import controlador.ConexionBDD;
 import controlador.ControladorCierreApp;
-import controlador.ControladorVPrincipal;
+import controlador.frames.ControladorVPrincipal;
 import controlador.UtilDiseño;
 import java.util.Locale;
 import javax.swing.JButton;
@@ -41,14 +41,13 @@ public class FrameApp extends javax.swing.JFrame {
      */
     public FrameApp(Usuario user, ConexionBDD con, Locale locale) {
         initComponents();
+        
         this.CON = con;
         this.USER = user;
         
         this.setLocale(locale);
         
         C_PRIN = new ControladorVPrincipal(this);
-        
-        C_PRIN.inicializarCardLayout();
         
         UtilDiseño.estilizarBotonPanelInicio(btnInicio);
         UtilDiseño.estilizarBotonPanelInicio(btnServicios);
@@ -338,7 +337,7 @@ public class FrameApp extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Mi Aplicacion");
+        jLabel5.setText("MyApp");
         panelNavegador.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 37, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
@@ -380,6 +379,12 @@ public class FrameApp extends javax.swing.JFrame {
 
         lblIdioma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconos/bandera_esp.png"))); // NOI18N
         lblIdioma.setToolTipText("");
+        lblIdioma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblIdioma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIdiomaMouseClicked(evt);
+            }
+        });
         panelNavegador.add(lblIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 35, 45, 30));
 
         getContentPane().add(panelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1536, 100));
@@ -475,6 +480,10 @@ public class FrameApp extends javax.swing.JFrame {
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         C_PRIN.cambiarEstadoBtnSalida(false);
     }//GEN-LAST:event_btnExitMouseExited
+
+    private void lblIdiomaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIdiomaMouseClicked
+        C_PRIN.btnIdioma(evt);
+    }//GEN-LAST:event_lblIdiomaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnExit;

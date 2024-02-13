@@ -2,7 +2,13 @@ package vista.paneles;
 
 import controlador.ConexionBDD;
 import controlador.UtilDiseño;
+import controlador.paneles.CPPerfil;
 import java.util.ResourceBundle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import modelo.Usuario;
 
 /**
@@ -12,6 +18,8 @@ import modelo.Usuario;
 public final class PanelPerfil extends javax.swing.JPanel {
 
     private final ConexionBDD CON;
+    private Usuario user;
+    private CPPerfil c;
     /**
      * Creates new form PanelPerfil
      * @param con
@@ -20,6 +28,9 @@ public final class PanelPerfil extends javax.swing.JPanel {
     public PanelPerfil(ConexionBDD con, Usuario user) {
         initComponents();
         this.CON = con;
+        this.user = user;
+        
+        c = new CPPerfil(this);
         
         UtilDiseño.redondearElemento(pNombre);
         UtilDiseño.redondearElemento(pApllidos);
@@ -56,23 +67,23 @@ public final class PanelPerfil extends javax.swing.JPanel {
 
         jPanel3 = new javax.swing.JPanel();
         pTelefono = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        lbl_perfil_telefono = new javax.swing.JLabel();
         tFTelefono = new javax.swing.JTextField();
         pNombre = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        lbl_perfil_nombre = new javax.swing.JLabel();
         tFNombre = new javax.swing.JTextField();
         pApllidos = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        lbl_perfil_email = new javax.swing.JLabel();
         tFEmail = new javax.swing.JTextField();
         pContraseña = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        lbl_perfil_password = new javax.swing.JLabel();
         tFPassword = new javax.swing.JPasswordField();
         pDireccion = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
+        lbl_perfil_direccion = new javax.swing.JLabel();
         tFDireccion = new javax.swing.JTextField();
         btnModificar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_perfil_titulo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -91,10 +102,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
         pTelefono.setBackground(new java.awt.Color(51, 51, 51));
         pTelefono.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Telefono");
-        pTelefono.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        lbl_perfil_telefono.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        lbl_perfil_telefono.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_perfil_telefono.setText("Telefono");
+        pTelefono.add(lbl_perfil_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
 
         tFTelefono.setBackground(new java.awt.Color(51, 51, 51));
         tFTelefono.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -106,10 +117,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
         pNombre.setBackground(new java.awt.Color(51, 51, 51));
         pNombre.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Nombre");
-        pNombre.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        lbl_perfil_nombre.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        lbl_perfil_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_perfil_nombre.setText("Nombre");
+        pNombre.add(lbl_perfil_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
 
         tFNombre.setBackground(new java.awt.Color(51, 51, 51));
         tFNombre.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -121,10 +132,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
         pApllidos.setBackground(new java.awt.Color(51, 51, 51));
         pApllidos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Correo");
-        pApllidos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        lbl_perfil_email.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        lbl_perfil_email.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_perfil_email.setText("Correo");
+        pApllidos.add(lbl_perfil_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
 
         tFEmail.setBackground(new java.awt.Color(51, 51, 51));
         tFEmail.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -136,10 +147,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
         pContraseña.setBackground(new java.awt.Color(51, 51, 51));
         pContraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Contraseña");
-        pContraseña.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        lbl_perfil_password.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        lbl_perfil_password.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_perfil_password.setText("Contraseña");
+        pContraseña.add(lbl_perfil_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
 
         tFPassword.setBackground(new java.awt.Color(51, 51, 51));
         tFPassword.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -151,10 +162,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
         pDireccion.setBackground(new java.awt.Color(51, 51, 51));
         pDireccion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel14.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Direccion");
-        pDireccion.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
+        lbl_perfil_direccion.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        lbl_perfil_direccion.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_perfil_direccion.setText("Direccion");
+        pDireccion.add(lbl_perfil_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
 
         tFDireccion.setBackground(new java.awt.Color(51, 51, 51));
         tFDireccion.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -174,10 +185,10 @@ public final class PanelPerfil extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
-        jLabel5.setBackground(new java.awt.Color(38, 38, 38));
-        jLabel5.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("<html> <div style='text-align: center;'>Perfil</div> </html>");
+        lbl_perfil_titulo.setBackground(new java.awt.Color(38, 38, 38));
+        lbl_perfil_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        lbl_perfil_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_perfil_titulo.setText("<html> <div style='text-align: center;'>Perfil</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -187,13 +198,13 @@ public final class PanelPerfil extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+            .addComponent(lbl_perfil_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+            .addComponent(lbl_perfil_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -234,21 +245,21 @@ public final class PanelPerfil extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbl_perfil_direccion;
+    private javax.swing.JLabel lbl_perfil_email;
+    private javax.swing.JLabel lbl_perfil_nombre;
+    private javax.swing.JLabel lbl_perfil_password;
+    private javax.swing.JLabel lbl_perfil_telefono;
+    private javax.swing.JLabel lbl_perfil_titulo;
     private javax.swing.JPanel pApllidos;
     private javax.swing.JPanel pContraseña;
     private javax.swing.JPanel pDireccion;
@@ -262,6 +273,151 @@ public final class PanelPerfil extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public void actualizarIdioma(ResourceBundle bundle) {
-        
+        c.actualizarIdioma(bundle);
     }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public JLabel getLbl_perfil_direccion() {
+        return lbl_perfil_direccion;
+    }
+
+    public void setLbl_perfil_direccion(JLabel lbl_perfil_direccion) {
+        this.lbl_perfil_direccion = lbl_perfil_direccion;
+    }
+
+    public JLabel getLbl_perfil_email() {
+        return lbl_perfil_email;
+    }
+
+    public void setLbl_perfil_email(JLabel lbl_perfil_email) {
+        this.lbl_perfil_email = lbl_perfil_email;
+    }
+
+    public JLabel getLbl_perfil_nombre() {
+        return lbl_perfil_nombre;
+    }
+
+    public void setLbl_perfil_nombre(JLabel lbl_perfil_nombre) {
+        this.lbl_perfil_nombre = lbl_perfil_nombre;
+    }
+
+    public JLabel getLbl_perfil_password() {
+        return lbl_perfil_password;
+    }
+
+    public void setLbl_perfil_password(JLabel lbl_perfil_password) {
+        this.lbl_perfil_password = lbl_perfil_password;
+    }
+
+    public JLabel getLbl_perfil_telefono() {
+        return lbl_perfil_telefono;
+    }
+
+    public void setLbl_perfil_telefono(JLabel lbl_perfil_telefono) {
+        this.lbl_perfil_telefono = lbl_perfil_telefono;
+    }
+
+    public JLabel getLbl_perfil_titulo() {
+        return lbl_perfil_titulo;
+    }
+
+    public void setLbl_perfil_titulo(JLabel lbl_perfil_titulo) {
+        this.lbl_perfil_titulo = lbl_perfil_titulo;
+    }
+
+    public JPanel getpApllidos() {
+        return pApllidos;
+    }
+
+    public void setpApllidos(JPanel pApllidos) {
+        this.pApllidos = pApllidos;
+    }
+
+    public JPanel getpContraseña() {
+        return pContraseña;
+    }
+
+    public void setpContraseña(JPanel pContraseña) {
+        this.pContraseña = pContraseña;
+    }
+
+    public JPanel getpDireccion() {
+        return pDireccion;
+    }
+
+    public void setpDireccion(JPanel pDireccion) {
+        this.pDireccion = pDireccion;
+    }
+
+    public JPanel getpNombre() {
+        return pNombre;
+    }
+
+    public void setpNombre(JPanel pNombre) {
+        this.pNombre = pNombre;
+    }
+
+    public JPanel getpTelefono() {
+        return pTelefono;
+    }
+
+    public void setpTelefono(JPanel pTelefono) {
+        this.pTelefono = pTelefono;
+    }
+
+    public JTextField gettFDireccion() {
+        return tFDireccion;
+    }
+
+    public void settFDireccion(JTextField tFDireccion) {
+        this.tFDireccion = tFDireccion;
+    }
+
+    public JTextField gettFEmail() {
+        return tFEmail;
+    }
+
+    public void settFEmail(JTextField tFEmail) {
+        this.tFEmail = tFEmail;
+    }
+
+    public JTextField gettFNombre() {
+        return tFNombre;
+    }
+
+    public void settFNombre(JTextField tFNombre) {
+        this.tFNombre = tFNombre;
+    }
+
+    public JPasswordField gettFPassword() {
+        return tFPassword;
+    }
+
+    public void settFPassword(JPasswordField tFPassword) {
+        this.tFPassword = tFPassword;
+    }
+
+    public JTextField gettFTelefono() {
+        return tFTelefono;
+    }
+
+    public void settFTelefono(JTextField tFTelefono) {
+        this.tFTelefono = tFTelefono;
+    }
+    
 }

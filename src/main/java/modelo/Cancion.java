@@ -15,7 +15,7 @@ public class Cancion {
     private double puntuacion;
 
     public Cancion(String nombreImagen, String titulo, String autor, double duracion, double puntuacion) {
-        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/canciones/"+nombreImagen+".png", "img");
+        this.imagen = UtilDiseño.createImageIcon("img/canciones/"+nombreImagen+".png", "img");
         this.titulo = titulo;
         this.autor = autor;
         this.duracion = duracion;

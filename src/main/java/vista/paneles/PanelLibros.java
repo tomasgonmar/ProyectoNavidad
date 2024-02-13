@@ -1,15 +1,10 @@
 package vista.paneles;
 
 import controlador.ConexionBDD;
-import controlador.UtilesResultSet;
-import vista.modulos.ModuloLibro;
-import java.awt.GridLayout;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import controlador.paneles.CPLibros;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import modelo.Libro;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
@@ -19,6 +14,8 @@ import modelo.Usuario;
 public class PanelLibros extends javax.swing.JPanel {
 
     private ConexionBDD con;
+    private final Usuario user;
+    private CPLibros c;
     /**
      * Creates new form PanelLibros
      * @param con
@@ -26,20 +23,17 @@ public class PanelLibros extends javax.swing.JPanel {
      */
     public PanelLibros(ConexionBDD con, Usuario user) {
         initComponents();
+        
+        this.user = user;
+        
         this.con = con;
+        
+        c = new CPLibros(this);
         
         scroll.getVerticalScrollBar().setUnitIncrement(20);
         
-        panelCentral.setLayout(new GridLayout(0,1));
-        ArrayList<Libro> a;
-        try {
-            a = UtilesResultSet.transformResSetLibros(con.obtenerLibrosAsociados(user));
-                for(Libro l : a){
-                    panelCentral.add(new ModuloLibro(l));
-                }
-        } catch (SQLException ex) {
-            Logger.getLogger(PanelLibros.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        c.insertarLibros();
+        
     }
 
     /**
@@ -54,7 +48,7 @@ public class PanelLibros extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         panelCentral = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_libros_titulo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -77,10 +71,10 @@ public class PanelLibros extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
-        jLabel5.setBackground(new java.awt.Color(38, 38, 38));
-        jLabel5.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("<html> <div style='text-align: center;'>Libros</div> </html>");
+        lbl_libros_titulo.setBackground(new java.awt.Color(38, 38, 38));
+        lbl_libros_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        lbl_libros_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_libros_titulo.setText("<html> <div style='text-align: center;'>Libros</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -90,13 +84,13 @@ public class PanelLibros extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+            .addComponent(lbl_libros_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+            .addComponent(lbl_libros_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -139,17 +133,46 @@ public class PanelLibros extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbl_libros_titulo;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
 
     public void actualizarIdioma(ResourceBundle bundle) {
-        
+        c.actualizarIdioma(bundle);
     }
+
+    public ConexionBDD getCon() {
+        return con;
+    }
+
+    public void setCon(ConexionBDD con) {
+        this.con = con;
+    }
+
+    public JPanel getPanelCentral() {
+        return panelCentral;
+    }
+
+    public void setPanelCentral(JPanel panelCentral) {
+        this.panelCentral = panelCentral;
+    }
+
+    public JLabel getLbl_libros_titulo() {
+        return lbl_libros_titulo;
+    }
+
+    public void setLbl_libros_titulo(JLabel lbl_libros_titulo) {
+        this.lbl_libros_titulo = lbl_libros_titulo;
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+    
 }
