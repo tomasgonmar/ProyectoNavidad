@@ -1,8 +1,8 @@
 package vista.frames;
 
-import controlador.ConexionBDD;
-import controlador.frames.ControladorRecuperacion;
-import controlador.UtilDiseño;
+import controlador.ConBDD;
+import controlador.frames.CRecuperacion;
+import controlador.UDiseño;
 import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,8 +18,8 @@ public class FrameRecuperacion extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
-    private final ControladorRecuperacion C_REC;
-    private final ConexionBDD CON;
+    private final CRecuperacion C_REC;
+    private final ConBDD CON;
     /**
      * Constructor de la clase FrameRecuperacion.
      * Crea una nueva instancia de la ventana de recuperación.
@@ -27,21 +27,21 @@ public class FrameRecuperacion extends javax.swing.JFrame {
      * @param con La conexión a la base de datos.
      * @param idioma El idioma en el que se muestra la interfaz de usuario.
      */
-    public FrameRecuperacion(ConexionBDD con, Locale idioma) {
+    public FrameRecuperacion(ConBDD con, Locale idioma) {
         initComponents();
         
         this.CON = con;
         
         this.setLocale(idioma);
         
-        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
+        setIconImage(UDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
         
-        C_REC = new ControladorRecuperacion(this);
+        C_REC = new CRecuperacion(this);
         
-        UtilDiseño.redondearVentana(this);
+        UDiseño.redondearVentana(this);
         
-        UtilDiseño.estilizarTextFieldEmail(tFEmail);
-        UtilDiseño.estilizarBtn(btnRecuperar); 
+        UDiseño.estilizarTextFieldEmail(tFEmail);
+        UDiseño.estilizarBtn(btnRecuperar); 
         
         getRootPane().setDefaultButton(btnRecuperar);
     }
@@ -275,7 +275,7 @@ public class FrameRecuperacion extends javax.swing.JFrame {
      *
      * @return La conexión a la base de datos.
      */
-    public ConexionBDD getConexion() {
+    public ConBDD getConexion() {
         return CON;
     }
 

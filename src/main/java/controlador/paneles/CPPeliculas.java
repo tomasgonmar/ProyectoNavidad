@@ -1,6 +1,6 @@
 package controlador.paneles;
 
-import controlador.UtilesResultSet;
+import controlador.UResultSet;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Pelicula;
 import vista.modulos.ModuloPeliculas;
-import vista.paneles.PanelPeliculas;
+import vista.paneles.PPeliculas;
 
 /**
  * Controlador para el panel de películas.
@@ -17,13 +17,13 @@ import vista.paneles.PanelPeliculas;
  * @author Tomas Gonzalez Martin
  */
 public class CPPeliculas {
-    private final PanelPeliculas P;
+    private final PPeliculas P;
     
     /**
      * Constructor del controlador de películas.
      * @param p El panel de películas asociado a este controlador.
      */
-    public CPPeliculas(PanelPeliculas p){
+    public CPPeliculas(PPeliculas p){
         this.P = p;
     }
     
@@ -44,12 +44,12 @@ public class CPPeliculas {
         
         ArrayList<Pelicula> a;
         try {
-            a = UtilesResultSet.transformResSetPeliculas(P.getCon().obtenerPeliculasAsociados(P.getUser()));
+            a = UResultSet.transformResSetPeliculas(P.getCon().obtenerPeliculasAsociados(P.getUser()));
                 for(Pelicula p : a){
                     P.getPanelCentral().add(new ModuloPeliculas(p));
                 }
         } catch (SQLException ex) {
-            Logger.getLogger(PanelPeliculas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PPeliculas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

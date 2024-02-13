@@ -11,14 +11,14 @@ import javax.swing.JLabel;
  * Permite al usuario navegar por las funciones principales.
  * @author Tomás González Martín
  */
-public class PanelInicio extends javax.swing.JPanel {
+public class PInicio extends javax.swing.JPanel {
 
     private controlador.paneles.CPPrincipal C;
     /**
      * Crea un nuevo Panel de Inicio con el idioma especificado.
      * @param idioma El idioma utilizado en la interfaz.
      */
-    public PanelInicio(Locale idioma) {
+    public PInicio(Locale idioma) {
         initComponents();
         C = new CPPrincipal(this);
     }

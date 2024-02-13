@@ -1,40 +1,41 @@
 package vista.paneles;
 
-import controlador.ConexionBDD;
-import controlador.paneles.CPMusica;
+import controlador.ConBDD;
+import controlador.paneles.CPPeliculas;
 import java.util.ResourceBundle;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
- * Clase que representa un panel que muestra la colección de música para un usuario.
- * Permite la interacción con la música y su visualización.
+ * Clase que representa un panel que muestra la colección de películas para un usuario.
+ * Permite la interacción con las películas y su visualización.
  * 
  * @author Tomas Gonzalez Martin
  */
-public class PanelMusica extends javax.swing.JPanel {
+public class PPeliculas extends javax.swing.JPanel {
 
-    private ConexionBDD con;
+    private final ConBDD con;
+    private final CPPeliculas C;
     private Usuario user;
-    private CPMusica c;
+
     /**
-     * Crea un nuevo PanelMusica.
+     * Crea un nuevo PanelPeliculas.
      * @param con La conexión a la base de datos.
      * @param user El usuario actual.
      */
-    public PanelMusica(ConexionBDD con, Usuario user) {
+    public PPeliculas(ConBDD con, Usuario user) {
         initComponents();
         
         this.user = user;
         
-        this.con = con;
+        C = new CPPeliculas(this);
         
-        c = new CPMusica(this);
+        this.con = con;
         
         scroll.getVerticalScrollBar().setUnitIncrement(20);
         
-        c.insertarCanciones();
+        C.insertarPeliculas();
     }
 
     /**
@@ -49,7 +50,7 @@ public class PanelMusica extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         panelCentral = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lbl_musica_titulo = new javax.swing.JLabel();
+        lbl_peliculas_titulo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -72,10 +73,10 @@ public class PanelMusica extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
-        lbl_musica_titulo.setBackground(new java.awt.Color(38, 38, 38));
-        lbl_musica_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        lbl_musica_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_musica_titulo.setText("<html> <div style='text-align: center;'>Musica</div> </html>");
+        lbl_peliculas_titulo.setBackground(new java.awt.Color(38, 38, 38));
+        lbl_peliculas_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        lbl_peliculas_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_peliculas_titulo.setText("<html> <div style='text-align: center;'>Peliculas</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -85,13 +86,13 @@ public class PanelMusica extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_musica_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+            .addComponent(lbl_peliculas_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_musica_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+            .addComponent(lbl_peliculas_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -139,7 +140,7 @@ public class PanelMusica extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbl_musica_titulo;
+    private javax.swing.JLabel lbl_peliculas_titulo;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
@@ -148,31 +149,15 @@ public class PanelMusica extends javax.swing.JPanel {
      * @param bundle El ResourceBundle que contiene los textos en el nuevo idioma.
      */
     public void actualizarIdioma(ResourceBundle bundle) {
-        c.actualizarIdioma(bundle);
+        C.actualizarIdioma(bundle);
     }
     /**
      * Obtiene la conexión a la base de datos.
      * @return La conexión a la base de datos.
      */
-    public ConexionBDD getCon() {
-        return con;
-    }
-    /**
-     * Establece la conexión a la base de datos.
-     * @param con La nueva conexión a la base de datos.
-     */
-    public void setCon(ConexionBDD con) {
-        this.con = con;
-    }
-
-    /**
-     * Obtiene el usuario actual.
-     * @return El usuario actual.
-     */
     public Usuario getUser() {
         return user;
     }
-
     /**
      * Establece el usuario actual.
      * @param user El nuevo usuario actual.
@@ -180,36 +165,39 @@ public class PanelMusica extends javax.swing.JPanel {
     public void setUser(Usuario user) {
         this.user = user;
     }
-
     /**
-     * Obtiene el JLabel del título de la sección de música.
-     * @return El JLabel del título de la sección de música.
+     * Obtiene la etiqueta de título de las películas.
+     * @return La etiqueta de título de las películas.
      */
-    public JLabel getLbl_musica_titulo() {
-        return lbl_musica_titulo;
+    public JLabel getLbl_peliculas_titulo() {
+        return lbl_peliculas_titulo;
     }
-
     /**
-     * Establece el JLabel del título de la sección de música.
-     * @param lbl_musica_titulo El nuevo JLabel del título de la sección de música.
+     * Establece la etiqueta de título de las películas.
+     * @param lbl_peliculas_titulo La nueva etiqueta de título de las películas.
      */
-    public void setLbl_musica_titulo(JLabel lbl_musica_titulo) {
-        this.lbl_musica_titulo = lbl_musica_titulo;
+    public void setLbl_peliculas_titulo(JLabel lbl_peliculas_titulo) {
+        this.lbl_peliculas_titulo = lbl_peliculas_titulo;
     }
-
     /**
-     * Obtiene el JPanel central del panel.
-     * @return El JPanel central del panel.
+     * Obtiene el panel central del panel de películas.
+     * @return El panel central del panel de películas.
      */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
-
     /**
-     * Establece el JPanel central del panel.
-     * @param panelCentral El nuevo JPanel central del panel.
+     * Establece el panel central del panel de películas.
+     * @param panelCentral El nuevo panel central del panel de películas.
      */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
+    }
+    /**
+     * Obtiene la conexión a la base de datos.
+     * @return La conexión a la base de datos.
+     */
+    public ConBDD getCon() {
+        return con;
     }
 }

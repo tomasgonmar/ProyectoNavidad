@@ -1,20 +1,20 @@
 package vista.frames;
 
-import controlador.ConexionBDD;
-import controlador.ControladorCierreApp;
+import controlador.ConBDD;
+import controlador.CCierreApp;
 import controlador.frames.ControladorVPrincipal;
-import controlador.UtilDiseño;
+import controlador.UDiseño;
 import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Usuario;
-import vista.paneles.PanelInicio;
-import vista.paneles.PanelLibros;
-import vista.paneles.PanelMusica;
-import vista.paneles.PanelPeliculas;
-import vista.paneles.PanelPerfil;
-import vista.paneles.PanelServicios;
+import vista.paneles.PInicio;
+import vista.paneles.PLibros;
+import vista.paneles.PMusica;
+import vista.paneles.PPeliculas;
+import vista.paneles.PPerfil;
+import vista.paneles.PServicios;
 
 /**
  * La clase FrameApp representa la ventana principal de la aplicación.
@@ -28,15 +28,15 @@ public class FrameApp extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
-    private PanelInicio pInicio;
-    private PanelServicios pServicios;
-    private PanelPeliculas pPeliculas;    
-    private PanelLibros pLibros;
-    private PanelMusica pMusica;
-    private PanelPerfil pPerfil;
+    private PInicio pInicio;
+    private PServicios pServicios;
+    private PPeliculas pPeliculas;    
+    private PLibros pLibros;
+    private PMusica pMusica;
+    private PPerfil pPerfil;
     private String panelActual;
     private final ControladorVPrincipal C_PRIN;
-    private final ConexionBDD CON;
+    private final ConBDD CON;
     private final Usuario USER;
     /**
      * Crea una nueva instancia de la ventana principal.
@@ -45,7 +45,7 @@ public class FrameApp extends javax.swing.JFrame {
      * @param con La conexión a la base de datos.
      * @param locale El locale que indica la configuración regional de la aplicación.
      */
-    public FrameApp(Usuario user, ConexionBDD con, Locale locale) {
+    public FrameApp(Usuario user, ConBDD con, Locale locale) {
         initComponents();
         
         this.CON = con;
@@ -55,20 +55,21 @@ public class FrameApp extends javax.swing.JFrame {
         
         C_PRIN = new ControladorVPrincipal(this);
         
-        UtilDiseño.estilizarBotonPanelInicio(btnInicio);
-        UtilDiseño.estilizarBotonPanelInicio(btnServicios);
-        UtilDiseño.estilizarBotonPanelInicio(btnPeliculas);
-        UtilDiseño.estilizarBotonPanelInicio(btnLibros);
-        UtilDiseño.estilizarBotonPanelInicio(btnMusica);
-        UtilDiseño.estilizarBotonPerfil(btnPerfil);
-        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
+        UDiseño.estilizarBotonPanelInicio(btnInicio);
+        UDiseño.estilizarBotonPanelInicio(btnServicios);
+        UDiseño.estilizarBotonPanelInicio(btnPeliculas);
+        UDiseño.estilizarBotonPanelInicio(btnLibros);
+        UDiseño.estilizarBotonPanelInicio(btnMusica);
+        UDiseño.estilizarBotonPerfil(btnPerfil);
+        UDiseño.redondearVentana(this);
+        setIconImage(UDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
     }
     /**
      * Establece el panel de inicio en la ventana principal.
      * 
      * @param panel El panel de inicio a establecer.
      */
-    public void setpInicio(PanelInicio panel) {
+    public void setpInicio(PInicio panel) {
         this.pInicio = panel;
     }
     /**
@@ -76,7 +77,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @param panel El panel de servicios a establecer.
      */
-    public void setpServicios(PanelServicios panel) {
+    public void setpServicios(PServicios panel) {
         this.pServicios = panel;
     }
     /**
@@ -84,7 +85,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @param panel El panel de películas a establecer.
      */
-    public void setpPeliculas(PanelPeliculas panel) {
+    public void setpPeliculas(PPeliculas panel) {
         this.pPeliculas = panel;
     }
     /**
@@ -92,7 +93,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @param panel El panel de libros a establecer.
      */
-    public void setpLibros(PanelLibros panel) {
+    public void setpLibros(PLibros panel) {
         this.pLibros = panel;
     }
     /**
@@ -100,7 +101,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @param panel El panel de música a establecer.
      */
-    public void setpMusica(PanelMusica panel) {
+    public void setpMusica(PMusica panel) {
         this.pMusica = panel;
     }
     /**
@@ -108,7 +109,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @param panel El panel de perfil a establecer.
      */
-    public void setpPerfil(PanelPerfil panel) {
+    public void setpPerfil(PPerfil panel) {
         this.pPerfil = panel;
     }
     /**
@@ -116,7 +117,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @return El panel de inicio.
      */
-    public PanelInicio getpInicio() {
+    public PInicio getpInicio() {
         return pInicio;
     }
     /**
@@ -124,7 +125,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @return El panel de servicios.
      */
-    public PanelServicios getpServicios() {
+    public PServicios getpServicios() {
         return pServicios;
     }
     /**
@@ -132,7 +133,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @return El panel de películas.
      */
-    public PanelPeliculas getpPeliculas() {
+    public PPeliculas getpPeliculas() {
         return pPeliculas;
     }
     /**
@@ -140,7 +141,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @return El panel de libros.
      */
-    public PanelLibros getpLibros() {
+    public PLibros getpLibros() {
         return pLibros;
     }
     /**
@@ -148,7 +149,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @return El panel de música.
      */
-    public PanelMusica getpMusica() {
+    public PMusica getpMusica() {
         return pMusica;
     }
     /**
@@ -156,7 +157,7 @@ public class FrameApp extends javax.swing.JFrame {
      * 
      * @return El panel de perfil.
      */
-    public PanelPerfil getpPerfil() {
+    public PPerfil getpPerfil() {
         return pPerfil;
     }
 
@@ -557,7 +558,7 @@ public class FrameApp extends javax.swing.JFrame {
      * @param evt El evento de acción.
      */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        ControladorCierreApp.cerrarApp();
+        CCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
     /**
      * Maneja el evento de clic en el botón de servicios.
@@ -861,7 +862,7 @@ public class FrameApp extends javax.swing.JFrame {
      *
      * @return La conexión a la base de datos.
      */
-    public ConexionBDD getCon(){
+    public ConBDD getCon(){
         return this.CON;
     }
 

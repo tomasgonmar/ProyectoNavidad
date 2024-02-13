@@ -1,10 +1,10 @@
 package vista.frames;
 
-import controlador.ConexionBDD;
-import controlador.ControladorCierreApp;
+import controlador.ConBDD;
+import controlador.CCierreApp;
 
-import controlador.frames.ControladorRegistro;
-import controlador.UtilDiseño;
+import controlador.frames.CRegistro;
+import controlador.UDiseño;
 import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,8 +26,8 @@ public class FrameRegistro extends javax.swing.JFrame {
     
     private int xMouse;
     private int yMouse;
-    private final ControladorRegistro C_REG;
-    private final ConexionBDD CON;
+    private final CRegistro C_REG;
+    private final ConBDD CON;
     /**
      * Constructor de la clase FrameRegistro.
      * Inicializa la ventana de registro y sus componentes.
@@ -35,24 +35,24 @@ public class FrameRegistro extends javax.swing.JFrame {
      * @param con La conexión a la base de datos.
      * @param idioma El idioma que se utilizará en la interfaz.
      */
-    public FrameRegistro(ConexionBDD con, Locale idioma) {
+    public FrameRegistro(ConBDD con, Locale idioma) {
         initComponents();
         
         this.CON = con;
         
         this.setLocale(idioma);
         
-        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
+        setIconImage(UDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
         
-        C_REG = new ControladorRegistro(this);
+        C_REG = new CRegistro(this);
         
-        UtilDiseño.redondearVentana(this);
+        UDiseño.redondearVentana(this);
         
-        UtilDiseño.estilizarTextFieldEmail(tFEmail);
-        UtilDiseño.estilizarTextFieldUser(tFUser);
-        UtilDiseño.estilizarTextFieldPassword(tFPassword);
-        UtilDiseño.estilizarTextFieldPassword(tFPasswordValidacion);
-        UtilDiseño.estilizarBtn(btnRegistro); 
+        UDiseño.estilizarTextFieldEmail(tFEmail);
+        UDiseño.estilizarTextFieldUser(tFUser);
+        UDiseño.estilizarTextFieldPassword(tFPassword);
+        UDiseño.estilizarTextFieldPassword(tFPasswordValidacion);
+        UDiseño.estilizarBtn(btnRegistro); 
                 
         getRootPane().setDefaultButton(btnRegistro);
     }
@@ -238,7 +238,7 @@ public class FrameRegistro extends javax.swing.JFrame {
      * @param evt Evento de acción que desencadena esta operación.
      */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        ControladorCierreApp.cerrarApp();
+        CCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
     /**
      * Método que maneja el evento cuando el mouse se arrastra sobre el panel de desplazamiento.
@@ -641,7 +641,7 @@ public class FrameRegistro extends javax.swing.JFrame {
      * Obtiene la conexión a la base de datos.
      * @return La conexión a la base de datos.
      */
-    public ConexionBDD getConexion() {
+    public ConBDD getConexion() {
         return CON;
     }
 }

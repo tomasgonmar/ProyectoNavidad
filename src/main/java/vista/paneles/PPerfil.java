@@ -1,7 +1,7 @@
 package vista.paneles;
 
-import controlador.ConexionBDD;
-import controlador.UtilDiseño;
+import controlador.ConBDD;
+import controlador.UDiseño;
 import controlador.paneles.CPPerfil;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
@@ -16,9 +16,9 @@ import modelo.Usuario;
  * 
  * @author Tomas Gonzalez Martin
  */
-public final class PanelPerfil extends javax.swing.JPanel {
+public final class PPerfil extends javax.swing.JPanel {
 
-    private final ConexionBDD CON;
+    private final ConBDD CON;
     private Usuario user;
     private CPPerfil c;
     private boolean modificacionActiva;
@@ -28,7 +28,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
      * @param con La conexión a la base de datos.
      * @param user El usuario cuyo perfil se muestra y se puede modificar.
      */
-    public PanelPerfil(ConexionBDD con, Usuario user) {
+    public PPerfil(ConBDD con, Usuario user) {
         initComponents();
         this.CON = con;
         this.user = user;
@@ -37,18 +37,18 @@ public final class PanelPerfil extends javax.swing.JPanel {
         
         c = new CPPerfil(this);
         
-        UtilDiseño.redondearElemento(pNombre);
-        UtilDiseño.cambiarPadding(tFNombre);
-        UtilDiseño.redondearElemento(pApllidos);
-        UtilDiseño.redondearElemento(pTelefono);
-        UtilDiseño.cambiarPadding(tFTelefono);
-        UtilDiseño.redondearElemento(pContraseña);
-        UtilDiseño.cambiarPadding(tFPassword);
-        UtilDiseño.redondearElemento(pDireccion);
-        UtilDiseño.cambiarPadding(tFDireccion);
-        UtilDiseño.colocarPlaceHolderText(tFPassword, "***************************");
-        UtilDiseño.estilizarBtn(btnModificar,"#262626");    
-        UtilDiseño.cambiarPadding(tFEmail);
+        UDiseño.redondearElemento(pNombre);
+        UDiseño.cambiarPadding(tFNombre);
+        UDiseño.redondearElemento(pApllidos);
+        UDiseño.redondearElemento(pTelefono);
+        UDiseño.cambiarPadding(tFTelefono);
+        UDiseño.redondearElemento(pContraseña);
+        UDiseño.cambiarPadding(tFPassword);
+        UDiseño.redondearElemento(pDireccion);
+        UDiseño.cambiarPadding(tFDireccion);
+        UDiseño.colocarPlaceHolderText(tFPassword, "***************************");
+        UDiseño.estilizarBtn(btnModificar,"#262626");    
+        UDiseño.cambiarPadding(tFEmail);
     }
 
     /**
@@ -632,7 +632,7 @@ public final class PanelPerfil extends javax.swing.JPanel {
      * 
      * @return La conexión a la base de datos.
      */
-    public ConexionBDD getCON() {
+    public ConBDD getCON() {
         return CON;
     }
 }

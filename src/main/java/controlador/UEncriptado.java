@@ -9,7 +9,7 @@ import modelo.Usuario;
  * Utiliza la biblioteca password4j para realizar el encriptado y la verificación de contraseñas.
  * @author Tomás González Martín
  */
-public class UtilEncriptado {
+public class UEncriptado {
     
     /**
      * Encripta una contraseña utilizando el algoritmo Argon2 con una sal aleatoria.

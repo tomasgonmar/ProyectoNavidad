@@ -1,7 +1,7 @@
 package controlador.frames;
 
 import controlador.CRedoUndo;
-import controlador.UtilDiseño;
+import controlador.UDiseño;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -22,7 +22,7 @@ import vista.frames.FrameRegistro;
  * Maneja las interacciones y eventos relacionados con el inicio de sesión del usuario.
  * @author Tomás González Martín
  */
-public class ControladorLogin {
+public class CLogin {
 
     private final FrameLogin VENTANA_LOG;
     
@@ -30,7 +30,7 @@ public class ControladorLogin {
      * Constructor del controlador de inicio de sesión.
      * @param ventanaLog La instancia de FrameLogin asociada a este controlador.
      */
-    public ControladorLogin(FrameLogin ventanaLog) {
+    public CLogin(FrameLogin ventanaLog) {
         this.VENTANA_LOG = ventanaLog;
         actualizarImagen();
         CRedoUndo.addUndoRedoFunctionality(VENTANA_LOG.gettFPassword());
@@ -100,7 +100,7 @@ public class ControladorLogin {
                 JOptionPane.showMessageDialog(VENTANA_LOG, "Usuario o contraseña incorrecto");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -109,7 +109,7 @@ public class ControladorLogin {
      * @param entrar true si se activa, false si se desactiva.
      */
     public void cambiarEstadoLblRecuperacion(boolean entrar) {
-        UtilDiseño.cambiarColorYBorde(VENTANA_LOG.lblRecuperacion, entrar);
+        UDiseño.cambiarColorYBorde(VENTANA_LOG.lblRecuperacion, entrar);
     }
     
     /**
@@ -117,7 +117,7 @@ public class ControladorLogin {
      * @param entrar true si se activa, false si se desactiva.
      */
     public void cambiarEstadoLblRegistro(boolean entrar) {
-        UtilDiseño.cambiarColorYBorde(VENTANA_LOG.lblRegistro, entrar);
+        UDiseño.cambiarColorYBorde(VENTANA_LOG.lblRegistro, entrar);
     }
 
     /**
@@ -125,7 +125,7 @@ public class ControladorLogin {
      * @param entrar true si se activa, false si se desactiva.
      */
     public void cambiarEstadoBtnSalida(boolean entrar) {
-        UtilDiseño.cambiarColor(VENTANA_LOG.btnExit, entrar);
+        UDiseño.cambiarColor(VENTANA_LOG.btnExit, entrar);
     }
 
     /**
@@ -150,7 +150,7 @@ public class ControladorLogin {
         VENTANA_LOG.getLblRecuperacion().setText(bundle.getString("lbl_login_recuperacion"));
         VENTANA_LOG.getLblRegistro().setText(bundle.getString("lbl_login_registro"));
         VENTANA_LOG.getBtnIniciar().setText(bundle.getString("btn_login_iniciar"));
-        UtilDiseño.colocarPlaceHolderText(VENTANA_LOG.gettFUser(), bundle.getString("tF_login_usuario"));
+        UDiseño.colocarPlaceHolderText(VENTANA_LOG.gettFUser(), bundle.getString("tF_login_usuario"));
     }
 
     /**
@@ -161,12 +161,12 @@ public class ControladorLogin {
         String idioma = VENTANA_LOG.getLocale().toString();
         switch(idioma){
             case("es_ES"):
-                VENTANA_LOG.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
+                VENTANA_LOG.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
                 VENTANA_LOG.setLocale(new Locale("en","US"));
                 actualizarIdioma();
                 break;
             case("en_US"):
-                VENTANA_LOG.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
+                VENTANA_LOG.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
                 VENTANA_LOG.setLocale(new Locale("es","ES"));
                 actualizarIdioma();
                 break;
@@ -180,10 +180,10 @@ public class ControladorLogin {
         String idioma = VENTANA_LOG.getLocale().toString();
         switch(idioma){
             case("es_ES"):
-                VENTANA_LOG.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
+                VENTANA_LOG.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
                 break;
             case("en_US"):
-                VENTANA_LOG.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
+                VENTANA_LOG.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
                 break;
         }
     }

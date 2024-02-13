@@ -2,9 +2,9 @@ package controlador.frames;
 
 import controlador.CRedoUndo;
 import controlador.ContraseñaAleatoria;
-import controlador.EmailUtil;
-import controlador.UtilDiseño;
-import controlador.UtilEncriptado;
+import controlador.UEmail;
+import controlador.UDiseño;
+import controlador.UEncriptado;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -18,7 +18,7 @@ import vista.frames.FrameRecuperacion;
  * Gestiona las interacciones y eventos relacionados con la recuperación de contraseñas.
  * @author Tomas Gonzalez Martin
  */
-public class ControladorRecuperacion {
+public class CRecuperacion {
     
     private final FrameRecuperacion VENTANA_REC;
 
@@ -26,7 +26,7 @@ public class ControladorRecuperacion {
      * Constructor del controlador de recuperación de contraseña.
      * @param ventanaRec La instancia de FrameRecuperacion asociada a este controlador.
      */
-    public ControladorRecuperacion(FrameRecuperacion ventanaRec) {
+    public CRecuperacion(FrameRecuperacion ventanaRec) {
         this.VENTANA_REC = ventanaRec;
         actualizarIdioma();
         CRedoUndo.addUndoRedoFunctionality(VENTANA_REC.gettFEmail());
@@ -67,11 +67,11 @@ public class ControladorRecuperacion {
             Usuario user = new Usuario(VENTANA_REC.getEmail());
             if(VENTANA_REC.getConexion().emailExiste(user)){
                 String contraseñaEnviar = new ContraseñaAleatoria(15).obtenerContraseña();
-                user.setContraseña(UtilEncriptado.encriptarPassword(contraseñaEnviar));
+                user.setContraseña(UEncriptado.encriptarPassword(contraseñaEnviar));
                 
                 VENTANA_REC.getConexion().modificarContraseña(user);
                 
-                new EmailUtil(user.getEmail(), contraseñaEnviar).start();
+                new UEmail(user.getEmail(), contraseñaEnviar).start();
                 
                 JOptionPane.showMessageDialog(VENTANA_REC, "Nueva contraseña ha sido enviada al correo, si no lo recibe en unos minutos intentelo de nuevo.");
                 salir();
@@ -89,7 +89,7 @@ public class ControladorRecuperacion {
      * @param entrar true si se activa, false si se desactiva.
      */
     public void cambiarEstadoBtnSalida(boolean entrar) {
-        UtilDiseño.cambiarColor(VENTANA_REC.btnExit, entrar);
+        UDiseño.cambiarColor(VENTANA_REC.btnExit, entrar);
     }    
 
     /**
@@ -100,6 +100,6 @@ public class ControladorRecuperacion {
         VENTANA_REC.getLbl_recuperacion_titulo().setText("<html> <div style='text-align: center;'>"+bundle.getString("lbl_recuperacion_titulo")+"</div> </html>");
         VENTANA_REC.getLbl_recuperacion_email().setText(bundle.getString("lbl_recuperacion_email"));
         VENTANA_REC.getBtnRecuperar().setText(bundle.getString("btn_recuperacion"));
-        UtilDiseño.colocarPlaceHolderText(VENTANA_REC.gettFEmail(), bundle.getString("email_ejemplo"));
+        UDiseño.colocarPlaceHolderText(VENTANA_REC.gettFEmail(), bundle.getString("email_ejemplo"));
     }
 }

@@ -1,15 +1,15 @@
 package controlador.paneles;
 
 import controlador.CRedoUndo;
-import controlador.UtilDiseño;
-import controlador.UtilEncriptado;
+import controlador.UDiseño;
+import controlador.UEncriptado;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
-import vista.paneles.PanelPerfil;
+import vista.paneles.PPerfil;
 
 /**
  * Controlador para el panel de perfil de usuario.
@@ -18,14 +18,14 @@ import vista.paneles.PanelPerfil;
  */
 public class CPPerfil {
 
-    private final PanelPerfil P;
+    private final PPerfil P;
     private Usuario user;
     
     /**
      * Constructor del controlador del panel de perfil.
      * @param p El panel de perfil asociado a este controlador.
      */
-    public CPPerfil(PanelPerfil p) {
+    public CPPerfil(PPerfil p) {
         this.P = p;
         
         activarEdicion(false);
@@ -58,10 +58,10 @@ public class CPPerfil {
         P.getLbl_perfil_direccion().setText(bundle.getString("lbl_perfil_direccion"));
         P.getBtnModificar().setText(bundle.getString("btn_perfil_modificar"));
         
-        UtilDiseño.colocarPlaceHolderText(P.gettFNombre(), bundle.getString("tF_perfil_nombre"));
-        UtilDiseño.colocarPlaceHolderText(P.gettFEmail(), bundle.getString("email_ejemplo"));
-        UtilDiseño.colocarPlaceHolderText(P.gettFTelefono(), bundle.getString("tF_perfil_telefono"));
-        UtilDiseño.colocarPlaceHolderText(P.gettFDireccion(), bundle.getString("tF_perfil_direccion"));
+        UDiseño.colocarPlaceHolderText(P.gettFNombre(), bundle.getString("tF_perfil_nombre"));
+        UDiseño.colocarPlaceHolderText(P.gettFEmail(), bundle.getString("email_ejemplo"));
+        UDiseño.colocarPlaceHolderText(P.gettFTelefono(), bundle.getString("tF_perfil_telefono"));
+        UDiseño.colocarPlaceHolderText(P.gettFDireccion(), bundle.getString("tF_perfil_direccion"));
     }
     
     /**
@@ -140,7 +140,7 @@ public class CPPerfil {
         if(password.isBlank()){
             password = user.getContraseña();
         }
-        password = UtilEncriptado.encriptarPassword(password);
+        password = UEncriptado.encriptarPassword(password);
         user.setNombre(nombre);
         user.setApellidos(apellidos);
         user.setDireccion(direccion);

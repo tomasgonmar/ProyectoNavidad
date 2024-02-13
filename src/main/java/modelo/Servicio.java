@@ -1,6 +1,6 @@
 package modelo;
 
-import controlador.UtilDiseño;
+import controlador.UDiseño;
 import javax.swing.ImageIcon;
 
 /**
@@ -43,7 +43,7 @@ public class Servicio {
             case "Spotify" -> archivo += nombre;
             case "Youtube" -> archivo += nombre;
         }
-        return UtilDiseño.createImageIcon("/img/logos_servicios/" + archivo + ".png", "img");
+        return UDiseño.createImageIcon("/img/logos_servicios/" + archivo + ".png", "img");
     }
 
     /**

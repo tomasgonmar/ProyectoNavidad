@@ -1,6 +1,6 @@
 package modelo;
 
-import controlador.UtilDiseño;
+import controlador.UDiseño;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,6 +17,7 @@ public class Libro {
     private String descripcion;
     private double puntuacion;
     private String genero; 
+    private int id;
 
     /**
      * Constructor de la clase Libro.
@@ -29,7 +30,7 @@ public class Libro {
      * @param genero Género del libro.
      */
     public Libro(String nombreImagen, String titulo, int paginas, String descripcion, double puntuacion, String genero) {
-        this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/libros/" + nombreImagen + ".png", "img");
+        this.imagen = UDiseño.createImageIcon("src/main/resources/img/libros/" + nombreImagen + ".png", "img");
         this.titulo = titulo;
         this.paginas = paginas;
         this.descripcion = descripcion;
@@ -151,4 +152,13 @@ public class Libro {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 }

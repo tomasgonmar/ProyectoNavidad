@@ -1,6 +1,7 @@
 package vista.paneles;
 
-import controlador.ConexionBDD;
+import controlador.ConBDD;
+import controlador.UDiseño;
 import controlador.paneles.CPLibros;
 import java.util.ResourceBundle;
 import javax.swing.JLabel;
@@ -12,9 +13,9 @@ import modelo.Usuario;
  * Permite la interacción con los libros y su visualización.
  * @author Tomas Gonzalez Martin
  */
-public class PanelLibros extends javax.swing.JPanel {
+public class PLibros extends javax.swing.JPanel {
 
-    private ConexionBDD con;
+    private ConBDD con;
     private final Usuario user;
     private CPLibros c;
     
@@ -23,7 +24,7 @@ public class PanelLibros extends javax.swing.JPanel {
      * @param con la conexión a la base de datos.
      * @param user el usuario actual.
      */
-    public PanelLibros(ConexionBDD con, Usuario user) {
+    public PLibros(ConBDD con, Usuario user) {
         initComponents();
         
         this.user = user;
@@ -31,7 +32,7 @@ public class PanelLibros extends javax.swing.JPanel {
         c = new CPLibros(this);
         scroll.getVerticalScrollBar().setUnitIncrement(20);
         c.insertarLibros();
-        
+        UDiseño.estilizarBtn(btnInsertar);
     }
 
     /**
@@ -45,6 +46,7 @@ public class PanelLibros extends javax.swing.JPanel {
 
         scroll = new javax.swing.JScrollPane();
         panelCentral = new javax.swing.JPanel();
+        btnInsertar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lbl_libros_titulo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -67,6 +69,18 @@ public class PanelLibros extends javax.swing.JPanel {
 
         add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
 
+        btnInsertar.setBackground(new java.awt.Color(158, 255, 0));
+        btnInsertar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnInsertar.setForeground(new java.awt.Color(0, 0, 0));
+        btnInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconos/anadir.png"))); // NOI18N
+        btnInsertar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarActionPerformed(evt);
+            }
+        });
+        add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 60, 40, 40));
+
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
         lbl_libros_titulo.setBackground(new java.awt.Color(38, 38, 38));
@@ -82,7 +96,9 @@ public class PanelLibros extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_libros_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lbl_libros_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1119, Short.MAX_VALUE)
+                .addGap(91, 91, 91))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -125,8 +141,13 @@ public class PanelLibros extends javax.swing.JPanel {
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 693, 24, 24));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+        c.agregarLibro();
+    }//GEN-LAST:event_btnInsertarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInsertar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -152,7 +173,7 @@ public class PanelLibros extends javax.swing.JPanel {
      * Obtiene la conexión a la base de datos.
      * @return la conexión a la base de datos.
      */
-    public ConexionBDD getCon() {
+    public ConBDD getCon() {
         return con;
     }
 
@@ -160,7 +181,7 @@ public class PanelLibros extends javax.swing.JPanel {
      * Establece la conexión a la base de datos.
      * @param con la nueva conexión a la base de datos.
      */
-    public void setCon(ConexionBDD con) {
+    public void setCon(ConBDD con) {
         this.con = con;
     }
 

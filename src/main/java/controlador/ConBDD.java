@@ -5,13 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import modelo.Usuario;
 
 /**
  * Conector con la base de datos y funciones para el DDL de la base de datos
  * @author Tomás González Martín
  */
-public class ConexionBDD {
+public class ConBDD {
     /**
      * Conexión a la base de datos.
      */
@@ -22,7 +23,7 @@ public class ConexionBDD {
      * @throws SQLException si ocurre un error al conectar a la base de datos.
      * @throws ClassNotFoundException si no se encuentra el controlador de la base de datos.
      */
-    public ConexionBDD() throws SQLException, ClassNotFoundException {
+    public ConBDD() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         // Establecer la conexión a la base de datos local
         CONN = DriverManager.getConnection("jdbc:mysql://localhost/miapp","root","");
@@ -87,7 +88,8 @@ public class ConexionBDD {
             user.setApellidos(r.getString("apellidos"));
             user.setTelefono(r.getString("telefono"));
             user.setDireccion(r.getString("direccion"));
-            return UtilEncriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña")); 
+            user.setId(Integer.valueOf(r.getString("id")));
+            return UEncriptado.comprobarContraseña(user.getContraseña(),r.getString("contraseña")); 
         }
         return false;
     }
@@ -186,5 +188,21 @@ public class ConexionBDD {
         if(s.executeUpdate()>0){
             return true;
         }else return false;
+    }
+
+    public ResultSet obtenerLibros() throws SQLException {
+        String sql = "select titulo,genero,paginas,id_multimedia,descripcion from libros join multimedia on id_multimedia = id";
+        
+        PreparedStatement s = CONN.prepareStatement(sql);
+        return s.executeQuery();
+    }
+
+    public void asociarLibro(Usuario user, int id, double puntuacion) throws SQLException {
+        String sql = "INSERT INTO user_multimedia (id_user, id_multimedia,puntuacion) VALUES (?, ?, ?)";
+        PreparedStatement s = CONN.prepareStatement(sql);
+        s.setInt(1, user.getId());
+        s.setInt(2, id);
+        s.setDouble(3, puntuacion);
+        s.executeUpdate();
     }
 }

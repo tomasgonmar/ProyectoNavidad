@@ -1,8 +1,8 @@
 package vista.frames;
 
-import controlador.ConexionBDD;
-import controlador.frames.ControladorLoadingScreen;
-import controlador.UtilDiseño;
+import controlador.ConBDD;
+import controlador.frames.CLoadingScreen;
+import controlador.UDiseño;
 import javax.swing.JProgressBar;
 
 /**
@@ -21,12 +21,12 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
     /**
      * Objeto de conexión a la base de datos.
      */
-    private ConexionBDD con;
+    private ConBDD con;
     
     /**
      * Controlador para la pantalla de carga.
      */
-    private static ControladorLoadingScreen CLOG;
+    private static CLoadingScreen CLOG;
     
     /**
      * Crea una nueva instancia de FrameLoadingScreen.
@@ -34,9 +34,9 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
      */
     public FrameLoadingScreen() {
         initComponents();
-        CLOG = new ControladorLoadingScreen(this);
-        UtilDiseño.redondearVentana(this);
-        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
+        CLOG = new CLoadingScreen(this);
+        UDiseño.redondearVentana(this);
+        setIconImage(UDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
     }
     
     /**
@@ -117,7 +117,7 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
      *
      * @param con La conexión a la base de datos a establecer.
      */
-    public void setConexion(ConexionBDD con) {
+    public void setConexion(ConBDD con) {
         this.con = con;
     }
 
@@ -126,7 +126,7 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
      *
      * @return La conexión a la base de datos.
      */
-    public ConexionBDD getConexion() {
+    public ConBDD getConexion() {
         return this.con;
     }
 

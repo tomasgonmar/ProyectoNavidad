@@ -1,9 +1,9 @@
 package vista.frames;
 
-import controlador.ConexionBDD;
-import controlador.ControladorCierreApp;
-import controlador.frames.ControladorLogin;
-import controlador.UtilDiseño;
+import controlador.ConBDD;
+import controlador.CCierreApp;
+import controlador.frames.CLogin;
+import controlador.UDiseño;
 import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -23,13 +23,13 @@ public class FrameLogin extends javax.swing.JFrame {
      */
     private int xMouse;
     private int yMouse;
-    private final ControladorLogin C_LOG;
-    private final ConexionBDD CON;
+    private final CLogin C_LOG;
+    private final ConBDD CON;
     /**
      * Creates new form VentanaLogin
      * @param con Conexion con la base de datos
      */
-    public FrameLogin(ConexionBDD con, Locale locale) {
+    public FrameLogin(ConBDD con, Locale locale) {
         initComponents();
         this.setLocale(locale);
         /**
@@ -37,21 +37,21 @@ public class FrameLogin extends javax.swing.JFrame {
          */
         tFUser.requestFocus();
         this.CON = con;
-        setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
+        setIconImage(UDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
         /**
          * Inicializa el controlador 
          */
-        C_LOG = new ControladorLogin(this);
+        C_LOG = new CLogin(this);
         /**
          * Llama a la funcion para redondear la ventana
          */        
-        UtilDiseño.redondearVentana(this);
+        UDiseño.redondearVentana(this);
         /**
          * Utiliza las funciones de diseño para estilizar los textField y el boton
          */
-        UtilDiseño.estilizarTextFieldUser(tFUser);
-        UtilDiseño.estilizarTextFieldPassword(tFPassword);
-        UtilDiseño.estilizarBtn(btnIniciar);
+        UDiseño.estilizarTextFieldUser(tFUser);
+        UDiseño.estilizarTextFieldPassword(tFPassword);
+        UDiseño.estilizarBtn(btnIniciar);
         C_LOG.actualizarIdioma();
         /**
          * El boton de iniciar sesion se coloca como boton por defecto del frame
@@ -240,7 +240,7 @@ public class FrameLogin extends javax.swing.JFrame {
      * @param evt 
      */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        ControladorCierreApp.cerrarApp();
+        CCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
     /**
      * Desplazamiento de la ventana
@@ -392,7 +392,7 @@ public class FrameLogin extends javax.swing.JFrame {
      * Devuelve la conexion con la base de datos
      * @return 
      */
-    public ConexionBDD getConexion() {
+    public ConBDD getConexion() {
         return CON;
     }
 

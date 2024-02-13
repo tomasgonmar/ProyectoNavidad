@@ -1,17 +1,17 @@
 package controlador.frames;
 
-import controlador.UtilDiseño;
+import controlador.UDiseño;
 import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JButton;
-import vista.paneles.PanelInicio;
-import vista.paneles.PanelLibros;
-import vista.paneles.PanelMusica;
-import vista.paneles.PanelPeliculas;
-import vista.paneles.PanelPerfil;
-import vista.paneles.PanelServicios;
+import vista.paneles.PInicio;
+import vista.paneles.PLibros;
+import vista.paneles.PMusica;
+import vista.paneles.PPeliculas;
+import vista.paneles.PPerfil;
+import vista.paneles.PServicios;
 import vista.frames.FrameApp;
 
 /**
@@ -42,12 +42,12 @@ public class ControladorVPrincipal {
         
         Locale l = V_PRINCIPAL.getLocale();
         
-        V_PRINCIPAL.setpInicio(new PanelInicio(l));
-        V_PRINCIPAL.setpServicios(new PanelServicios(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
-        V_PRINCIPAL.setpPeliculas(new PanelPeliculas(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
-        V_PRINCIPAL.setpLibros(new PanelLibros(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
-        V_PRINCIPAL.setpMusica(new PanelMusica(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
-        V_PRINCIPAL.setpPerfil(new PanelPerfil(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpInicio(new PInicio(l));
+        V_PRINCIPAL.setpServicios(new PServicios(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpPeliculas(new PPeliculas(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpLibros(new PLibros(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpMusica(new PMusica(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
+        V_PRINCIPAL.setpPerfil(new PPerfil(V_PRINCIPAL.getCon(),V_PRINCIPAL.getUser()));
         
         V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpInicio(),"pInicio");
         V_PRINCIPAL.panelCentral.add(V_PRINCIPAL.getpServicios(),"pServicios");
@@ -82,8 +82,8 @@ public class ControladorVPrincipal {
     public void eventosBtnServicios() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pServicios");
         V_PRINCIPAL.setPanelActual("pServicios");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
-        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnServicios());
+        UDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnServicios());
     }
     /**
      * Cambia al panel de inicio.
@@ -91,8 +91,8 @@ public class ControladorVPrincipal {
     public void eventosBtnInicio() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pInicio");
         V_PRINCIPAL.setPanelActual("pInicio");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
-        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnInicio());
+        UDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnInicio());
     }
     /**
      * Cambia al panel de peliculas.
@@ -100,8 +100,8 @@ public class ControladorVPrincipal {
     public void eventosBtnPeliculas() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pPeliculas");
         V_PRINCIPAL.setPanelActual("pPeliculas");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
-        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPeliculas());
+        UDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPeliculas());
     }
     /**
      * Cambia al panel de libros.
@@ -109,8 +109,8 @@ public class ControladorVPrincipal {
     public void eventosBtnLibros() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pLibros");
         V_PRINCIPAL.setPanelActual("pLibros");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
-        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnLibros());
+        UDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnLibros());
     }
     /**
      * Cambia al panel de musica.
@@ -118,8 +118,8 @@ public class ControladorVPrincipal {
     public void eventosBtnMusica() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pMusica");
         V_PRINCIPAL.setPanelActual("pMusica");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
-        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnMusica());
+        UDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnMusica());
     }
     /**
      * Cambia al panel de perfil.
@@ -127,15 +127,15 @@ public class ControladorVPrincipal {
     public void eventoBtnPerfil() {
         CARD_LAYOUT.show(V_PRINCIPAL.panelCentral, "pPerfil");
         V_PRINCIPAL.setPanelActual("pPerfil");
-        UtilDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
-        UtilDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPerfil());
+        UDiseño.eliminarFondoBtnsPaneInicio(V_PRINCIPAL);
+        UDiseño.btnPaneInicioActivo(V_PRINCIPAL.getBtnPerfil());
     }
     /**
     * Activa el estado visual del botón pasado como argumento.
     * @param btn El botón al que se le aplicará el estado visual activo.
     */
     public void entrarBtn(JButton btn) {
-        UtilDiseño.btnPaneInicioActivo(btn);
+        UDiseño.btnPaneInicioActivo(btn);
     }
     /**
     * Cambia el estado visual del botón pasado como argumento al salir de un panel específico.
@@ -145,14 +145,14 @@ public class ControladorVPrincipal {
     */
     public void salirBtn(String panelActual, JButton btn) {
         if(!V_PRINCIPAL.getPanelActual().equals(panelActual))
-            UtilDiseño.eliminarFondoBtnPaneInicio(btn);
+            UDiseño.eliminarFondoBtnPaneInicio(btn);
     }
     /**
     * Cambia el estado visual del botón de salida.
     * @param entrar true si se activa, false si se desactiva.
     */
     public void cambiarEstadoBtnSalida(boolean entrar) {
-        UtilDiseño.cambiarColor(V_PRINCIPAL.btnExit, entrar);
+        UDiseño.cambiarColor(V_PRINCIPAL.btnExit, entrar);
     }
     /**
      * Actualiza el idioma de la interfaz de usuario.
@@ -181,12 +181,12 @@ public class ControladorVPrincipal {
         String idioma = V_PRINCIPAL.getLocale().toString();
         switch(idioma){
             case("es_ES"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
                 V_PRINCIPAL.setLocale(new Locale("en","US"));
                 actualizarIdioma();
                 break;
             case("en_US"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
                 V_PRINCIPAL.setLocale(new Locale("es","ES"));
                 actualizarIdioma();
                 break;
@@ -199,10 +199,10 @@ public class ControladorVPrincipal {
         String idioma = V_PRINCIPAL.getLocale().toString();
         switch(idioma){
             case("es_ES"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_es.png", "idioma"));
                 break;
             case("en_US"):
-                V_PRINCIPAL.getLblIdioma().setIcon(UtilDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
+                V_PRINCIPAL.getLblIdioma().setIcon(UDiseño.createImageIcon("/img/iconos/bandera_en.png", "idioma"));
                 break;
         }
     }

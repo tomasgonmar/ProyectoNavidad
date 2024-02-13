@@ -1,6 +1,6 @@
 package controlador.paneles;
 
-import controlador.UtilesResultSet;
+import controlador.UResultSet;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Servicio;
 import vista.modulos.ModuloServicio;
-import vista.paneles.PanelServicios;
+import vista.paneles.PServicios;
 
 /**
  * Controlador para el panel de servicios.
@@ -17,13 +17,13 @@ import vista.paneles.PanelServicios;
  * @author Tomas Gonzalez Martin
  */
 public class CPServicios {
-    private final PanelServicios P;
+    private final PServicios P;
 
     /**
      * Constructor del controlador del panel de servicios.
      * @param p El panel de servicios asociado a este controlador.
      */
-    public CPServicios(PanelServicios p) {
+    public CPServicios(PServicios p) {
         this.P = p;
     }
 
@@ -44,12 +44,12 @@ public class CPServicios {
         
         ArrayList<Servicio> a;
         try {
-            a = UtilesResultSet.transformResSetServicios(P.getCon().obtenerServiciosAsociados(P.getUser()));
+            a = UResultSet.transformResSetServicios(P.getCon().obtenerServiciosAsociados(P.getUser()));
                 for(Servicio s : a){
                     P.getPanelCentral().add(new ModuloServicio(s));
                 }
         } catch (SQLException ex) {
-            Logger.getLogger(PanelServicios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PServicios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

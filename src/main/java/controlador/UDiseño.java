@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,7 +30,7 @@ import vista.frames.FrameApp;
  * Utiliza FlatLaf para el estilo de componentes de interfaz de usuario.
  * @author Tomás González Martín
  */
-public class UtilDiseño {
+public class UDiseño {
     /**
     * Cambia el color del texto y el borde de un JLabel según la condición especificada.
     * @param label El JLabel al que se le cambiará el color y el borde.
@@ -71,7 +72,7 @@ public class UtilDiseño {
     */
    public static ImageIcon createImageIcon(String path, String description) {
        try {
-           URL imageURL = UtilDiseño.class.getResource(path);
+           URL imageURL = UDiseño.class.getResource(path);
            if (imageURL != null) {
                BufferedImage image = ImageIO.read(imageURL);
                return new ImageIcon(image, description);
@@ -117,7 +118,7 @@ public class UtilDiseño {
     */
    public static void colocarTextFieldLeadingIcon(JTextField elemento, String path) {
        elemento.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON,
-               UtilDiseño.createImageIcon(path, "Icono"));
+               UDiseño.createImageIcon(path, "Icono"));
    }
 
    /**
@@ -235,5 +236,11 @@ public class UtilDiseño {
         eliminarFondoBtnPaneInicio(aThis.getBtnPeliculas());
         eliminarFondoBtnPaneInicio(aThis.getBtnLibros());
         eliminarFondoBtnPaneInicio(aThis.getBtnMusica());
+    }
+
+    public static void estilizarTextField(JTextField tFPuntuacion) {
+        redondearElemento(tFPuntuacion);
+        cambiarPadding(tFPuntuacion);
+       cambiarColorOutline(tFPuntuacion);
     }
 }

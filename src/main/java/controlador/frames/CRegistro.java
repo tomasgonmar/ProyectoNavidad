@@ -1,8 +1,8 @@
 package controlador.frames;
 
 import controlador.CRedoUndo;
-import controlador.UtilDiseño;
-import controlador.UtilEncriptado;
+import controlador.UDiseño;
+import controlador.UEncriptado;
 import java.awt.event.MouseEvent;
 import modelo.Usuario;
 import vista.frames.FrameLogin;
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * Gestiona las interacciones y eventos relacionados con el registro de nuevos usuarios.
  * @author Tomas Gonzalez Martin
  */
-public class ControladorRegistro {
+public class CRegistro {
 
     private final FrameRegistro VENTANA_REG;
     
@@ -24,7 +24,7 @@ public class ControladorRegistro {
      * Constructor del controlador de registro de usuarios.
      * @param ventanaReg La instancia de FrameRegistro asociada a este controlador.
      */
-    public ControladorRegistro(FrameRegistro ventanaReg) {
+    public CRegistro(FrameRegistro ventanaReg) {
         this.VENTANA_REG = ventanaReg;
         actualizarIdioma();
         CRedoUndo.addUndoRedoFunctionality(VENTANA_REG.gettFEmail());
@@ -77,7 +77,7 @@ public class ControladorRegistro {
         if(u.emailValido()){
             if(u.getContraseña().equals(u.getValidacionContraseña())){
                 try {
-                    UtilEncriptado.encriptarUsuario(u);
+                    UEncriptado.encriptarUsuario(u);
                     VENTANA_REG.getConexion().registrarUsuario(u);
                     VENTANA_REG.limpiarCampos();
                     JOptionPane.showMessageDialog(VENTANA_REG, "Usuario registrado correctamente.");
@@ -100,7 +100,7 @@ public class ControladorRegistro {
      * @param entrar true si se activa, false si se desactiva.
      */
     public void cambiarEstadoLblInicio(boolean entrar) {
-        UtilDiseño.cambiarColorYBorde(VENTANA_REG.lblInicioSes, entrar);
+        UDiseño.cambiarColorYBorde(VENTANA_REG.lblInicioSes, entrar);
     }
 
     /**
@@ -108,7 +108,7 @@ public class ControladorRegistro {
      * @param entrar true si se activa, false si se desactiva.
      */
     public void cambiarEstadoBtnSalida(boolean entrar) {
-        UtilDiseño.cambiarColor(VENTANA_REG.btnExit, entrar);
+        UDiseño.cambiarColor(VENTANA_REG.btnExit, entrar);
     }
 
     /**
@@ -123,8 +123,8 @@ public class ControladorRegistro {
         VENTANA_REG.getLbl_registro_password_r().setText(bundle.getString("lbl_recuperacion_password_r"));
         VENTANA_REG.getBtnRegistro().setText(bundle.getString("btn_registro"));
         VENTANA_REG.getLblInicioSes().setText(bundle.getString("lbl_registro_inicio_sesion"));
-        UtilDiseño.colocarPlaceHolderText(VENTANA_REG.gettFUser(), bundle.getString("tF_login_usuario"));
-        UtilDiseño.colocarPlaceHolderText(VENTANA_REG.gettFEmail(), bundle.getString("email_ejemplo"));
+        UDiseño.colocarPlaceHolderText(VENTANA_REG.gettFUser(), bundle.getString("tF_login_usuario"));
+        UDiseño.colocarPlaceHolderText(VENTANA_REG.gettFEmail(), bundle.getString("email_ejemplo"));
     }
     
 }

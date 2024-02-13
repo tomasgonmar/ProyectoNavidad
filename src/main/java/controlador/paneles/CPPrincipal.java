@@ -1,7 +1,7 @@
 package controlador.paneles;
 
 import java.util.ResourceBundle;
-import vista.paneles.PanelInicio;
+import vista.paneles.PInicio;
 
 /**
  * Controlador para el panel de inicio.
@@ -9,13 +9,13 @@ import vista.paneles.PanelInicio;
  * @author Tomas Gonzalez Martin
  */
 public class CPPrincipal {
-    private final PanelInicio P;
+    private final PInicio P;
 
     /**
      * Constructor del controlador del panel de inicio.
      * @param p El panel de inicio asociado a este controlador.
      */
-    public CPPrincipal(PanelInicio p) {
+    public CPPrincipal(PInicio p) {
         this.P = p;
     }
 

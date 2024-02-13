@@ -5,7 +5,7 @@ package controlador;
  * Esta clase proporciona un método estático para cerrar la aplicación.
  * @author Tomas Gonzalez Martin
  */
-public class ControladorCierreApp {
+public class CCierreApp {
     
     /**
      * Cierra la aplicación.

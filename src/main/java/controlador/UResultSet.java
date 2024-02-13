@@ -13,7 +13,7 @@ import modelo.Servicio;
  * Se utiliza para convertir los resultados de consultas a la base de datos en objetos que pueden ser utilizados por la aplicación.
  * @author Tomas Gonzalez Martin
  */
-public class UtilesResultSet {
+public class UResultSet {
     
     /**
      * Transforma un ResultSet que contiene resultados de libros en una lista de objetos Libro.
@@ -34,7 +34,25 @@ public class UtilesResultSet {
         }
         return listaLibros;
     }
-
+    /**
+     * Transforma un ResultSet que contiene resultados de libros en una lista de objetos Libro.
+     * @param r El ResultSet que contiene los resultados de la consulta de libros.
+     * @return Una lista de objetos Libro.
+     * @throws SQLException Si ocurre un error al acceder a los datos en el ResultSet.
+     */
+    public static ArrayList<Libro> transformResSetLibrosP(ResultSet r) throws SQLException{
+        ArrayList<Libro> listaLibros = new ArrayList<>();
+        while(r.next()){
+            Libro libro = new Libro();
+            libro.setTitulo(r.getString(1));
+            libro.setGenero(r.getString(2));
+            libro.setPaginas(Integer.parseInt(r.getString(3)));
+            libro.setId(Integer.parseInt(r.getString(4)));
+            libro.setDescripcion(r.getString(5));
+            listaLibros.add(libro);
+        }
+        return listaLibros;
+    }
     /**
      * Transforma un ResultSet que contiene resultados de canciones en una lista de objetos Cancion.
      * @param r El ResultSet que contiene los resultados de la consulta de canciones.

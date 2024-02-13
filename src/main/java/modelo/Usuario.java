@@ -21,6 +21,7 @@ public class Usuario {
     private String apellidos;
     private String direccion;
     private String telefono;
+    private int id;
 
     /**
      * Constructor de la clase Usuario con email, usuario, contraseña y validación de contraseña.
@@ -215,5 +216,13 @@ public class Usuario {
         Matcher matcher = pattern.matcher(this.email);
 
         return matcher.matches();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

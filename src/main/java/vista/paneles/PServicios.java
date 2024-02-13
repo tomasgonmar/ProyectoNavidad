@@ -1,41 +1,43 @@
 package vista.paneles;
 
-import controlador.ConexionBDD;
-import controlador.paneles.CPPeliculas;
+import controlador.ConBDD;
+import controlador.paneles.CPServicios;
 import java.util.ResourceBundle;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Usuario;
 
 /**
- * Clase que representa un panel que muestra la colección de películas para un usuario.
- * Permite la interacción con las películas y su visualización.
+ * Esta clase representa un panel de servicios que muestra los servicios disponibles.
+ * Se utiliza para interactuar con la información de los servicios.
  * 
  * @author Tomas Gonzalez Martin
  */
-public class PanelPeliculas extends javax.swing.JPanel {
+public class PServicios extends javax.swing.JPanel {
 
-    private final ConexionBDD con;
-    private final CPPeliculas C;
+    private ConBDD con;
     private Usuario user;
-
+    private final CPServicios C;
     /**
-     * Crea un nuevo PanelPeliculas.
+     * Crea un nuevo panel de servicios.
+     * 
      * @param con La conexión a la base de datos.
-     * @param user El usuario actual.
+     * @param user El usuario asociado al panel de servicios.
      */
-    public PanelPeliculas(ConexionBDD con, Usuario user) {
+    public PServicios(ConBDD con, Usuario user) {
         initComponents();
         
         this.user = user;
         
-        C = new CPPeliculas(this);
-        
         this.con = con;
+        
+        C = new CPServicios(this);
         
         scroll.getVerticalScrollBar().setUnitIncrement(20);
         
-        C.insertarPeliculas();
+        C.insertarServicios();
+        
+        
     }
 
     /**
@@ -50,7 +52,7 @@ public class PanelPeliculas extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         panelCentral = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lbl_peliculas_titulo = new javax.swing.JLabel();
+        lbl_servicios_titulo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -66,17 +68,17 @@ public class PanelPeliculas extends javax.swing.JPanel {
         scroll.setBorder(null);
 
         panelCentral.setBackground(new java.awt.Color(38, 38, 38));
-        panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelCentral.setLayout(new java.awt.GridLayout(1, 0));
         scroll.setViewportView(panelCentral);
 
         add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 109, 1210, 560));
 
         jPanel2.setBackground(new java.awt.Color(40, 40, 40));
 
-        lbl_peliculas_titulo.setBackground(new java.awt.Color(38, 38, 38));
-        lbl_peliculas_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        lbl_peliculas_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_peliculas_titulo.setText("<html> <div style='text-align: center;'>Peliculas</div> </html>");
+        lbl_servicios_titulo.setBackground(new java.awt.Color(38, 38, 38));
+        lbl_servicios_titulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        lbl_servicios_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_servicios_titulo.setText("<html> <div style='text-align: center;'>Servicios</div> </html>");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -86,13 +88,13 @@ public class PanelPeliculas extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_peliculas_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
+            .addComponent(lbl_servicios_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_peliculas_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+            .addComponent(lbl_servicios_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -140,64 +142,81 @@ public class PanelPeliculas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbl_peliculas_titulo;
+    private javax.swing.JLabel lbl_servicios_titulo;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
     /**
-     * Actualiza el idioma del panel.
-     * @param bundle El ResourceBundle que contiene los textos en el nuevo idioma.
-     */
+    * Actualiza el idioma de la interfaz del panel de servicios.
+    * 
+    * @param bundle El ResourceBundle que contiene las traducciones en el nuevo idioma.
+    */
     public void actualizarIdioma(ResourceBundle bundle) {
         C.actualizarIdioma(bundle);
     }
     /**
-     * Obtiene la conexión a la base de datos.
-     * @return La conexión a la base de datos.
+     * Obtiene el JLabel que muestra el título de los servicios.
+     * 
+     * @return El JLabel que muestra el título de los servicios.
      */
-    public Usuario getUser() {
-        return user;
+    public JLabel getLbl_servicios_titulo() {
+        return lbl_servicios_titulo;
     }
     /**
-     * Establece el usuario actual.
-     * @param user El nuevo usuario actual.
+     * Establece el JLabel que muestra el título de los servicios.
+     * 
+     * @param lbl_servicios_titulo El JLabel que muestra el título de los servicios.
      */
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setLbl_servicios_titulo(JLabel lbl_servicios_titulo) {
+        this.lbl_servicios_titulo = lbl_servicios_titulo;
     }
     /**
-     * Obtiene la etiqueta de título de las películas.
-     * @return La etiqueta de título de las películas.
-     */
-    public JLabel getLbl_peliculas_titulo() {
-        return lbl_peliculas_titulo;
-    }
-    /**
-     * Establece la etiqueta de título de las películas.
-     * @param lbl_peliculas_titulo La nueva etiqueta de título de las películas.
-     */
-    public void setLbl_peliculas_titulo(JLabel lbl_peliculas_titulo) {
-        this.lbl_peliculas_titulo = lbl_peliculas_titulo;
-    }
-    /**
-     * Obtiene el panel central del panel de películas.
-     * @return El panel central del panel de películas.
+     * Obtiene el panel central del panel de servicios.
+     * 
+     * @return El panel central del panel de servicios.
      */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
     /**
-     * Establece el panel central del panel de películas.
-     * @param panelCentral El nuevo panel central del panel de películas.
+     * Establece el panel central del panel de servicios.
+     * 
+     * @param panelCentral El panel central del panel de servicios.
      */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
     /**
-     * Obtiene la conexión a la base de datos.
-     * @return La conexión a la base de datos.
+     * Obtiene la conexión a la base de datos asociada al panel de servicios.
+     * 
+     * @return La conexión a la base de datos asociada al panel de servicios.
      */
-    public ConexionBDD getCon() {
+    public ConBDD getCon() {
         return con;
     }
+    /**
+     * Establece la conexión a la base de datos asociada al panel de servicios.
+     * 
+     * @param con La conexión a la base de datos asociada al panel de servicios.
+     */
+    public void setCon(ConBDD con) {
+        this.con = con;
+    }
+    /**
+     * Obtiene el usuario asociado al panel de servicios.
+     * 
+     * @return El usuario asociado al panel de servicios.
+     */
+    public Usuario getUser() {
+        return user;
+    }
+    /**
+     * Establece el usuario asociado al panel de servicios.
+     * 
+     * @param user El usuario asociado al panel de servicios.
+     */
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+    
 }

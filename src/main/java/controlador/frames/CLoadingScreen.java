@@ -1,6 +1,6 @@
 package controlador.frames;
 
-import controlador.ConexionBDD;
+import controlador.ConBDD;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.sql.SQLException;
 import java.util.Locale;
@@ -14,14 +14,14 @@ import vista.frames.FrameLogin;
  * antes de mostrar la ventana de inicio de sesión.
  * @author Tomás González Martín
  */
-public class ControladorLoadingScreen {
+public class CLoadingScreen {
     private final FrameLoadingScreen F_LOADING_SCREEN;
     
     /**
      * Constructor del controlador de la pantalla de carga.
      * @param fLoadingScreen La instancia de FrameLoadingScreen asociada a este controlador.
      */
-    public ControladorLoadingScreen(FrameLoadingScreen fLoadingScreen){
+    public CLoadingScreen(FrameLoadingScreen fLoadingScreen){
         this.F_LOADING_SCREEN = fLoadingScreen;
     }
 
@@ -39,7 +39,7 @@ public class ControladorLoadingScreen {
                 switch (i) {
                     case 95 -> {
                         // Realiza la conexión a la base de datos y prepara la ventana de inicio de sesión
-                        F_LOADING_SCREEN.setConexion(new ConexionBDD());
+                        F_LOADING_SCREEN.setConexion(new ConBDD());
                         F_LOADING_SCREEN.setVentanaLogin(new FrameLogin(F_LOADING_SCREEN.getConexion(), new Locale("es","Es")));
                     }
                     default -> Thread.sleep(10);

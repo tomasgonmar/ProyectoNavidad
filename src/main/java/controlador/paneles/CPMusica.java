@@ -1,6 +1,6 @@
 package controlador.paneles;
 
-import controlador.UtilesResultSet;
+import controlador.UResultSet;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Cancion;
 import vista.modulos.ModuloCancion;
-import vista.paneles.PanelMusica;
+import vista.paneles.PMusica;
 
 /**
  * Controlador para el panel de música.
@@ -17,13 +17,13 @@ import vista.paneles.PanelMusica;
  * @author Tomas Gonzalez Martin
  */
 public class CPMusica {
-    private final PanelMusica P;
+    private final PMusica P;
     
     /**
      * Constructor del controlador de música.
      * @param p El panel de música asociado a este controlador.
      */
-    public CPMusica(PanelMusica p){
+    public CPMusica(PMusica p){
         this.P = p;
     }
     
@@ -44,12 +44,12 @@ public class CPMusica {
         
         ArrayList<Cancion> a;
         try {
-            a = UtilesResultSet.transformResSetCanciones(P.getCon().obtenerCancionesAsociadas(P.getUser()));
+            a = UResultSet.transformResSetCanciones(P.getCon().obtenerCancionesAsociadas(P.getUser()));
                 for(Cancion c : a){
                     P.getPanelCentral().add(new ModuloCancion(c));
                 }
         } catch (SQLException ex) {
-            Logger.getLogger(PanelMusica.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PMusica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

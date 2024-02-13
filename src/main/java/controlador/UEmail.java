@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMessage;
  * Requiere la configuración adecuada de la cuenta de Gmail para permitir el acceso de aplicaciones menos seguras.
  * @author Tomas Gonzalez Martin
  */
-public class EmailUtil extends Thread {
+public class UEmail extends Thread {
     
     /**
      * Dirección de correo electrónico del remitente.
@@ -49,7 +49,7 @@ public class EmailUtil extends Thread {
      * @param toEmail Dirección de correo electrónico del destinatario.
      * @param newPassword Nueva contraseña generada para el usuario.
      */
-    public EmailUtil(String toEmail, String newPassword){
+    public UEmail(String toEmail, String newPassword){
         this.TO_EMAIL = toEmail;
         this.NEW_PASSWORD = newPassword;
     }
@@ -113,7 +113,7 @@ public class EmailUtil extends Thread {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UEmail.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     //Forma sin hilo

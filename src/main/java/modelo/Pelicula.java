@@ -1,6 +1,6 @@
 package modelo;
 
-import controlador.UtilDiseño;
+import controlador.UDiseño;
 import javax.swing.ImageIcon;
 
 /**
@@ -53,7 +53,7 @@ public class Pelicula {
             case "Netflix" -> archivo += servicio;
             case "Youtube" -> archivo += servicio;
         }
-        return UtilDiseño.createImageIcon("/img/logos_servicios_mini/" + archivo + "Mini.png", "img");
+        return UDiseño.createImageIcon("/img/logos_servicios_mini/" + archivo + "Mini.png", "img");
     }
 
     /**
