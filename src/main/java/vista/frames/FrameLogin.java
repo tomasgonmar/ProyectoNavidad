@@ -4,6 +4,12 @@ import controlador.ConexionBDD;
 import controlador.ControladorCierreApp;
 import controlador.ControladorLogin;
 import controlador.UtilDiseño;
+import java.util.Locale;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 /**
  * Frame para introducir los datos de inicio de sesion del usuario
  * @author Tomas Gonzalez Martin
@@ -23,8 +29,9 @@ public class FrameLogin extends javax.swing.JFrame {
      * Creates new form VentanaLogin
      * @param con Conexion con la base de datos
      */
-    public FrameLogin(ConexionBDD con) {
+    public FrameLogin(ConexionBDD con, Locale locale) {
         initComponents();
+        this.setLocale(locale);
         /**
          * Hace focus al textField del usuario y se guarda la conexion
          */
@@ -44,6 +51,7 @@ public class FrameLogin extends javax.swing.JFrame {
         UtilDiseño.estilizarTextFieldUser(tFUser);
         UtilDiseño.estilizarTextFieldPassword(tFPassword);
         UtilDiseño.estilizarBtn(btnIniciar);
+        C_LOG.actualizarIdioma();
         /**
          * El boton de iniciar sesion se coloca como boton por defecto del frame
          */
@@ -59,9 +67,9 @@ public class FrameLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         panelCentral = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_login_bienvenida = new javax.swing.JLabel();
+        lbl_login_user = new javax.swing.JLabel();
+        lbl_login_password = new javax.swing.JLabel();
         lblRecuperacion = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
         tFPassword = new javax.swing.JPasswordField();
@@ -69,6 +77,7 @@ public class FrameLogin extends javax.swing.JFrame {
         lblRegistro = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         panelDesplazamiento = new javax.swing.JPanel();
+        lblIdioma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -76,25 +85,26 @@ public class FrameLogin extends javax.swing.JFrame {
         panelCentral.setBackground(new java.awt.Color(26, 26, 26));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(239, 239, 239));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html>\n<div style='text-align: center;'>¡Bienvenido de nuevo!</div>\n</html>");
-        jLabel1.setToolTipText("");
-        panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 350, 120));
+        lbl_login_bienvenida.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        lbl_login_bienvenida.setForeground(new java.awt.Color(239, 239, 239));
+        lbl_login_bienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_login_bienvenida.setText("<html> <div style='text-align: center;'>¡Bienvenido de nuevo!</div> </html>");
+        lbl_login_bienvenida.setToolTipText("");
+        panelCentral.add(lbl_login_bienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 350, 120));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel4.setText("Usuario");
-        panelCentral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 177, -1, -1));
+        lbl_login_user.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lbl_login_user.setForeground(new java.awt.Color(164, 164, 164));
+        lbl_login_user.setText("Usuario");
+        panelCentral.add(lbl_login_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 177, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel3.setText("Contraseña");
-        panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 277, -1, -1));
+        lbl_login_password.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lbl_login_password.setForeground(new java.awt.Color(164, 164, 164));
+        lbl_login_password.setText("Contraseña");
+        panelCentral.add(lbl_login_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 277, -1, -1));
 
         lblRecuperacion.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblRecuperacion.setForeground(new java.awt.Color(164, 164, 164));
+        lblRecuperacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRecuperacion.setText("Recuperar contraseña");
         lblRecuperacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRecuperacion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,7 +118,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 lblRecuperacionMouseExited(evt);
             }
         });
-        panelCentral.add(lblRecuperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 371, -1, -1));
+        panelCentral.add(lblRecuperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 370, -1, -1));
 
         btnIniciar.setBackground(new java.awt.Color(158, 255, 0));
         btnIniciar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -135,6 +145,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblRegistro.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblRegistro.setForeground(new java.awt.Color(164, 164, 164));
+        lblRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRegistro.setText("Registrate");
         lblRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,7 +159,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 lblRegistroMouseExited(evt);
             }
         });
-        panelCentral.add(lblRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 475, -1, -1));
+        panelCentral.add(lblRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 473, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(26, 26, 26));
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -199,6 +210,15 @@ public class FrameLogin extends javax.swing.JFrame {
 
         panelCentral.add(panelDesplazamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 30));
 
+        lblIdioma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconos/bandera_esp.png"))); // NOI18N
+        lblIdioma.setToolTipText("");
+        lblIdioma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIdiomaMouseClicked(evt);
+            }
+        });
+        panelCentral.add(lblIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 495, 45, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -207,7 +227,7 @@ public class FrameLogin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(panelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
         );
 
         pack();
@@ -305,15 +325,20 @@ public class FrameLogin extends javax.swing.JFrame {
         C_LOG.btnDefaultKeyPressed(evt);
     }//GEN-LAST:event_btnIniciarKeyPressed
 
+    private void lblIdiomaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIdiomaMouseClicked
+        C_LOG.btnIdioma(evt);
+    }//GEN-LAST:event_lblIdiomaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnExit;
     private javax.swing.JButton btnIniciar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblIdioma;
     public javax.swing.JLabel lblRecuperacion;
     public javax.swing.JLabel lblRegistro;
+    private javax.swing.JLabel lbl_login_bienvenida;
+    private javax.swing.JLabel lbl_login_password;
+    private javax.swing.JLabel lbl_login_user;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JPasswordField tFPassword;
@@ -368,4 +393,101 @@ public class FrameLogin extends javax.swing.JFrame {
     public ConexionBDD getConexion() {
         return CON;
     }
+
+    public JButton getBtnExit() {
+        return btnExit;
+    }
+
+    public void setBtnExit(JButton btnExit) {
+        this.btnExit = btnExit;
+    }
+
+    public JButton getBtnIniciar() {
+        return btnIniciar;
+    }
+
+    public void setBtnIniciar(JButton btnIniciar) {
+        this.btnIniciar = btnIniciar;
+    }
+
+    public JLabel getLblIdioma() {
+        return lblIdioma;
+    }
+
+    public void setLblIdioma(JLabel lblIdioma) {
+        this.lblIdioma = lblIdioma;
+    }
+
+    public JLabel getLblRecuperacion() {
+        return lblRecuperacion;
+    }
+
+    public void setLblRecuperacion(JLabel lblRecuperacion) {
+        this.lblRecuperacion = lblRecuperacion;
+    }
+
+    public JLabel getLblRegistro() {
+        return lblRegistro;
+    }
+
+    public void setLblRegistro(JLabel lblRegistro) {
+        this.lblRegistro = lblRegistro;
+    }
+
+    public JLabel getLbl_login_bienvenida() {
+        return lbl_login_bienvenida;
+    }
+
+    public void setLbl_login_bienvenida(JLabel lbl_login_bienvenida) {
+        this.lbl_login_bienvenida = lbl_login_bienvenida;
+    }
+
+    public JLabel getLbl_login_password() {
+        return lbl_login_password;
+    }
+
+    public void setLbl_login_password(JLabel lbl_login_password) {
+        this.lbl_login_password = lbl_login_password;
+    }
+
+    public JLabel getLbl_login_user() {
+        return lbl_login_user;
+    }
+
+    public void setLbl_login_user(JLabel lbl_login_user) {
+        this.lbl_login_user = lbl_login_user;
+    }
+
+    public JPanel getPanelCentral() {
+        return panelCentral;
+    }
+
+    public void setPanelCentral(JPanel panelCentral) {
+        this.panelCentral = panelCentral;
+    }
+
+    public JPanel getPanelDesplazamiento() {
+        return panelDesplazamiento;
+    }
+
+    public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
+        this.panelDesplazamiento = panelDesplazamiento;
+    }
+
+    public JPasswordField gettFPassword() {
+        return tFPassword;
+    }
+
+    public void settFPassword(JPasswordField tFPassword) {
+        this.tFPassword = tFPassword;
+    }
+
+    public JTextField gettFUser() {
+        return tFUser;
+    }
+
+    public void settFUser(JTextField tFUser) {
+        this.tFUser = tFUser;
+    }
+    
 }

@@ -2,6 +2,7 @@ package vista.paneles;
 
 import controlador.ConexionBDD;
 import controlador.UtilDiseño;
+import java.util.ResourceBundle;
 import modelo.Usuario;
 
 /**
@@ -259,4 +260,8 @@ public final class PanelPerfil extends javax.swing.JPanel {
     private javax.swing.JPasswordField tFPassword;
     private javax.swing.JTextField tFTelefono;
     // End of variables declaration//GEN-END:variables
+
+    public void actualizarIdioma(ResourceBundle bundle) {
+        
+    }
 }

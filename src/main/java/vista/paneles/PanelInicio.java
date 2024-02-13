@@ -1,5 +1,7 @@
 package vista.paneles;
 
+import java.util.ResourceBundle;
+
 /**
  *
  * @author Tomás González Martín
@@ -58,4 +60,8 @@ public class PanelInicio extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel panelCentral;
     // End of variables declaration//GEN-END:variables
+
+    public void actualizarIdioma(ResourceBundle bundle) {
+        
+    }
 }

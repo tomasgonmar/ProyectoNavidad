@@ -51,7 +51,7 @@ public class ModuloServicio extends javax.swing.JPanel {
         lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDescripcion.setText("<html>\n<div style=\"text-align: justify;\">\nAt Squareup, our design team is passionate about creating stunning, user-centric designs that captivate your audience and elevate your brand. We believe that great design is not just about aesthetics; it's about creating seamless and intuitive user experiences.\n</div>\n</html>");
         lblDescripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 255, 303, 230));
+        add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 255, 303, 140));
     }// </editor-fold>//GEN-END:initComponents
 
 

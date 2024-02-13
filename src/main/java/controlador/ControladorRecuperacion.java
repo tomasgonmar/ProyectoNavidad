@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 import vista.frames.FrameLogin;
@@ -17,10 +18,11 @@ public class ControladorRecuperacion {
 
     public ControladorRecuperacion(FrameRecuperacion ventanaRec) {
         this.VENTANA_REC = ventanaRec;
+        actualizarIdioma();
     }
 
     public void salir() {
-        new FrameLogin(VENTANA_REC.getConexion()).setVisible(true);
+        new FrameLogin(VENTANA_REC.getConexion(),VENTANA_REC.getLocale()).setVisible(true);
         VENTANA_REC.dispose();
     }
 
@@ -63,4 +65,12 @@ public class ControladorRecuperacion {
     public void cambiarEstadoBtnSalida(boolean entrar) {
         UtilDiseño.cambiarColor(VENTANA_REC.btnExit, entrar);
     }    
+
+    private void actualizarIdioma() { 
+        ResourceBundle bundle = ResourceBundle.getBundle("idioma", VENTANA_REC.getLocale());
+        VENTANA_REC.getLbl_recuperacion_titulo().setText("<html> <div style='text-align: center;'>"+bundle.getString("lbl_recuperacion_titulo")+"</div> </html>");
+        VENTANA_REC.getLbl_recuperacion_email().setText(bundle.getString("lbl_recuperacion_email"));
+        VENTANA_REC.getBtnRecuperar().setText(bundle.getString("btn_recuperacion"));
+        UtilDiseño.colocarPlaceHolderText(VENTANA_REC.gettFEmail(), bundle.getString("email_ejemplo"));
+    }
 }

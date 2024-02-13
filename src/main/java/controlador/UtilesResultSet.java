@@ -51,7 +51,7 @@ public class UtilesResultSet {
     public static ArrayList<Pelicula> transformResSetPeliculas(ResultSet r) throws SQLException {
         ArrayList<Pelicula> a = new ArrayList<>();
         while(r.next()){
-            Pelicula pelicula = new Pelicula(r.getString(1),Double.parseDouble(r.getString(2)),r.getString(3),Double.parseDouble(r.getString(4)),r.getString(5));
+            Pelicula pelicula = new Pelicula(r.getString(1),Integer.parseInt(r.getString(2)),r.getString(3),Double.parseDouble(r.getString(4)),r.getString(5));
             a.add(pelicula);
         }
         return a;

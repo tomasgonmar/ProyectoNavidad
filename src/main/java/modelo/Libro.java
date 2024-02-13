@@ -10,12 +10,12 @@ import javax.swing.ImageIcon;
 public class Libro {
     private ImageIcon imagen;
     private String titulo;
-    private double paginas;
+    private int paginas;
     private String descripcion;
     private double puntuacion;
     private String genero; 
 
-    public Libro(String nombreImagen, String titulo, double paginas, String descripcion, double puntuacion, String genero) {
+    public Libro(String nombreImagen, String titulo, int paginas, String descripcion, double puntuacion, String genero) {
         this.imagen = UtilDiseño.createImageIcon("src/main/resources/img/libros/"+nombreImagen+".png", "img");
         this.titulo = titulo;
         this.paginas = paginas;
@@ -44,11 +44,11 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public double getPaginas() {
+    public int getPaginas() {
         return paginas;
     }
 
-    public void setPaginas(double duracion) {
+    public void setPaginas(int duracion) {
         this.paginas = duracion;
     }
 

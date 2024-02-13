@@ -4,7 +4,10 @@ import controlador.ConexionBDD;
 import controlador.ControladorCierreApp;
 import controlador.ControladorVPrincipal;
 import controlador.UtilDiseño;
+import java.util.Locale;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import modelo.Usuario;
 import vista.paneles.PanelInicio;
 import vista.paneles.PanelLibros;
@@ -23,8 +26,8 @@ public class FrameApp extends javax.swing.JFrame {
     private int yMouse;
     private PanelInicio pInicio;
     private PanelServicios pServicios;
-    private PanelPeliculas pPeliculas
-;    private PanelLibros pLibros;
+    private PanelPeliculas pPeliculas;    
+    private PanelLibros pLibros;
     private PanelMusica pMusica;
     private PanelPerfil pPerfil;
     private String panelActual;
@@ -36,10 +39,12 @@ public class FrameApp extends javax.swing.JFrame {
      * @param user
      * @param con
      */
-    public FrameApp(Usuario user,ConexionBDD con) {
+    public FrameApp(Usuario user, ConexionBDD con, Locale locale) {
         initComponents();
         this.CON = con;
         this.USER = user;
+        
+        this.setLocale(locale);
         
         C_PRIN = new ControladorVPrincipal(this);
         
@@ -101,6 +106,70 @@ public class FrameApp extends javax.swing.JFrame {
         return pPerfil;
     }
 
+    public JButton getBtnExit() {
+        return btnExit;
+    }
+
+    public void setBtnExit(JButton btnExit) {
+        this.btnExit = btnExit;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getLblIdioma() {
+        return lblIdioma;
+    }
+
+    public void setLblIdioma(JLabel lblIdioma) {
+        this.lblIdioma = lblIdioma;
+    }
+
+    public JPanel getPanelBotonesNav() {
+        return panelBotonesNav;
+    }
+
+    public void setPanelBotonesNav(JPanel panelBotonesNav) {
+        this.panelBotonesNav = panelBotonesNav;
+    }
+
+    public JPanel getPanelCentral() {
+        return panelCentral;
+    }
+
+    public void setPanelCentral(JPanel panelCentral) {
+        this.panelCentral = panelCentral;
+    }
+
+    public JPanel getPanelDesplazamiento() {
+        return panelDesplazamiento;
+    }
+
+    public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
+        this.panelDesplazamiento = panelDesplazamiento;
+    }
+
+    public JPanel getPanelNavegador() {
+        return panelNavegador;
+    }
+
+    public void setPanelNavegador(JPanel panelNavegador) {
+        this.panelNavegador = panelNavegador;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -122,6 +191,7 @@ public class FrameApp extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         panelDesplazamiento = new javax.swing.JPanel();
+        lblIdioma = new javax.swing.JLabel();
         panelCentral = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -308,6 +378,10 @@ public class FrameApp extends javax.swing.JFrame {
         });
         panelNavegador.add(panelDesplazamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 20));
 
+        lblIdioma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconos/bandera_esp.png"))); // NOI18N
+        lblIdioma.setToolTipText("");
+        panelNavegador.add(lblIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 35, 45, 30));
+
         getContentPane().add(panelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1536, 100));
 
         panelCentral.setBackground(new java.awt.Color(38, 38, 38));
@@ -412,6 +486,7 @@ public class FrameApp extends javax.swing.JFrame {
     private javax.swing.JButton btnServicios;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblIdioma;
     private javax.swing.JPanel panelBotonesNav;
     public javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;

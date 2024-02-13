@@ -2,6 +2,7 @@ package controlador;
 
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.sql.SQLException;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import vista.frames.FrameLoadingScreen;
 import vista.frames.FrameLogin;
@@ -30,7 +31,7 @@ public class ControladorLoadingScreen {
                 switch (i) {
                     case 95 -> {
                         F_LOADING_SCREEN.setConexion(new ConexionBDD());
-                        F_LOADING_SCREEN.setVentanaLogin(new FrameLogin(F_LOADING_SCREEN.getConexion()));
+                        F_LOADING_SCREEN.setVentanaLogin(new FrameLogin(F_LOADING_SCREEN.getConexion(), new Locale("es","Es")));
                     }
                     default -> Thread.sleep(10);
                 }

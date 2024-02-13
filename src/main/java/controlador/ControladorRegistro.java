@@ -5,6 +5,8 @@ import modelo.Usuario;
 import vista.frames.FrameLogin;
 import vista.frames.FrameRegistro;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,10 +19,11 @@ public class ControladorRegistro {
     
     public ControladorRegistro(FrameRegistro ventanaReg) {
         this.VENTANA_REG = ventanaReg;
+        actualizarIdioma();
     }
 
     public void abrirInicioSesion() {
-        new FrameLogin(VENTANA_REG.getConexion()).setVisible(true);
+        new FrameLogin(VENTANA_REG.getConexion(), VENTANA_REG.getLocale()).setVisible(true);
         VENTANA_REG.dispose();
     }
 
@@ -50,7 +53,7 @@ public class ControladorRegistro {
                     VENTANA_REG.getConexion().registrarUsuario(u);
                     VENTANA_REG.limpiarCampos();
                     JOptionPane.showMessageDialog(VENTANA_REG, "Usuario registrado correctamente.");
-                    new FrameLogin(VENTANA_REG.getConexion()).setVisible(true);
+                    new FrameLogin(VENTANA_REG.getConexion(), VENTANA_REG.getLocale()).setVisible(true);
                     VENTANA_REG.dispose();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(VENTANA_REG, "El nombre de usuario o el correo ya esta en uso, porfavor cambielo.");
@@ -70,6 +73,19 @@ public class ControladorRegistro {
 
     public void cambiarEstadoBtnSalida(boolean entrar) {
         UtilDiseño.cambiarColor(VENTANA_REG.btnExit, entrar);
+    }
+
+    public void actualizarIdioma() {
+        ResourceBundle bundle = ResourceBundle.getBundle("idioma",VENTANA_REG.getLocale());
+        VENTANA_REG.getLbl_registro_titulo().setText("<html> <div style='text-align: center;'>"+bundle.getString("lbl_registro_titulo")+"</div> </html>");
+        VENTANA_REG.getLbl_registro_email().setText(bundle.getString("lbl_recuperacion_email"));
+        VENTANA_REG.getLbl_registro_usuario().setText(bundle.getString("tF_login_usuario"));
+        VENTANA_REG.getLbl_registro_password().setText(bundle.getString("lbl_login_password"));
+        VENTANA_REG.getLbl_registro_password_r().setText(bundle.getString("lbl_recuperacion_password_r"));
+        VENTANA_REG.getBtnRegistro().setText(bundle.getString("btn_registro"));
+        VENTANA_REG.getLblInicioSes().setText(bundle.getString("lbl_registro_inicio_sesion"));
+        UtilDiseño.colocarPlaceHolderText(VENTANA_REG.gettFUser(), bundle.getString("tF_login_usuario"));
+        UtilDiseño.colocarPlaceHolderText(VENTANA_REG.gettFEmail(), bundle.getString("email_ejemplo"));
     }
     
 }

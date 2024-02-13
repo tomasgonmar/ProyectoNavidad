@@ -10,13 +10,13 @@ import javax.swing.ImageIcon;
 public class Pelicula {
     private ImageIcon imagen;
     private String nombre;
-    private double duracion;
+    private int duracion;
     private String descripcion;
     private double puntuacion;
     private ImageIcon imagenServicio;
     private String servicio;
 
-    public Pelicula(String nombre, double duracion, String descripcion, double puntuacion, String servicio) {
+    public Pelicula(String nombre, int duracion, String descripcion, double puntuacion, String servicio) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.descripcion = descripcion;
@@ -30,10 +30,9 @@ public final ImageIcon obtenerImagen(){
             case "Amazon Prime" -> archivo += "Amazon";
             case "Apple TV" -> archivo += "AppleTV";
             case "Disney Plus" -> archivo += "Disney";
-            case "HBO" -> archivo += nombre;
-            case "Netflix" -> archivo += nombre;
-            case "Spotify" -> archivo += nombre;
-            case "Youtube" -> archivo += nombre;
+            case "HBO" -> archivo += servicio;
+            case "Netflix" -> archivo += servicio;
+            case "Youtube" -> archivo += servicio;
         }
         return UtilDiseño.createImageIcon("src/main/resources/img/logos_servicios_mini/"+archivo+"Mini.png", "img");
     }
@@ -57,11 +56,11 @@ public final ImageIcon obtenerImagen(){
         this.nombre = nombre;
     }
 
-    public double getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(double duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 

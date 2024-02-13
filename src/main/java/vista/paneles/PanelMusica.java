@@ -6,6 +6,7 @@ import vista.modulos.ModuloCancion;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Cancion;
@@ -149,4 +150,8 @@ public class PanelMusica extends javax.swing.JPanel {
     private javax.swing.JPanel panelCentral;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
+
+    public void actualizarIdioma(ResourceBundle bundle) {
+        
+    }
 }

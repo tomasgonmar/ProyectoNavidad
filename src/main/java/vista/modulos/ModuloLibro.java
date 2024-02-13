@@ -19,7 +19,7 @@ public class ModuloLibro extends javax.swing.JPanel {
         lblDescripcion.setText("<html><div style='text-align: justify;'>"+libro.getDescripcion()+"</div></html>");
         lblGenero.setText(libro.getGenero());
         lblPuntuacion.setText(String.valueOf(libro.getPuntuacion())+"/5");
-        lblDuracion.setText(String.valueOf(libro.getPaginas())+" pags");
+        lblDuracion.setText(String.valueOf(libro.getPaginas())+" pag");
     }
     public ModuloLibro(){
         initComponents();
@@ -59,7 +59,7 @@ public class ModuloLibro extends javax.swing.JPanel {
         lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
         lblDuracion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDuracion.setText("Duracion");
-        add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 139, 110, -1));
+        add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(884, 139, 140, -1));
 
         lblPuntuacion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblPuntuacion.setForeground(new java.awt.Color(255, 255, 255));

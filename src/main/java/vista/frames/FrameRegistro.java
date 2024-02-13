@@ -5,6 +5,12 @@ import controlador.ControladorCierreApp;
 
 import controlador.ControladorRegistro;
 import controlador.UtilDiseño;
+import java.util.Locale;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -21,13 +27,15 @@ public class FrameRegistro extends javax.swing.JFrame {
      * Creates new form VentanaRegistro
      * @param con
      */
-    public FrameRegistro(ConexionBDD con) {
+    public FrameRegistro(ConexionBDD con, Locale idioma) {
         initComponents();
         
         this.CON = con;
         
+        this.setLocale(idioma);
+        
         C_REG = new ControladorRegistro(this);
-                
+        
         UtilDiseño.redondearVentana(this);
         
         UtilDiseño.estilizarTextFieldEmail(tFEmail);
@@ -35,7 +43,7 @@ public class FrameRegistro extends javax.swing.JFrame {
         UtilDiseño.estilizarTextFieldPassword(tFPassword);
         UtilDiseño.estilizarTextFieldPassword(tFPasswordValidacion);
         UtilDiseño.estilizarBtn(btnRegistro); 
-        
+                
         getRootPane().setDefaultButton(btnRegistro);
     }
 
@@ -50,10 +58,10 @@ public class FrameRegistro extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelCentral = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_registro_titulo = new javax.swing.JLabel();
+        lbl_registro_email = new javax.swing.JLabel();
+        lbl_registro_password_r = new javax.swing.JLabel();
+        lbl_registro_usuario = new javax.swing.JLabel();
         btnRegistro = new javax.swing.JButton();
         tFPasswordValidacion = new javax.swing.JPasswordField();
         tFUser = new javax.swing.JTextField();
@@ -62,7 +70,7 @@ public class FrameRegistro extends javax.swing.JFrame {
         panelDesplazamiento = new javax.swing.JPanel();
         tFEmail = new javax.swing.JTextField();
         tFPassword = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_registro_password = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -72,26 +80,26 @@ public class FrameRegistro extends javax.swing.JFrame {
         panelCentral.setPreferredSize(new java.awt.Dimension(390, 637));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(239, 239, 239));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Registrate gratis");
-        panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 55, 341, 60));
+        lbl_registro_titulo.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        lbl_registro_titulo.setForeground(new java.awt.Color(239, 239, 239));
+        lbl_registro_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_registro_titulo.setText("Registrate gratis");
+        panelCentral.add(lbl_registro_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 55, 341, 60));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel4.setText("Email");
-        panelCentral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 150, -1, -1));
+        lbl_registro_email.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lbl_registro_email.setForeground(new java.awt.Color(164, 164, 164));
+        lbl_registro_email.setText("Email");
+        panelCentral.add(lbl_registro_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 150, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel3.setText("Repetir contraseña");
-        panelCentral.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 438, -1, -1));
+        lbl_registro_password_r.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lbl_registro_password_r.setForeground(new java.awt.Color(164, 164, 164));
+        lbl_registro_password_r.setText("Repetir contraseña");
+        panelCentral.add(lbl_registro_password_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 438, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel2.setText("Usuario");
-        panelCentral.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 250, -1, -1));
+        lbl_registro_usuario.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lbl_registro_usuario.setForeground(new java.awt.Color(164, 164, 164));
+        lbl_registro_usuario.setText("Usuario");
+        panelCentral.add(lbl_registro_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 250, -1, -1));
 
         btnRegistro.setBackground(new java.awt.Color(158, 255, 0));
         btnRegistro.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -185,10 +193,10 @@ public class FrameRegistro extends javax.swing.JFrame {
         tFPassword.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         panelCentral.add(tFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 371, 314, 55));
 
-        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel5.setText("Contraseña");
-        panelCentral.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 344, -1, -1));
+        lbl_registro_password.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lbl_registro_password.setForeground(new java.awt.Color(164, 164, 164));
+        lbl_registro_password.setText("Contraseña");
+        panelCentral.add(lbl_registro_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 344, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -255,13 +263,13 @@ public class FrameRegistro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnExit;
     private javax.swing.JButton btnRegistro;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel lblInicioSes;
+    private javax.swing.JLabel lbl_registro_email;
+    private javax.swing.JLabel lbl_registro_password;
+    private javax.swing.JLabel lbl_registro_password_r;
+    private javax.swing.JLabel lbl_registro_titulo;
+    private javax.swing.JLabel lbl_registro_usuario;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JTextField tFEmail;
@@ -297,6 +305,126 @@ public class FrameRegistro extends javax.swing.JFrame {
     }
     public String getPassword(){
         return String.valueOf(tFPassword.getPassword());
+    }
+
+    public JButton getBtnExit() {
+        return btnExit;
+    }
+
+    public void setBtnExit(JButton btnExit) {
+        this.btnExit = btnExit;
+    }
+
+    public JButton getBtnRegistro() {
+        return btnRegistro;
+    }
+
+    public void setBtnRegistro(JButton btnRegistro) {
+        this.btnRegistro = btnRegistro;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JLabel getLblInicioSes() {
+        return lblInicioSes;
+    }
+
+    public void setLblInicioSes(JLabel lblInicioSes) {
+        this.lblInicioSes = lblInicioSes;
+    }
+
+    public JLabel getLbl_registro_email() {
+        return lbl_registro_email;
+    }
+
+    public void setLbl_registro_email(JLabel lbl_registro_email) {
+        this.lbl_registro_email = lbl_registro_email;
+    }
+
+    public JLabel getLbl_registro_password() {
+        return lbl_registro_password;
+    }
+
+    public void setLbl_registro_password(JLabel lbl_registro_password) {
+        this.lbl_registro_password = lbl_registro_password;
+    }
+
+    public JLabel getLbl_registro_password_r() {
+        return lbl_registro_password_r;
+    }
+
+    public void setLbl_registro_password_r(JLabel lbl_registro_password_r) {
+        this.lbl_registro_password_r = lbl_registro_password_r;
+    }
+
+    public JLabel getLbl_registro_titulo() {
+        return lbl_registro_titulo;
+    }
+
+    public void setLbl_registro_titulo(JLabel lbl_registro_titulo) {
+        this.lbl_registro_titulo = lbl_registro_titulo;
+    }
+
+    public JLabel getLbl_registro_usuario() {
+        return lbl_registro_usuario;
+    }
+
+    public void setLbl_registro_usuario(JLabel lbl_registro_usuario) {
+        this.lbl_registro_usuario = lbl_registro_usuario;
+    }
+
+    public JPanel getPanelCentral() {
+        return panelCentral;
+    }
+
+    public void setPanelCentral(JPanel panelCentral) {
+        this.panelCentral = panelCentral;
+    }
+
+    public JPanel getPanelDesplazamiento() {
+        return panelDesplazamiento;
+    }
+
+    public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
+        this.panelDesplazamiento = panelDesplazamiento;
+    }
+
+    public JTextField gettFEmail() {
+        return tFEmail;
+    }
+
+    public void settFEmail(JTextField tFEmail) {
+        this.tFEmail = tFEmail;
+    }
+
+    public JPasswordField gettFPassword() {
+        return tFPassword;
+    }
+
+    public void settFPassword(JPasswordField tFPassword) {
+        this.tFPassword = tFPassword;
+    }
+
+    public JPasswordField gettFPasswordValidacion() {
+        return tFPasswordValidacion;
+    }
+
+    public void settFPasswordValidacion(JPasswordField tFPasswordValidacion) {
+        this.tFPasswordValidacion = tFPasswordValidacion;
+    }
+
+    public JTextField gettFUser() {
+        return tFUser;
+    }
+
+    public void settFUser(JTextField tFUser) {
+        this.tFUser = tFUser;
     }
 
     public void limpiarCampos() {

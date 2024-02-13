@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import vista.paneles.PanelInicio;
 import vista.paneles.PanelLibros;
@@ -22,6 +23,7 @@ public class ControladorVPrincipal {
     
     public ControladorVPrincipal(FrameApp vPrincipal) {
         this.V_PRINCIPAL = vPrincipal;
+        actualizarIdioma();
     }
 
     public void inicializarCardLayout() {
@@ -110,5 +112,17 @@ public class ControladorVPrincipal {
 
     public void cambiarEstadoBtnSalida(boolean entrar) {
         UtilDiseño.cambiarColor(V_PRINCIPAL.btnExit, entrar);
+    }
+
+    private void actualizarIdioma() {
+        ResourceBundle bundle = ResourceBundle.getBundle("idioma",V_PRINCIPAL.getLocale());
+        V_PRINCIPAL.getpInicio().actualizarIdioma(bundle); //
+        V_PRINCIPAL.getpLibros().actualizarIdioma(bundle); //
+        V_PRINCIPAL.getpMusica().actualizarIdioma(bundle); //
+        V_PRINCIPAL.getpPeliculas().actualizarIdioma(bundle); //
+        V_PRINCIPAL.getpPerfil().actualizarIdioma(bundle); //
+        V_PRINCIPAL.getpServicios().actualizarIdioma(bundle); //
+        
+        
     }
 }

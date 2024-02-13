@@ -3,6 +3,11 @@ package vista.frames;
 import controlador.ConexionBDD;
 import controlador.ControladorRecuperacion;
 import controlador.UtilDiseño;
+import java.util.Locale;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,10 +23,12 @@ public class FrameRecuperacion extends javax.swing.JFrame {
      * Creates new form VentanaRecuperacion
      * @param con
      */
-    public FrameRecuperacion(ConexionBDD con) {
+    public FrameRecuperacion(ConexionBDD con, Locale idioma) {
         initComponents();
         
         this.CON = con;
+        
+        this.setLocale(idioma);
         
         C_REC = new ControladorRecuperacion(this);
         
@@ -43,8 +50,8 @@ public class FrameRecuperacion extends javax.swing.JFrame {
     private void initComponents() {
 
         panelCentral = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lbl_recuperacion_titulo = new javax.swing.JLabel();
+        lbl_recuperacion_email = new javax.swing.JLabel();
         btnRecuperar = new javax.swing.JButton();
         tFEmail = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
@@ -56,17 +63,17 @@ public class FrameRecuperacion extends javax.swing.JFrame {
         panelCentral.setBackground(new java.awt.Color(26, 26, 26));
         panelCentral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(239, 239, 239));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html><div style='text-align: center;'> Recuperar contraseña</div></html>");
-        panelCentral.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 318, 120));
+        lbl_recuperacion_titulo.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        lbl_recuperacion_titulo.setForeground(new java.awt.Color(239, 239, 239));
+        lbl_recuperacion_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_recuperacion_titulo.setText("<html><div style='text-align: center;'> Recuperar contraseña</div></html>");
+        panelCentral.add(lbl_recuperacion_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 318, 120));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(164, 164, 164));
-        jLabel4.setText("Email");
-        jLabel4.setToolTipText("");
-        panelCentral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 150, -1, -1));
+        lbl_recuperacion_email.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lbl_recuperacion_email.setForeground(new java.awt.Color(164, 164, 164));
+        lbl_recuperacion_email.setText("Email");
+        lbl_recuperacion_email.setToolTipText("");
+        panelCentral.add(lbl_recuperacion_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 150, -1, -1));
 
         btnRecuperar.setBackground(new java.awt.Color(158, 255, 0));
         btnRecuperar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -175,8 +182,8 @@ public class FrameRecuperacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnExit;
     private javax.swing.JButton btnRecuperar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbl_recuperacion_email;
+    private javax.swing.JLabel lbl_recuperacion_titulo;
     private javax.swing.JPanel panelCentral;
     private javax.swing.JPanel panelDesplazamiento;
     private javax.swing.JTextField tFEmail;
@@ -205,4 +212,62 @@ public class FrameRecuperacion extends javax.swing.JFrame {
     public ConexionBDD getConexion(){
         return CON;
     }
+
+    public JButton getBtnExit() {
+        return btnExit;
+    }
+
+    public void setBtnExit(JButton btnExit) {
+        this.btnExit = btnExit;
+    }
+
+    public JButton getBtnRecuperar() {
+        return btnRecuperar;
+    }
+
+    public void setBtnRecuperar(JButton btnRecuperar) {
+        this.btnRecuperar = btnRecuperar;
+    }
+
+    public JLabel getLbl_recuperacion_email() {
+        return lbl_recuperacion_email;
+    }
+
+    public void setLbl_recuperacion_email(JLabel lbl_recuperacion_email) {
+        this.lbl_recuperacion_email = lbl_recuperacion_email;
+    }
+
+
+    public JLabel getLbl_recuperacion_titulo() {
+        return lbl_recuperacion_titulo;
+    }
+
+    public void setLbl_recuperacion_titulo(JLabel lbl_recuperacion_titulo) {
+        this.lbl_recuperacion_titulo = lbl_recuperacion_titulo;
+    }
+
+    public JPanel getPanelCentral() {
+        return panelCentral;
+    }
+
+    public void setPanelCentral(JPanel panelCentral) {
+        this.panelCentral = panelCentral;
+    }
+
+    public JPanel getPanelDesplazamiento() {
+        return panelDesplazamiento;
+    }
+
+    public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
+        this.panelDesplazamiento = panelDesplazamiento;
+    }
+
+    public JTextField gettFEmail() {
+        return tFEmail;
+    }
+
+    public void settFEmail(JTextField tFEmail) {
+        this.tFEmail = tFEmail;
+    }
+    
 }
