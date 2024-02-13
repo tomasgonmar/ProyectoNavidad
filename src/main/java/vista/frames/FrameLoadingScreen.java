@@ -6,35 +6,44 @@ import controlador.UtilDiseño;
 import javax.swing.JProgressBar;
 
 /**
- * Frame de carga para la aplicacion
+ * Frame de carga para la aplicación.
+ * Esta clase representa la ventana de carga que se muestra al iniciar la aplicación.
+ * Permite realizar la conexión a la base de datos y mostrar el progreso de carga.
+ * 
  * @author Tomas Gonzalez Martin
  */
 public class FrameLoadingScreen extends javax.swing.JFrame {
     /**
-     * 
+     * Referencia a la ventana de inicio de sesión.
      */
     private FrameLogin ventanaLogin;
-    private ConexionBDD con;
-    private static ControladorLoadingScreen CLOG;
+    
     /**
-     * Creates new form LoadingScreen
+     * Objeto de conexión a la base de datos.
+     */
+    private ConexionBDD con;
+    
+    /**
+     * Controlador para la pantalla de carga.
+     */
+    private static ControladorLoadingScreen CLOG;
+    
+    /**
+     * Crea una nueva instancia de FrameLoadingScreen.
+     * Inicializa los componentes y el controlador de la pantalla de carga.
      */
     public FrameLoadingScreen() {
         initComponents();
         CLOG = new ControladorLoadingScreen(this);
-        /**
-         * Llama a la funcion para redondear la ventana
-         */
         UtilDiseño.redondearVentana(this);
         setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
     }
+    
     /**
-     * Inicia la aplicacion y realiza la conexion a la base de datos
+     * Inicia la aplicación y realiza la conexión a la base de datos.
+     * Este método es llamado para comenzar la carga de la aplicación.
      */
     public void inicioAplicacion(){
-        /**
-         * Contador del porcentaje de la barra de carga
-         */
         CLOG.iniciarAplicacion();
     }
 
@@ -94,23 +103,49 @@ public class FrameLoadingScreen extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Devuelve la barra de progreso de carga.
+     *
+     * @return La barra de progreso de carga.
+     */
     public JProgressBar getProgresBar() {
         return jProgressBar1;
     }
 
+    /**
+     * Establece la conexión a la base de datos.
+     *
+     * @param con La conexión a la base de datos a establecer.
+     */
     public void setConexion(ConexionBDD con) {
         this.con = con;
     }
 
+    /**
+     * Obtiene la conexión a la base de datos.
+     *
+     * @return La conexión a la base de datos.
+     */
     public ConexionBDD getConexion() {
         return this.con;
     }
 
+    /**
+     * Establece la referencia a la ventana de inicio de sesión.
+     *
+     * @param frameLogin La ventana de inicio de sesión a establecer.
+     */
     public void setVentanaLogin(FrameLogin frameLogin) {
         this.ventanaLogin = frameLogin;
     }
 
+    /**
+     * Obtiene la referencia a la ventana de inicio de sesión.
+     *
+     * @return La ventana de inicio de sesión.
+     */
     public FrameLogin getVentanaLogin() {
         return this.ventanaLogin;
     }
+
 }

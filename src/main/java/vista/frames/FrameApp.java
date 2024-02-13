@@ -17,7 +17,11 @@ import vista.paneles.PanelPerfil;
 import vista.paneles.PanelServicios;
 
 /**
- *
+ * La clase FrameApp representa la ventana principal de la aplicación.
+ * Contiene referencias a varios paneles y componentes que conforman la interfaz de usuario.
+ * 
+ * Permite la gestión de paneles y componentes dentro de la ventana.
+ * 
  * @author Tomás González Martín
  */
 public class FrameApp extends javax.swing.JFrame {
@@ -35,9 +39,11 @@ public class FrameApp extends javax.swing.JFrame {
     private final ConexionBDD CON;
     private final Usuario USER;
     /**
-     * Creates new form VentanaPrincipal
-     * @param user
-     * @param con
+     * Crea una nueva instancia de la ventana principal.
+     * 
+     * @param user El usuario que ha iniciado sesión en la aplicación.
+     * @param con La conexión a la base de datos.
+     * @param locale El locale que indica la configuración regional de la aplicación.
      */
     public FrameApp(Usuario user, ConexionBDD con, Locale locale) {
         initComponents();
@@ -57,118 +63,247 @@ public class FrameApp extends javax.swing.JFrame {
         UtilDiseño.estilizarBotonPerfil(btnPerfil);
         setIconImage(UtilDiseño.createImageIcon("/img/logo_myapp/Logo_Nav.png", "Logo").getImage());
     }
-
+    /**
+     * Establece el panel de inicio en la ventana principal.
+     * 
+     * @param panel El panel de inicio a establecer.
+     */
     public void setpInicio(PanelInicio panel) {
         this.pInicio = panel;
     }
-
+    /**
+     * Establece el panel de servicios en la ventana principal.
+     * 
+     * @param panel El panel de servicios a establecer.
+     */
     public void setpServicios(PanelServicios panel) {
         this.pServicios = panel;
     }
-
+    /**
+     * Establece el panel de películas en la ventana principal.
+     * 
+     * @param panel El panel de películas a establecer.
+     */
     public void setpPeliculas(PanelPeliculas panel) {
         this.pPeliculas = panel;
     }
-
+    /**
+     * Establece el panel de libros en la ventana principal.
+     * 
+     * @param panel El panel de libros a establecer.
+     */
     public void setpLibros(PanelLibros panel) {
         this.pLibros = panel;
     }
-
+    /**
+     * Establece el panel de música en la ventana principal.
+     * 
+     * @param panel El panel de música a establecer.
+     */
     public void setpMusica(PanelMusica panel) {
         this.pMusica = panel;
     }
-
+    /**
+     * Establece el panel de perfil en la ventana principal.
+     * 
+     * @param panel El panel de perfil a establecer.
+     */
     public void setpPerfil(PanelPerfil panel) {
         this.pPerfil = panel;
     }
-
+    /**
+     * Obtiene el panel de inicio.
+     * 
+     * @return El panel de inicio.
+     */
     public PanelInicio getpInicio() {
         return pInicio;
     }
-
+    /**
+     * Obtiene el panel de servicios.
+     * 
+     * @return El panel de servicios.
+     */
     public PanelServicios getpServicios() {
         return pServicios;
     }
-
+    /**
+     * Obtiene el panel de películas.
+     * 
+     * @return El panel de películas.
+     */
     public PanelPeliculas getpPeliculas() {
         return pPeliculas;
     }
-
+    /**
+     * Obtiene el panel de libros.
+     * 
+     * @return El panel de libros.
+     */
     public PanelLibros getpLibros() {
         return pLibros;
     }
-
+    /**
+     * Obtiene el panel de música.
+     * 
+     * @return El panel de música.
+     */
     public PanelMusica getpMusica() {
         return pMusica;
     }
-
+    /**
+     * Obtiene el panel de perfil.
+     * 
+     * @return El panel de perfil.
+     */
     public PanelPerfil getpPerfil() {
         return pPerfil;
     }
 
+    /**
+     * Obtiene el botón de salida de la ventana principal.
+     * 
+     * @return El botón de salida.
+     */
     public JButton getBtnExit() {
         return btnExit;
     }
 
+    /**
+     * Establece el botón de salida de la ventana principal.
+     * 
+     * @param btnExit El botón de salida a establecer.
+     */
     public void setBtnExit(JButton btnExit) {
         this.btnExit = btnExit;
     }
 
+    /**
+     * Obtiene el JLabel 4 de la ventana principal.
+     * 
+     * @return El JLabel 4.
+     */
     public JLabel getjLabel4() {
         return jLabel4;
     }
 
+    /**
+     * Establece el JLabel 4 de la ventana principal.
+     * 
+     * @param jLabel4 El JLabel 4 a establecer.
+     */
     public void setjLabel4(JLabel jLabel4) {
         this.jLabel4 = jLabel4;
     }
 
+    /**
+     * Obtiene el JLabel 5 de la ventana principal.
+     * 
+     * @return El JLabel 5.
+     */
     public JLabel getjLabel5() {
         return jLabel5;
     }
 
+    /**
+     * Establece el JLabel 5 de la ventana principal.
+     * 
+     * @param jLabel5 El JLabel 5 a establecer.
+     */
     public void setjLabel5(JLabel jLabel5) {
         this.jLabel5 = jLabel5;
     }
 
+    /**
+     * Obtiene el JLabel de idioma de la ventana principal.
+     * 
+     * @return El JLabel de idioma.
+     */
     public JLabel getLblIdioma() {
         return lblIdioma;
     }
 
+    /**
+     * Establece el JLabel de idioma de la ventana principal.
+     * 
+     * @param lblIdioma El JLabel de idioma a establecer.
+     */
     public void setLblIdioma(JLabel lblIdioma) {
         this.lblIdioma = lblIdioma;
     }
 
+    /**
+     * Obtiene el panel de botones de navegación de la ventana principal.
+     * 
+     * @return El panel de botones de navegación.
+     */
     public JPanel getPanelBotonesNav() {
         return panelBotonesNav;
     }
 
+    /**
+     * Establece el panel de botones de navegación de la ventana principal.
+     * 
+     * @param panelBotonesNav El panel de botones de navegación a establecer.
+     */
     public void setPanelBotonesNav(JPanel panelBotonesNav) {
         this.panelBotonesNav = panelBotonesNav;
     }
 
+    /**
+     * Obtiene el panel central de la ventana principal.
+     * 
+     * @return El panel central.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
 
+    /**
+     * Establece el panel central de la ventana principal.
+     * 
+     * @param panelCentral El panel central a establecer.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
 
+    /**
+     * Obtiene el panel de desplazamiento de la ventana principal.
+     * 
+     * @return El panel de desplazamiento.
+     */
     public JPanel getPanelDesplazamiento() {
         return panelDesplazamiento;
     }
 
+    /**
+     * Establece el panel de desplazamiento de la ventana principal.
+     * 
+     * @param panelDesplazamiento El panel de desplazamiento a establecer.
+     */
     public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
         this.panelDesplazamiento = panelDesplazamiento;
     }
 
+    /**
+     * Obtiene el panel de navegación de la ventana principal.
+     * 
+     * @return El panel de navegación.
+     */
     public JPanel getPanelNavegador() {
         return panelNavegador;
     }
 
+    /**
+     * Establece el panel de navegación de la ventana principal.
+     * 
+     * @param panelNavegador El panel de navegación a establecer.
+     */
     public void setPanelNavegador(JPanel panelNavegador) {
         this.panelNavegador = panelNavegador;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -397,91 +532,201 @@ public class FrameApp extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Maneja el evento de arrastre del ratón en el panel de desplazamiento.
+     * Llama al controlador para gestionar el movimiento por pantalla.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
         C_PRIN.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
-
+    /**
+     * Maneja el evento de presionar el ratón en el panel de desplazamiento.
+     * Llama al controlador para gestionar el desplazamiento presionado.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
         C_PRIN.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
-
+    /**
+     * Maneja el evento de clic en el botón de salida.
+     * Llama al controlador para cerrar la aplicación.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         ControladorCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
-
+    /**
+     * Maneja el evento de clic en el botón de servicios.
+     * Llama al controlador para gestionar los eventos del botón de servicios.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
         C_PRIN.eventosBtnServicios();
     }//GEN-LAST:event_btnServiciosActionPerformed
-
+    /**
+     * Maneja el evento de clic en el botón de inicio.
+     * Llama al controlador para gestionar los eventos del botón de inicio.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         C_PRIN.eventosBtnInicio();
     }//GEN-LAST:event_btnInicioActionPerformed
-
+    /**
+     * Maneja el evento de clic en el botón de películas.
+     * Llama al controlador para gestionar los eventos del botón de películas.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeliculasActionPerformed
         C_PRIN.eventosBtnPeliculas();
     }//GEN-LAST:event_btnPeliculasActionPerformed
-
+    /**
+     * Maneja el evento de clic en el botón de libros.
+     * Llama al controlador para gestionar los eventos del botón de libros.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
         C_PRIN.eventosBtnLibros();
     }//GEN-LAST:event_btnLibrosActionPerformed
-
+    /**
+     * Maneja el evento de clic en el botón de música.
+     * Llama al controlador para gestionar los eventos del botón de música.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaActionPerformed
         C_PRIN.eventosBtnMusica();
     }//GEN-LAST:event_btnMusicaActionPerformed
-
+    /**
+     * Maneja el evento de clic en el botón de perfil.
+     * Llama al controlador para gestionar los eventos del botón de perfil.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         C_PRIN.eventoBtnPerfil();
     }//GEN-LAST:event_btnPerfilActionPerformed
-
+    /**
+     * Maneja el evento de entrada del ratón al botón de servicios.
+     * Llama al controlador para gestionar la entrada al botón de servicios.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnServiciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiciosMouseEntered
         C_PRIN.entrarBtn(btnServicios);
     }//GEN-LAST:event_btnServiciosMouseEntered
-
+    /**
+     * Maneja el evento de salida del ratón del botón de servicios.
+     * Llama al controlador para gestionar la salida del botón de servicios.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnServiciosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiciosMouseExited
         C_PRIN.salirBtn("pServicios",btnServicios);
     }//GEN-LAST:event_btnServiciosMouseExited
-
+    /**
+     * Maneja el evento de entrada del ratón al botón de películas.
+     * Llama al controlador para gestionar la entrada al botón de películas.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnPeliculasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPeliculasMouseEntered
         C_PRIN.entrarBtn(btnPeliculas);
     }//GEN-LAST:event_btnPeliculasMouseEntered
-
+    /**
+     * Maneja el evento de salida del ratón del botón de películas.
+     * Llama al controlador para gestionar la salida del botón de películas.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnPeliculasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPeliculasMouseExited
        C_PRIN.salirBtn("pPeliculas",btnPeliculas);
     }//GEN-LAST:event_btnPeliculasMouseExited
-
+    /**
+     * Maneja el evento de entrada del ratón al botón de música.
+     * Llama al controlador para gestionar la entrada al botón de música.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnMusicaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMusicaMouseEntered
         C_PRIN.entrarBtn(btnMusica);
     }//GEN-LAST:event_btnMusicaMouseEntered
-
+    /**
+     * Maneja el evento de salida del ratón del botón de música.
+     * Llama al controlador para gestionar la salida del botón de música.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnMusicaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMusicaMouseExited
         C_PRIN.salirBtn("pMusica",btnMusica);       
     }//GEN-LAST:event_btnMusicaMouseExited
-
+    /**
+     * Maneja el evento de entrada del ratón al botón de libros.
+     * Llama al controlador para gestionar la entrada al botón de libros.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosMouseEntered
         C_PRIN.entrarBtn(btnLibros);
     }//GEN-LAST:event_btnLibrosMouseEntered
-
+    /**
+     * Maneja el evento de salida del ratón del botón de libros.
+     * Llama al controlador para gestionar la salida del botón de libros.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnLibrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosMouseExited
         C_PRIN.salirBtn("pLibros",btnLibros); 
     }//GEN-LAST:event_btnLibrosMouseExited
-
+    /**
+     * Maneja el evento de entrada del ratón al botón de inicio.
+     * Llama al controlador para gestionar la entrada al botón de inicio.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseEntered
         C_PRIN.entrarBtn(btnInicio);
     }//GEN-LAST:event_btnInicioMouseEntered
-
+    /**
+     * Maneja el evento de salida del ratón del botón de inicio.
+     * Llama al controlador para gestionar la salida del botón de inicio.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseExited
         C_PRIN.salirBtn("pInicio",btnInicio);
     }//GEN-LAST:event_btnInicioMouseExited
-
+    /**
+     * Maneja el evento de entrada del ratón al botón de salida.
+     * Llama al controlador para cambiar el estado del botón de salida.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
         C_PRIN.cambiarEstadoBtnSalida(true);
     }//GEN-LAST:event_btnExitMouseEntered
-
+    /**
+     * Maneja el evento de salida del ratón del botón de salida.
+     * Llama al controlador para cambiar el estado del botón de salida.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         C_PRIN.cambiarEstadoBtnSalida(false);
     }//GEN-LAST:event_btnExitMouseExited
-
+    /**
+     * Maneja el evento de clic en el JLabel de idioma.
+     * Llama al controlador para gestionar los eventos del botón de idioma.
+     * 
+     * @param evt El evento del ratón.
+     */
     private void lblIdiomaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIdiomaMouseClicked
         C_PRIN.btnIdioma(evt);
     }//GEN-LAST:event_lblIdiomaMouseClicked
@@ -503,60 +748,131 @@ public class FrameApp extends javax.swing.JFrame {
     private javax.swing.JPanel panelNavegador;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Devuelve el botón de inicio.
+     *
+     * @return El botón de inicio.
+     */
     public JButton getBtnInicio() {
         return btnInicio;
     }
 
+    /**
+     * Devuelve el botón de servicios.
+     *
+     * @return El botón de servicios.
+     */
     public JButton getBtnServicios() {
         return btnServicios;
     }
 
+    /**
+     * Devuelve el botón de películas.
+     *
+     * @return El botón de películas.
+     */
     public JButton getBtnPeliculas() {
         return btnPeliculas;
     }
 
+    /**
+     * Devuelve el botón de libros.
+     *
+     * @return El botón de libros.
+     */
     public JButton getBtnLibros() {
         return btnLibros;
     }
 
+    /**
+     * Devuelve el botón de música.
+     *
+     * @return El botón de música.
+     */
     public JButton getBtnMusica() {
         return btnMusica;
     }
 
+    /**
+     * Establece el panel actual.
+     *
+     * @param nombrePanel El nombre del panel actual.
+     */
     public void setPanelActual(String nombrePanel) {
         this.panelActual = nombrePanel;
     }
 
+    /**
+     * Establece la coordenada x del ratón.
+     *
+     * @param x La coordenada x del ratón.
+     */
     public void setXMouse(int x) {
         this.xMouse = x;
     }
 
+    /**
+     * Establece la coordenada y del ratón.
+     *
+     * @param y La coordenada y del ratón.
+     */
     public void setYMouse(int y) {
         this.yMouse = y;
     }
 
+    /**
+     * Obtiene la coordenada x del ratón.
+     *
+     * @return La coordenada x del ratón.
+     */
     public int getXMouse() {
-       return xMouse;
+        return xMouse;
     }
 
+    /**
+     * Obtiene la coordenada y del ratón.
+     *
+     * @return La coordenada y del ratón.
+     */
     public int getYMouse() {
         return yMouse;
     }
 
+    /**
+     * Obtiene el nombre del panel actual.
+     *
+     * @return El nombre del panel actual.
+     */
     public String getPanelActual() {
         return panelActual;
     }
 
+    /**
+     * Devuelve el botón de perfil.
+     *
+     * @return El botón de perfil.
+     */
     public JButton getBtnPerfil() {
         return btnPerfil;
     }
    
+    /**
+     * Obtiene la conexión a la base de datos.
+     *
+     * @return La conexión a la base de datos.
+     */
     public ConexionBDD getCon(){
         return this.CON;
     }
 
+    /**
+     * Obtiene el usuario actual.
+     *
+     * @return El usuario actual.
+     */
     public Usuario getUser() {
         return this.USER;
     }
+
     
 }

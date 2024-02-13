@@ -396,98 +396,218 @@ public class FrameLogin extends javax.swing.JFrame {
         return CON;
     }
 
+    /**
+     * Devuelve el botón de salida.
+     *
+     * @return El botón de salida.
+     */
     public JButton getBtnExit() {
         return btnExit;
     }
 
+    /**
+     * Establece el botón de salida.
+     *
+     * @param btnExit El botón de salida a establecer.
+     */
     public void setBtnExit(JButton btnExit) {
         this.btnExit = btnExit;
     }
 
+    /**
+     * Devuelve el botón de inicio de sesión.
+     *
+     * @return El botón de inicio de sesión.
+     */
     public JButton getBtnIniciar() {
         return btnIniciar;
     }
 
+    /**
+     * Establece el botón de inicio de sesión.
+     *
+     * @param btnIniciar El botón de inicio de sesión a establecer.
+     */
     public void setBtnIniciar(JButton btnIniciar) {
         this.btnIniciar = btnIniciar;
     }
 
+    /**
+     * Devuelve la etiqueta de idioma.
+     *
+     * @return La etiqueta de idioma.
+     */
     public JLabel getLblIdioma() {
         return lblIdioma;
     }
 
+    /**
+     * Establece la etiqueta de idioma.
+     *
+     * @param lblIdioma La etiqueta de idioma a establecer.
+     */
     public void setLblIdioma(JLabel lblIdioma) {
         this.lblIdioma = lblIdioma;
     }
 
+    /**
+     * Devuelve la etiqueta de recuperación.
+     *
+     * @return La etiqueta de recuperación.
+     */
     public JLabel getLblRecuperacion() {
         return lblRecuperacion;
     }
 
+    /**
+     * Establece la etiqueta de recuperación.
+     *
+     * @param lblRecuperacion La etiqueta de recuperación a establecer.
+     */
     public void setLblRecuperacion(JLabel lblRecuperacion) {
         this.lblRecuperacion = lblRecuperacion;
     }
 
+    /**
+     * Devuelve la etiqueta de registro.
+     *
+     * @return La etiqueta de registro.
+     */
     public JLabel getLblRegistro() {
         return lblRegistro;
     }
 
+    /**
+     * Establece la etiqueta de registro.
+     *
+     * @param lblRegistro La etiqueta de registro a establecer.
+     */
     public void setLblRegistro(JLabel lblRegistro) {
         this.lblRegistro = lblRegistro;
     }
 
+    /**
+     * Devuelve la etiqueta de bienvenida en el login.
+     *
+     * @return La etiqueta de bienvenida en el login.
+     */
     public JLabel getLbl_login_bienvenida() {
         return lbl_login_bienvenida;
     }
 
+    /**
+     * Establece la etiqueta de bienvenida en el login.
+     *
+     * @param lbl_login_bienvenida La etiqueta de bienvenida en el login a establecer.
+     */
     public void setLbl_login_bienvenida(JLabel lbl_login_bienvenida) {
         this.lbl_login_bienvenida = lbl_login_bienvenida;
     }
 
+    /**
+     * Devuelve la etiqueta de contraseña en el login.
+     *
+     * @return La etiqueta de contraseña en el login.
+     */
     public JLabel getLbl_login_password() {
         return lbl_login_password;
     }
 
+    /**
+     * Establece la etiqueta de contraseña en el login.
+     *
+     * @param lbl_login_password La etiqueta de contraseña en el login a establecer.
+     */
     public void setLbl_login_password(JLabel lbl_login_password) {
         this.lbl_login_password = lbl_login_password;
     }
 
+    /**
+     * Devuelve la etiqueta de usuario en el login.
+     *
+     * @return La etiqueta de usuario en el login.
+     */
     public JLabel getLbl_login_user() {
         return lbl_login_user;
     }
 
+    /**
+     * Establece la etiqueta de usuario en el login.
+     *
+     * @param lbl_login_user La etiqueta de usuario en el login a establecer.
+     */
     public void setLbl_login_user(JLabel lbl_login_user) {
         this.lbl_login_user = lbl_login_user;
     }
 
+    /**
+     * Devuelve el panel central.
+     *
+     * @return El panel central.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
 
+    /**
+     * Establece el panel central.
+     *
+     * @param panelCentral El panel central a establecer.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
 
+    /**
+     * Devuelve el panel de desplazamiento.
+     *
+     * @return El panel de desplazamiento.
+     */
     public JPanel getPanelDesplazamiento() {
         return panelDesplazamiento;
     }
 
+    /**
+     * Establece el panel de desplazamiento.
+     *
+     * @param panelDesplazamiento El panel de desplazamiento a establecer.
+     */
     public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
         this.panelDesplazamiento = panelDesplazamiento;
     }
 
+    /**
+     * Devuelve el campo de contraseña.
+     *
+     * @return El campo de contraseña.
+     */
     public JPasswordField gettFPassword() {
         return tFPassword;
     }
 
+    /**
+     * Establece el campo de contraseña.
+     *
+     * @param tFPassword El campo de contraseña a establecer.
+     */
     public void settFPassword(JPasswordField tFPassword) {
         this.tFPassword = tFPassword;
     }
 
+    /**
+     * Devuelve el campo de usuario.
+     *
+     * @return El campo de usuario.
+     */
     public JTextField gettFUser() {
         return tFUser;
     }
 
+    /**
+     * Establece el campo de usuario.
+     *
+     * @param tFUser El campo de usuario a establecer.
+     */
     public void settFUser(JTextField tFUser) {
         this.tFUser = tFUser;
     }

@@ -13,10 +13,15 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
- *
+ * Ventana de registro de usuarios.
+ * Permite que los usuarios se registren en la aplicación.
+ * Esta ventana contiene campos para el correo electrónico, usuario y contraseña.
+ * Los usuarios pueden acceder a la ventana de inicio de sesión desde aquí.
+ * Los datos ingresados por los usuarios se registran en la base de datos.
+ * La ventana se cierra al hacer clic en el botón "X" en la esquina superior derecha.
+ * 
  * @author Tomas Gonzalez Martin
  */
-
 public class FrameRegistro extends javax.swing.JFrame {
     
     private int xMouse;
@@ -24,8 +29,11 @@ public class FrameRegistro extends javax.swing.JFrame {
     private final ControladorRegistro C_REG;
     private final ConexionBDD CON;
     /**
-     * Creates new form VentanaRegistro
-     * @param con
+     * Constructor de la clase FrameRegistro.
+     * Inicializa la ventana de registro y sus componentes.
+     * 
+     * @param con La conexión a la base de datos.
+     * @param idioma El idioma que se utilizará en la interfaz.
      */
     public FrameRegistro(ConexionBDD con, Locale idioma) {
         initComponents();
@@ -225,39 +233,74 @@ public class FrameRegistro extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se activa cuando se hace clic en el botón "Exit" (Salir). Cierra la aplicación.
+     * @param evt Evento de acción que desencadena esta operación.
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         ControladorCierreApp.cerrarApp();
     }//GEN-LAST:event_btnExitActionPerformed
-
+    /**
+     * Método que maneja el evento cuando el mouse se arrastra sobre el panel de desplazamiento.
+     * Llama al método 'desplazamientoPressed' en el controlador de registro.
+     * @param evt Evento de mouse que indica que el mouse se está moviendo mientras se mantiene presionado sobre el panel de desplazamiento.
+     */
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
         C_REG.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
-
+    /**
+     * Método que maneja el evento cuando el mouse se presiona sobre el panel de desplazamiento.
+     * Llama al método 'movimientoPorPantalla' en el controlador de registro.
+     * @param evt Evento de mouse que indica que el mouse se ha presionado sobre el panel de desplazamiento.
+     */
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
         C_REG.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
-
+    /**
+     * Método que maneja el evento cuando se hace clic en el texto "Inicia sesion".
+     * Abre la ventana de inicio de sesión.
+     * @param evt Evento de mouse que indica que se hizo clic en el texto "Inicia sesion".
+     */
     private void lblInicioSesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioSesMouseClicked
         C_REG.abrirInicioSesion();
     }//GEN-LAST:event_lblInicioSesMouseClicked
-
+    /**
+     * Método que se activa cuando se hace clic en el botón "Registrame".
+     * Registra al usuario en la aplicación.
+     * @param evt Evento de acción que desencadena esta operación.
+     */
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         C_REG.registrarUsuario();
     }//GEN-LAST:event_btnRegistroActionPerformed
-
+    /**
+     * Método que maneja el evento cuando el mouse entra al área del texto "Inicia sesion".
+     * Cambia el estado del texto "Inicia sesion" a resaltado.
+     * @param evt Evento de mouse que indica que el mouse ha entrado al área del texto "Inicia sesion".
+     */
     private void lblInicioSesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioSesMouseEntered
         C_REG.cambiarEstadoLblInicio(true);
     }//GEN-LAST:event_lblInicioSesMouseEntered
-
+    /**
+     * Método que maneja el evento cuando el mouse sale del área del texto "Inicia sesion".
+     * Cambia el estado del texto "Inicia sesion" a normal.
+     * @param evt Evento de mouse que indica que el mouse ha salido del área del texto "Inicia sesion".
+     */
     private void lblInicioSesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioSesMouseExited
         C_REG.cambiarEstadoLblInicio(false);
     }//GEN-LAST:event_lblInicioSesMouseExited
-
+    /**
+     * Método que maneja el evento cuando el mouse entra al área del botón "Exit" (Salir).
+     * Cambia el estado del botón "Exit" a resaltado.
+     * @param evt Evento de mouse que indica que el mouse ha entrado al área del botón "Exit" (Salir).
+     */
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
         C_REG.cambiarEstadoBtnSalida(true);
     }//GEN-LAST:event_btnExitMouseEntered
-
+    /**
+     * Método que maneja el evento cuando el mouse sale del área del botón "Exit" (Salir).
+     * Cambia el estado del botón "Exit" a normal.
+     * @param evt Evento de mouse que indica que el mouse ha salido del área del botón "Exit" (Salir).
+     */
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         C_REG.cambiarEstadoBtnSalida(false);
     }//GEN-LAST:event_btnExitMouseExited
@@ -280,155 +323,313 @@ public class FrameRegistro extends javax.swing.JFrame {
     private javax.swing.JTextField tFUser;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Obtiene la coordenada X del mouse.
+     * @return La coordenada X del mouse.
+     */
     public int getXMouse() {
         return xMouse;
     }
 
-    public int getYyMouse() {
+    /**
+     * Obtiene la coordenada Y del mouse.
+     * @return La coordenada Y del mouse.
+     */
+    public int getYMouse() {
         return yMouse;
     }
 
+    /**
+     * Establece la coordenada X del mouse.
+     * @param x La coordenada X del mouse.
+     */
     public void setXMouse(int x) {
         xMouse = x;
     }
 
+    /**
+     * Establece la coordenada Y del mouse.
+     * @param y La coordenada Y del mouse.
+     */
     public void setYMouse(int y) {
         yMouse = y;
     }
     
+    /**
+     * Obtiene el correo electrónico ingresado por el usuario.
+     * @return El correo electrónico ingresado.
+     */
     public String getEmail(){
         return tFEmail.getText();
     }
+    
+    /**
+     * Obtiene el nombre de usuario ingresado por el usuario.
+     * @return El nombre de usuario ingresado.
+     */
     public String getUser(){
         return tFUser.getText();
     }
+    
+    /**
+     * Obtiene la contraseña de validación ingresada por el usuario.
+     * @return La contraseña de validación ingresada.
+     */
     public String getPasswordValidation(){
         return String.valueOf(tFPasswordValidacion.getPassword());
     }
+    
+    /**
+     * Obtiene la contraseña ingresada por el usuario.
+     * @return La contraseña ingresada.
+     */
     public String getPassword(){
         return String.valueOf(tFPassword.getPassword());
     }
 
+    /**
+     * Obtiene el botón de salida.
+     * @return El botón de salida.
+     */
     public JButton getBtnExit() {
         return btnExit;
     }
 
+    /**
+     * Establece el botón de salida.
+     * @param btnExit El botón de salida.
+     */
     public void setBtnExit(JButton btnExit) {
         this.btnExit = btnExit;
     }
 
+    /**
+     * Obtiene el botón de registro.
+     * @return El botón de registro.
+     */
     public JButton getBtnRegistro() {
         return btnRegistro;
     }
 
+    /**
+     * Establece el botón de registro.
+     * @param btnRegistro El botón de registro.
+     */
     public void setBtnRegistro(JButton btnRegistro) {
         this.btnRegistro = btnRegistro;
     }
 
+    /**
+     * Obtiene el panel principal.
+     * @return El panel principal.
+     */
     public JPanel getjPanel1() {
         return jPanel1;
     }
 
+    /**
+     * Establece el panel principal.
+     * @param jPanel1 El panel principal.
+     */
     public void setjPanel1(JPanel jPanel1) {
         this.jPanel1 = jPanel1;
     }
 
+    /**
+     * Obtiene la etiqueta de inicio de sesión.
+     * @return La etiqueta de inicio de sesión.
+     */
     public JLabel getLblInicioSes() {
         return lblInicioSes;
     }
 
+    /**
+     * Establece la etiqueta de inicio de sesión.
+     * @param lblInicioSes La etiqueta de inicio de sesión.
+     */
     public void setLblInicioSes(JLabel lblInicioSes) {
         this.lblInicioSes = lblInicioSes;
     }
 
+    /**
+     * Obtiene la etiqueta de registro de correo electrónico.
+     * @return La etiqueta de registro de correo electrónico.
+     */
     public JLabel getLbl_registro_email() {
         return lbl_registro_email;
     }
 
+    /**
+     * Establece la etiqueta de registro de correo electrónico.
+     * @param lbl_registro_email La etiqueta de registro de correo electrónico.
+     */
     public void setLbl_registro_email(JLabel lbl_registro_email) {
         this.lbl_registro_email = lbl_registro_email;
     }
 
+    /**
+     * Obtiene la etiqueta de registro de contraseña.
+     * @return La etiqueta de registro de contraseña.
+     */
     public JLabel getLbl_registro_password() {
         return lbl_registro_password;
     }
 
+    /**
+     * Establece la etiqueta de registro de contraseña.
+     * @param lbl_registro_password La etiqueta de registro de contraseña.
+     */
     public void setLbl_registro_password(JLabel lbl_registro_password) {
         this.lbl_registro_password = lbl_registro_password;
     }
 
+    /**
+     * Obtiene la etiqueta de registro de repetir contraseña.
+     * @return La etiqueta de registro de repetir contraseña.
+     */
     public JLabel getLbl_registro_password_r() {
         return lbl_registro_password_r;
     }
 
+    /**
+     * Establece la etiqueta de registro de repetir contraseña.
+     * @param lbl_registro_password_r La etiqueta de registro de repetir contraseña.
+     */
     public void setLbl_registro_password_r(JLabel lbl_registro_password_r) {
         this.lbl_registro_password_r = lbl_registro_password_r;
     }
 
+    /**
+     * Obtiene la etiqueta de registro de título.
+     * @return La etiqueta de registro de título.
+     */
     public JLabel getLbl_registro_titulo() {
         return lbl_registro_titulo;
     }
 
+    /**
+     * Establece la etiqueta de registro de título.
+     * @param lbl_registro_titulo La etiqueta de registro de título.
+     */
     public void setLbl_registro_titulo(JLabel lbl_registro_titulo) {
         this.lbl_registro_titulo = lbl_registro_titulo;
     }
 
+    /**
+     * Obtiene la etiqueta de registro de usuario.
+     * @return La etiqueta de registro de usuario.
+     */
     public JLabel getLbl_registro_usuario() {
         return lbl_registro_usuario;
     }
 
+    /**
+     * Establece la etiqueta de registro de usuario.
+     * @param lbl_registro_usuario La etiqueta de registro de usuario.
+     */
     public void setLbl_registro_usuario(JLabel lbl_registro_usuario) {
         this.lbl_registro_usuario = lbl_registro_usuario;
     }
 
+    /**
+     * Obtiene el panel central.
+     * @return El panel central.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
 
+    /**
+     * Establece el panel central.
+     * @param panelCentral El panel central.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
 
+    /**
+     * Obtiene el panel de desplazamiento.
+     * @return El panel de desplazamiento.
+     */
     public JPanel getPanelDesplazamiento() {
         return panelDesplazamiento;
     }
 
+    /**
+     * Establece el panel de desplazamiento.
+     * @param panelDesplazamiento El panel de desplazamiento.
+     */
     public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
         this.panelDesplazamiento = panelDesplazamiento;
     }
 
+    /**
+     * Obtiene el campo de texto del correo electrónico.
+     * @return El campo de texto del correo electrónico.
+     */
     public JTextField gettFEmail() {
         return tFEmail;
     }
 
+    /**
+     * Establece el campo de texto del correo electrónico.
+     * @param tFEmail El campo de texto del correo electrónico.
+     */
     public void settFEmail(JTextField tFEmail) {
         this.tFEmail = tFEmail;
     }
 
+    /**
+     * Obtiene el campo de texto de la contraseña.
+     * @return El campo de texto de la contraseña.
+     */
     public JPasswordField gettFPassword() {
         return tFPassword;
     }
 
+    /**
+     * Establece el campo de texto de la contraseña.
+     * @param tFPassword El campo de texto de la contraseña.
+     */
     public void settFPassword(JPasswordField tFPassword) {
         this.tFPassword = tFPassword;
     }
 
+    /**
+     * Obtiene el campo de texto de validación de contraseña.
+     * @return El campo de texto de validación de contraseña.
+     */
     public JPasswordField gettFPasswordValidacion() {
         return tFPasswordValidacion;
     }
 
+    /**
+     * Establece el campo de texto de validación de contraseña.
+     * @param tFPasswordValidacion El campo de texto de validación de contraseña.
+     */
     public void settFPasswordValidacion(JPasswordField tFPasswordValidacion) {
         this.tFPasswordValidacion = tFPasswordValidacion;
     }
 
+    /**
+     * Obtiene el campo de texto del nombre de usuario.
+     * @return El campo de texto del nombre de usuario.
+     */
     public JTextField gettFUser() {
         return tFUser;
     }
 
+    /**
+     * Establece el campo de texto del nombre de usuario.
+     * @param tFUser El campo de texto del nombre de usuario.
+     */
     public void settFUser(JTextField tFUser) {
         this.tFUser = tFUser;
     }
 
+    /**
+     * Limpia los campos de entrada de texto.
+     */
     public void limpiarCampos() {
         tFEmail.setText("");
         tFUser.setText("");
@@ -436,8 +637,11 @@ public class FrameRegistro extends javax.swing.JFrame {
         tFPasswordValidacion.setText("");
     }
 
+    /**
+     * Obtiene la conexión a la base de datos.
+     * @return La conexión a la base de datos.
+     */
     public ConexionBDD getConexion() {
         return CON;
     }
-    
 }

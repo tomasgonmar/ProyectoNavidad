@@ -10,7 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- *
+ * Esta clase representa la ventana de recuperación de contraseña.
+ * Permite a los usuarios solicitar la recuperación de sus contraseñas.
  * @author Tomas Gonzalez Martin
  */
 public class FrameRecuperacion extends javax.swing.JFrame {
@@ -20,8 +21,11 @@ public class FrameRecuperacion extends javax.swing.JFrame {
     private final ControladorRecuperacion C_REC;
     private final ConexionBDD CON;
     /**
-     * Creates new form VentanaRecuperacion
-     * @param con
+     * Constructor de la clase FrameRecuperacion.
+     * Crea una nueva instancia de la ventana de recuperación.
+     *
+     * @param con La conexión a la base de datos.
+     * @param idioma El idioma en el que se muestra la interfaz de usuario.
      */
     public FrameRecuperacion(ConexionBDD con, Locale idioma) {
         initComponents();
@@ -155,27 +159,57 @@ public class FrameRecuperacion extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Maneja el evento de clic en el botón de salida.
+     * Este método llama al controlador para cerrar la ventana de recuperación.
+     * 
+     * @param evt El evento de acción del botón de salida.
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         C_REC.salir();
     }//GEN-LAST:event_btnExitActionPerformed
-
+    /**
+     * Maneja el evento de arrastre del mouse sobre el panel de desplazamiento.
+     * Este método llama al controlador para realizar acciones cuando se arrastra el mouse sobre el panel.
+     * 
+     * @param evt El evento del mouse al arrastrar sobre el panel de desplazamiento.
+     */
     private void panelDesplazamientoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMouseDragged
         C_REC.desplazamientoPressed(evt);
     }//GEN-LAST:event_panelDesplazamientoMouseDragged
-
+    /**
+     * Maneja el evento de presión del mouse sobre el panel de desplazamiento.
+     * Este método llama al controlador para realizar acciones cuando se presiona el mouse sobre el panel.
+     * 
+     * @param evt El evento del mouse al presionar sobre el panel de desplazamiento.
+     */
     private void panelDesplazamientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDesplazamientoMousePressed
         C_REC.movimientoPorPantalla(evt);
     }//GEN-LAST:event_panelDesplazamientoMousePressed
-
+    /**
+     * Maneja el evento de clic en el botón de recuperación.
+     * Este método llama al controlador para enviar una nueva contraseña.
+     * 
+     * @param evt El evento de acción del botón de recuperación.
+     */
     private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
         C_REC.enviarNuevaContraseña();
     }//GEN-LAST:event_btnRecuperarActionPerformed
-
+    /**
+     * Maneja el evento de entrada del mouse en el botón de salida.
+     * Este método llama al controlador para cambiar el estado del botón de salida cuando el mouse entra en él.
+     * 
+     * @param evt El evento del mouse al entrar en el botón de salida.
+     */
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
         C_REC.cambiarEstadoBtnSalida(true);
     }//GEN-LAST:event_btnExitMouseEntered
-
+    /**
+     * Maneja el evento de salida del mouse del botón de salida.
+     * Este método llama al controlador para cambiar el estado del botón de salida cuando el mouse sale de él.
+     * 
+     * @param evt El evento del mouse al salir del botón de salida.
+     */
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         C_REC.cambiarEstadoBtnSalida(false);
     }//GEN-LAST:event_btnExitMouseExited
@@ -191,85 +225,185 @@ public class FrameRecuperacion extends javax.swing.JFrame {
     private javax.swing.JTextField tFEmail;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Proporciona los valores actuales de la coordenada X del mouse.
+     *
+     * @return La coordenada X actual del mouse.
+     */
     public int getXMouse() {
         return xMouse;
     }
 
+    /**
+     * Proporciona los valores actuales de la coordenada Y del mouse.
+     *
+     * @return La coordenada Y actual del mouse.
+     */
     public int getYMouse() {
         return yMouse;
     }
 
+    /**
+     * Establece la coordenada X del mouse con el valor especificado.
+     *
+     * @param x El valor de la coordenada X del mouse.
+     */
     public void setXMouse(int x) {
         xMouse = x;
     }
 
+    /**
+     * Establece la coordenada Y del mouse con el valor especificado.
+     *
+     * @param y El valor de la coordenada Y del mouse.
+     */
     public void setYMouse(int y) {
         yMouse = y;
     }
-    
-    public String getEmail(){
+
+    /**
+     * Obtiene el correo electrónico ingresado por el usuario.
+     *
+     * @return El correo electrónico ingresado en el campo de texto.
+     */
+    public String getEmail() {
         return tFEmail.getText();
     }
-    
-    public ConexionBDD getConexion(){
+
+    /**
+     * Obtiene la conexión a la base de datos.
+     *
+     * @return La conexión a la base de datos.
+     */
+    public ConexionBDD getConexion() {
         return CON;
     }
 
+    /**
+     * Obtiene el botón de salida.
+     *
+     * @return El botón de salida.
+     */
     public JButton getBtnExit() {
         return btnExit;
     }
 
+    /**
+     * Establece el botón de salida.
+     *
+     * @param btnExit El botón de salida a establecer.
+     */
     public void setBtnExit(JButton btnExit) {
         this.btnExit = btnExit;
     }
 
+    /**
+     * Obtiene el botón de recuperación.
+     *
+     * @return El botón de recuperación.
+     */
     public JButton getBtnRecuperar() {
         return btnRecuperar;
     }
 
+    /**
+     * Establece el botón de recuperación.
+     *
+     * @param btnRecuperar El botón de recuperación a establecer.
+     */
     public void setBtnRecuperar(JButton btnRecuperar) {
         this.btnRecuperar = btnRecuperar;
     }
 
+    /**
+     * Obtiene la etiqueta de correo electrónico de recuperación.
+     *
+     * @return La etiqueta de correo electrónico de recuperación.
+     */
     public JLabel getLbl_recuperacion_email() {
         return lbl_recuperacion_email;
     }
 
+    /**
+     * Establece la etiqueta de correo electrónico de recuperación.
+     *
+     * @param lbl_recuperacion_email La etiqueta de correo electrónico de recuperación a establecer.
+     */
     public void setLbl_recuperacion_email(JLabel lbl_recuperacion_email) {
         this.lbl_recuperacion_email = lbl_recuperacion_email;
     }
 
-
+    /**
+     * Obtiene la etiqueta de título de recuperación.
+     *
+     * @return La etiqueta de título de recuperación.
+     */
     public JLabel getLbl_recuperacion_titulo() {
         return lbl_recuperacion_titulo;
     }
 
+    /**
+     * Establece la etiqueta de título de recuperación.
+     *
+     * @param lbl_recuperacion_titulo La etiqueta de título de recuperación a establecer.
+     */
     public void setLbl_recuperacion_titulo(JLabel lbl_recuperacion_titulo) {
         this.lbl_recuperacion_titulo = lbl_recuperacion_titulo;
     }
 
+    /**
+     * Obtiene el panel central de la interfaz.
+     *
+     * @return El panel central de la interfaz.
+     */
     public JPanel getPanelCentral() {
         return panelCentral;
     }
 
+    /**
+     * Establece el panel central de la interfaz.
+     *
+     * @param panelCentral El panel central de la interfaz a establecer.
+     */
     public void setPanelCentral(JPanel panelCentral) {
         this.panelCentral = panelCentral;
     }
 
+    /**
+     * Obtiene el panel de desplazamiento de la interfaz.
+     *
+     * @return El panel de desplazamiento de la interfaz.
+     */
     public JPanel getPanelDesplazamiento() {
         return panelDesplazamiento;
     }
 
+    /**
+     * Establece el panel de desplazamiento de la interfaz.
+     *
+     * @param panelDesplazamiento El panel de desplazamiento de la interfaz a establecer.
+     */
     public void setPanelDesplazamiento(JPanel panelDesplazamiento) {
         this.panelDesplazamiento = panelDesplazamiento;
     }
 
+    /**
+     * Obtiene el campo de texto del correo electrónico.
+     *
+     * @return El campo de texto del correo electrónico.
+     */
     public JTextField gettFEmail() {
         return tFEmail;
     }
 
+    /**
+     * Establece el campo de texto del correo electrónico.
+     *
+     * @param tFEmail El campo de texto del correo electrónico a establecer.
+     */
     public void settFEmail(JTextField tFEmail) {
         this.tFEmail = tFEmail;
     }
+
     
 }

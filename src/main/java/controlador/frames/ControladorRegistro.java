@@ -48,7 +48,7 @@ public class ControladorRegistro {
     public void desplazamientoPressed(MouseEvent evt) {
         int x =  evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        VENTANA_REG.setLocation(x-VENTANA_REG.getXMouse(),y-VENTANA_REG.getYyMouse());
+        VENTANA_REG.setLocation(x-VENTANA_REG.getXMouse(),y-VENTANA_REG.getYMouse());
     }
 
     /**
